@@ -1,0 +1,15 @@
+/*
+ * Cam3-2s.wrf
+ *
+ */
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+file		SMSG		"briefL4.txt"
+file		SMSG		"proxL4.txt"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory       "script/campaign"
+file            JAVASCRIPT     	 "L4s.js"

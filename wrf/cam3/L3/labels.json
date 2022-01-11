@@ -1,0 +1,175 @@
+{
+	"position_0": {
+        "pos": [4032, 2624],
+        "label": "startPosition"
+    },
+    "position_1": {
+        "pos": [6156, 8830],
+        "label": "factoryDefencePos"
+    },
+    "position_2": {
+        "pos": [837, 8900],
+        "label": "yScavAssembly"
+    },
+    "position_3": {
+        "pos": [6836, 9705],
+        "label": "cScavAssembly1"
+    },
+    "position_4": {
+        "pos": [5406, 14491],
+        "label": "cScavAssembly2"
+    },
+    "position_5": {
+        "pos": [1199, 15301],
+        "label": "cScavAssembly3"
+    },
+    "position_6": {
+        "pos": [7043, 12925],
+        "label": "forestPatrolPos1"
+    },
+    "position_7": {
+        "pos": [4112, 12776],
+        "label": "forestPatrolPos2"
+    },
+    "position_8": {
+        "pos": [1790, 11588],
+        "label": "marshPatrolPos1"
+    },
+    "position_9": {
+        "pos": [2453, 10126],
+        "label": "marshPatrolPos2"
+    },
+    "position_10": {
+        "pos": [6583, 14193],
+        "label": "mountainPatrolPos1"
+    },
+    "position_11": {
+        "pos": [5420, 15299],
+        "label": "mountainPatrolPos2"
+    },
+    "position_12": {
+        "pos": [7040, 16107],
+        "label": "heliExit"
+    },
+    "position_13": {
+        "pos": [2239, 8013],
+        "label": "westAttackPos"
+    },
+    "position_14": {
+        "pos": [5825, 8040],
+        "label": "eastAttackPos"
+    },
+    "position_15": {
+        "pos": [3460, 8087],
+        "label": "heliAttackPos"
+    },
+    "position_16": {
+        "pos": [6341, 16184],
+        "label": "heliSpawn"
+    },
+
+	"area_0": {
+        "pos1": [3840, 2432],
+        "pos2": [4224, 2816],
+        "label": "LZ"
+    },
+    "area_1": {
+        "pos1": [512, 8576],
+        "pos2": [1280, 9344],
+        "label": "yScavBase"
+    },
+    "area_2": {
+        "pos1": [5376, 8448],
+        "pos2": [7424, 10624],
+        "label": "cScavBase1"
+    },
+    "area_3": {
+        "pos1": [1024, 12160],
+        "pos2": [2944, 13056],
+        "label": "cScavBase2"
+    },
+    "area_4": {
+        "pos1": [3456, 11136],
+        "pos2": [5504, 12288],
+        "label": "cScavBase3"
+    },
+    "area_5": {
+        "pos1": [4480, 13440],
+        "pos2": [7296, 15872],
+        "label": "cScavBase4"
+    },
+    "area_6": {
+        "pos1": [384, 14208],
+        "pos2": [2944, 15872],
+        "label": "cScavBase5"
+    },
+    "area_7": {
+        "pos1": [5504, 10112],
+        "pos2": [5888, 10368],
+        "label": "factoryDefenceGroup"
+    },
+    "area_8": {
+        "pos1": [3200, 15232],
+        "pos2": [3584, 15616],
+        "label": "marshPatrolGroup"
+    },
+    "area_9": {
+        "pos1": [3712, 15232],
+        "pos2": [4096, 15616],
+        "label": "forestPatrolGroup"
+    },
+    "area_10": {
+        "pos1": [7552, 14720],
+        "pos2": [7936, 14976],
+        "label": "mountainPatrolGroup"
+    },
+    "area_11": {
+        "pos1": [2816, 12416],
+        "pos2": [3328, 13056],
+        "label": "mointainBaseTrigger"
+    },
+
+	"object_0": {
+        "id": 720,
+        "type": 1,
+        "player": 2,
+        "label": "cScavFactory1"
+    },
+    "object_1": {
+        "id": 438,
+        "type": 1,
+        "player": 3,
+        "label": "yScavFactory"
+    },
+    "object_2": {
+        "id": 676,
+        "type": 1,
+        "player": 2,
+        "label": "cScavFactory2"
+    },
+    "object_3": {
+        "id": 474,
+        "type": 1,
+        "player": 2,
+        "label": "cScavFactory3"
+    },
+    "object_4": {
+        "id": 522,
+        "type": 1,
+        "player": 2,
+        "label": "radarTower"
+    },
+
+    "radius_0": {
+        "label": "heliRemoveZone",
+        "subscriber": 2,
+        "pos": [7040, 16107],
+        "radius": 250
+    },
+    "radius_1": {
+        "label": "transportRemoveZone",
+        "subscriber": 1,
+        "pos": [1344, 960],
+        "radius": 250
+    }
+}

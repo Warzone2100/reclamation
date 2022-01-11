@@ -1,0 +1,140 @@
+{
+	"position_0": {
+    	"pos": [1089, 6458],
+    	"label": "startPosition"
+	},
+	  "position_1": {
+	    "pos": [4880, 6850],
+	    "label": "scoutFallbackPos"
+	},
+	  "position_2": {
+	    "pos": [6841, 6341],
+	    "label": "scavAssembly1"
+	},
+	  "position_3": {
+	    "pos": [1740, 5151],
+	    "label": "scavAssembly2"
+	},
+	  "position_4": {
+	    "pos": [6719, 953],
+	    "label": "infestedAssembly1"
+	},
+	  "position_5": {
+		"pos": [1083, 1216],
+		"label": "infestedAssembly2"
+	},
+	  "position_6": {
+		"pos": [4155, 5184],
+		"label": "infestedAssembly3"
+	},
+	  "position_7": {
+		"pos": [1086, 127],
+		"label": "ambushEntry"
+	},
+	  "position_8": {
+		"pos": [1922, 7810],
+		"label": "transporterEntry"
+	},
+	  "position_9": {
+		"pos": [332, 7755],
+		"label": "transporterExit"
+	},
+
+	"area_0": {
+    	"pos1": [896, 6272],
+    	"pos2": [1280, 6656],
+    	"label": "LZ"
+  	},
+  	"area_1": {
+    	"pos1": [6144, 4864],
+    	"pos2": [7552, 7168],
+    	"label": "scavBase1"
+  	},
+  	"area_2": {
+    	"pos1": [896, 4352],
+    	"pos2": [2304, 5504],
+    	"label": "scavBase2"
+  	},
+  	"area_3": {
+   		"pos1": [5504, 512],
+    	"pos2": [7680, 2048],
+    	"label": "infestedBase1"
+  	},
+  	"area_4": {
+    	"pos1": [768, 768],
+    	"pos2": [2176, 1920],
+    	"label": "infestedBase2"
+  	},
+  	"area_5": {
+   	 	"pos1": [2944, 2688],
+   	 	"pos2": [4864, 5504],
+   	 	"label": "infestedBase3"
+  	},
+  	"area_6": {
+	    "pos1": [4352, 6784],
+	    "pos2": [4736, 7424],
+	    "label": "scoutGroup"
+  	},
+  	"area_7": {
+	    "pos1": [7168, 1792],
+	    "pos2": [7680, 2560],
+	    "label": "ambushGroup"
+  	},
+	"area_8": {
+	    "pos1": [6528, 2944],
+	    "pos2": [7552, 3328],
+	    "label": "ambush1Trigger"
+ 	},
+  	"area_9": {
+	    "pos1": [3200, 640],
+	    "pos2": [3840, 1408],
+	    "label": "ambush2Trigger"
+  	},
+  	"area_10": {
+	    "pos1": [896, 2304],
+	    "pos2": [1792, 2560],
+	    "label": "finalFactoryTrigger"
+  	},
+  	"area_11": {
+		"label": "compromiseZone",
+		"pos1": [384, 5888],
+		"pos2": [2048, 7296]
+	},
+
+	"object_1": {
+	    "id": 6,
+	    "type": 1,
+	    "player": 2,
+	    "label": "scavFactory1"
+ 	},
+ 	"object_2": {
+	    "id": 115,
+	    "type": 1,
+	    "player": 2,
+	    "label": "scavFactory2"
+  	},
+  	"object_3": {
+	    "id": 258,
+	    "type": 1,
+	    "player": 4,
+	    "label": "infestedFactory3"
+ 	},
+  	"object_4": {
+	    "id": 296,
+	    "type": 1,
+	    "player": 4,
+	    "label": "infestedFactory2"
+  	},
+  	"object_5": {
+	    "id": 23,
+	    "type": 1,
+	    "player": 4,
+	    "label": "infestedFactory1"
+  	},
+  	"object_6": {
+	    "id": 207,
+	    "type": 1,
+	    "player": 1,
+	    "label": "researchFacility"
+ 	}
+}

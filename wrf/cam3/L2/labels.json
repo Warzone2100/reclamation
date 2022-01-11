@@ -1,0 +1,181 @@
+{
+	"position_0": {
+	   	"label": "monsterBusPos",
+	   	"pos": [4678, 6312]
+	},
+	"position_1": {
+	    "label": "yPatrolPos1",
+	    "pos": [6031, 1402]
+	},
+	"position_2": {
+	    "label": "yPatrolPos2",
+	    "pos": [3256, 1719]
+	},
+	"position_3": {
+	    "label": "cPatrolPos1",
+	    "pos": [6111, 5211]
+	},
+	"position_4": {
+	    "label": "cPatrolPos2",
+	    "pos": [3389, 5318]
+	},
+	"position_5": {
+	    "label": "startPosition",
+	    "pos": [8250, 2626]
+	},
+	"position_6": {
+	    "label": "yScavAssembly",
+	    "pos": [5387, 3259]
+	},
+	"position_7": {
+	    "label": "cScavAssembly1",
+	    "pos": [3785, 6321]
+	},
+	"position_8": {
+	    "label": "cScavAssembly2",
+	    "pos": [7728, 5756]
+	},
+	"position_9": {
+	    "label": "transporterEntry",
+	    "pos": [9022, 1970]
+	},
+	"position_10": {
+	    "label": "transporterExit",
+	    "pos": [8376, 181]
+	},
+	"position_11": {
+	    "label": "civilianExit",
+	    "pos": [9024, 2752]
+	},
+
+	"area_0": {
+		"label": "LZ",
+		"pos1": [8064, 2432],
+		"pos2": [8448, 2816]
+	},
+	"area_1": {
+		"label": "yScavPatrol",
+		"pos1": [4480, 896],
+		"pos2": [4864, 1280]
+	},
+	"area_2": {
+		"label": "cScavPatrol",
+		"pos1": [7040, 5632],
+		"pos2": [7424, 5888]
+	},
+	"area_3": {
+		"label": "monsterBusGroup",
+		"pos1": [4608, 6272],
+		"pos2": [4736, 6400]
+	},
+	"area_4": {
+		"label": "yScavBase1",
+		"pos1": [3840, 2432],
+		"pos2": [6144, 3584]
+	},
+	"area_5": {
+		"label": "yScavBase2",
+		"pos1": [1792, 1280],
+		"pos2": [2560, 1920]
+	},
+	"area_6": {
+		"label": "yScavBase3",
+		"pos1": [640, 3584],
+		"pos2": [2816, 4224]
+	},
+	"area_7": {
+		"label": "cScavBase1",
+		"pos1": [3968, 5888],
+		"pos2": [4864, 6528]
+	},
+	"area_8": {
+		"label": "cScavBase2",
+		"pos1": [5248, 5504],
+		"pos2": [5888, 6016]
+	},
+	"area_9": {
+		"label": "cScavBase3",
+		"pos1": [6400, 4992],
+		"pos2": [8448, 6656]
+	},
+	"area_10": {
+		"label": "civGroup1",
+		"pos1": [8448, 640],
+		"pos2": [8704, 1024]
+	},
+	"area_11": {
+		"label": "civGroup2",
+		"pos1": [6144, 3200],
+		"pos2": [6400, 3584]
+	},
+	"area_12": {
+		"label": "civGroup3",
+		"pos1": [7168, 6144],
+		"pos2": [7680, 6400]
+	},
+	"area_13": {
+		"label": "yScavAttack",
+		"pos1": [5376, 896],
+		"pos2": [5632, 1536]
+	},
+	"area_14": {
+		"label": "cScavAttack",
+		"pos1": [2816, 5376],
+		"pos2": [2944, 6016]
+	},
+	"area_15": {
+		"label": "compromiseZone",
+		"pos1": [7680, 2176],
+		"pos2": [9088, 3200]
+	},
+
+	"object_0": {
+    	"label": "civGuard1",
+    	"id": 50,
+   	 	"player": 3,
+   	 	"type": 1
+	},
+  	"object_1": {
+    	"label": "cScavFactory2",
+    	"id": 145,
+   		"player": 2,
+   		"type": 1
+  	},
+  	"object_2": {
+	    "label": "yScavFactory",
+	    "id": 54,
+	    "player": 3,
+	    "type": 1
+	},
+  	"object_3": {
+	    "label": "cScavFactory1",
+	    "id": 130,
+	    "player": 2,
+	    "type": 1
+  	},
+  	"object_4": {
+	    "label": "civGuard2",
+	    "id": 52,
+	    "player": 3,
+	    "type": 1
+  	},
+  	"object_5": {
+	    "label": "civGuard3",
+	    "id": 325,
+	    "player": 2,
+	    "type": 1
+  	},
+  	"object_6": {
+	    "label": "mortarPit",
+	    "id": 22,
+	    "player": 3,
+	    "type": 1
+  	},
+
+  	"radius_0": {
+		"label": "civilianRemoveZone",
+		"subscriber": 1,
+		"pos": [9024, 2752],
+		"radius": 250
+	}
+}

@@ -1,0 +1,271 @@
+{
+    "position_0": {
+        "pos": [9407, 15423],
+        "label": "startPosition"
+    },
+    "position_1": {
+        "pos": [2617, 12617],
+        "label": "southPatrolPos1"
+    },
+    "position_2": {
+        "pos": [5103, 12528],
+        "label": "southPatrolPos2"
+    },
+    "position_3": {
+        "pos": [257, 243],
+        "label": "nwHeliSpawn"
+    },
+    "position_4": {
+        "pos": [9928, 5492],
+        "label": "eHeliSpawn"
+    },
+    "position_5": {
+        "pos": [1741, 14521],
+        "label": "southAssembly"
+    },
+    "position_6": {
+        "pos": [1342, 9026],
+        "label": "highwayAssembly"
+    },
+    "position_7": {
+        "pos": [5826, 700],
+        "label": "roadAssembly"
+    },
+    "position_8": {
+        "pos": [1089, 5315],
+        "label": "wMountainAssembly"
+    },
+    "position_9": {
+        "pos": [1661, 1318],
+        "label": "nwAssembly1"
+    },
+    "position_10": {
+        "pos": [2174, 1334],
+        "label": "nwAssembly2"
+    },
+    "position_11": {
+        "pos": [9288, 7226],
+        "label": "eAssembly"
+    },
+    "position_12": {
+        "pos": [1988, 6468],
+        "label": "wPatrolPos1"
+    },
+    "position_13": {
+        "pos": [2620, 3283],
+        "label": "wPatrolPos2"
+    },
+    "position_14": {
+        "pos": [3259, 5574],
+        "label": "wPatrolPos3"
+    },
+    "position_15": {
+        "pos": [9011, 4792],
+        "label": "nePatrolPos1"
+    },
+    "position_16": {
+        "pos": [8509, 1728],
+        "label": "nePatrolPos2"
+    },
+    "position_17": {
+        "pos": [9030, 6326],
+        "label": "ePatrolPos1"
+    },
+    "position_18": {
+        "pos": [7705, 6108],
+        "label": "ePatrolPos2"
+    },
+    "position_19": {
+        "pos": [3514, 1095],
+        "label": "nwPatrolPos1"
+    },
+    "position_20": {
+        "pos": [1232, 1478],
+        "label": "nwPatrolPos2"
+    },
+    "position_21": {
+        "pos": [89, 9216],
+        "label": "wHighwayEntry"
+    },
+    "position_22": {
+        "pos": [5567, 125],
+        "label": "nRoadEntry"
+    },
+    "position_23": {
+        "pos": [135, 3389],
+        "label": "nwRoadEntry"
+    },
+    "position_24": {
+        "pos": [2626, 137],
+        "label": "nwBaseEntry"
+    },
+    "position_25": {
+        "pos": [10110, 1730],
+        "label": "neRoadEntry"
+    },
+    "position_26": {
+        "pos": [10109, 9213],
+        "label": "eHighwayEntry"
+    },
+    "position_27": {
+        "pos": [576, 12736],
+        "label": "transporterEntry"
+    },
+    "position_28": {
+        "pos": [2752, 12993],
+        "label": "monsterBusPos"
+    },
+
+    "area_0": {
+        "pos1": [9216, 15232],
+        "pos2": [9600, 15616],
+        "label": "LZ"
+    },
+    "area_1": {
+        "pos1": [384, 8320],
+        "pos2": [4992, 10496],
+        "label": "infestedHighwayBase"
+    },
+    "area_2": {
+        "pos1": [4992, 384],
+        "pos2": [6272, 896],
+        "label": "infestedRoadBase"
+    },
+    "area_3": {
+        "pos1": [1024, 13952],
+        "pos2": [2688, 15360],
+        "label": "swScavBase"
+    },
+    "area_4": {
+        "pos1": [2176, 3840],
+        "pos2": [3584, 5248],
+        "label": "wScavOutpost"
+    },
+    "area_5": {
+        "pos1": [512, 384],
+        "pos2": [3584, 3328],
+        "label": "nwScavFactoryBase"
+    },
+    "area_6": {
+        "pos1": [512, 5248],
+        "pos2": [2304, 6400],
+        "label": "wScavMountainBase"
+    },
+    "area_7": {
+        "pos1": [7040, 1152],
+        "pos2": [9856, 3072],
+        "label": "neScavOutpost"
+    },
+    "area_8": {
+        "pos1": [6784, 5120],
+        "pos2": [9344, 7680],
+        "label": "eScavBase"
+    },
+    "area_9": {
+        "pos1": [6528, 8960],
+        "pos2": [6784, 9856],
+        "label": "boomTickTrigger"
+    },
+    "area_10": {
+        "pos1": [2432, 12672],
+        "pos2": [2944, 13056],
+        "label": "scavSouthPatrolGroup"
+    },
+    "area_11": {
+        "pos1": [1280, 11648],
+        "pos2": [5376, 11904],
+        "label": "infestedAttackTrigger"
+    },
+    "area_12": {
+        "pos1": [3200, 6144],
+        "pos2": [5888, 6400],
+        "label": "scavAttackTrigger"
+    },
+    "area_13": {
+        "pos1": [1536, 3584],
+        "pos2": [1920, 4096],
+        "label": "wPatrolGroup"
+    },
+    "area_14": {
+        "pos1": [1536, 512],
+        "pos2": [2176, 768],
+        "label": "nwPatrolGroup"
+    },
+    "area_15": {
+        "pos1": [7936, 4608],
+        "pos2": [8448, 4992],
+        "label": "nePatrolGroup"
+    },
+    "area_16": {
+        "pos1": [8192, 6016],
+        "pos2": [8704, 6400],
+        "label": "ePatrolGroup"
+    },
+    "area_17": {
+        "label": "compromiseZone",
+        "pos1": [8320, 14592],
+        "pos2": [10239, 16383]
+    },
+
+    "object_0": {
+        "id": 140,
+        "type": 1,
+        "player": 2,
+        "label": "nwScavFactory2"
+    },
+    "object_1": {
+        "id": 139,
+        "type": 1,
+        "player": 2,
+        "label": "nwScavFactory1"
+    },
+    "object_2": {
+        "id": 69,
+        "type": 1,
+        "player": 2,
+        "label": "eRadarTower"
+    },
+    "object_3": {
+        "id": 216,
+        "type": 1,
+        "player": 2,
+        "label": "nwRadarTower"
+    },
+    "object_4": {
+        "id": 338,
+        "type": 1,
+        "player": 2,
+        "label": "westScavFactory"
+    },
+    "object_5": {
+        "id": 57,
+        "type": 1,
+        "player": 2,
+        "label": "eastScavFactory"
+    },
+    "object_6": {
+        "id": 296,
+        "type": 1,
+        "player": 4,
+        "label": "westInfestedFactory"
+    },
+    "object_7": {
+        "id": 19,
+        "type": 1,
+        "player": 2,
+        "label": "southScavFactory"
+    },
+    "object_8": {
+        "id": 269,
+        "type": 1,
+        "player": 4,
+        "label": "northInfestedFactory"
+    },
+
+    "radius_0": {
+        "label": "heliRemoveZone",
+        "subscriber": 2,
+        "pos": [9792, 448],
+        "radius": 250
+    }
+}

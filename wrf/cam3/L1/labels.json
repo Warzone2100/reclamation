@@ -1,0 +1,101 @@
+{
+	"position_0": {
+		"label": "startPosition",
+		"pos": [6785, 937]
+	},
+	"position_1": {
+		"label": "yScavAssembly1",
+		"pos": [6230, 4928]
+	},
+	"position_2": {
+		"label": "yScavAssembly2",
+		"pos": [6857, 7360]
+	},
+	"position_3": {
+		"label": "cScavAssembly",
+		"pos": [1122, 7264]
+	},
+	"position_4": {
+		"label": "transportEntry",
+		"pos": [7756, 313]
+	},
+	"position_5": {
+		"label": "scavPatrol1",
+		"pos": [4031, 5819]
+	},
+	"position_6": {
+		"label": "scavPatrol2",
+		"pos": [4365, 6913]
+	},
+
+	"area_0": {
+		"label": "LZ",
+		"pos1": [3840, 2432],
+		"pos2": [4224, 2816]
+	},
+	"area_1": {
+		"label": "cScavBase1",
+		"pos1": [768, 3840],
+		"pos2": [1152, 4096]
+	},
+	"area_2": {
+		"label": "yScavBase1",
+		"pos1": [5888, 4608],
+		"pos2": [6656, 5120]
+	},
+	"area_3": {
+		"label": "yScavBase2",
+		"pos1": [6144, 6144],
+		"pos2": [7808, 7680]
+	},
+	"area_4": {
+		"label": "cScavBase2",
+		"pos1": [2048, 5504],
+		"pos2": [2432, 5760]
+	},
+	"area_5": {
+		"label": "cScavBase3",
+		"pos1": [640, 6656],
+		"pos2": [1792, 7680]
+	},
+	"area_6": {
+		"label": "wallMsg",
+		"pos1": [6400, 2560],
+		"pos2": [6784, 3456]
+	},
+	"area_7": {
+		"label": "captureZone",
+		"pos1": [3456, 2176],
+		"pos2": [4608, 3456]
+	},
+	"area_8": {
+		"label": "townMsg",
+		"pos1": [3584, 5632],
+		"pos2": [4736, 7296]
+	},
+
+	"object_0": {
+    	"label": "yScavFactory1",
+    	"id": 296,
+   	 	"player": 3,
+   	 	"type": 1
+	},
+  	"object_1": {
+    	"label": "yScavFactory2",
+    	"id": 280,
+   		"player": 3,
+   		"type": 1
+  	},
+  	"object_2": {
+	    "label": "cScavFactory",
+	    "id": 324,
+	    "player": 2,
+	    "type": 1
+	},
+  	"object_3": {
+	    "label": "cScavSensor",
+	    "id": 80,
+	    "player": 2,
+	    "type": 1
+  	}
+}
