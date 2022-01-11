@@ -1,0 +1,15 @@
+PIE 3
+TYPE 200
+TEXTURE 0 page-127-spider-body.png 0 0
+LEVELS 1
+LEVEL 1
+POINTS 4
+	-4 0 8
+	-4 0 -8
+	4 0 -8
+	4 0 8
+POLYGONS 2
+	200 3 3 2 1 .5 1 .7 1 .7 .9
+	200 3 3 1 0 .5 1 .7 .9 .5 .9
+CONNECTORS 1
+	0 0 0
