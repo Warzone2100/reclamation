@@ -1,0 +1,380 @@
+/* Reclamation Campaign */
+
+/* General Headers */
+MISBRI			_("---------------------------- MISSION BRIEFING ---------------------------")
+INCOMTRAN		_("------------------------- INCOMING TRANSMISSION -------------------------")
+NEWINTEL		_("------------------------ NEW INTELLIGENCE REPORT ------------------------")
+AREAREPORT		_("---------------------------- NEW AREA REPORT ----------------------------")
+/* General Footers */
+ENDBRI			_("----------------------------- BRIEFING ENDS -----------------------------")
+ENDTRAN			_("--------------------------- TRANSMISSION ENDS ---------------------------")
+ENDREPORT		_("------------------------------ REPORT ENDS ------------------------------")
+
+/* L1 NASDA Base Startup */
+/* Mission Briefing */
+L1_BMSG1		_("Greetings Commander. I am Edmund Clayde, former General of the North American Armed Forces, and I am the overseer of this operation.")
+L1_BMSG2		_("You have been sent here today to lay the foundation for our reclamation of these blasted lands.")
+L1_BMSG3		_("In order to achieve our goal, we must first establish our base of operations.")
+L1_BMSG4		_("Recovered documents evidence the existance of a Pre-Collapse NASDA site located south of your position.")
+L1_BMSG5		_("This site is believed to house nuclear weapons, making securing it our first priority.")
+L1_BMSG6		_("Find this site, and establish our base there. You may need to use your weapons to clear a path through the trees.")
+/* Wall Message */
+L1_WALLMSG1		_("You're close now Commander, this appears to be the base's eastern wall.")
+L1_WALLMSG2		_("Use your weapons to bring it down, and then get inside.")
+/* Base Message */
+L1_BASEMSG1		_("Well done Commander. I'm sure the Council will be pleased to know of our success.")
+L1_BASEMSG2		_("I've sent a transport with trucks to your position. Use them to get this base up and running.")
+L1_BASEMSG3		_("Make sure to construct a generator and investigate that research facility for anything useful.")
+/* Scavenger Message */
+L1_SCAVMSG1		_("After analysis of the missile silos, my technicians have confirmed that there are nuclear warheads present.")
+L1_SCAVMSG2		_("We're picking up radio transmissions around your area. Most likely from scavengers around the NASDA site.")
+L1_SCAVMSG3		_("If their loud radio chatter is anything to go by, then they're too busy fighting eachother to notice us yet.")
+L1_SCAVMSG4		_("Commander, I'm ordering you to clear them out in order to ensure the safety of this site.")
+L1_SCAVMSG5		_("Regardless of how you feel about diplomacy, this site is too important to negotiate over with the local gangs.")
+/* Town Message */
+L1_TOWNMSG1		_("See how this small river town's been torn apart by these warring gangs?")
+L1_TOWNMSG2		_("If we succeed in our goal, we can bring an end to all this chaos.")
+L1_TOWNMSG3		_("We will build a new world, a better world.")
+L1_TOWNMSG4		_("But these scavengers only serve to stand in our way...")
+/* Player Detection Message */
+L1_DETMSG1		_("Commander, monitoring of scavenger radio chatter shows that they're aware of your presence, and are preparing to retaliate.")
+L1_DETMSG2		_("Be ready to defend our base.")
+L1_DETMSG3		_("Do not allow them to compromise the mission!")
+
+/* L2S Hostages (Setup) */
+/* Mission Briefing */
+L2_BMSG1		_("Congratulations on securing our new base, Commander.")
+L2_BMSG2		_("The Council has reviewed the report of your success and are pleased with the establishment of our base of operations.")
+L2_BMSG3		_("Yet they showed great dissatisfaction that you 'violently engaged the local population', at my order.")
+L2_BMSG4		_("But what other option is there, when the stakes are as great as these?")
+L2_BMSG5		_("Nonetheless, I have a new objective for you.")
+L2_BMSG6		_("Now that we have a suitable base of operations, the Council has determined that we are to secure a Pre-Collapse bio-engineering laboratory located somewhere in this sector.")
+L2_BMSG7		_("Now, since this facility was top-secret, even among high ranking officials like myself, we have been unable to determine it's exact location.")
+L2_BMSG8		_("We have identified some individuals who have the information we need, but when we attempted to reach out to them, they were captured by scavengers.")
+L2_BMSG9		_("They are now being held hostage by scavengers nearby.")
+L2_BMSG10		_("Commander, take a transport and free those contacts using whatever means nessesary. Reinforcements will be available for this mission.")
+
+/* L2 Hostages */
+/* Scavenger Message 1 */
+L2_SCAVMSG1		_("These scavengers are proving to be more than a nuisance.")
+L2_SCAVMSG2		_("But the more they stand in the way of our goals, the more destruction we shall cause them.")
+L2_SCAVMSG3		_("Go on, Commander.")
+/* Scavenger Message 2 */
+L2_SCAV2MSG1	_("When you've finished your work out there I'll have some extra questions for our contacts.")
+L2_SCAV2MSG2	_("These scavengers seem to have a particular interest in them, which may mean they're after the same goal.")
+L2_SCAV2MSG3	_("You've proved yourself quite capable, Commander. I am confident that you are more than able to handle whatever these hooligans can throw at us.")
+
+/* L3 Suprise Attack */
+/* Mission Briefing */
+L3_BMSG1		_("Congratulations once again Commander, you've saved our civilian contacts.") 
+L3_BMSG2		_("With their help, the Council has been able to pinpoint the location of the the research facility we're looking for.")
+L3_BMSG3		_("But they also had some ill news: according the rescued civilians, the scavengers you've been fighting are searching for this same facility.")
+L3_BMSG4		_("It is unknown if they have discovered it's location yet. If the Council's understanding of this facility's purpose is correct, we must prevent the scavengers from finding it.")
+L3_BMSG5		_("Furthermore, the Council has once again sought to condone our methods of victory, fearing that 'our continuing aggression may prompt retaliation' from the local gangs.")
+L3_BMSG6		_("But let me be clear, this operation is under my directive. And as long as we continue to succeed in our goals, I see no reason for us to not use the most effective methods at our disposal.")
+L3_BMSG7		_("Prepare your forces for transport, we are going after that research facility.")
+/* Suprise Attack Message */
+L3_ATTMSG1		_("Commander, we're detecting a large scavenger attack coming in from the south.") 
+L3_ATTMSG2		_("Repulse this attack immeadiately.") 
+L3_ATTMSG3		_("We cannot afford to lose this site!") 
+/* 'Now Go Kill Everything' Message */
+L3_KILLMSG1		_("Helicopters? Perhaps I have truly underestimated the ingenuity of these scavengers after all...") 
+L3_KILLMSG2		_("But we've come too far to be outplayed now.") 
+L3_KILLMSG3		_("Commander, I'm overriding your previous objective. That research facility can wait.") 
+L3_KILLMSG4		_("Make your way south, and eradicate those scavengers. Wipe out anything that gets in your way.") 
+
+/* L4S Biological Research (Setup) */
+/* Mission Briefing */
+L4_BMSG1		_("Extraordinary work Commander, I knew I could count on you.") 
+L4_BMSG2		_("I have not submitted a report to the Council about this... reprisal by the scavengers.")
+L4_BMSG3		_("The way I see it, if the Council is so adamant on their objections to how I conduct my operations, then they don't need to know the details of said operations.")
+L4_BMSG4		_("I will submit a report when you've secured the research facility. Go and send your forces now.")
+L4_BMSG5		_("If the little intel we have about this site is even close to accurate, we cannot let these scavengers get there first.")
+
+/* L4 Biological Research */
+/* Ominous Message */
+L4_WARNMSG1		_("Damnation! Those scavengers are already here.") 
+L4_WARNMSG2		_("Clear them out and advance towards the research facility.")
+L4_WARNMSG3		_("With any luck, we may still have enough time to stop them.")
+/* Ambush Message */
+L4_AMBUSHMSG1	_("Heads up Commander, I'm detecting a large amount of movement approaching your position.")
+/* `Go Break Stuff` Message */
+L4_KILLMSG1		_("I'm looking through my feed data, and I have a hard time believing what I'm seeing. So I will give you a new, clear objective.")
+L4_KILLMSG2		_("Commander, destroy that research facility and destroy anyone or anything that stands in your way.")
+L4_KILLMSG3		_("Lockdown this entire area. Don't let anything here survive, scavenger or otherwise.")
+
+/* L5S Town Purge (Setup) */
+/* Mission Briefing */
+L5_BMSG1		_("These have been a troubling turn of events, to say the least.") 
+L5_BMSG2		_("That laboratory must have been designing some sort of bio-weapon. Some sort of virus or parasite that's turning those scavengers into mindless swarms.") 
+L5_BMSG3		_("And now that plague is free. Monitoring of scavenger radio waves show that they're in a state of panic.") 
+L5_BMSG4		_("If the Council were to learn of our failure to reach the facility in time, of your failure to contain this outbreak...") 
+L5_BMSG5		_("Commander, from now on we will be continuing this operation independant of the Council's 'oversight'. I will be the one giving every order going forward.") 
+L5_BMSG6		_("I don't want you or any of your men to have any contact with the Council. For the success of this operation, they cannot know what is happening here.") 
+L5_BMSG7		_("Your primary objective now is to curtail this infestation, and to crush anything that stands in the way of us establishing our hold.") 
+L5_BMSG8		_("There is an old industrial town nearby. Scavenger radio chatter suggests it is under attack by the infested.") 
+L5_BMSG9		_("Take your forces there and purge the town. We must move swiftly and hit hard in order to succeed.") 
+
+/* L5 Town Purge */
+/* Scav Base Message */
+L5_SCAVMSG1		_("Commander, continue forward and eradicate that scavenger base.") 
+L5_SCAVMSG2		_("Infested or not, they still pose a threat to our cause, and as such must be rooted out.") 
+L5_SCAVMSG3		_("If we are to succeed, we cannot allow any loose ends to remain.") 
+
+/* L6S AA Hunter (Setup) */
+/* Mission Briefing */
+L6_BMSG1		_("Hello Commander, I am a representative of the Council.") 
+L6_BMSG2		_("General Clayde has informed us about the situation, and about the events that have transpired since your last report.") 
+L6_BMSG3		_("...") 
+L6_BMSG4		_("As per direction of the Council, I will be acting as your overseer going forward with this operation.") 
+L6_BMSG5		_("We have constructed a plan to evacuate this area of all survivors via moving them to a nearby secure location.") 
+L6_BMSG6		_("Unfortunately, we have detected multiple anti-air batteries located along the fastest route between our base and the haven.") 
+L6_BMSG7		_("If we are to succeed in this evacuation effort, these emplacements must be taken offline.") 
+L6_BMSG8		_("This area has also served as a major stronghold for the local scavengers. Based on your previous actions, reaching any sort of diplomatic solution with these holdouts seems impossible.") 
+L6_BMSG9		_("Good luck, Commander. Countless lives are now depending on your success.") 
+
+/* L6 AA Hunter */
+/* Infested Wave Warning Message */
+L6_INFESMSG1	_("Commander be advised: we have recieved reports that large numbers of infested amassing just outside your area of operation.") 
+L6_INFESMSG2	_("Judging by the large scavenger presence here, the infested are most likely preparing to overrun whatever is left of them.") 
+L6_INFESMSG3	_("Please work quickly, as we are unsure of when they will begin to descend upon this position.")  
+/* Infested Wave Imminent Message */
+L6_WAVEMSG1		_("Commander, the infested are converging towards your location.") 
+L6_WAVEMSG2		_("The incoming infested are to numerous to count; we are ordering an immeadiate retreat to LZ for extraction.") 
+L6_WAVEMSG3		_("There's no feasible way for you forces to hold out there for long.") 
+/* 'You Are Taking Too Long' Message */
+L6_SCOLDMSG1	_("What are you still doing out there?!") 
+L6_SCOLDMSG2	_("Are you searching for more glory? More bloodshed by combat?") 
+L6_SCOLDMSG3	_("By delaying your orders to retreat, you are only putting yourself and your own troops at risk.") 
+L6_SCOLDMSG4	_("Regroup at the LZ for evac, unless you'd rather we call off the transports and leave you behind.") 
+
+/* L7 Final Defensive */
+/* Mission Briefing */
+L7_BMSG1		_("Welcome back, Commander. We are pleased with your success in taking those AA guns offline.") 
+L7_BMSG2		_("However, even without them impeding our progress our evacuation is still behind schedule.")
+L7_BMSG3		_("We're still getting groups of stragglers, and the infested are closing in on our position at this very moment.") 
+L7_BMSG4		_("We don't have much time left. You must defend the base while we finish the evacuation.") 
+L7_BMSG5		_("Once all civilians and critical personnel are away, we'll have the transports come back for you and your forces.") 
+L7_BMSG6		_("This is it Commander. Good luck.") 
+/* Detonation Message */
+L7_DETMSG1		_("Greetings Commander. This is General Clayde.")
+L7_DETMSG2		_("The evacuation was a success, the final transports have taken off...")
+L7_DETMSG3		_("... but they're not coming back for you.")
+L7_DETMSG4		_("When I gave my report to the Council, I told them that you were unhinged.")
+L7_DETMSG5		_("That you went out of your way to seek out the death and destruction of anyone who stood in your way.")
+L7_DETMSG6		_("That the only reason for the scavengers' hostility, the reason that this infection was released, was due to your own bloodthirstiness and negligence of duty.")
+L7_DETMSG7		_("And you know what happened?")
+L7_DETMSG8		_("They believed it. All of it.")
+L7_DETMSG9		_("Who could blame them? Isn't it much simpler to cast the blame on a no-name Commander stepping out line than your highest ranking general?")
+L7_DETMSG10		_("They see you now as a liability. Nothing more than a threat to our goals.")
+L7_DETMSG11		_("No less of a threat than this infestation itself.")
+L7_DETMSG12		_("...")
+L7_DETMSG13		_("But you still serve one crucial purpose: Bait.")
+L7_DETMSG14		_("The infested are approaching your base from every direction.")
+L7_DETMSG15		_("In just 10 minutes, the nuclear warheads stored in those silos are set to detonate.")
+L7_DETMSG16		_("And in a single blast, both you and the infested will all be reduced to dust.")
+L7_DETMSG17		_("Two birds with one radioactive stone.")
+L7_DETMSG18		_("I will be remembered as the one who triumphed over hostile scavenger clans, a rampaging infection, and a treacherous Commander.")
+L7_DETMSG19		_("As for you?")
+L7_DETMSG20		_("You only be remembered merely as another obstacle overcame by the great General Edmund Clayde.")
+L7_DETMSG21		_("Goodbye, Commander.")
+
+
+/* Campaign 3 Mission Briefing text */
+
+/* Cam3 Intro - player ident */
+CAM3_MSG1		_("TRANSPORT MISSION: Northern Sector")
+CAM3_MSG2		_("Congratulations on your successful evacuation of Beta Base.")
+CAM3_MSG3		_("NEXUS has gained access to nuclear weapons and is determined to destroy the Project.")
+
+/* Cam3 Intro - mission brief */
+CAM3_MSG4		_("Take your forces to the Northern Sector")
+CAM3_MSG5		_("Once at the mountains secure an LZ. Then establish a forward base.")
+CAM3_MSG6		_("Team Gamma will contact you there.")
+
+/* Cam3A Establish forward base */
+CAM3A_MSG1		_("TRANSPORT MISSION: Establish A Forward Base")
+CAM3A_MSG2		_("Commander, the success of the Project lies with you.")
+CAM3A_MSG3		_("Secure an LZ, then establish a forward base.")
+
+/* Cam3_1A Launch Site coordinates -  gamma player ident */
+CAM3_1A_MSG1		_("TRANSPORT MISSION: Missile Launch Site Coordinates")
+CAM3_1A_MSG2		_("We have located the site of the missile launches.")
+CAM3_1A_MSG3		_("There were one or more missiles at this NASDA site.")
+
+/* Cam3_1A - gamma coordinates transmitted */
+CAM3_1A_MSG4		_("We are transmitting coordinates of an LZ near the silos.")
+CAM3_1A_MSG5		_("Coordinate Download Completed.")
+
+/* Cam3_1A - mission brief */
+CAM3_1A_MSG6		_("TRANSPORT MISSION: Missile Launch Site Coordinates")
+CAM3_1A_MSG7		_("Secure your LZ, then head overland to destroy the missile silo.")
+CAM3_1A_MSG8		_("Good luck, Commander.")
+
+/* Cam3_1B - Frying time - player ident */
+CAM3_1B_MSG1		_("NORTHERN SECTOR MISSION: Nuclear Blast")
+CAM3_1B_MSG2		_("All units must escape the area before the warhead detonates.")
+CAM3_1B_MSG3		_("Air-lift by transport is not possible. You'll have to head overland.")
+
+/* Cam3_1B - Frying time - mission brief */
+CAM3_1B_MSG4		_("NORTHERN SECTOR MISSION: Nuclear Blast")
+CAM3_1B_MSG5		_("The mountain range to the east should shield you from the blast.")
+CAM3_1B_MSG6		_("The valley is your only chance of escape.")
+
+/* Cam3_B - Welcoming Committee - player ident */
+CAM3_B_MSG1		_("AWAY TEAM UPDATE")
+CAM3_B_MSG2		_("All communication with the away team was lost after the nuclear explosions.")
+CAM3_B_MSG3		_("Their last transmission indicated they were heading back to base.")
+
+/* Cam3_B - Welcoming Committee - mission brief */
+CAM3_B_MSG4		_("NORTHERN SECTOR MISSION: Assist Team Gamma")
+CAM3_B_MSG5		_("You are to assist Team Gamma.")
+CAM3_B_MSG6		_("On reaching Gamma Base, help secure the area from further NEXUS attacks.")
+
+/* Cam3_2 - Team Alpha Reinforcements - player ident */
+CAM3_2_MSG1		_("NEXUS DEFEATED")
+CAM3_2_MSG2		_("Commander, we have defeated NEXUS.")
+CAM3_2_MSG3		_("Unfortunately, our systems' performance has been affected by NEXUS. We are trying to rectify this.")
+
+/* Cam3_2 - Team Alpha Reinforcements - player ident part 2 */
+CAM3_2_MSG4		_("We are currently receiving this transmission.")
+
+/* Cam3_2 - Team Alpha Reinforcements - player ident part 3 */
+CAM3_2_MSG5		_("Coordinate Download Completed.")
+
+/* Cam3_2 - Team Alpha Reinforcements - mission brief */
+CAM3_2_MSG6		_("TRANSPORT MISSION: Team Alpha Detected")
+CAM3_2_MSG7		_("Take a scout force to these coordinates and evaluate the situation.")
+CAM3_2_MSG8		_("Determine whether they are Team Alpha. If so, rescue and escort them back to the LZ.")
+
+CAM3_2_MSG9		_("This group are part of Team Alpha, Rescue them and escort them to the LZ.")
+
+/* Cam3A-B - NEXUS Takes Control - player ident */
+CAM3_AB_MSG1		_("NORTHERN SECTOR MISSION: Team Alpha Debrief")
+CAM3_AB_MSG2		_("Team Alpha power transfer in progress.")
+
+/* Cam3A-B - NEXUS Takes Control - player ident part 2 */
+CAM3_AB_MSG3		_("Commander, after you left the Western Sector we recovered this artifact.")
+CAM3_AB_MSG4		_("The benefits from researching it could be vast.")
+
+/* Cam3A-B - NEXUS Takes Control - mission brief */
+CAM3_AB_MSG5		_("Enemy forces are ....... from these coordinates.")
+CAM3_AB_MSG6		_("Defend the base and ........ the .......")
+CAM3_AB_MSG7		_("Search and destroy ....")
+
+/* Cam3_3 - Ambush Nexus Forces - player ident */
+CAM3_3_MSG1		_("TRANSPORT MISSION: Ambush NEXUS Forces")
+CAM3_3_MSG2		_("Commander, your decisive actions halted the spread of NEXUS.")
+CAM3_3_MSG3		_("Before NEXUS was expelled, we intercepted this message - Decoding completed.")
+
+/* Cam3_3 - Ambush Nexus Forces - mission brief */
+CAM3_3_MSG4		_("A NEXUS task force is heading for these coordinates.")
+CAM3_3_MSG5		_("You have an opportunity to destroy NEXUS before they get there.")
+CAM3_3_MSG6		_("Take an attack force and ambush NEXUS task force at ....... the  .......")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - player ident */
+CAM3_C_MSG1		_("TRANSPORT MISSION: Away Team")
+CAM3_C_MSG2		_("Commander, your attack on ....")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - player ident part 2 */
+CAM3_C_MSG3		_("NEXUS exiting system.")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - player ident part 3 */
+CAM3_C_MSG4		_("Incoming transmission from away team.")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - beta ident */
+CAM3_C_MSG5		_("Commander, we are attempting to return to base.")
+CAM3_C_MSG6		_("This is our current position.")
+CAM3_C_MSG7		_("Take control of our forces and lead us.")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - player ident part 4 */
+CAM3_C_MSG8		_("Control transfer successful.")
+CAM3_C_MSG9		_("Entering new zone.")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - player ident part 5 */
+CAM3_C_MSG10		_("Incoming Transmission...")
+
+/* Cam3_C - Beta team #2 Meets up with team Gamma - gamma ident */
+CAM3_C_MSG11		_("Elements of Team Gamma have contacted us.")
+CAM3_C_MSG12		_("They claim to be free of NEXUS, and offer their base as a site of operations.")
+CAM3_C_MSG13		_("Base coordinates download in progress.")
+
+/* Cam3A-D1 - Fire from the skies - player ident */
+CAM3A_D1_MSG1		_("NORTHERN SECTOR MISSION: Laser Satellites")
+CAM3A_D1_MSG2		_("We are detecting strong energy surges from orbit.")
+CAM3A_D1_MSG3		_("The laser satellites are charged and moving towards our position.")
+
+/* Cam3A-D1 - Fire from the skies - player ident part 2 */
+CAM3A_D1_MSG4		_("The 2nd Team Gamma base is at this location.")
+CAM3A_D1_MSG5		_("We have limited time to evacuate this base and move to Gamma Base.")
+
+/* Cam3A-D1 - Fire from the skies - player ident part 3 */
+CAM3A_D1_MSG6		_("The laser satellites are not functioning properly, they are misfiring.")
+CAM3A_D1_MSG7		_("They are directing their fire towards this position.")
+CAM3A_D1_MSG8		_("We will need to evacuate this base shortly.")
+
+/* Cam3A-D1 - Fire from the skies - mission brief */
+CAM3A_D1_MSG9		_("Team Gamma reports a missile silo at this location.")
+CAM3A_D1_MSG10		_("They believe that the silo contains missiles capable of reaching high orbit.")
+CAM3A_D1_MSG11		_("Capture this silo at all costs.")
+
+/* Cam3A-D1 - Fire from the skies - player ident part 4 */
+CAM3A_D1_MSG12		_("Missile silos captured.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - player ident */
+CAM3A_D2_MSG1		_("NORTHERN SECTOR MISSION: Missile Codes")
+CAM3A_D2_MSG2		_("Commander, there are missiles present at the silos.")
+CAM3A_D2_MSG3		_("Nexus is preventing us from accessing the missile control code.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - player ident part 2 */
+CAM3A_D2_MSG4		_("NEXUS is present in our systems.")
+CAM3A_D2_MSG5		_("To defeat NEXUS we must research the Nexus Intruder Program.")
+CAM3A_D2_MSG6		_("Assign this task to a research facility.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - player ident NEXUS controlled */
+CAM3A_D2_MSG7		_("NEXUS forces detected at these locations.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - player ident part 3 restored */
+CAM3A_D2_MSG8		" "
+CAM3A_D2_MSG9		_("NEXUS has been eradicated from all Project systems.")
+CAM3A_D2_MSG10		_("We are attempting to access the missile control codes.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - mission brief */
+CAM3A_D2_MSG11		_("NORTHERN SECTOR MISSION: Missile Codes")
+CAM3A_D2_MSG12		_("A research facility is required to crack the code. Allocate one immediately.")
+CAM3A_D2_MSG13		_("Protect the missile silos from NEXUS attacks.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - update 1 */
+CAM3A_D2_MSG14		_("PROJECT UPDATE: 1st Level Missile Code Cracked.")
+CAM3A_D2_MSG15		_("Missile arming in progress.")
+CAM3A_D2_MSG16		_("More research is required to proceed further.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - update 2 */
+CAM3A_D2_MSG17		_("PROJECT UPDATE: 2nd Level Missile Code Cracked.")
+CAM3A_D2_MSG18		_("Missile target programming in progress.")
+CAM3A_D2_MSG19		_("Once level 3 codes are cracked we initiate launch procedures.")
+
+/* Cam3A-D2 NEXUS Counter-attacks - update 3 */
+CAM3A_D2_MSG20		_("PROJECT UPDATE: 3rd Level Missile Code Cracked.")
+CAM3A_D2_MSG21		_("Missile launch sequence initiated.")
+
+/* Cam3_4 Attack NEXUS Final Base - player ident */
+CAM3_4_MSG1		_("TRANSPORT MISSION: Attack NEXUS Final Base")
+CAM3_4_MSG2		_("We have located NEXUS' base at this location.")
+
+/* Cam3_4 Attack NEXUS Final Base - player ident part2 */
+CAM3_4_MSG3		_("This area contains numerous NEXUS structures.")
+CAM3_4_MSG4		_("We are certain that NEXUS's core systems are located here.")
+
+/* Cam3_4 Attack NEXUS Final Base - mission briefing */
+CAM3_4_MSG5		_("Establish an LZ.")
+CAM3_4_MSG6		_("Begin your attacks on NEXUS. You must destroy his core systems.")
+
+/* Cam3_1A Launch Site Coordinates - incoming intelligence report... Team Gamma */
+CAM3_1A_MSG		_("Incoming intelligence report... Team Gamma")
+
+TEXT1		_("01101000 01110100 01110100 01110000 01110011 00111010 00101111 00101111 01110111 01110111 01110111 00101110 01111001 01101111 01110101 01110100 01110101 01100010 01100101 00101110 01100011 01101111 01101101 00101111 01110111 01100001 01110100 01100011 01101000 00111111 01110110 00111101 01100100 01010001 01110111 00110100 01110111 00111001 01010111 01100111 01011000 01100011 01010001")
+
+TEXT2		_("01110111 01100101 00100000 01100100 01101111 00100000 01100001 00100000 01101100 01101001 01110100 01110100 01101100 01100101 00100000 01110100 01110010 01101111 01101100 01101100 01101001 01101110 01100111")
+
+TEXT3		_("01001000 01101111 01110111 00100000 01100100 01101001 01100100 00100000 01111001 01101111 01110101 00100000 01100101 01110110 01100101 01101110 00100000 01100110 01101001 01101110 01100100 00100000 01110100 01101000 01101001 01110011 00111111")
