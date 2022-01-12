@@ -2464,28 +2464,6 @@
         ],
         "width": 1
     },
-    "Plasmite-flamer-bunker": {
-        "armour": 20,
-        "breadth": 1,
-        "buildPoints": 400,
-        "buildPower": 125,
-        "height": 1,
-        "hitpoints": 700,
-        "id": "Plasmite-flamer-bunker",
-        "name": "Plasmite Flamer Bunker",
-        "resistance": 150,
-        "sensorID": "DefaultSensor1Mk1",
-        "strength": "BUNKER",
-        "structureModel": [
-            "Blcanpil.pie"
-        ],
-        "thermal": 20,
-        "type": "DEFENSE",
-        "weapons": [
-            "PlasmiteFlamer"
-        ],
-        "width": 1
-    },
     "Sys-CB-Tower01": {
         "armour": 15,
         "breadth": 1,

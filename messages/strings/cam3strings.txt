@@ -49,7 +49,7 @@ L2_BMSG3		_("Yet they showed great dissatisfaction that you 'violently engaged t
 L2_BMSG4		_("But what other option is there, when the stakes are as great as these?")
 L2_BMSG5		_("Nonetheless, I have a new objective for you.")
 L2_BMSG6		_("Now that we have a suitable base of operations, the Council has determined that we are to secure a Pre-Collapse bio-engineering laboratory located somewhere in this sector.")
-L2_BMSG7		_("Now, since this facility was top-secret, even among high ranking officials like myself, we have been unable to determine it's exact location.")
+L2_BMSG7		_("Now, since this facility was top-secret, even among high ranking officials like myself, we have been unable to determine its exact location.")
 L2_BMSG8		_("We have identified some individuals who have the information we need, but when we attempted to reach out to them, they were captured by scavengers.")
 L2_BMSG9		_("They are now being held hostage by scavengers nearby.")
 L2_BMSG10		_("Commander, take a transport and free those contacts using whatever means nessesary. Reinforcements will be available for this mission.")
@@ -67,10 +67,10 @@ L2_SCAV2MSG3	_("You've proved yourself quite capable, Commander. I am confident 
 /* L3 Suprise Attack */
 /* Mission Briefing */
 L3_BMSG1		_("Congratulations once again Commander, you've saved our civilian contacts.") 
-L3_BMSG2		_("With their help, the Council has been able to pinpoint the location of the the research facility we're looking for.")
-L3_BMSG3		_("But they also had some ill news: according the rescued civilians, the scavengers you've been fighting are searching for this same facility.")
-L3_BMSG4		_("It is unknown if they have discovered it's location yet. If the Council's understanding of this facility's purpose is correct, we must prevent the scavengers from finding it.")
-L3_BMSG5		_("Furthermore, the Council has once again sought to condone our methods of victory, fearing that 'our continuing aggression may prompt retaliation' from the local gangs.")
+L3_BMSG2		_("With their help, the Council has been able to pinpoint the location of the research facility we're looking for.")
+L3_BMSG3		_("But they also had some ill news: according to the rescued civilians, the scavengers you've been fighting are searching for this same facility.")
+L3_BMSG4		_("It is unknown if they have discovered its location yet. If the Council's understanding of this facility's purpose is correct, we must prevent the scavengers from finding it.")
+L3_BMSG5		_("Furthermore, the Council has once again sought to condemn our methods of victory, fearing that 'our continuing aggression may prompt retaliation' from the local gangs.")
 L3_BMSG6		_("But let me be clear, this operation is under my directive. And as long as we continue to succeed in our goals, I see no reason for us to not use the most effective methods at our disposal.")
 L3_BMSG7		_("Prepare your forces for transport, we are going after that research facility.")
 /* Suprise Attack Message */
@@ -109,7 +109,7 @@ L5_BMSG1		_("These have been a troubling turn of events, to say the least.")
 L5_BMSG2		_("That laboratory must have been designing some sort of bio-weapon. Some sort of virus or parasite that's turning those scavengers into mindless swarms.") 
 L5_BMSG3		_("And now that plague is free. Monitoring of scavenger radio waves show that they're in a state of panic.") 
 L5_BMSG4		_("If the Council were to learn of our failure to reach the facility in time, of your failure to contain this outbreak...") 
-L5_BMSG5		_("Commander, from now on we will be continuing this operation independant of the Council's 'oversight'. I will be the one giving every order going forward.") 
+L5_BMSG5		_("Commander, from now on we will be continuing this operation independent of the Council's 'oversight'. I will be the one giving every order going forward.") 
 L5_BMSG6		_("I don't want you or any of your men to have any contact with the Council. For the success of this operation, they cannot know what is happening here.") 
 L5_BMSG7		_("Your primary objective now is to curtail this infestation, and to crush anything that stands in the way of us establishing our hold.") 
 L5_BMSG8		_("There is an old industrial town nearby. Scavenger radio chatter suggests it is under attack by the infested.") 
@@ -135,7 +135,7 @@ L6_BMSG9		_("Good luck, Commander. Countless lives are now depending on your suc
 
 /* L6 AA Hunter */
 /* Infested Wave Warning Message */
-L6_INFESMSG1	_("Commander be advised: we have recieved reports that large numbers of infested amassing just outside your area of operation.") 
+L6_INFESMSG1	_("Commander be advised: we have received reports that large numbers of infested amassing just outside your area of operation.") 
 L6_INFESMSG2	_("Judging by the large scavenger presence here, the infested are most likely preparing to overrun whatever is left of them.") 
 L6_INFESMSG3	_("Please work quickly, as we are unsure of when they will begin to descend upon this position.")  
 /* Infested Wave Imminent Message */

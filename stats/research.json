@@ -156,118 +156,6 @@
         "statID": "CyborgLegs",
         "techCode": 1
     },
-    "R-Cyborg-Hvywpn-A-T": {
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-A-T",
-        "msgName": "RES_CYW_H_AT",
-        "name": "Super Scourge Cyborg",
-        "requiredResearch": [
-            "R-Cyborg-Metals04",
-            "R-Wpn-Missile2A-T",
-            "R-Cyborg-Wpn-ATMiss"
-        ],
-        "researchPoints": 5000,
-        "researchPower": 156,
-        "resultComponents": [
-            "Cyb-Hvywpn-A-T"
-        ],
-        "statID": "Missile-A-T"
-    },
-    "R-Cyborg-Hvywpn-Acannon": {
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-Acannon",
-        "msgName": "RES_CYW_H_AC",
-        "name": "Super Auto-Cannon Cyborg",
-        "requiredResearch": [
-            "R-Wpn-Cannon5",
-            "R-Cyborg-Hvywpn-HPV"
-        ],
-        "researchPoints": 4000,
-        "researchPower": 125,
-        "resultComponents": [
-            "Cyb-Hvywpn-Acannon"
-        ],
-        "statID": "Cannon5VulcanMk1"
-    },
-    "R-Cyborg-Hvywpn-HPV": {
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-HPV",
-        "msgName": "RES_CYW_H_HPV",
-        "name": "Super HPV Cyborg",
-        "requiredResearch": [
-            "R-Cyborg-Hvywpn-Mcannon",
-            "R-Struc-Research-Upgrade05"
-        ],
-        "researchPoints": 4000,
-        "researchPower": 125,
-        "resultComponents": [
-            "Cyb-Hvywpn-HPV"
-        ],
-        "statID": "Cannon4AUTOMk1"
-    },
-    "R-Cyborg-Hvywpn-Mcannon": {
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-Mcannon",
-        "keyTopic": 1,
-        "msgName": "RES_CYW_H_MC",
-        "name": "Super Heavy-Gunner",
-        "requiredResearch": [
-            "R-Wpn-Cannon2Mk1"
-        ],
-        "researchPoints": 4000,
-        "researchPower": 125,
-        "resultComponents": [
-            "Cyb-Hvywpn-Mcannon"
-        ],
-        "statID": "Cannon2A-TMk1"
-    },
-    "R-Cyborg-Hvywpn-PulseLsr": {
-    "disabledWhen": 2,
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-PulseLsr",
-        "msgName": "RES_CYW_H_PLAS",
-        "name": "Super Pulse Laser Cyborg",
-        "requiredResearch": [
-            "R-Wpn-Laser02"
-        ],
-        "researchPoints": 5000,
-        "researchPower": 156,
-        "resultComponents": [
-            "Cyb-Hvywpn-PulseLsr"
-        ],
-        "statID": "Laser2PULSEMk1"
-    },
-    "R-Cyborg-Hvywpn-RailGunner": {
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-RailGunner",
-        "msgName": "RES_CYW_H_RG",
-        "name": "Super Rail-Gunner",
-        "requiredResearch": [
-            "R-Wpn-RailGun02"
-        ],
-        "researchPoints": 5500,
-        "researchPower": 171,
-        "resultComponents": [
-            "Cyb-Hvywpn-RailGunner"
-        ],
-        "statID": "RailGun2Mk1"
-    },
-    "R-Cyborg-Hvywpn-TK": {
-        "iconID": "IMAGE_RES_CYBORGTECH",
-        "id": "R-Cyborg-Hvywpn-TK",
-        "msgName": "RES_CYW_H_TK",
-        "name": "Super Tank-Killer Cyborg",
-        "requiredResearch": [
-            "R-Cyborg-Metals04",
-            "R-Wpn-Rocket07-Tank-Killer"
-        ],
-        "researchPoints": 5000,
-        "researchPower": 156,
-        "resultComponents": [
-            "Cyb-Hvywpn-TK"
-        ],
-        "statID": "Rocket-VTOL-HvyA-T"
-    },
     "R-Cyborg-Metals01": {
         "iconID": "IMAGE_RES_CYBORGTECH",
         "id": "R-Cyborg-Metals01",
@@ -364,7 +252,6 @@
         "msgName": "RES_CYMET4",
         "name": "Cyborg Dense Composite Alloys",
         "requiredResearch": [
-            "R-Cyborg-Hvywpn-Mcannon",
 			"R-Cyborg-Metals03"
         ],
         "researchPoints": 5600,
@@ -5337,94 +5224,6 @@
         "subgroupIconID": "IMAGE_RES_GRPDAM",
         "techCode": 1
     },
-    "R-Wpn-Flamer-Damage07": {
-        "iconID": "IMAGE_RES_WEAPONTECH",
-        "id": "R-Wpn-Flamer-Damage07",
-        "msgName": "RES_W_FL_D7",
-        "name": "Superhot Plasmite Gel",
-        "requiredResearch": [
-            "R-Wpn-Flamer-Damage06",
-            "R-Wpn-Plasmite-Flamer"
-        ],
-        "researchPoints": 13200,
-        "researchPower": 412,
-        "results": [
-            {
-                "class": "Weapon",
-                "filterParameter": "ImpactClass",
-                "filterValue": "FLAME",
-                "parameter": "Damage",
-                "value": 25
-            },
-            {
-                "class": "Weapon",
-                "filterParameter": "ImpactClass",
-                "filterValue": "FLAME",
-                "parameter": "RepeatDamage",
-                "value": 25
-            }
-        ],
-        "statID": "PlasmiteFlamer",
-        "subgroupIconID": "IMAGE_RES_GRPDAM"
-    },
-    "R-Wpn-Flamer-Damage08": {
-        "iconID": "IMAGE_RES_WEAPONTECH",
-        "id": "R-Wpn-Flamer-Damage08",
-        "name": "Superhot Plasmite Gel Mk2",
-        "requiredResearch": [
-            "R-Wpn-Flamer-Damage07"
-        ],
-        "researchPoints": 15200,
-        "researchPower": 450,
-        "results": [
-            {
-                "class": "Weapon",
-                "filterParameter": "ImpactClass",
-                "filterValue": "FLAME",
-                "parameter": "Damage",
-                "value": 25
-            },
-            {
-                "class": "Weapon",
-                "filterParameter": "ImpactClass",
-                "filterValue": "FLAME",
-                "parameter": "RepeatDamage",
-                "value": 25
-            }
-        ],
-        "statID": "PlasmiteFlamer",
-        "subgroupIconID": "IMAGE_RES_GRPDAM",
-        "techCode": 1
-    },
-    "R-Wpn-Flamer-Damage09": {
-        "iconID": "IMAGE_RES_WEAPONTECH",
-        "id": "R-Wpn-Flamer-Damage09",
-        "name": "Superhot Plasmite Gel Mk3",
-        "requiredResearch": [
-            "R-Wpn-Flamer-Damage08"
-        ],
-        "researchPoints": 17200,
-        "researchPower": 450,
-        "results": [
-            {
-                "class": "Weapon",
-                "filterParameter": "ImpactClass",
-                "filterValue": "FLAME",
-                "parameter": "Damage",
-                "value": 25
-            },
-            {
-                "class": "Weapon",
-                "filterParameter": "ImpactClass",
-                "filterValue": "FLAME",
-                "parameter": "RepeatDamage",
-                "value": 25
-            }
-        ],
-        "statID": "PlasmiteFlamer",
-        "subgroupIconID": "IMAGE_RES_GRPDAM",
-        "techCode": 1
-    },
     "R-Wpn-Flamer-ROF02": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Flamer-ROF02",
@@ -6592,25 +6391,6 @@
             "Emplacement-MdART-pit"
         ],
         "statID": "Emplacement-MdART-pit"
-    },
-    "R-Defense-PlasmiteFlamer": {
-        "iconID": "IMAGE_RES_DEFENCE",
-        "id": "R-Defense-PlasmiteFlamer",
-        "msgName": "RES_EMP_PFL",
-        "name": "Plasmite Flamer Bunker",
-        "redStructures": [
-            "WallTower-Projector",
-            "Tower-Projector"
-        ],
-        "requiredResearch": [
-            "R-Wpn-Plasmite-Flamer"
-        ],
-        "researchPoints": 4000,
-        "researchPower": 125,
-        "resultStructures": [
-            "Plasmite-flamer-bunker"
-        ],
-        "statID": "Plasmite-flamer-bunker"
     },
     "R-Defense-PrisLas": {
         "iconID": "IMAGE_RES_DEFENCE",
@@ -8670,26 +8450,6 @@
         "statID": "Mortar2Mk1",
         "subgroupIconID": "IMAGE_RES_GRPROF"
     },
-    "R-Wpn-Plasmite-Flamer": {
-        "iconID": "IMAGE_RES_WEAPONTECH",
-        "id": "R-Wpn-Plasmite-Flamer",
-        "keyTopic": 1,
-        "msgName": "RES_PLFL",
-        "name": "Plasmite Flamer",
-        "redComponents": [
-            "Flame2"
-        ],
-        "requiredResearch": [
-            "R-Wpn-Flame2",
-            "R-Struc-Research-Upgrade07"
-        ],
-        "researchPoints": 7200,
-        "researchPower": 225,
-        "resultComponents": [
-            "PlasmiteFlamer"
-        ],
-        "statID": "PlasmiteFlamer"
-    },
     "R-Wpn-Rail-Accuracy01": {
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Rail-Accuracy01",
@@ -8944,21 +8704,6 @@
             "RailGun3Mk1"
         ],
         "statID": "RailGun3Mk1"
-    },
-    "R-Sys-MobileRepairTurretHvy": {
-        "iconID": "IMAGE_RES_SYSTEMTECH",
-        "id": "R-Sys-MobileRepairTurretHvy",
-        "msgName": "RES_REPTUHVY",
-        "name": "Heavy Repair Turret",
-        "requiredResearch": [
-            "R-Struc-Research-Upgrade06"
-        ],
-        "researchPoints": 600,
-        "researchPower": 18,
-        "resultComponents": [
-            "HeavyRepair"
-        ],
-        "statID": "HeavyRepair"
     },
     "R-Defense-Inferno": {
         "iconID": "IMAGE_RES_DEFENCE",
