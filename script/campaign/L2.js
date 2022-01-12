@@ -73,7 +73,7 @@ camAreaEvent("cScavAttack", function(droid)
 		});
 
 		// Message about scavengers being cool
-		camPlayVideos(["pcv621.ogg", {video: "L2_SCAV2MSG", type: MISS_MSG}]);
+		camPlayVideos(["pcv455.ogg", {video: "L2_SCAV2MSG", type: MISS_MSG}]);
 		queue("messageAlert", camSecondsToMilliseconds(3.4));
 	}
 	else
