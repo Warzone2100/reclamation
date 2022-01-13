@@ -595,10 +595,10 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "Mini-Rocket Upgrade",
+            "Rocket Upgrade",
             "Fin-stabilization improves flight trajectory",
-            "Increases Mini-Rocket accuracy",
-            "All mini-rockets upgraded automatically"
+            "Increases Rocket accuracy",
+            "All Rockets upgraded automatically"
         ]
     },
     "RES_W_RK_D1": {
