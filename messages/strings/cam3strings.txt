@@ -140,7 +140,7 @@ L6_INFESMSG2	_("Judging by the large scavenger presence here, the infested are m
 L6_INFESMSG3	_("Please work quickly, as we are unsure of when they will begin to descend upon this position.")  
 /* Infested Wave Imminent Message */
 L6_WAVEMSG1		_("Commander, the infested are converging towards your location.") 
-L6_WAVEMSG2		_("The incoming infested are to numerous too count; we are ordering an immediate retreat to LZ for extraction.") 
+L6_WAVEMSG2		_("The incoming infested are too numerous to count; we are ordering an immediate retreat to LZ for extraction.") 
 L6_WAVEMSG3		_("There's no feasible way for your forces to hold out there for long.") 
 /* 'You Are Taking Too Long' Message */
 L6_SCOLDMSG1	_("What are you still doing out there?!") 
