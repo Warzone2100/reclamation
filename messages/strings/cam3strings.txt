@@ -140,8 +140,8 @@ L6_INFESMSG2	_("Judging by the large scavenger presence here, the infested are m
 L6_INFESMSG3	_("Please work quickly, as we are unsure of when they will begin to descend upon this position.")  
 /* Infested Wave Imminent Message */
 L6_WAVEMSG1		_("Commander, the infested are converging towards your location.") 
-L6_WAVEMSG2		_("The incoming infested are to numerous to count; we are ordering an immeadiate retreat to LZ for extraction.") 
-L6_WAVEMSG3		_("There's no feasible way for you forces to hold out there for long.") 
+L6_WAVEMSG2		_("The incoming infested are too numerous to count; we are ordering an immediate retreat to LZ for extraction.") 
+L6_WAVEMSG3		_("There's no feasible way for your forces to hold out there for long.") 
 /* 'You Are Taking Too Long' Message */
 L6_SCOLDMSG1	_("What are you still doing out there?!") 
 L6_SCOLDMSG2	_("Are you searching for more glory? More bloodshed by combat?") 
@@ -151,7 +151,7 @@ L6_SCOLDMSG4	_("Regroup at the LZ for evac, unless you'd rather we call off the 
 /* L7 Final Defensive */
 /* Mission Briefing */
 L7_BMSG1		_("Welcome back, Commander. We are pleased with your success in taking those AA guns offline.") 
-L7_BMSG2		_("However, even without them impeding our progress our evacuation is still behind schedule.")
+L7_BMSG2		_("However, even without them impeding our progress, our evacuation is still behind schedule.")
 L7_BMSG3		_("We're still getting groups of stragglers, and the infested are closing in on our position at this very moment.") 
 L7_BMSG4		_("We don't have much time left. You must defend the base while we finish the evacuation.") 
 L7_BMSG5		_("Once all civilians and critical personnel are away, we'll have the transports come back for you and your forces.") 
@@ -165,13 +165,13 @@ L7_DETMSG5		_("That you went out of your way to seek out the death and destructi
 L7_DETMSG6		_("That the only reason for the scavengers' hostility, the reason that this infection was released, was due to your own bloodthirstiness and negligence of duty.")
 L7_DETMSG7		_("And you know what happened?")
 L7_DETMSG8		_("They believed it. All of it.")
-L7_DETMSG9		_("Who could blame them? Isn't it much simpler to cast the blame on a no-name Commander stepping out line than your highest ranking general?")
+L7_DETMSG9		_("Who could blame them? Isn't it much simpler to cast the blame on a no-name Commander stepping out of line than your highest ranking general?")
 L7_DETMSG10		_("They see you now as a liability. Nothing more than a threat to our goals.")
 L7_DETMSG11		_("No less of a threat than this infestation itself.")
 L7_DETMSG12		_("...")
 L7_DETMSG13		_("But you still serve one crucial purpose: Bait.")
 L7_DETMSG14		_("The infested are approaching your base from every direction.")
-L7_DETMSG15		_("In just 10 minutes, the nuclear warheads stored in those silos are set to detonate.")
+L7_DETMSG15		_("In just over 10 minutes, the nuclear warheads stored in those silos are set to detonate.")
 L7_DETMSG16		_("And in a single blast, both you and the infested will all be reduced to dust.")
 L7_DETMSG17		_("Two birds with one radioactive stone.")
 L7_DETMSG18		_("I will be remembered as the one who triumphed over hostile scavenger clans, a rampaging infection, and a treacherous Commander.")
