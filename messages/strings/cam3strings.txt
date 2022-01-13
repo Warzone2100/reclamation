@@ -15,7 +15,7 @@ ENDREPORT		_("------------------------------ REPORT ENDS -----------------------
 L1_BMSG1		_("Greetings Commander. I am Edmund Clayde, former General of the North American Armed Forces, and I am the overseer of this operation.")
 L1_BMSG2		_("You have been sent here today to lay the foundation for our reclamation of these blasted lands.")
 L1_BMSG3		_("In order to achieve our goal, we must first establish our base of operations.")
-L1_BMSG4		_("Recovered documents evidence the existance of a Pre-Collapse NASDA site located south of your position.")
+L1_BMSG4		_("Recovered documents evidence the existence of a Pre-Collapse NASDA site located south of your position.")
 L1_BMSG5		_("This site is believed to house nuclear weapons, making securing it our first priority.")
 L1_BMSG6		_("Find this site, and establish our base there. You may need to use your weapons to clear a path through the trees.")
 /* Wall Message */
@@ -28,7 +28,7 @@ L1_BASEMSG3		_("Make sure to construct a generator and investigate that research
 /* Scavenger Message */
 L1_SCAVMSG1		_("After analysis of the missile silos, my technicians have confirmed that there are nuclear warheads present.")
 L1_SCAVMSG2		_("We're picking up radio transmissions around your area. Most likely from scavengers around the NASDA site.")
-L1_SCAVMSG3		_("If their loud radio chatter is anything to go by, then they're too busy fighting eachother to notice us yet.")
+L1_SCAVMSG3		_("If their loud radio chatter is anything to go by, then they're too busy fighting each other to notice us yet.")
 L1_SCAVMSG4		_("Commander, I'm ordering you to clear them out in order to ensure the safety of this site.")
 L1_SCAVMSG5		_("Regardless of how you feel about diplomacy, this site is too important to negotiate over with the local gangs.")
 /* Town Message */
@@ -52,7 +52,7 @@ L2_BMSG6		_("Now that we have a suitable base of operations, the Council has det
 L2_BMSG7		_("Now, since this facility was top-secret, even among high ranking officials like myself, we have been unable to determine its exact location.")
 L2_BMSG8		_("We have identified some individuals who have the information we need, but when we attempted to reach out to them, they were captured by scavengers.")
 L2_BMSG9		_("They are now being held hostage by scavengers nearby.")
-L2_BMSG10		_("Commander, take a transport and free those contacts using whatever means nessesary. Reinforcements will be available for this mission.")
+L2_BMSG10		_("Commander, take a transport and free those contacts using whatever means necessary. Reinforcements will be available for this mission.")
 
 /* L2 Hostages */
 /* Scavenger Message 1 */
@@ -64,7 +64,7 @@ L2_SCAV2MSG1	_("When you've finished your work out there I'll have some extra qu
 L2_SCAV2MSG2	_("These scavengers seem to have a particular interest in them, which may mean they're after the same goal.")
 L2_SCAV2MSG3	_("You've proved yourself quite capable, Commander. I am confident that you are more than able to handle whatever these hooligans can throw at us.")
 
-/* L3 Suprise Attack */
+/* L3 Surprise Attack */
 /* Mission Briefing */
 L3_BMSG1		_("Congratulations once again Commander, you've saved our civilian contacts.") 
 L3_BMSG2		_("With their help, the Council has been able to pinpoint the location of the research facility we're looking for.")
@@ -73,9 +73,9 @@ L3_BMSG4		_("It is unknown if they have discovered its location yet. If the Coun
 L3_BMSG5		_("Furthermore, the Council has once again sought to condemn our methods of victory, fearing that 'our continuing aggression may prompt retaliation' from the local gangs.")
 L3_BMSG6		_("But let me be clear, this operation is under my directive. And as long as we continue to succeed in our goals, I see no reason for us to not use the most effective methods at our disposal.")
 L3_BMSG7		_("Prepare your forces for transport, we are going after that research facility.")
-/* Suprise Attack Message */
+/* Surprise Attack Message */
 L3_ATTMSG1		_("Commander, we're detecting a large scavenger attack coming in from the south.") 
-L3_ATTMSG2		_("Repulse this attack immeadiately.") 
+L3_ATTMSG2		_("Repulse this attack immediately.") 
 L3_ATTMSG3		_("We cannot afford to lose this site!") 
 /* 'Now Go Kill Everything' Message */
 L3_KILLMSG1		_("Helicopters? Perhaps I have truly underestimated the ingenuity of these scavengers after all...") 
@@ -178,6 +178,7 @@ L7_DETMSG18		_("I will be remembered as the one who triumphed over hostile scave
 L7_DETMSG19		_("As for you?")
 L7_DETMSG20		_("You only be remembered merely as another obstacle overcame by the great General Edmund Clayde.")
 L7_DETMSG21		_("Goodbye, Commander.")
+
 
 
 /* Campaign 3 Mission Briefing text */
