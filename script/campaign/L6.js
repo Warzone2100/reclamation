@@ -7,6 +7,7 @@ const SCAV_RES = [
 	"R-Wpn-Cannon-Damage03", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
 	"R-Vehicle-Metals01", "R-Struc-Materials01", "R-Defense-WallUpgrade01",
+	"R-Wpn-Cannon-Accuracy01", "R-Wpn-Rocket-Accuracy01",
 ];
 const INFESTED_RES = [
 	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage02",
