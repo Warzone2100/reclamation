@@ -2264,8 +2264,7 @@
         "msgName": "RES_W_CNAC1",
         "name": "Cannon Laser Rangefinder",
         "requiredResearch": [
-            "R-Wpn-Cannon-Damage02",
-            "R-Struc-Research-Upgrade01"
+            "R-Wpn-Cannon-Damage02"
         ],
         "researchPoints": 3600,
         "researchPower": 112,
@@ -2963,9 +2962,8 @@
         "iconID": "IMAGE_RES_WEAPONTECH",
         "id": "R-Wpn-Rocket-Accuracy01",
         "msgName": "RES_W_RK_AC1",
-        "name": "Stabilized Mini-Rockets",
+        "name": "Stabilized Rockets",
         "requiredResearch": [
-            "R-Struc-Research-Upgrade01",
             "R-Wpn-Rocket-Damage02"
         ],
         "researchPoints": 3600,
