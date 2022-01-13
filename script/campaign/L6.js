@@ -128,7 +128,7 @@ camAreaEvent("boomTickTrigger", function(droid)
 		// Send a small infested group against the player
 		var droids = [cTempl.vilestinger, cTempl.boomtick, cTempl.boomtick, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infciv]; 
 
-		camSendReinforcement(__camVtolPlayer, camMakePos("eHighwayEntry"), droids, CAM_REINFORCE_GROUND, {
+		camSendReinforcement(INFESTED, camMakePos("eHighwayEntry"), droids, CAM_REINFORCE_GROUND, {
 		order: CAM_ORDER_ATTACK,
 		data: { regroup: false, count: -1 }
 		});
