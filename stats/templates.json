@@ -30,7 +30,6 @@
         ]
     },
     "Stinger": {
-        "available": true,
         "body": "CyborgHeavyBody",
         "id": "Stinger",
         "name": "Stinger Crawler",
@@ -42,7 +41,6 @@
         ]
     },
     "VileStinger": {
-        "available": true,
         "body": "CyborgHeavyBody",
         "id": "VileStinger",
         "name": "Vile Stinger Crawler",
@@ -54,7 +52,6 @@
         ]
     },
     "BoomTick": {
-        "available": true,
         "body": "CyborgHeavyBody",
         "id": "BoomTick",
         "name": "Boom Tick Crawler",
