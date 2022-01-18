@@ -166,7 +166,7 @@
             "New Propulsion Available",
             "Armored Half-tracks",
             "Speed: Medium",
-            "Body Points: Medium"
+            "Hit Points: Medium"
         ]
     },
     "RES_MG1MK1": {
@@ -365,9 +365,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Steel tower with machinegun",
+            "Steel tower with heavy machinegun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: Low"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_TRACK1": {
@@ -378,7 +378,7 @@
             "New Propulsion Available",
             "Armored Tracks",
             "Speed: Slow",
-            "Body Points: High"
+            "Hit Points: High"
         ]
     },
     "RES_TTRAP1": {

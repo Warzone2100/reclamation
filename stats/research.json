@@ -8709,7 +8709,7 @@
         "msgName": "RES_EMP_HFLA",
         "name": "Inferno Emplacement",
         "redStructures": [
-            "PillBox5"
+            "Flamer-Emplacement"
         ],
         "requiredResearch": [
             "R-Wpn-Flame2"

@@ -62,7 +62,7 @@ L2_SCAVMSG3		_("Go on, Commander.")
 /* Scavenger Message 2 */
 L2_SCAV2MSG1	_("When you've finished your work out there I'll have some extra questions for our contacts.")
 L2_SCAV2MSG2	_("These scavengers seem to have a particular interest in them, which may mean they're after the same goal.")
-L2_SCAV2MSG3	_("You've proved yourself quite capable, Commander. I am confident that you are more than able to handle whatever these hooligans can throw at us.")
+L2_SCAV2MSG3	_("You've proven yourself quite capable, Commander. I am confident that you are more than able to handle whatever these hooligans can throw at us.")
 
 /* L3 Surprise Attack */
 /* Mission Briefing */
