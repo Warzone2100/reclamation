@@ -2,7 +2,7 @@
 ----------------------------
 Warzone 2100 Reclamation Mod
 ----------------------------
-This mod adds an entirely custom campaign to the game. The campaign can feasibly takes place within the Warzone 2100 universe, but has it's own self-contained story. 
+This mod adds an entirely custom campaign to the game. The campaign can feasibly take place within the Warzone 2100 universe, but has its own self-contained story. 
 
 ------------------
 Spoiler Warning!!!
