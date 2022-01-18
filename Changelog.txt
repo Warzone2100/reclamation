@@ -1,0 +1,8 @@
+Reclamation 1.0.1
+
+Quick update to address some issues found post-release.
+Changes:
+- Fixed Infested Melee attacks crashing the game sometimes (AGAIN).
+- Fixed typos in the README.
+- Fixed inconsistencies in some research messages.
+- Made the Inferno Emplacement obsolete the Flamer Emplacement.
