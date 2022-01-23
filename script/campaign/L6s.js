@@ -357,7 +357,9 @@ function check()
 	var c = getObject(42, 92);
 	var e = getObject(60, 100);
 
-	if (nw.isSensor && w.isSensor && c.isSensor && e.isSensor && nw.status === BUILT && w.status === BUILT && c.status === BUILT && e.status === BUILT)
+	if (nw !== null && w !== null && c !== null && e !== null 
+		&& nw.isSensor && w.isSensor && c.isSensor && e.isSensor 
+		&& nw.status === BUILT && w.status === BUILT && c.status === BUILT && e.status === BUILT)
 	{
 		setTimer("colourSwitch", camSecondsToMilliseconds(0.2));
 		removeTimer("check");

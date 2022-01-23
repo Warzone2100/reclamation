@@ -1,3 +1,14 @@
+Reclamation 1.0.2
+
+Another quick update for some bugfixes
+Changes:
+- Smoothed out and fixed a stray cliff tile on L1.
+- Fixed a mistake in factory logic in L1 (shouldn't affect gameplay).
+- Fixed a factory activating too early in L3.
+- Fixed rocket scavs sometimes not facing their target when firing.
+- Made the check() function on L6S check for null before checking properties.
+
+
 Reclamation 1.0.1
 
 Quick update to address some issues found post-release.

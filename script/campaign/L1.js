@@ -378,7 +378,6 @@ function eventStartLevel()
 					camMakePos("scavPatrol1"),
 					camMakePos("scavPatrol2"),
 				],
-				morale: 50,
 			},
 			groupSize: 4,
 			maxSize: 4,
