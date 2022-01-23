@@ -896,7 +896,6 @@
         "name": "Scavenger Lance",
         "numExplosions": 1,
         "radiusLife": 10,
-        "rotate": 180,
         "shortHit": 30,
         "shortRange": 512,
         "waterGfx": "FXSSplsh.PIE",
