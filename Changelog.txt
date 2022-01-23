@@ -6,7 +6,7 @@ Changes:
 - Fixed a mistake in factory logic in L1 (shouldn't affect gameplay).
 - Fixed a factory activating too early in L3.
 - Fixed rocket scavs sometimes not facing their target when firing.
-- Made the check() function on L6S check for null before checking properties
+- Made the check() function on L6S check for null before checking properties.
 
 
 Reclamation 1.0.1
