@@ -82,8 +82,7 @@ function expandMap()
 	activateScavGroups();
 	heliAttack();
 
-	// Enable all factories except the mountain base one (for now)
-	camEnableFactory("yScavFactory");
+	// Enable all cyan factories except the mountain base one (for now)
 	camEnableFactory("cScavFactory1");
 	camEnableFactory("cScavFactory3");
 }
