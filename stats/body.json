@@ -55,13 +55,11 @@
         "id": "ScavengerChopper",
         "model": "scavchop.pie",
         "name": "Scavenger Chopper",
-        "powerOutput": 8000,
+        "powerOutput": 4000,
         "propulsionExtraModels": {
             "Helicopter": {
-                "left": "prlheli1.pie",
                 "moving": "chblades.pie",
-                "still": "mediumheli_rotor_stationary.pie",
-                "right": "prlheli1.pie"
+                "still": "mediumheli_rotor_stationary.pie"
             }
         },
         "size": "LIGHT",
@@ -79,13 +77,11 @@
         "id": "InfestedScavengerChopper",
         "model": "infscavchop.pie",
         "name": "Infested Scavenger Chopper",
-        "powerOutput": 8000,
+        "powerOutput": 4000,
         "propulsionExtraModels": {
             "Helicopter": {
-                "left": "prlheli1.pie",
                 "moving": "chblades.pie",
-                "still": "mediumheli_rotor_stationary.pie",
-                "right": "prlheli1.pie"
+                "still": "mediumheli_rotor_stationary.pie"
             }
         },
         "size": "LIGHT",

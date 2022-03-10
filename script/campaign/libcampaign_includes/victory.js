@@ -216,7 +216,7 @@ function __camGameWon()
 		camTrace(__camNextLevel);
 		if (__camNextLevel === "THE_END")
 		{
-			gameOverMessage(true, false, true);
+			gameOverMessage(true, false, false);
 			return;
 		}
 		camNextLevel(__camNextLevel);
@@ -513,22 +513,21 @@ function __camVictoryOffworld()
 	}
 }
 
-function __camShowVictoryConditions(forceMessage)
+function __camShowVictoryConditions()
 {
-	if (!camDef(forceMessage))
+	if (!camDef(__camNextLevel))
 	{
-		if (__camVictoryMessageThrottle + camSecondsToMilliseconds(10) > gameTime)
+		return; // fastplay / tutorial. Should be a better identifier for this.
+	}
+
+	if (__camWinLossCallback === CAM_VICTORY_PRE_OFFWORLD)
+	{
+		if ((camDiscoverCampaign() === BETA_CAMPAIGN_NUMBER) && (difficulty === HARD || difficulty === INSANE))
 		{
-			return;
+			console(_("Hard / Insane difficulty hint:"));
+			console(_("Fortify a strong base across the map to protect yourself from the Collective"));
 		}
-		if (!camDef(__camNextLevel))
-		{
-			return; // fastplay / tutorial. Should be a better identifier for this.
-		}
-		if (__camWinLossCallback === CAM_VICTORY_PRE_OFFWORLD)
-		{
-			return; // do not need this on these missions.
-		}
+		return; // do not need this on these missions.
 	}
 
 	const ANNIHILATE_MESSAGE = _("Destroy all enemy units and structures");
@@ -571,8 +570,7 @@ function __camShowVictoryConditions(forceMessage)
 	}
 	else if (__camWinLossCallback === CAM_VICTORY_TIMEOUT)
 	{
-		// This is handled in the level script itself
-		//console(_("Survive until the timer reaches zero"));
+		console(_("Survive until the timer reaches zero"));
 	}
 	else if (__camWinLossCallback === CAM_VICTORY_STANDARD)
 	{
@@ -595,6 +593,4 @@ function __camShowVictoryConditions(forceMessage)
 			console(__camExtraObjectiveMessage);
 		}
 	}
-
-	__camVictoryMessageThrottle = gameTime;
 }

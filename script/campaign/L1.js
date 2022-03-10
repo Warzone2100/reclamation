@@ -388,4 +388,7 @@ function eventStartLevel()
 
 	// Place a beacon on the NASDA base
 	hackAddMessage("NASDA_BASE", PROX_MSG, CAM_HUMAN_PLAYER);
+
+	// Set the fog to it's default colours
+	camSetFog(182, 225, 236);
 }

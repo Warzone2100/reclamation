@@ -2,12 +2,12 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 const YELLOW_SCAV_RES = [
-	"R-Wpn-Rocket-Damage01", "R-Wpn-Flamer-Damage02",
+	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage01",
 ];
 const CYAN_SCAV_RES = [
-	"R-Wpn-Rocket-Damage01", "R-Wpn-Flamer-Damage02",
-	"R-Wpn-Cannon-Damage01", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF01",
+	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage01", "R-Wpn-Flamer-Damage02",
+	"R-Wpn-Cannon-Damage01", "R-Wpn-Rocket-ROF01",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF01", "R-Wpn-Cannon-ROF01",
 ];
 
@@ -313,4 +313,7 @@ function eventStartLevel()
 
 	// Check the civilian groups on loop
 	setTimer("checkCivilianGuards", camSecondsToMilliseconds(2));
+
+	// Set the fog to it's default colours
+	camSetFog(182, 225, 236);
 }

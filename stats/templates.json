@@ -125,7 +125,7 @@
         "propulsion": "BaBaProp",
         "type": "DROID",
         "weapons": [
-            "BabaJeepMG"
+            "InfJeepMG"
         ]
     },
     "InfRKJeep": {

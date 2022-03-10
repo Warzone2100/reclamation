@@ -80,7 +80,7 @@ function expandMap()
 
 	// Setup patrol groups and repeating helicopter attacks
 	activateScavGroups();
-	heliAttack();
+	queue("heliAttack", camChangeOnDiff(camMinutesToMilliseconds(3)));
 
 	// Enable all cyan factories except the mountain base one (for now)
 	camEnableFactory("cScavFactory1");
@@ -365,4 +365,7 @@ function eventStartLevel()
 
 	// Restrict the map to the original level for now
 	setScrollLimits(0, 0, 64, 64);
+
+	// Set the fog to it's default colours
+	camSetFog(182, 225, 236);
 }

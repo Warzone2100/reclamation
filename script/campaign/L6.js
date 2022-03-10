@@ -2,7 +2,7 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 const SCAV_RES = [
-	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage03",
+	"R-Wpn-MG-Damage03", "R-Wpn-Rocket-Damage03",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage03", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
@@ -10,7 +10,7 @@ const SCAV_RES = [
 	"R-Wpn-Cannon-Accuracy01", "R-Wpn-Rocket-Accuracy01",
 ];
 const INFESTED_RES = [
-	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage02",
+	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
@@ -151,8 +151,8 @@ camAreaEvent("scavAttackTrigger", function(droid)
 		camEnableFactory("nwScavFactory2");
 		camEnableFactory("eastScavFactory");
 
-		// Start sending helicopters from the west
-		setTimer("westHeliAttack", camMinutesToMilliseconds(1.5));
+		// Start sending helicopters from the west (immediately)
+		westHeliAttack();
 	}
 	else
 	{
@@ -161,26 +161,17 @@ camAreaEvent("scavAttackTrigger", function(droid)
 });
 
 // Helicopter attack waves from the northwestern side of the map
-// vtol.js can only handle one spawning system at a time, so for the NW helicopters we're gonna set up a spawning system in the level script itself
-// vtol.js still handles tactics and removing helicopters on it's own, all we need to do is spawn the helicopters we want
 function westHeliAttack()
 {
-	// Check if the NW VTOL radar still exists
-	if (getObject("nwRadarTower") === null)
-	{
-		removeTimer("westHeliAttack");
-		return;
-	}
+	var list = [cTempl.helhmg, cTempl.helcan];
+	var ext = {
+		limit: [1, 1], //paired with template list
+		alternate: true,
+		altIdx: 0
+	};
 
-	// Choose a helicopter template randomly for the NW attacks
-	var list = [cTempl.helcan, cTempl.helhmg];
-	var chosenHeli = []; 
-	chosenHeli.push(list[camRand(list.length)]);
-
-	camSendReinforcement(CYAN_SCAVS, camMakePos("nwHeliSpawn"), chosenHeli, CAM_REINFORCE_GROUND, {
-		order: CAM_ORDER_ATTACK,
-		data: { regroup: false, count: -1 }
-	});
+	// The helicopter attacks stop when the northwest VTOL radar tower is destroyed.
+	camSetVtolData(CYAN_SCAVS, "nwHeliSpawn", "heliRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(1.5)), "nwRadarTower", ext);
 }
 
 // Helicopter attack waves from the eastern side of the map
@@ -272,6 +263,9 @@ function checkForLZReturn()
 		camPlayVideos(["pcv456.ogg", {video: "L6_WAVEMSG", type: MISS_MSG}]);
 		queue("messageAlert", camSecondsToMilliseconds(3.4));
 		camSetExtraObjectiveMessage("Escape the incoming infested waves");
+
+		// Change the fog colour to a dark purple
+		camSetFog(114, 73, 156);
 	}
 }
 
@@ -324,8 +318,8 @@ function randomTemplates(list)
 {
 	var i = 0;
 	var droids = [];
-	var coreSize = 4 + camRand(2); // Maximum of 6 core units.
-	var fodderSize = 14 + camRand(2); // 14 - 16 extra Infested Civilians to the swarm.
+	var coreSize = 4 + camRand(3); // Maximum of 6 core units.
+	var fodderSize = 14 + camRand(3); // 14 - 16 extra Infested Civilians to the swarm.
 
 	for (i = 0; i < coreSize; ++i)
 	{
@@ -336,6 +330,12 @@ function randomTemplates(list)
 	for (i = 0; i < fodderSize; ++i)
 	{
 		droids.push(cTempl.infciv);
+	}
+
+	// Chance to add a Vile Stinger on Hard (10%) or Insane (20%)
+	if ((difficulty === HARD && camRand(101) < 10) || (difficulty === INSANE && camRand(101) < 20))
+	{
+		droids.push(cTempl.vilestinger);
 	}
 
 	return droids;
@@ -507,7 +507,7 @@ function eventStartLevel()
 		"westInfestedFactory": {
 			assembly: "highwayAssembly",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 5,
+			groupSize: 1,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(15)),
 			templates: [cTempl.inflance, cTempl.infminitruck, cTempl.infmoncan, cTempl.infbjeep, cTempl.infbloke, cTempl.infrbjeep, cTempl.infbloke] // Mixed units
@@ -515,7 +515,7 @@ function eventStartLevel()
 		"northInfestedFactory": {
 			assembly: "roadAssembly",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 5,
+			groupSize: 1,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
 			templates: [cTempl.inflance, cTempl.infsartruck, cTempl.infbjeep, cTempl.infbloke, cTempl.inffiretruck, cTempl.infrbjeep, cTempl.infbloke] // Mixed units
@@ -526,7 +526,7 @@ function eventStartLevel()
 	queue("scavPatrolSetUp", camSecondsToMilliseconds(2));
 
 	// Queue eastern helicopter attacks
-	queue("eastHeliAttack", camMinutesToSeconds(2));
+	queue("eastHeliAttack", camChangeOnDiff(camMinutesToMilliseconds(3.5)));
 
 	// Enable the south west scav factory right away
 	camEnableFactory("southScavFactory");
@@ -540,4 +540,7 @@ function eventStartLevel()
 
 	// All infested structures start out partially damaged
 	preDamageInfestedStructs();
+
+	// Change the fog colour to a light pink/purple
+	camSetFog(185, 182, 236);
 }

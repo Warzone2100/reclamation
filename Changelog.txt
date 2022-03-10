@@ -1,3 +1,24 @@
+Reclamation 1.1.0
+
+Major update made for Warzone 4.2.7, MANY redundant files have been cut now that the game properly checks base.wz for assets. In-game music and cutscenes will now play properly, and the total file size of the mod has dropped dramatically.
+Other Changes:
+- Deleted addon.lev.
+- Updated palette.txt with the new default fog values.
+- Removed extra propulsion models on scavenger (and infested) helicopters.
+- Implemented the new version of vtol.js for spawning helicopters.
+- Simplified helicopter spawning scripts on L6 (the NW attacks also start slightly faster).
+- Scripts now control the fog color on each level (helps set the mood on later levels).
+- Gave scavenger (and infested) jeeps an animated turret.
+- Changed the visual explosion effects of the Sarissa, Mini-Rocket Array, Scav Rocket Array and Scavenger Lance.
+- Tweaked the turning speed, movement speed and weights of scavenger (and infested) helicopters to make their movement more clumsy and helicopter-like.
+- Set all group sizes for infested factories (L4, L5 and L6) to 1. Units will now immediately go after the player when produced.
+- Added waves of additional infested units from the NW infested base on L4.
+- The 3rd infested factory on L4 now sometimes produces a fire truck.
+- Increased the amount of infested units that ambush the scav outpost in L5.
+- Added a 10% chance of Vile Stingers spawning with infested reinforcements in L6 on Hard (20% on Insane).
+- Nerfed the base damage stats of most scavenger MGs, but gave better MG upgrades to scavengers throughout each level.
+
+
 Reclamation 1.0.2
 
 Another quick update for some bugfixes

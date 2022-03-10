@@ -13,7 +13,7 @@ var killSweepY = 30; // The height of the area where everything dies at the end 
 var detonateInfo;
 
 const INFESTED_RES = [
-	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage02",
+	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
@@ -49,7 +49,7 @@ function startPhaseTwo()
 
 	// Stop spawning new attacks for now
 	removeTimer("infestedAttackWaves");
-	camSetVtolSpawn(false);
+	camSetVtolSpawnStateAll(false);
 
 	// Queue delivering the message of the big kaboom that's gonna badoom
 	queue("detonationMessage", camMinutesToMilliseconds(1));
@@ -145,13 +145,16 @@ function endEffects()
 
 	// Stop spawning new attacks waves
 	removeTimer("infestedAttackWaves");
-	camSetVtolSpawn(false);
+	camSetVtolSpawnStateAll(false);
+
+	// Set the fog to it's default colours
+	camSetFog(182, 225, 236);
 }
 
 // Small explosions effects
 function smallExplosionFX()
 {
-	fireWeaponAtLoc("SmallExplosion", 20 + camRand(25), 15 + camRand(15), CAM_HUMAN_PLAYER);
+	fireWeaponAtLoc("SmallExplosion", 20 + camRand(26), 15 + camRand(16), CAM_HUMAN_PLAYER);
 }
 
 // Blow up everything in an area that rapidly grows to cover the whole map
@@ -195,6 +198,9 @@ function startAttackWaves()
 	{
 		setTimer("infestedAttackWaves", camChangeOnDiff(camSecondsToMilliseconds(25)));
 		heliAttack();
+
+		// Change the fog colour to a dark purple
+		camSetFog(114, 73, 156);
 	}
 }
 
@@ -491,4 +497,7 @@ function eventStartLevel()
 
 	// Start phase two when there's 12 minutes remaining
 	queue("startPhaseTwo", camMinutesToMilliseconds(18))
+
+	// Change the fog colour to a light pink/purple
+	camSetFog(185, 182, 236);
 }

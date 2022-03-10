@@ -115,12 +115,7 @@ function cam_eventStartLevel()
 	__camArtifacts = {};
 	__camNumEnemyBases = 0;
 	__camEnemyBases = {};
-	__camVtolPlayer = 0;
-	__camVtolStartPosition = {};
-	__camVtolTemplates = {};
-	__camVtolExitPosition = {};
-	__camVtolSpawnActive = false;
-	__camVtolExtras = {};
+	__camVtolDataSystem = [];
 	__camLastNexusAttack = 0;
 	__camNexusActivated = false;
 	__camNewGroupCounter = 0;
@@ -128,9 +123,12 @@ function cam_eventStartLevel()
 	__camSaveLoading = false;
 	__camNeverGroupDroids = [];
 	__camNumTransporterExits = 0;
-	__camVictoryMessageThrottle = 0;
+	__camAllowVictoryMsgClear = true;
 	camSetPropulsionTypeLimit(); //disable the propulsion changer by default
 	__camAiPowerReset(); //grant power to the AI
+	setTimer("__camSpawnVtols", camSecondsToMilliseconds(0.5));
+	setTimer("__camRetreatVtols", camSecondsToMilliseconds(0.9));
+	setTimer("__checkVtolSpawnObject", camSecondsToMilliseconds(5));
 	setTimer("__checkEnemyFactoryProductionTick", camSecondsToMilliseconds(0.8));
 	setTimer("__camTick", camSecondsToMilliseconds(1)); // campaign pollers
 	setTimer("__camTruckTick", camSecondsToMilliseconds(10) + camSecondsToMilliseconds(0.1)); // some slower campaign pollers
@@ -296,7 +294,7 @@ function cam_eventAttacked(victim, attacker)
 				__camGroupInfo[victim.group].lastHit = gameTime;
 
 				//Increased Nexus intelligence if struck on cam3-4
-				if (__camNextLevel === "GAMMA_OUT")
+				if (__camNextLevel === CAM_GAMMA_OUT)
 				{
 					if (__camGroupInfo[victim.group].order === CAM_ORDER_PATROL)
 					{
@@ -338,6 +336,9 @@ function cam_eventGameLoaded()
 			break;
 		}
 	}
+
+	// Reset the fog colour to the correct value
+	setFogColour(__fogR, __fogG, __fogB);
 
 	//Subscribe to eventGroupSeen again.
 	camSetEnemyBases();
