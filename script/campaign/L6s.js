@@ -32,6 +32,9 @@ function eventStartLevel()
 	queue("messageAlert", camSecondsToMilliseconds(0.2));
 
 	setTimer("check", camSecondsToMilliseconds(1));
+
+	// Change the fog colour to a light pink/purple
+	camSetFog(185, 182, 236);
 }
 
 

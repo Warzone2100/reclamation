@@ -36,7 +36,7 @@ infsartruck: { body: "InfestedFireBody", prop: "BaBaProp", weap: "RustRocket-LtA
 inftrike: { body: "Infestedtrike01", prop: "BaBaProp", weap: "BabaTrikeMG" }, // Infested Trike
 infbuggy: { body: "Infestedsml-buggy01", prop: "BaBaProp", weap: "BabaBuggyMG" }, // Infested Buggy
 infrbuggy: { body: "InfestedRKbuggy01", prop: "BaBaProp", weap: "BabaRocket" }, // Infested Rocket Buggy
-infbjeep: { body: "InfestedJeepBody", prop: "BaBaProp", weap: "BabaJeepMG" }, // Infested Jeep
+infbjeep: { body: "InfestedJeepBody", prop: "BaBaProp", weap: "InfJeepMG" }, // Infested Jeep
 infrbjeep: { body: "InfestedRKJeepBody", prop: "BaBaProp", weap: "BabaRocket" }, // Infested Rocket Jeep
 stinger: { body: "CyborgHeavyBody", prop: "CyborgLegs", weap: "StingerTail" }, // Stinger Crawler
 vilestinger: { body: "CyborgHeavyBody", prop: "CyborgLegs", weap: "VileStingerTail" }, // Vile Stinger Crawler

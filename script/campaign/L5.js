@@ -2,14 +2,14 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 const SCAV_RES = [
-	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage03",
+	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage03",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage03", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
 	"R-Vehicle-Metals01", "R-Struc-Materials01", "R-Defense-WallUpgrade01",
 ];
 const INFESTED_RES = [
-	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage01",
+	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage01",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF01",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF01", "R-Wpn-Cannon-ROF01",
@@ -85,8 +85,15 @@ camAreaEvent("outpostAmbushTrigger", function(droid)
 
 		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(25)));
 
-		var droids = [cTempl.stinger, cTempl.stinger, cTempl.infbjeep, cTempl.infminitruck, cTempl.infbjeep, cTempl.inffiretruck];
-		camSendReinforcement(INFESTED, camMakePos("ambushEntry1"), randomTemplates(droids),
+		// Two waves at once
+		var group1 = [cTempl.stinger, cTempl.stinger, cTempl.infrbjeep, cTempl.infbuscan, cTempl.infbuggy, cTempl.inffiretruck];
+		camSendReinforcement(INFESTED, camMakePos("ambushEntry1"), randomTemplates(group1),
+			CAM_REINFORCE_GROUND, {
+				data: {regroup: false, count: -1,},
+			}
+		);
+		var group2 = [cTempl.stinger, cTempl.inftrike, cTempl.infbuggy, cTempl.infbjeep, cTempl.infrbuggy, cTempl.infbjeep];
+		camSendReinforcement(INFESTED, camMakePos("ambushEntry1"), randomTemplates(group2),
 			CAM_REINFORCE_GROUND, {
 				data: {regroup: false, count: -1,},
 			}
@@ -161,7 +168,7 @@ function camEnemyBaseDetected_ScavAllianceBase()
 	camEnableFactory("cScavFactory");
 
 	// Start helicopter attacks
-	heliAttack();
+	queue("heliAttack", camChangeOnDiff(camMinutesToMilliseconds(1.5)));
 
 	// Tell the player to go kill everything (once again)
 	camPlayVideos(["pcv455.ogg", {video: "L5_SCAVMSG", type: MISS_MSG}]);
@@ -187,8 +194,8 @@ function randomTemplates(list)
 {
 	var i = 0;
 	var droids = [];
-	var coreSize = 4 + camRand(2); // Maximum of 6 core units.
-	var fodderSize = 14 + camRand(2); // 14 - 16 extra Infested Civilians to the swarm.
+	var coreSize = 4 + camRand(3); // Maximum of 6 core units.
+	var fodderSize = 14 + camRand(3); // 14 - 16 extra Infested Civilians to the swarm.
 
 	for (i = 0; i < coreSize; ++i)
 	{
@@ -306,7 +313,7 @@ function eventStartLevel()
 		"infestedFactory": {
 			assembly: "infestedAssembly",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 5,
+			groupSize: 1,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
 			templates: [cTempl.inflance, cTempl.infrbuggy, cTempl.infbjeep, cTempl.infminitruck, cTempl.inffiretruck, cTempl.infrbjeep, cTempl.infbloke] // Mixed units
@@ -332,4 +339,7 @@ function eventStartLevel()
 
 	// All infested structures start out partially damaged
 	preDamageInfestedStructs();
+
+	// Change the fog colour to a light pink/purple
+	camSetFog(185, 182, 236);
 }

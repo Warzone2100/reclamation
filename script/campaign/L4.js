@@ -2,7 +2,7 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 const CYAN_SCAV_RES = [
-	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage02",
+	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
@@ -88,6 +88,7 @@ camAreaEvent("ambush2Trigger", function(droid)
 		// Spawn a wave of infested
 		var units = [cTempl.stinger, cTempl.infbjeep, cTempl.infbjeep];
 
+		// Most of the wave is Infested Civilians
 		for (var i = 0; i < 20; i++)
 		{
 			units.push(cTempl.infciv);
@@ -98,6 +99,9 @@ camAreaEvent("ambush2Trigger", function(droid)
 				data: {regroup: false, count: -1,},
 			}
 		);
+
+		// Set up additional waves
+		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(40)));
 	}
 	else
 	{
@@ -124,6 +128,30 @@ camAreaEvent("finalFactoryTrigger", function(droid)
 		resetLabel("finalFactoryTrigger", CAM_HUMAN_PLAYER);
 	}
 });
+
+// NW infested reinforcements, disabled when factory is destroyed
+function sendInfestedReinforcements()
+{
+	// Stop if the infested factory was destroyed
+	if (getObject("infestedFactory2") === null)
+	{
+		removeTimer("sendInfestedReinforcements");
+		return;
+	}
+
+	var droids = [cTempl.infbjeep, cTempl.infrbjeep, cTempl.infbuggy];
+
+	for (var i = 0; i < 20; i++)
+		{
+			droids.push(cTempl.infciv);
+		}
+
+	camSendReinforcement(INFESTED, camMakePos("ambushEntry"), droids,
+		CAM_REINFORCE_GROUND, {
+			data: {regroup: false, count: -1,},
+		}
+	);
+}
 
 // Warn the player about scavs at the research facility
 function warnPlayer()
@@ -248,7 +276,7 @@ function eventStartLevel()
 		"infestedFactory1": {
 			assembly: "infestedAssembly1",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 5,
+			groupSize: 1,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(2)),
 			templates: [cTempl.infciv] // Only infested civilians
@@ -256,7 +284,7 @@ function eventStartLevel()
 		"infestedFactory2": {
 			assembly: "infestedAssembly2",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 5,
+			groupSize: 1,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(4)),
 			// Infested civilians, with some occasional other units
@@ -265,11 +293,11 @@ function eventStartLevel()
 		"infestedFactory3": {
 			assembly: "infestedAssembly3",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 7,
+			groupSize: 1,
 			maxSize: 8,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(4)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(5)),
 			// Infested civilians, with some occasional vehicles
-			templates: [cTempl.infciv, cTempl.infrbjeep, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infbjeep, cTempl.infciv, cTempl.infciv]
+			templates: [cTempl.infciv, cTempl.infrbjeep, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infbjeep, cTempl.infciv, cTempl.inffiretruck]
 		},
 	});
 
@@ -278,4 +306,7 @@ function eventStartLevel()
 
 	// All infested structures start out partially damaged
 	preDamageInfestedStructs();
+
+	// Change the fog colour to a light pink/purple
+	camSetFog(185, 182, 236);
 }
