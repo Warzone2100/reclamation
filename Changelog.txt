@@ -17,7 +17,6 @@ Other Changes:
 - Increased the amount of infested units that ambush the scav outpost in L5.
 - Added a 10% chance of Vile Stingers spawning with infested reinforcements in L6 on Hard (20% on Insane).
 - Nerfed the base damage stats of most scavenger MGs, but gave better MG upgrades to scavengers throughout each level.
-TODO: Get the dev stuff package ready
 
 
 Reclamation 1.0.2
