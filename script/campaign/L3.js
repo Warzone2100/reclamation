@@ -208,6 +208,7 @@ function startScavAttack()
 	var transportExit = getObject("transportRemoveZone");
 	var transport = enumDroid(DUMMY_TRANSPORT);
 	orderDroidLoc(transport[0], DORDER_MOVE, transportExit.x, transportExit.y);
+	queue("removeTransport", camSecondsToMilliseconds(5));
 
 	// Tell the player about incoming scavs
 	camPlayVideos(["pcv456.ogg", {video: "L3_ATTACKMSG", type: MISS_MSG}]);
@@ -216,6 +217,13 @@ function startScavAttack()
 	// Send the first attack wave after a delay, and cue up additional waves
 	queue("sendScavAttackWaves", camSecondsToMilliseconds(5));
 	setTimer("sendScavAttackWaves", camSecondsToMilliseconds(30));
+}
+
+// Remove the dummy transport
+function removeTransport()
+{
+	var transport = enumDroid(DUMMY_TRANSPORT);
+	camSafeRemoveObject(transport, false);
 }
 
 // Check to make sure at least 1 silo still exists.

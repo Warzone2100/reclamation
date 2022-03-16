@@ -211,8 +211,8 @@ function __camPickTarget(group)
 		case CAM_ORDER_ATTACK:
 			if (camDef(gi.target))
 			{
-				targets = enumRange(gi.target.x, gi.target.y,__CAM_TARGET_TRACKING_RADIUS, CAM_HUMAN_PLAYER, false).filter(function(obj) {
-					return (obj.type === STRUCTURE || (obj.type === DROID && !isVTOL(obj)));
+				targets = enumRange(gi.target.x, gi.target.y,__CAM_TARGET_TRACKING_RADIUS, ALL_PLAYERS, false).filter(function(obj) {
+					return ((obj.type === STRUCTURE || (obj.type === DROID && !isVTOL(obj))) && !allianceExistsBetween(droids[0].player, obj.player));
 				});
 			}
 			// fall-through! we just don't track targets on COMPROMISE
@@ -231,7 +231,9 @@ function __camPickTarget(group)
 					{
 						radius = __CAM_PLAYER_BASE_RADIUS;
 					}
-					targets = enumRange(compromisePos.x, compromisePos.y, radius, CAM_HUMAN_PLAYER, false);
+					targets = enumRange(compromisePos.x, compromisePos.y, radius, ALL_PLAYERS, false).filter(function(obj) {
+						return (obj.type !== FEATURE && !allianceExistsBetween(droids[0].player, obj.player))
+					});
 				}
 			}
 			if (gi.order === CAM_ORDER_COMPROMISE && targets.length === 0)
@@ -253,18 +255,21 @@ function __camPickTarget(group)
 			if (targets.length === 0)
 			{
 				targets = enumStruct(CAM_HUMAN_PLAYER).filter(function(obj) {
-					return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y);
+					return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y) && 
+					!allianceExistsBetween(droids[0].player, obj.player);
 				});
 				if (targets.length === 0)
 				{
 					targets = enumDroid(CAM_HUMAN_PLAYER).filter(function(obj) {
 						return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y) &&
-							(obj.type === STRUCTURE || (obj.type === DROID && !isVTOL(obj)));
+							(obj.type === STRUCTURE || (obj.type === DROID && !isVTOL(obj))) && 
+							!allianceExistsBetween(droids[0].player, obj.player);
 					});
 					if (targets.length === 0)
 					{
 						targets = enumDroid(CAM_HUMAN_PLAYER).filter(function(obj) {
-							return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y);
+							return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y) && 
+							obj.type !== FEATURE && !allianceExistsBetween(droids[0].player, obj.player);
 						});
 					}
 				}
@@ -286,11 +291,15 @@ function __camPickTarget(group)
 			{
 				targets = enumRange(gi.target.x, gi.target.y,
 				                    __CAM_TARGET_TRACKING_RADIUS,
-				                    CAM_HUMAN_PLAYER, false);
+				                    ALL_PLAYERS, false).filter(function(obj) {
+										return (obj.type !== FEATURE && !allianceExistsBetween(droids[0].player, obj.player))
+									});
 			}
 			if (targets.length === 0)
 			{
-				targets = enumRange(defendPos.x, defendPos.y, radius, CAM_HUMAN_PLAYER, false);
+				targets = enumRange(defendPos.x, defendPos.y, radius, ALL_PLAYERS, false).filter(function(obj) {
+					return (obj.type !== FEATURE && !allianceExistsBetween(droids[0].player, obj.player))
+				});;
 			}
 			if (targets.length === 0)
 			{
@@ -616,7 +625,9 @@ function __camTacticsTickForGroup(group)
 		{
 			var closeByObj;
 			var artilleryLike = (droid.isCB || droid.hasIndirect || droid.isSensor);
-			var closeBy = enumRange(droid.x, droid.y, __camScanRange(gi.order, droid.droidType), CAM_HUMAN_PLAYER, track);
+			var closeBy = enumRange(droid.x, droid.y, __camScanRange(gi.order, droid.droidType), ALL_PLAYERS, track).filter(function(obj) {
+				return (obj.type !== FEATURE && !allianceExistsBetween(healthyDroids[0].player, obj.player))
+			});;
 
 			if (closeBy.length > 0)
 			{

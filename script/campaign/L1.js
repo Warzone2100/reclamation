@@ -16,6 +16,11 @@ const YELLOW_SCAVS = 3; // Yellow Scavengers
 
 // Whether the player has been detected by either of the scavenger factions
 var playerDetected = false;
+// Whether the player can use the chat to change colors, disabled when capturing the NASDA base.
+var allowColourChange = true;
+// Changing the player's colour only updates playerData after save-loading or level progression.
+// This variable is to make sure the transport correctly matches the player's colour on this level.
+var playerColour;
 
 // This triggers when the player moves a droid into the NASDA base
 camAreaEvent("captureZone", function(droid)
@@ -35,7 +40,7 @@ camAreaEvent("captureZone", function(droid)
 	}
 
 	camAbsorbPlayer(NASDA, CAM_HUMAN_PLAYER); // Give NASDA base to player
-	changePlayerColour(NASDA, playerData[0].colour); // NASDA Base to player's colour
+	changePlayerColour(NASDA, playerColour); // NASDA Base to player's colour
 
 	var lz = getObject("LZ");
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER); // Set up LZ
@@ -55,6 +60,9 @@ camAreaEvent("captureZone", function(droid)
 
 	// Remove the beacon over the NASDA base
 	hackRemoveMessage("NASDA_BASE", PROX_MSG, CAM_HUMAN_PLAYER);
+
+	// Don't let the player change colors anymore
+	allowColourChange = false;
 });
 
 // Make the research button flash
@@ -277,6 +285,38 @@ function checkMissileSilos()
 		return true;
 }
 
+// Allow the player to change to colors that are hard-coded to be unselectable
+function eventChat(from, to, message)
+{
+	var colour = 0;
+	switch (message)
+	{
+		case "orange me":
+			colour = 1; // Orange
+			break;
+		case "grey me":
+		case "gray me":
+			colour = 2; // Gray
+			break;
+		case "black me":
+			colour = 3; // Black
+			break;
+		default:
+			return;
+	}
+
+	if (allowColourChange) // Only let the player change colors before capturing the NASDA base.
+	{
+		playerColour = colour;
+		changePlayerColour(CAM_HUMAN_PLAYER, colour);
+		playSound("beep6.ogg");
+	}
+	else
+	{
+		playSound("beep8.ogg");
+	}
+}
+
 function eventStartLevel()
 {
 	changePlayerColour(NASDA, 10); // NASDA Base to white
@@ -391,4 +431,6 @@ function eventStartLevel()
 
 	// Set the fog to it's default colours
 	camSetFog(182, 225, 236);
+
+	playerColour = playerData[0].colour;
 }
