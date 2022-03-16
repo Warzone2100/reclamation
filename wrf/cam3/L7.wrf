@@ -1,0 +1,30 @@
+/*
+ * Cam3b.wrf
+ *
+ */
+
+/* Additional audio for the level */
+directory	"audio/countdown"
+file		WAV		"10to1.ogg"
+file		WAV		"det10min.ogg"
+file		WAV		"det5min.ogg"
+file		WAV		"det4min.ogg"
+file		WAV		"det3min.ogg"
+file		WAV		"det2min.ogg"
+file		WAV		"det1min.ogg"
+file		WAV		"fdetseq.ogg"
+
+/* Infected unit alert */
+directory   "audio/extra"
+file        WAV     "pcv624.ogg"
+
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+file		SMSG		"briefL7.txt"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory		"script/campaign"
+file			JAVASCRIPT        "L7.js"

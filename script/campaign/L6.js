@@ -59,6 +59,22 @@ function preDamageInfestedStructs()
 	}
 }
 
+// Play alerts if the player's stuff gets infected by a Vile Stinger
+function eventObjectTransfer(obj, from)
+{
+	if (from === CAM_HUMAN_PLAYER && obj.player === INFESTED)
+	{
+		if (obj.type === STRUCTURE)
+		{
+			playSound("pcv623.ogg"); // "Structure Infected"
+		}
+		else if (obj.type === DROID)
+		{
+			playSound("pcv624.ogg"); // "Unit Infected"
+		}
+	}
+}
+
 // Triggered when approaching the western infested base
 camAreaEvent("infestedAttackTrigger", function(droid)
 {

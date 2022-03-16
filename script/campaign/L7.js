@@ -40,6 +40,22 @@ function messageAlert()
 	playSound("beep7.ogg"); // Play a little noise to notify the player that they have a new message
 }
 
+// Play alerts if the player's stuff gets infected by a Vile Stinger
+function eventObjectTransfer(obj, from)
+{
+	if (from === CAM_HUMAN_PLAYER && obj.player === INFESTED)
+	{
+		if (obj.type === STRUCTURE)
+		{
+			playSound("pcv623.ogg"); // "Structure Infected"
+		}
+		else if (obj.type === DROID)
+		{
+			playSound("pcv624.ogg"); // "Unit Infected"
+		}
+	}
+}
+
 // Transition the level into phase two
 // At this point, both ground and air attack waves will stop spawning to give the player some time to reorganize
 // This function should always be called around when the timer hits 12 minutes remaining
@@ -131,6 +147,9 @@ function prepareEnding()
 
 	// Move the camera towards the player's base
 	cameraSlide(4032, 2624);
+
+	// Force the minimap to be active.
+	setMiniMap(true);
 }
 
 // Cool explosions and stuff
@@ -155,6 +174,9 @@ function endEffects()
 function smallExplosionFX()
 {
 	fireWeaponAtLoc("SmallExplosion", 20 + camRand(26), 15 + camRand(16), CAM_HUMAN_PLAYER);
+
+	// And make sure the minimap stays on.
+	setMiniMap(true);
 }
 
 // Blow up everything in an area that rapidly grows to cover the whole map
@@ -348,10 +370,9 @@ function sendCivGroup(entrance)
 
 	// Order all civilians on the map to move towards the LZ
 	var civs = enumDroid(CIVILIANS);
-	for (var i = 0; i < civs.length; i++)
-	{
-		orderDroidLoc(civs[i], DORDER_MOVE, lz.x, lz.y);
-	}
+	camManageGroup(camMakeGroup(civs, ALLIES), CAM_ORDER_DEFEND, {
+		pos: lz
+	});
 }
 
 // Spawn a group of infested at a given entrance

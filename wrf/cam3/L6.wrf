@@ -8,6 +8,10 @@ directory	"messages"
 file		SMSG		"briefL6.txt"
 file		SMSG		"proxL6.txt"
 
+/* Infected unit alert */
+directory   "audio/extra"
+file        WAV     "pcv624.ogg"
+
 directory "script"
 file JAVASCRIPT "rules.js"
 
