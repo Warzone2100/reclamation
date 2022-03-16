@@ -223,7 +223,7 @@ function startScavAttack()
 function removeTransport()
 {
 	var transport = enumDroid(DUMMY_TRANSPORT);
-	camSafeRemoveObject(transport, false);
+	camSafeRemoveObject(transport[0], false);
 }
 
 // Check to make sure at least 1 silo still exists.
