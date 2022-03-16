@@ -1,3 +1,17 @@
+Reclamation 1.1.1
+
+Minor update with some AI improvements and some quality of life changes.
+Other Changes:
+- Tweaked tactics.js; non-allied enemies will properly target each other during combat, but will still seek out the player when not fighting each other.
+- The player may now use "orange me", "gray me", or "black me" chat commands on L1 to change their color. This is only allowed before capturing the NASDA base.
+- Previously unused(?) audio messages are now played when a player's units or structures are absorbed by the Infested in L6 and L7.
+- The template for Machinegun Viper Wheels now starts off available without the player needing to design it themselves.
+- Correctly remove the dummy transport on L3.
+- The mini map now stays during the ending scene.
+- Civilians on L7 are now given the "defend" order onto the player's LZ.
+- Increased helicopter turning speed a bit.
+
+
 Reclamation 1.1.0
 
 Major update made for Warzone 4.2.7, MANY redundant files have been cut now that the game properly checks base.wz for assets. In-game music and cutscenes will now play properly, and the total file size of the mod has dropped dramatically.
