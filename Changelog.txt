@@ -1,3 +1,11 @@
+Reclamation 1.1.2
+
+Minor update with some bugfixes and improvements.
+- Added a dummy .ogv file to prevent mission messages getting stuck on loading screens.
+- Updated propulsion models to the most recent versions.
+- Changed the explosion sound effect of scavenger jeep rockets.
+- Removed a lot of unnecessary files.
+
 Reclamation 1.1.1
 
 Minor update with some AI improvements and some quality of life changes.
