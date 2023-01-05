@@ -107,8 +107,7 @@
                 "moving": "fxheli5to8.pie"
             },
             "tracked01": {
-                "left": "rustltrk.pie",
-                "right": "rustrtrk.pie"
+                "left": "rustltrk.pie"
             }
         },
         "size": "LIGHT",
@@ -134,8 +133,7 @@
                 "moving": "fxheli5to8.pie"
             },
             "tracked01": {
-                "left": "rustltrk.pie",
-                "right": "rustrtrk.pie"
+                "left": "rustltrk.pie"
             }
         },
         "size": "LIGHT",
@@ -370,8 +368,8 @@
     "Body10MBT": {
         "armourHeat": 25,
         "armourKinetic": 28,
-        "buildPoints": 800,
-        "buildPower": 130,
+        "buildPoints": 470,
+        "buildPower": 80,
         "class": "Droids",
         "designable": 1,
         "hitpoints": 300,
@@ -381,30 +379,24 @@
         "powerOutput": 23000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack02": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack03": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "V-Tol": {
-                "left": "prhlvtl2.pie",
-                "right": "prhrvtl2.pie",
+                "left": "prhvtl2.pie",
                 "moving": "fxvtl10.pie"
             },
             "V-Tol02": {
-                "left": "prhlvtl2.pie",
-                "right": "prhrvtl2.pie",
+                "left": "prhvtl2.pie",
                 "moving": "fxvtl10.pie"
             },
             "V-Tol03": {
-                "left": "prhlvtl2.pie",
-                "right": "prhrvtl2.pie",
+                "left": "prhvtl2.pie",
                 "moving": "fxvtl10.pie"
             },
             "hover01": {
@@ -417,28 +409,22 @@
                 "left": "prhhov1.pie"
             },
             "tracked01": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked02": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked03": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "wheeled01": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled02": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled03": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             }
         },
         "size": "HEAVY",
@@ -459,30 +445,24 @@
         "powerOutput": 20000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack02": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack03": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "V-Tol": {
-                "left": "prhlvtl3.pie",
-                "right": "prhrvtl3.pie",
+                "left": "prhvtl3.pie",
                 "moving": "fxvtl11.pie"
             },
             "V-Tol02": {
-                "left": "prhlvtl3.pie",
-                "right": "prhrvtl3.pie",
+                "left": "prhvtl3.pie",
                 "moving": "fxvtl11.pie"
             },
             "V-Tol03": {
-                "left": "prhlvtl3.pie",
-                "right": "prhrvtl3.pie",
+                "left": "prhvtl3.pie",
                 "moving": "fxvtl11.pie"
             },
             "hover01": {
@@ -495,28 +475,22 @@
                 "left": "prhhov1.pie"
             },
             "tracked01": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked02": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked03": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "wheeled01": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled02": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled03": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             }
         },
         "size": "HEAVY",
@@ -537,30 +511,24 @@
         "powerOutput": 20000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack02": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack03": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "V-Tol": {
-                "left": "prhlvtl4.pie",
-                "right": "prhrvtl4.pie",
+                "left": "prhvtl4.pie",
                 "moving": "fxvtl12.pie"
             },
             "V-Tol02": {
-                "left": "prhlvtl4.pie",
-                "right": "prhrvtl4.pie",
+                "left": "prhvtl4.pie",
                 "moving": "fxvtl12.pie"
             },
             "V-Tol03": {
-                "left": "prhlvtl4.pie",
-                "right": "prhrvtl4.pie",
+                "left": "prhvtl4.pie",
                 "moving": "fxvtl12.pie"
             },
             "hover01": {
@@ -573,28 +541,22 @@
                 "left": "prhhov1.pie"
             },
             "tracked01": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked02": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked03": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "wheeled01": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled02": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled03": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             }
         },
         "size": "HEAVY",
@@ -615,30 +577,24 @@
         "powerOutput": 5000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack02": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack03": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "V-Tol": {
-                "left": "prllvtl1.pie",
-                "right": "prlrvtl1.pie",
+                "left": "prlvtl1.pie",
                 "moving": "fxvtl01.pie"
             },
             "V-Tol02": {
-                "left": "prllvtl1.pie",
-                "right": "prlrvtl1.pie",
+                "left": "prlvtl1.pie",
                 "moving": "fxvtl01.pie"
             },
             "V-Tol03": {
-                "left": "prllvtl1.pie",
-                "right": "prlrvtl1.pie",
+                "left": "prlvtl1.pie",
                 "moving": "fxvtl01.pie"
             },
             "hover01": {
@@ -651,28 +607,22 @@
                 "left": "prlhov1.pie"
             },
             "tracked01": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked02": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked03": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "wheeled01": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled02": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled03": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             }
         },
         "size": "LIGHT",
@@ -690,33 +640,27 @@
         "id": "Body2SUP",
         "model": "drlbod02.pie",
         "name": "Leopard",
-        "powerOutput": 4000,
+        "powerOutput": 6500,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack02": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack03": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "V-Tol": {
-                "left": "prllvtl2.pie",
-                "right": "prlrvtl2.pie",
+                "left": "prlvtl2.pie",
                 "moving": "fxvtl2and3.pie"
             },
             "V-Tol02": {
-                "left": "prllvtl2.pie",
-                "right": "prlrvtl2.pie",
+                "left": "prlvtl2.pie",
                 "moving": "fxvtl2and3.pie"
             },
             "V-Tol03": {
-                "left": "prllvtl2.pie",
-                "right": "prlrvtl2.pie",
+                "left": "prlvtl2.pie",
                 "moving": "fxvtl2and3.pie"
             },
             "hover01": {
@@ -729,28 +673,22 @@
                 "left": "prlhov1.pie"
             },
             "tracked01": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked02": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked03": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "wheeled01": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled02": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled03": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             }
         },
         "size": "LIGHT",
@@ -760,8 +698,8 @@
     "Body3MBT": {
         "armourHeat": 15,
         "armourKinetic": 20,
-        "buildPoints": 400,
-        "buildPower": 68,
+        "buildPoints": 170,
+        "buildPower": 43,
         "class": "Droids",
         "designable": 1,
         "hitpoints": 100,
@@ -771,30 +709,24 @@
         "powerOutput": 5000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack02": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack03": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "V-Tol": {
-                "left": "prllvtl2.pie",
-                "right": "prlrvtl2.pie",
+                "left": "prlvtl2.pie",
                 "moving": "fxvtl2and3.pie"
             },
             "V-Tol02": {
-                "left": "prllvtl2.pie",
-                "right": "prlrvtl2.pie",
+                "left": "prlvtl2.pie",
                 "moving": "fxvtl2and3.pie"
             },
             "V-Tol03": {
-                "left": "prllvtl2.pie",
-                "right": "prlrvtl2.pie",
+                "left": "prlvtl2.pie",
                 "moving": "fxvtl2and3.pie"
             },
             "hover01": {
@@ -807,28 +739,22 @@
                 "left": "prlhov1.pie"
             },
             "tracked01": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked02": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked03": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "wheeled01": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled02": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled03": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             }
         },
         "size": "LIGHT",
@@ -849,30 +775,24 @@
         "powerOutput": 5000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack02": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "HalfTrack03": {
-                "left": "prllhtr1.pie",
-                "right": "prlrhtr1.pie"
+                "left": "prlhtr1.pie"
             },
             "V-Tol": {
-                "left": "prllvtl3.pie",
-                "right": "prlrvtl3.pie",
+                "left": "prlvtl3.pie",
                 "moving": "fxvtl04.pie"
             },
             "V-Tol02": {
-                "left": "prllvtl3.pie",
-                "right": "prlrvtl3.pie",
+                "left": "prlvtl3.pie",
                 "moving": "fxvtl04.pie"
             },
             "V-Tol03": {
-                "left": "prllvtl3.pie",
-                "right": "prlrvtl3.pie",
+                "left": "prlvtl3.pie",
                 "moving": "fxvtl04.pie"
             },
             "hover01": {
@@ -885,28 +805,22 @@
                 "left": "prlhov1.pie"
             },
             "tracked01": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked02": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "tracked03": {
-                "left": "prlltrk1.pie",
-                "right": "prlrtrk1.pie"
+                "left": "prltrk1.pie"
             },
             "wheeled01": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled02": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             },
             "wheeled03": {
-                "left": "prllwhl1.pie",
-                "right": "prlrwhl1.pie"
+                "left": "prlwhl1.pie"
             }
         },
         "size": "LIGHT",
@@ -927,30 +841,24 @@
         "powerOutput": 15000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack02": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack03": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "V-Tol": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol02": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol03": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "hover01": {
@@ -963,28 +871,22 @@
                 "left": "prmhov1.pie"
             },
             "tracked01": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked02": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked03": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "wheeled01": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled02": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled03": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             }
         },
         "size": "MEDIUM",
@@ -1002,33 +904,27 @@
         "id": "Body6SUPP",
         "model": "drmbod06.pie",
         "name": "Panther",
-        "powerOutput": 13000,
+        "powerOutput": 18000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack02": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack03": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "V-Tol": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol02": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol03": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "hover01": {
@@ -1041,28 +937,22 @@
                 "left": "prmhov1.pie"
             },
             "tracked01": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked02": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked03": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "wheeled01": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled02": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled03": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             }
         },
         "size": "MEDIUM",
@@ -1072,8 +962,8 @@
     "Body7ABT": {
         "armourHeat": 20,
         "armourKinetic": 24,
-        "buildPoints": 600,
-        "buildPower": 100,
+        "buildPoints": 330,
+        "buildPower": 64,
         "class": "Droids",
         "designable": 1,
         "hitpoints": 200,
@@ -1083,64 +973,52 @@
         "powerOutput": 15000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack02": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack03": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "V-Tol": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol02": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol03": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "hover01": {
-                "left": "prmhov1.pie"
+                "left": "prmhov2.pie"
             },
             "hover02": {
-                "left": "prmhov1.pie"
+                "left": "prmhov2.pie"
             },
             "hover03": {
-                "left": "prmhov1.pie"
+                "left": "prmhov2.pie"
             },
             "tracked01": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked02": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked03": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "wheeled01": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled02": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled03": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             }
         },
         "size": "MEDIUM",
@@ -1161,30 +1039,24 @@
         "powerOutput": 15000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack02": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "HalfTrack03": {
-                "left": "prmlhtr2.pie",
-                "right": "prmrhtr2.pie"
+                "left": "prmhtr2.pie"
             },
             "V-Tol": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol02": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "V-Tol03": {
-                "left": "prmlvtl1.pie",
-                "right": "prmrvtl1.pie",
+                "left": "prmvtl1.pie",
                 "moving": "fxvtl5to8.pie"
             },
             "hover01": {
@@ -1197,28 +1069,22 @@
                 "left": "prmhov1.pie"
             },
             "tracked01": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked02": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "tracked03": {
-                "left": "prmltrk2.pie",
-                "right": "prmrtrk2.pie"
+                "left": "prmtrk2.pie"
             },
             "wheeled01": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled02": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             },
             "wheeled03": {
-                "left": "prmlwhl1.pie",
-                "right": "prmrwhl1.pie"
+                "left": "prmwhl1.pie"
             }
         },
         "size": "MEDIUM",
@@ -1239,30 +1105,24 @@
         "powerOutput": 18000,
         "propulsionExtraModels": {
             "HalfTrack": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack02": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "HalfTrack03": {
-                "left": "prhlhtr3.pie",
-                "right": "prhrhtr3.pie"
+                "left": "prhhtr3.pie"
             },
             "V-Tol": {
-                "left": "prhlvtl1.pie",
-                "right": "prhrvtl1.pie",
+                "left": "prhvtl1.pie",
                 "moving": "fxvtl09.pie"
             },
             "V-Tol02": {
-                "left": "prhlvtl1.pie",
-                "right": "prhrvtl1.pie",
+                "left": "prhvtl1.pie",
                 "moving": "fxvtl09.pie"
             },
             "V-Tol03": {
-                "left": "prhlvtl1.pie",
-                "right": "prhrvtl1.pie",
+                "left": "prhvtl1.pie",
                 "moving": "fxvtl09.pie"
             },
             "hover01": {
@@ -1275,28 +1135,22 @@
                 "left": "prhhov1.pie"
             },
             "tracked01": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked02": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "tracked03": {
-                "left": "prhltrk3.pie",
-                "right": "prhrtrk3.pie"
+                "left": "prhtrk3.pie"
             },
             "wheeled01": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled02": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             },
             "wheeled03": {
-                "left": "prhlwhl1.pie",
-                "right": "prhrwhl1.pie"
+                "left": "prhwhl1.pie"
             }
         },
         "size": "HEAVY",
@@ -1589,12 +1443,11 @@
     },
     "ZNULLBODY": {
         "id": "ZNULLBODY",
-        "model": "mibnkbod.pie",
+        "model": "znullbody.pie",
         "name": "*Z NULL BODY*",
         "propulsionExtraModels": {
             "ZNULLPROP": {
-                "left": "mibnkdrl.pie",
-                "right": "mibnkdrr.pie"
+                "left": "znullfull.pie"
             }
         },
         "size": "LIGHT",
