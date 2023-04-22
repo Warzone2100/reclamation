@@ -161,6 +161,8 @@
             "Armed with Cyborg Grenade Launcher",
             "Effective against: Infantry, wheeled vehicles and structures",
             "Ineffective against: Bunkers and tracked vehicles",
+            "Does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
             "Must be stationary to fire",
             "Requires Cyborg factory to produce"
         ]
@@ -423,7 +425,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Flamer",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_CANN": {
@@ -434,7 +436,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Light Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_HFLA": {
@@ -445,7 +447,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Inferno Flamer",
             "Automatically targets enemies in range",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_ROCTOW": {

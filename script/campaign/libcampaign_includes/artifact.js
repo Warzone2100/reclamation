@@ -32,9 +32,18 @@ function camSetArtifacts(artifacts)
 		var pos = camMakePos(alabel);
 		if (camDef(pos.id))
 		{
-			// will place when object with this id is destroyed
-			ai.id = "" + pos.id;
-			ai.placed = false;
+			if (getObject(alabel).type === FEATURE && getObject(alabel).stattype === ARTIFACT)
+			{
+				// artifact object given
+				addLabel(getObject(alabel), __camGetArtifactLabel(alabel));
+				ai.placed = true;
+			}
+			else
+			{
+				// will place when object with this id is destroyed
+				ai.id = "" + pos.id;
+				ai.placed = false;
+			}
 		}
 		else
 		{

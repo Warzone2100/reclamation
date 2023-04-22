@@ -563,6 +563,7 @@
 	"R-Vehicle-Metals01": {
         "iconID": "IMAGE_RES_DROIDTECH",
         "id": "R-Vehicle-Metals01",
+        "keyTopic": 1,
         "imdName": "icmolql.pie",
         "msgName": "RES_V_MET1",
         "name": "Composite Alloys",
@@ -979,7 +980,7 @@
         "resultComponents": [
             "CyborgCannon"
         ],
-        "statID": "Cannon1Mk1"
+        "statID": "CyborgCannon"
     },
     "R-Cyb-Wpn-Grenade": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -994,7 +995,7 @@
         "resultComponents": [
             "Cyb-Wpn-Grenade"
         ],
-        "statID": "Mortar1Mk1"
+        "statID": "Cyb-Wpn-Grenade"
     },
     "R-Cyborg-Wpn-Flamer": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1010,7 +1011,7 @@
         "resultComponents": [
             "CyborgFlamer01"
         ],
-        "statID": "Flame1Mk1"
+        "statID": "CyborgFlamer01"
     },
     "R-Cyb-Wpn-Thermite": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1029,7 +1030,7 @@
         "resultComponents": [
             "Cyb-Wpn-Thermite"
         ],
-        "statID": "Flame2"
+        "statID": "Cyb-Wpn-Thermite"
     },
     "R-Cyb-Sys-Repair": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1045,7 +1046,7 @@
         "resultComponents": [
             "CyborgRepair"
         ],
-        "statID": "LightRepair1"
+        "statID": "CyborgRepair"
     },
     "R-Cyb-Sys-Construct": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1060,7 +1061,7 @@
         "resultComponents": [
             "CyborgSpade"
         ],
-        "statID": "Spade1Mk1"
+        "statID": "CyborgSpade"
     },
     "R-Cyborg-Wpn-MG": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1078,7 +1079,7 @@
             "CyborgHeavyBody",
             "CyborgLightBody"
         ],
-        "statID": "MG1Mk1"
+        "statID": "CyborgChaingun"
     },
     "R-Cyborg-Wpn-Rocket": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1094,7 +1095,7 @@
         "resultComponents": [
             "CyborgRocket"
         ],
-        "statID": "Rocket-LtA-T"
+        "statID": "CyborgRocket"
     },
     "R-Cyborg-Wpn-LtRocket": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1110,7 +1111,7 @@
         "resultComponents": [
             "CyborgLtRocket"
         ],
-        "statID": "Rocket-LtA-TMk1"
+        "statID": "CyborgLtRocket"
     },
 	"R-Cyborg-Wpn-RotMG": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1128,7 +1129,7 @@
         "resultComponents": [
             "CyborgRotMG"
         ],
-        "statID": "MG4ROTARYMk1"
+        "statID": "CyborgRotMG"
     },
 	"R-Cyborg-Wpn-ATMiss": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1146,7 +1147,7 @@
         "resultComponents": [
             "Cyb-Wpn-Atmiss"
         ],
-        "statID": "Missile-A-T"
+        "statID": "Cyb-Wpn-Atmiss"
     },
     "R-Cyborg-Wpn-Laser1": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1161,7 +1162,7 @@
         "resultComponents": [
             "Cyb-Wpn-Laser"
         ],
-        "statID": "Laser3BEAMMk1"
+        "statID": "Cyb-Wpn-Laser"
     },
     "R-Cyborg-Wpn-Rail1": {
         "iconID": "IMAGE_RES_CYBORGTECH",
@@ -1176,7 +1177,7 @@
         "resultComponents": [
             "Cyb-Wpn-Rail1"
         ],
-        "statID": "RailGun1Mk1"
+        "statID": "Cyb-Wpn-Rail1"
     },
     "R-Defense-HardcreteGate": {
         "iconID": "IMAGE_RES_DEFENCE",
@@ -1979,9 +1980,9 @@
         "researchPoints": 900,
         "researchPower": 28,
         "resultStructures": [
-            "Sys-NotRustSensoTower01"
+            "Sys-SensoTower01"
         ],
-        "statID": "Sys-NotRustSensoTower01"
+        "statID": "Sys-SensoTower01"
     },
     "R-Sys-Sensor-Turret01": {
         "iconID": "IMAGE_RES_SYSTEMTECH",
@@ -2236,8 +2237,8 @@
             "R-Sys-Engineering01",
             "R-Vehicle-Prop-Halftracks"
         ],
-        "researchPoints": 2400,
-        "researchPower": 75,
+        "researchPoints": 1200,
+        "researchPower": 37,
         "resultComponents": [
             "tracked01"
         ],
@@ -2465,8 +2466,8 @@
             "R-Wpn-Flamer-Damage01",
             "R-Wpn-Flamer-ROF02"
         ],
-        "researchPoints": 1200,
-        "researchPower": 37,
+        "researchPoints": 2200,
+        "researchPower": 87,
         "results": [
             {
                 "class": "Weapon",
@@ -2666,7 +2667,7 @@
         "requiredResearch": [
             "R-Wpn-MG-Damage02"
         ],
-        "researchPoints": 3600,
+        "researchPoints": 2400,
         "researchPower": 112,
         "results": [
             {
@@ -3052,7 +3053,7 @@
         "name": "HE Rockets Mk2",
         "requiredResearch": [
             "R-Wpn-Rocket-Damage01",
-            "R-Wpn-Cannon-Damage02"
+            "R-Struc-Research-Module"
         ],
         "researchPoints": 2400,
         "researchPower": 75,
@@ -5000,7 +5001,7 @@
             "R-Wpn-Cannon1Mk1",
             "R-Wpn-MG-ROF01"
         ],
-        "researchPoints": 4000,
+        "researchPoints": 2400,
         "researchPower": 125,
         "results": [
             {
@@ -5230,8 +5231,8 @@
         "requiredResearch": [
             "R-Wpn-Flamer-ROF01"
         ],
-        "researchPoints": 6000,
-        "researchPower": 187,
+        "researchPoints": 1600,
+        "researchPower": 107,
         "results": [
             {
                 "class": "Weapon",

@@ -62,7 +62,7 @@
             "Armed with Cyborg Flamer",
             "Effective against: Infantry, vehicles and bunkers",
             "Ineffective against: Non-bunker structures",
-            "Can ignite the ground and enemy units causing damage over time",
+            "Can ignite enemy units causing damage over time",
             "Flames can hit multiple units",
             "Has a very short weapon range",
             "Requires Cyborg factory to produce"
@@ -153,7 +153,7 @@
             "Flame-thrower firing Propylene Oxide gel",
             "Effective against: Infantry, vehicles and bunkers",
             "Ineffective against: Non-bunker structures",
-            "Can ignite the ground and enemy units causing damage over time",
+            "Can ignite enemy units causing damage over time",
             "Flames can hit multiple units",
             "Has a very short weapon range"
         ]
@@ -165,8 +165,10 @@
         "text": [
             "New Propulsion Available",
             "Armored Half-tracks",
-            "Speed: Medium",
-            "Hit Points: Medium"
+            "Somewhat resistant to anti-personel and artillery damage",
+            "Vulnerable to anti-tank damage",
+            "Provides moderate bonus HP",
+            "Moderate movement speed"
         ]
     },
     "RES_MG1MK1": {
@@ -201,7 +203,7 @@
             "Ineffective against: Tracked vehicles and bunkers",
             "Does not require line of sight to a target and can be assigned to a sensor",
             "Greater accuracy at longer ranges",
-            "Has a very long weapon range",
+            "Has a long weapon range",
             "Must be stationary to fire"
         ]
     },
@@ -377,8 +379,10 @@
         "text": [
             "New Propulsion Available",
             "Armored Tracks",
-            "Speed: Slow",
-            "Hit Points: High"
+            "Very resistant to anti-personel and artillery damage",
+            "Vulnerable to anti-tank damage",
+            "Very slow movement speed",
+            "Provides substantial bonus HP"
         ]
     },
     "RES_TTRAP1": {

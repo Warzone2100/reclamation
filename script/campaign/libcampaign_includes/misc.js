@@ -212,24 +212,27 @@ function camCountStructuresInArea(lab, player)
 	return ret;
 }
 
-//;; ## camChangeOnDiff(numeric value)
+//;; ## camChangeOnDiff(numeric value[, inverse])
 //;;
 //;; Change a numeric value based on campaign difficulty.
 //;;
-function camChangeOnDiff(num)
+function camChangeOnDiff(num, inverse)
 {
 	var modifier = 0;
 
 	switch (difficulty)
 	{
+		case SUPEREASY:
+			modifier = 2;
+			break;
 		case EASY:
-			modifier = 1.25;
+			modifier = 1.5;
 			break;
 		case MEDIUM:
 			modifier = 1.00;
 			break;
 		case HARD:
-			modifier = 0.80;
+			modifier = 0.85;
 			break;
 		case INSANE:
 			modifier = 0.70;
@@ -237,6 +240,19 @@ function camChangeOnDiff(num)
 		default:
 			modifier = 1.00;
 			break;
+	}
+
+	if (camDef(inverse) && inverse)
+	{
+		if (difficulty !== SUPEREASY)
+		{
+			modifier = 2 - modifier;
+		}
+		else
+		{
+			// Don't let the modifier equal zero
+			modifier = 0.25;
+		}
 	}
 
 	return Math.floor(num * modifier);
@@ -493,6 +509,77 @@ function camSetFog(r, g, b)
 	__fogB = b;
 }
 
+// Returns stats about the given component from the global Stats data structure.
+// If a player is provided, look up stats from their specified Upgrades structure,
+// which contains stats that can be modified through research upgrades.
+// For example, `camGetCompStats("Lancer", "Weapon", CAM_HUMAN_PLAYER)` can be used
+// to get the current stats of the player's Lancer rockets.
+// ```compType``` can be "Body", "Brain", "Building", "Construct", "ECM", "Propulsion",
+// "Repair", "Sensor" or "Weapon".
+function camGetCompStats(compName, compType, player)
+{
+	if (camDef(player))
+	{
+		return Upgrades[player][compType][compName];
+	}
+	else
+	{
+		return Stats[compType][compName];
+	}
+}
+
+// Returns the external name of a component from it's internal ID name.
+// For example, `camGetCompNameFromId("Rocket-LtA-T", "Weapon")` returns "Lancer".
+function camGetCompNameFromId(compId, compType)
+{
+	// FIXME: O(n) lookup here
+	var compList = Stats[compType];
+	for (var compName in compList)
+	{
+		if (compList[compName].Id === compId)
+		{
+			return compName;
+		}
+	}
+	
+}
+
+// Simple wrapper for enumStruct. Allows the use of ALL_PLAYERS.
+function camEnumStruct(player)
+{
+	if (player !== ALL_PLAYERS)
+	{
+		return enumStruct(player);
+	}
+	else
+	{
+		var structList = [];
+		for (var i = 0; i <= CAM_MAX_PLAYERS; i++)
+		{
+			structList = structList.concat(enumStruct(i));
+		}
+		return structList;
+	}
+}
+
+// Simple wrapper for enumDroid. Allows the use of ALL_PLAYERS.
+function camEnumDroid(player)
+{
+	if (player !== ALL_PLAYERS)
+	{
+		return enumDroid(player);
+	}
+	else
+	{
+		var droidList = [];
+		for (var i = 0; i <= CAM_MAX_PLAYERS; i++)
+		{
+			droidList = droidList.concat(enumDroid(i));
+		}
+		return droidList;
+	}
+}
+
 //////////// privates
 
 function __camGlobalContext()
@@ -560,12 +647,4 @@ function __camAiPowerReset()
 	{
 		setPower(AI_POWER, i);
 	}
-}
-
-function __camSetOffworldLimits()
-{
-	// These are the only structures that do not get
-	// auto-disabled by the engine in off-world missions.
-	setStructureLimits("A0CommandCentre", 0, CAM_HUMAN_PLAYER);
-	setStructureLimits("A0ComDroidControl", 0, CAM_HUMAN_PLAYER);
 }

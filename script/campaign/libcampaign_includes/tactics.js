@@ -16,6 +16,8 @@
 //;;   * ```pos``` Position or list of positions to attack. If pos is a list,
 //;; 		first positions in the list will be attacked first.
 //;;   * ```radius``` Circle radius around ```pos``` to scan for targets.
+//;;   * ```targetPlayer``` Player number to prioritize attacking. If targetPlayer is undefined 
+//;;        or is allied, will indescriminantly attack all un-allied players.
 //;;   * ```fallback``` Position to retreat.
 //;;   * ```morale``` An integer from 1 to 100. If that high percentage
 //;; 		of the original group dies, fall back to the fallback position.
@@ -74,13 +76,13 @@
 //;; 		it has at least ```count``` droids in its biggest cluster.
 //;; 		If ```count``` is set to -1, at least 2/3 of group's droids should be in
 //;; 		the biggest cluster.
-//;; * ```CAM_ORDER_FOLLOW``` Assign the group to commander. The sub-order
-//;; 	is defined to be given to the commander. When commander dies,
+//;; * ```CAM_ORDER_FOLLOW``` Assign the group to commander or sensor. The sub-order
+//;; 	is defined to be given to the leader. When leader dies,
 //;; 	the group continues to execute the sub-order. The following data object
 //;; 	fields are available:
-//;;   * ```droid``` Commander droid label.
-//;;   * ```order``` The order to give to the commander.
-//;;   * ```data``` Data of the commander's order.
+//;;   * ```leader``` the leader droid or structure to follow.
+//;;   * ```order``` The order to give to the leader.
+//;;   * ```data``` Data of the leader's order (if a droid).
 //;;   * ```repair``` Health percentage to fall back to repair facility, if any.
 //;;
 function camManageGroup(group, order, data)
@@ -117,8 +119,28 @@ function camManageGroup(group, order, data)
 	};
 	if (order === CAM_ORDER_FOLLOW)
 	{
-		var commanderGroup = camMakeGroup([getObject(data.droid)]);
-		camManageGroup(commanderGroup, data.order, data.data);
+		if (!camDef(data.leader))
+		{
+			camDebug("Group", group, "was ordered to follow, but was not given a leader!");
+			return;
+		}
+
+		var leaderObj = getObject(data.leader);
+		if (leaderObj.type === DROID) // command or sensor droid
+		{
+			camTrace("Group", group, "assigned to follow droid", leaderObj.id);
+			// Give the suborder to the leader
+			camManageGroup(camMakeGroup(leaderObj), data.order, data.data);
+		}
+		else if (leaderObj.type === STRUCTURE) // sensor towers, vtol strike towers, etc.
+		{
+			camTrace("Group", group, "assigned to follow structure", leaderObj.id);
+			// Structures can't take orders, nothing to do here
+		}
+		else
+		{
+			camDebug("Group", group, "was ordered to follow an invalid leader!");
+		}
 	}
 	// apply orders instantly
 	queue("__camTacticsTickForGroup", CAM_TICKS_PER_FRAME, group);
@@ -217,7 +239,7 @@ function __camPickTarget(group)
 			}
 			// fall-through! we just don't track targets on COMPROMISE
 		case CAM_ORDER_COMPROMISE:
-			if (camDef(gi.data.pos))
+			if (camDef(gi.data.pos) && gi.data.pos !== null)
 			{
 				for (var i = 0; i < gi.data.pos.length; ++i)
 				{
@@ -254,22 +276,30 @@ function __camPickTarget(group)
 			});
 			if (targets.length === 0)
 			{
-				targets = enumStruct(CAM_HUMAN_PLAYER).filter(function(obj) {
+				var targetPlayer = ALL_PLAYERS;
+				if (camDef(gi.data.targetPlayer) && !allianceExistsBetween(dr.player, gi.data.targetPlayer)
+					&& (countDroid(DROID_ANY, gi.data.targetPlayer) > 0 || enumStruct(gi.data.targetPlayer).length > 0))
+				{
+					// Try to narrow our search for targets
+					targetPlayer = gi.data.targetPlayer;
+				}
+
+				targets = camEnumStruct(targetPlayer).filter(function(obj) {
 					return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y) && 
-					!allianceExistsBetween(droids[0].player, obj.player);
+					!allianceExistsBetween(dr.player, obj.player);
 				});
 				if (targets.length === 0)
 				{
-					targets = enumDroid(CAM_HUMAN_PLAYER).filter(function(obj) {
+					targets = camEnumDroid(targetPlayer).filter(function(obj) {
 						return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y) &&
 							(obj.type === STRUCTURE || (obj.type === DROID && !isVTOL(obj))) && 
-							!allianceExistsBetween(droids[0].player, obj.player);
+							!allianceExistsBetween(dr.player, obj.player);
 					});
 					if (targets.length === 0)
 					{
-						targets = enumDroid(CAM_HUMAN_PLAYER).filter(function(obj) {
+						targets = camEnumDroid(targetPlayer).filter(function(obj) {
 							return propulsionCanReach(dr.propulsion, dr.x, dr.y, obj.x, obj.y) && 
-							obj.type !== FEATURE && !allianceExistsBetween(droids[0].player, obj.player);
+							obj.type !== FEATURE && !allianceExistsBetween(dr.player, obj.player);
 						});
 					}
 				}
@@ -278,7 +308,7 @@ function __camPickTarget(group)
 		case CAM_ORDER_DEFEND:
 			if (!camDef(gi.data.pos))
 			{
-				camDebug("'pos' is required for DEFEND order");
+				camDebug("Group " + group + ": 'pos' is required for DEFEND order");
 				return undefined;
 			}
 			var defendPos = gi.data.pos[0];
@@ -327,8 +357,19 @@ function __camPickTarget(group)
 function __camTacticsTick()
 {
 	var dt = CAM_TICKS_PER_FRAME;
+	var numGroups = Object.keys(__camGroupInfo).length;
+	var numDelays = 20; // Handle all groups within this many delays
+	// Calculate the sizes of group "batches" to all be ticked at the same time
+	// This is done so we don't slow down group management by queing up a bunch of groups one after another.
+	// ex: If there's 24 groups (and the max number of delays is 10), then the batch size will be 2, with 4 extras.
+	// The first four batches will have 3 groups, the remaining six will have 2 groups.
+	var batchSize = Math.floor(numGroups / numDelays);
+	var extraGroups = numGroups % numDelays;
+	var batchIndex = 0;
+
 	for (var group in __camGroupInfo)
 	{
+		batchIndex++;
 		//Remove groups with no droids.
 		if (groupSize(group) === 0)
 		{
@@ -346,7 +387,18 @@ function __camTacticsTick()
 			}
 		}
 		queue("__camTacticsTickForGroup", dt, group);
-		dt += CAM_TICKS_PER_FRAME;
+
+		// Check if there's an extra group we need to tick
+		if (batchIndex === batchSize && extraGroups > 0)
+		{
+			extraGroups--;
+		}
+		else if (batchIndex >= batchSize) 
+		{
+			// Start ticking a new batch of groups
+			batchIndex = 0;
+			dt += CAM_TICKS_PER_FRAME;
+		}
 	}
 	//Emulate a queue...
 	removeTimer("__camTacticsTick");
@@ -354,15 +406,23 @@ function __camTacticsTick()
 }
 
 //Return the range (in tiles) a droid will scout for stuff to attack around it.
-function __camScanRange(order, drType)
+function __camScanRange(order, droid)
 {
+	var artilleryLike = (droid.isCB || droid.hasIndirect || droid.isSensor);
 	var rng = __CAM_TARGET_TRACKING_RADIUS; //default
 	switch (order)
 	{
 		case CAM_ORDER_ATTACK:
 		case CAM_ORDER_DEFEND:
 		case CAM_ORDER_FOLLOW:
-			rng = __CAM_TARGET_TRACKING_RADIUS;
+			if (!artilleryLike)
+			{
+				var weaponRange = droid.range / 128;
+				if (weaponRange > __CAM_TARGET_TRACKING_RADIUS)
+				{
+					rng = weaponRange;
+				}
+			}
 			break;
 		case CAM_ORDER_PATROL:
 			rng = 5;
@@ -374,7 +434,7 @@ function __camScanRange(order, drType)
 			camDebug("Unsupported group order", order, camOrderToString(order));
 	}
 
-	if (drType === DROID_SENSOR)
+	if (droid.droidType === DROID_SENSOR)
 	{
 		rng = Math.floor(rng * 1.5);
 	}
@@ -411,7 +471,7 @@ function __camTacticsTickForGroup(group)
 			var droid = rawDroids[i];
 			var repairLikeAction = false;
 
-			if (droid.order === DORDER_RTR)
+			if (droid.order === DORDER_RTR_SPECIFIED && droid.health < 100)
 			{
 				continue;
 			}
@@ -421,7 +481,12 @@ function __camTacticsTickForGroup(group)
 			{
 				if (droid.health < repair.percent)
 				{
-					orderDroid(droid, DORDER_RTR);
+					// Choose the nearest repair facility
+					var repairFacilityList = enumStruct(rawDroids[0].player, REPAIR_FACILITY);
+					repairFacilityList.sort(__camDistToGroupAverage);
+					var repairFacility = repairFacilityList[0];
+
+					orderDroidObj(droid, DORDER_RTR_SPECIFIED, repairFacility);
 					repairLikeAction = true;
 				}
 			}
@@ -461,7 +526,7 @@ function __camTacticsTickForGroup(group)
 				for (var j = 0, len2 = ret.clusters[i].length; j < len2; ++j)
 				{
 					var droid = ret.clusters[i][j];
-					if (droid.order !== DORDER_RTR)
+					if (droid.order !== DORDER_RTR_SPECIFIED)
 					{
 						orderDroidLoc(droid, DORDER_MOVE, groupX, groupY);
 					}
@@ -476,7 +541,7 @@ function __camTacticsTickForGroup(group)
 			for (var i = 0, len = droids.length; i < len; ++i)
 			{
 				var droid = droids[i];
-				if (droid.order === DORDER_RTR)
+				if (droid.order === DORDER_RTR_SPECIFIED)
 				{
 					continue;
 				}
@@ -528,6 +593,7 @@ function __camTacticsTickForGroup(group)
 	{
 		var droid = healthyDroids[i];
 		var vtolUnit = (droid.type === DROID && isVTOL(droid));
+		var repairUnit = (droid.type === DROID && (droid.droidType === DROID_REPAIR));
 
 		if (droid.player === CAM_HUMAN_PLAYER)
 		{
@@ -538,7 +604,7 @@ function __camTacticsTickForGroup(group)
 		if (vtolUnit)
 		{
 			var arm = droid.weapons[0].armed;
-			var isRearming = droid.order === DORDER_REARM;
+			var isRearming = (droid.order === DORDER_REARM || droid.action === 35); // DACTION_WAITDURINGREARM
 
 			if ((arm < 1) || (isRearming && (arm < 100 || droid.health < 100)))
 			{
@@ -553,16 +619,23 @@ function __camTacticsTickForGroup(group)
 
 		if (gi.order === CAM_ORDER_FOLLOW)
 		{
-			var commander = getObject(gi.data.droid);
-			if (commander === null)
+			var leaderObj = getObject(gi.data.leader);
+			if (leaderObj === null)
 			{
-				// the commander is dead? let the group execute his last will.
+				// Is the leader dead? Let the group execute the suborder.
 				camManageGroup(group, gi.data.order, gi.data.data);
 				return;
 			}
-			if (droid.droidType !== DROID_COMMAND && droid.order !== DORDER_COMMANDERSUPPORT)
+
+			var followOrder = DORDER_FIRESUPPORT;
+			if (leaderObj.type === DROID && leaderObj.droidType === DROID_COMMAND) // is the leader a commander?
 			{
-				orderDroidObj(droid, DORDER_COMMANDERSUPPORT, commander);
+				followOrder = DORDER_COMMANDERSUPPORT;
+			}
+
+			if (droid.id !== leaderObj.id && droid.order !== followOrder)
+			{
+				orderDroidObj(droid, followOrder, leaderObj);
 				continue;
 			}
 		}
@@ -621,35 +694,117 @@ function __camTacticsTickForGroup(group)
 			}
 		}
 
+		// Order repair droids to repair nearby friendlies
+		if (repairUnit && gi.order !== CAM_ORDER_FOLLOW)
+		{
+			var repairTargetList = enumRange(droid.x, droid.y, __CAM_TARGET_TRACKING_RADIUS, ALL_PLAYERS, false).filter(function(obj) {
+				return (obj.type === DROID && allianceExistsBetween(droid.player, obj.player));
+			});
+
+			repairTargetList.sort(function(a, b) { // Sort targets by distance from repair unit
+				return distBetweenTwoPoints(droid.x, droid.y, a.x, a.y) - distBetweenTwoPoints(droid.x, droid.y, b.x, b.y);
+			});
+			var repairTarget;
+
+			for (var j = 0; j < repairTargetList.length; j++)
+			{
+				// Check that the repair target is not the same repair unit
+				// and that the repair target is damaged
+				if (repairTargetList[j].id !== droid.id && repairTargetList[j].health < 99)
+				{
+					repairTarget = repairTargetList[j];
+					break;
+				}
+			}
+			
+			if (camDef(repairTarget))
+			{
+				// We found a valid target, order the repair unit to get to work
+				orderDroidObj(droid, DORDER_DROIDREPAIR, repairTarget);
+				continue;
+			}
+		}
+
 		if (camDef(target) && camDist(droid.x, droid.y, target.x, target.y) >= __CAM_CLOSE_RADIUS)
 		{
 			var closeByObj;
 			var artilleryLike = (droid.isCB || droid.hasIndirect || droid.isSensor);
-			var closeBy = enumRange(droid.x, droid.y, __camScanRange(gi.order, droid.droidType), ALL_PLAYERS, track).filter(function(obj) {
-				return (obj.type !== FEATURE && !allianceExistsBetween(healthyDroids[0].player, obj.player))
+			if (camDef(droid.weapons[0]))
+			{
+				var weapon = camGetCompStats(droid.weapons[0].fullname, "Weapon");
+				var preferRange = (weapon.HitChance > weapon.ShortHitChance);
+			}
+			var closeBy = enumRange(droid.x, droid.y, __camScanRange(gi.order, droid), ALL_PLAYERS, track).filter(function(obj) {
+				return (obj.type !== FEATURE && !allianceExistsBetween(droid.player, obj.player))
 			});;
+
+			// Basic target filtering
+			if (camDef(droid.weapons[0]) && weapon.Effect === "ANTI TANK")
+			{
+				// Only target vehicles if there are any in range
+				var tankList = closeBy.filter(function(obj) {
+					return (obj.type === DROID && obj.propulsion !== "CyborgLegs")
+				});;
+				if (tankList.length > 0)
+				{
+					closeBy = tankList;
+				}
+			}
+			else if (camDef(droid.weapons[0]) && weapon.Effect === "ANTI PERSONNEL")
+			{
+				// Only target cyborgs if there are any in range
+				var cybList = closeBy.filter(function(obj) {
+					return (obj.type === DROID && obj.propulsion === "CyborgLegs")
+				});;
+				if (cybList.length > 0)
+				{
+					closeBy = cybList;
+				}
+			}
+			else if (camDef(droid.weapons[0]) && weapon.Effect === "BUNKER BUSTER")
+			{
+				// Only target structures if there are any in range
+				var structList = closeBy.filter(function(obj) {
+					return (obj.type === STRUCTURE)
+				});;
+				if (structList.length > 0)
+				{
+					closeBy = structList;
+				}
+			}
 
 			if (closeBy.length > 0)
 			{
 				__camFindGroupAvgCoordinate(group);
 				closeBy.sort(__camDistToGroupAverage);
-				closeByObj = closeBy[0];
-			}
 
-			//We only care about explicit observe/attack if the object is close
-			//on the z coordinate. We should not chase things up or down hills
-			//that may be far away, at least path-wise.
-			if (closeByObj && !vtolUnit && !artilleryLike)
-			{
-				if (Math.abs(droid.z - closeByObj.z) > CLOSE_Z)
+				for (var j = 0; j < closeBy.length; j++)
 				{
-					closeByObj = undefined;
-				}
-			}
+					closeByObj = closeBy[j];
 
-			if (closeByObj && ((closeByObj.type === DROID) && isVTOL(closeByObj) && (isVTOL(droid) || !droid.canHitAir)))
-			{
-				closeByObj = undefined;
+					//We only care about explicit observe/attack if the object is close
+					//on the z coordinate. We should not chase things up or down hills
+					//that may be far away, at least path-wise.
+					if (closeByObj && !vtolUnit && !artilleryLike)
+					{
+						if (Math.abs(droid.z - closeByObj.z) > CLOSE_Z)
+						{
+							closeByObj = undefined;
+							continue;
+						}
+					}
+
+					if (closeByObj && ((closeByObj.type === DROID) && isVTOL(closeByObj) && (isVTOL(droid) || !droid.canHitAir)))
+					{
+						closeByObj = undefined;
+						continue;
+					}
+
+					if (!camDef(preferRange) || !preferRange)
+					{
+						break; // We've found the closest valid target
+					}
+				}	
 			}
 
 			if (!defending && closeByObj)
@@ -665,7 +820,7 @@ function __camTacticsTickForGroup(group)
 			}
 			else
 			{
-				if (defending || !(artilleryLike || vtolUnit))
+				if (defending || !(artilleryLike || vtolUnit) || repairUnit)
 				{
 					orderDroidLoc(droid, DORDER_MOVE, target.x, target.y);
 				}
@@ -691,6 +846,7 @@ function __camCheckGroupMorale(group)
 	switch (gi.order)
 	{
 		case CAM_ORDER_ATTACK:
+		case CAM_ORDER_COMPROMISE:
 			if (gsize > msize)
 			{
 				break;

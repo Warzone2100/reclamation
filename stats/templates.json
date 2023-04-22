@@ -30,33 +30,33 @@
         ]
     },
     "Stinger": {
-        "body": "CyborgHeavyBody",
+        "body": "CrawlerBody",
         "id": "Stinger",
         "name": "Stinger Crawler",
         "propulsion": "CyborgLegs",
-        "type": "CYBORG",
+        "type": "CYBORG_SUPER",
         "weapons": [
             "StingerTail",
             "InfestedMelee"
         ]
     },
     "VileStinger": {
-        "body": "CyborgHeavyBody",
+        "body": "CrawlerBody",
         "id": "VileStinger",
         "name": "Vile Stinger Crawler",
         "propulsion": "CyborgLegs",
-        "type": "CYBORG",
+        "type": "CYBORG_SUPER",
         "weapons": [
             "VileStingerTail",
             "InfestedMelee"
         ]
     },
     "BoomTick": {
-        "body": "CyborgHeavyBody",
+        "body": "CrawlerBody",
         "id": "BoomTick",
         "name": "Boom Tick Crawler",
-        "propulsion": "CyborgLegs",
-        "type": "CYBORG",
+        "propulsion": "BoomTickLegs",
+        "type": "CYBORG_SUPER",
         "weapons": [
             "BoomTickSac"
         ]
@@ -156,6 +156,36 @@
         "type": "DROID",
         "weapons": [
             "BabaBuggyMG"
+        ]
+    },
+    "InfBusCan": {
+        "body": "InfestedBusBody",
+        "id": "InfBusCan",
+        "name": "Infested School Bus",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustCannon1Mk1"
+        ]
+    },
+    "InfFireCan": {
+        "body": "InfestedFireBody",
+        "id": "InfFireCan",
+        "name": "Infested Cannon Fire Truck",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustCannon1Mk1"
+        ]
+    },
+    "InfFireTruck": {
+        "body": "InfestedFireBody",
+        "id": "InfFireTruck",
+        "name": "Infested Fire Truck",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustFlame1Mk1"
         ]
     },
     "BabaBusCan": {

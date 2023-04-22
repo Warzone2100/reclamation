@@ -22,6 +22,19 @@ var allowColourChange = true;
 // This variable is to make sure the transport correctly matches the player's colour on this level.
 var playerColour;
 
+// Damage NASDA structures
+function preDamageNasdaStructs()
+{
+	var structures = enumStruct(NASDA);
+
+	for (var i = 0; i < structures.length; ++i)
+	{
+		var struc = structures[i];
+		// 60% to 90% base HP
+		setHealth(struc, 60 + camRand(31));
+	}
+}
+
 // This triggers when the player moves a droid into the NASDA base
 camAreaEvent("captureZone", function(droid)
 {
@@ -55,15 +68,31 @@ camAreaEvent("captureZone", function(droid)
 	camPlayVideos(["pcv621.ogg", {video: "L1_BASEMSG", type: MISS_MSG}]);
 	queue("messageAlert", camSecondsToMilliseconds(3.4));
 
-	// Activate scavenger factories after a 24 second delay
-	queue("expandMap", camSecondsToMilliseconds(24));
+	// Activate scavenger factories after a 35 second delay
+	queue("expandMap", camSecondsToMilliseconds(35));
 
 	// Remove the beacon over the NASDA base
 	hackRemoveMessage("NASDA_BASE", PROX_MSG, CAM_HUMAN_PLAYER);
 
+	// Re-damage the NASDA base (because apparently donating structures resets health)
+	queue("reDamageNasdaStructs", camSecondsToMilliseconds(0.25));
+
 	// Don't let the player change colors anymore
 	allowColourChange = false;
 });
+
+// Damage NASDA structures again (because apparently donating structures resets health)
+function reDamageNasdaStructs()
+{
+	var structures = enumStruct(CAM_HUMAN_PLAYER);
+
+	for (var i = 0; i < structures.length; ++i)
+	{
+		var struc = structures[i];
+		// 60% to 90% base HP
+		setHealth(struc, 60 + camRand(31));
+	}
+}
 
 // Make the research button flash
 function researchFlash()
@@ -185,6 +214,9 @@ function yScavPlayerDetected()
 		"yScavFactory1": {
 			assembly: "yScavAssembly1",
 			order: CAM_ORDER_ATTACK,
+			data: {
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
 			groupSize: 3,
 			maxSize: 3,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
@@ -218,6 +250,9 @@ function cScavPlayerDetected()
 		"cScavFactory": {
 			assembly: "cScavAssembly",
 			order: CAM_ORDER_ATTACK,
+			data: {
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
 			groupSize: 4,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(13)),
@@ -291,6 +326,9 @@ function eventChat(from, to, message)
 	var colour = 0;
 	switch (message)
 	{
+		case "green me":
+			colour = 0; // Green
+			break;
 		case "orange me":
 			colour = 1; // Orange
 			break;
@@ -301,27 +339,87 @@ function eventChat(from, to, message)
 		case "black me":
 			colour = 3; // Black
 			break;
+		case "red me":
+			colour = 4; // Red
+			break;
+		case "blue me":
+			colour = 5; // Blue
+			break;
+		case "pink me":
+			colour = 6; // Pink
+			break;
+		case "aqua me":
+		case "cyan me":
+			colour = 7; // Cyan
+			break;
+		case "yellow me":
+			colour = 8; // Yellow
+			break;
+		case "purple me":
+			colour = 9; // Purple
+			break;
+		case "white me":
+			colour = 10; // White
+			break;
 		default:
-			return;
+			return; // Some other message
 	}
 
 	if (allowColourChange) // Only let the player change colors before capturing the NASDA base.
 	{
 		playerColour = colour;
 		changePlayerColour(CAM_HUMAN_PLAYER, colour);
+
+		// Make sure the scavengers aren't choosing conflicting colours with the player
+		if (colour === 7)
+		{
+			changePlayerColour(CYAN_SCAVS, 0); // Switch to green
+		}
+		else
+		{
+			changePlayerColour(CYAN_SCAVS, 7); // Keep as cyan
+		}
+
+		if (colour === 8)
+		{
+			changePlayerColour(YELLOW_SCAVS, 1); // Switch to orange
+		}
+		else
+		{
+			changePlayerColour(YELLOW_SCAVS, 8); // Keep as yellow
+		}
+
 		playSound("beep6.ogg");
 	}
 	else
 	{
 		playSound("beep8.ogg");
-	}
+	}	
 }
 
 function eventStartLevel()
 {
-	changePlayerColour(NASDA, 10); // NASDA Base to white
-	changePlayerColour(CYAN_SCAVS, 7); // Primary scavengers to cyan
-	changePlayerColour(YELLOW_SCAVS, 8); // Secondary scavengers to yellow
+	playerColour = playerData[0].colour;
+
+	// Make sure the scavengers aren't choosing conflicting colours with the player
+	if (playerColour !== 7)
+	{
+		changePlayerColour(CYAN_SCAVS, 7); // Primary scavengers to cyan
+	}
+	else
+	{
+		changePlayerColour(CYAN_SCAVS, 0); // Switch to green if player is already cyan
+	}
+
+	if (playerColour !== 8)
+	{
+		changePlayerColour(YELLOW_SCAVS, 8); // Secondary scavengers to yellow
+	}
+	else
+	{
+		changePlayerColour(YELLOW_SCAVS, 1); // Switch to orange if player is already yellow
+	}
+	changePlayerColour(NASDA, 10); // NASDA Base to white (it doesn't really matter if the player is already white)
 
 	// Make extra sure no one attacks the base before it's captured 
 	setAlliance(CYAN_SCAVS, NASDA, true);
@@ -405,6 +503,9 @@ function eventStartLevel()
 		"yScavFactory2": {
 			assembly: "yScavAssembly2",
 			order: CAM_ORDER_ATTACK,
+			data: {
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
 			groupSize: 4,
 			maxSize: 4,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(16)),
@@ -432,5 +533,9 @@ function eventStartLevel()
 	// Set the fog to it's default colours
 	camSetFog(182, 225, 236);
 
-	playerColour = playerData[0].colour;
+	// All NASDA structures start out partially damaged
+	preDamageNasdaStructs();
+
+	// Replace the scav's sensor tower with its rusty version
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
 }

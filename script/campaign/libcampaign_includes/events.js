@@ -285,7 +285,8 @@ function cam_eventAttacked(victim, attacker)
 				camManageGroup(camMakeGroup(droids), CAM_ORDER_ATTACK, {
 					count: -1,
 					regroup: false,
-					repair: 70
+					repair: 70,
+					targetPlayer: CAM_HUMAN_PLAYER
 				});
 			}
 

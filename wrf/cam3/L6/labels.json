@@ -115,10 +115,14 @@
         "pos": [2752, 12993],
         "label": "monsterBusPos"
     },
+    "position_29": {
+        "pos": [4641, 9209],
+        "label": "highwayPatrolPos"
+    },
 
     "area_0": {
         "pos1": [9216, 15232],
-        "pos2": [9600, 15616],
+        "pos2": [9599, 15615],
         "label": "LZ"
     },
     "area_1": {
@@ -205,6 +209,11 @@
         "label": "compromiseZone",
         "pos1": [8320, 14592],
         "pos2": [10239, 16383]
+    },
+    "area_18": {
+        "label": "infestedHighwayPatrol",
+        "pos1": [1280, 9216],
+        "pos2": [1536, 9472]
     },
 
     "object_0": {

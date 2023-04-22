@@ -183,9 +183,11 @@ const __CAM_TARGET_TRACKING_RADIUS = 7;
 const __CAM_PLAYER_BASE_RADIUS = 20;
 const __CAM_DEFENSE_RADIUS = 4;
 const __CAM_CLOSE_RADIUS = 2;
-const __CAM_CLUSTER_SIZE = 4;
+const __CAM_CLUSTER_SIZE = 8;
 const __CAM_FALLBACK_TIME_ON_REGROUP = 5000;
 var __camGroupAvgCoord = {x: 0, y: 0};
+const DORDER_DROIDREPAIR = 26; // Until I figure out where the other orders are defined, I'll put these here
+const DORDER_RTR_SPECIFIED = 35;
 
 //time
 const MILLISECONDS_IN_SECOND = 1000;

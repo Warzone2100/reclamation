@@ -424,18 +424,47 @@ function eventResearched(research, structure, player)
 }
 
 var lastHitTime = 0;
+var attackRecord = [];
 function eventAttacked(victim, attacker)
 {
-	if ((victim.player === selectedPlayer) && gameTime > lastHitTime + 5000)
+	if ((victim.player === selectedPlayer && attacker.player !== selectedPlayer) && gameTime > lastHitTime + 2000)
 	{
 		lastHitTime = gameTime;
+		var newRecord = [];
+		var soundWorthy = true; // Whether an attack alert sound should be played
+		for (var i in attackRecord)
+		{
+			if (attackRecord[i].time < gameTime - 20000)
+			{
+				// This attack happened over 20 seconds ago, forget about it
+				continue;
+			}
+			var oldAttack = attackRecord[i];
+			newRecord.push(oldAttack);
+			if (oldAttack.type === victim.type 
+				&& distBetweenTwoPoints(victim.x, victim.y, oldAttack.x, oldAttack.y) <= 12)
+			{
+				// The new attack has occured near a recent attack 
+				// of the same type, don't bother playing a sound alert
+				soundWorthy = false;
+			}
+		}
+		if (!soundWorthy)
+		{
+			return;
+		}
+
+		// Add this attack to the record
+		newRecord.push({time: gameTime, type: victim.type, x: victim.x, y: victim.y});
+		attackRecord = newRecord;
+
 		if (victim.type === STRUCTURE)
 		{
-			playSound("pcv337.ogg", victim.x, victim.y, victim.z);
+			playSound("pcv337.ogg", victim.x, victim.y, victim.z); // "Structure under attack!"
 		}
 		else
 		{
-			playSound("pcv399.ogg", victim.x, victim.y, victim.z);
+			playSound("pcv399.ogg", victim.x, victim.y, victim.z); // "Unit under attack!"
 		}
 	}
 }

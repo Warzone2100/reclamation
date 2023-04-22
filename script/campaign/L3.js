@@ -54,7 +54,9 @@ function heliAttack()
 	var ext = {
 		limit: [1, 1], //paired with template list
 		alternate: true,
-		altIdx: 0
+		altIdx: 0,
+		targetPlayer: CAM_HUMAN_PLAYER,
+		pos: getObject("startPosition")
 	};
 
 	// A helicopter will attack the player every 3 minutes.
@@ -85,6 +87,9 @@ function expandMap()
 	// Enable all cyan factories except the mountain base one (for now)
 	camEnableFactory("cScavFactory1");
 	camEnableFactory("cScavFactory3");
+
+	// Hack to prevent the south half of the map from being dark after the expansion
+	setSunPosition(225.0, -601.0, 450.0); // Move the sun just a wee bit (default is 225.0, -600.0, 450.0)
 }
 
 // Send scavenger attack waves
@@ -125,16 +130,10 @@ function sendScavAttackWaves()
 	if (waveNum < 4)
 	{
 		camSendReinforcement(CYAN_SCAVS, camMakePos("westAttackPos"), westDroids,
-			CAM_REINFORCE_GROUND, {
-				data: {regroup: true, count: -1,},
-			}
-		);
+			CAM_REINFORCE_GROUND, {order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}});
 
 		camSendReinforcement(CYAN_SCAVS, camMakePos("eastAttackPos"), eastDroids,
-			CAM_REINFORCE_GROUND, {
-				data: {regroup: true, count: -1,},
-			}
-		);
+			CAM_REINFORCE_GROUND, {order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}});
 	}
 
 	// Only on the final wave
@@ -142,10 +141,7 @@ function sendScavAttackWaves()
 	{
 		// Send the attack chopper
 		camSendReinforcement(CYAN_SCAVS, camMakePos("heliAttackPos"), [cTempl.helcan],
-			CAM_REINFORCE_GROUND, {
-				data: {regroup: false, count: -1,},
-			}
-		);
+			CAM_REINFORCE_GROUND, {order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}});
 
 		// Spawn no more waves, and queue up the map expansion
 		removeTimer("sendScavAttackWaves");
@@ -155,17 +151,31 @@ function sendScavAttackWaves()
 	++waveNum
 }
 
-function camEnemyBaseDetected_ScavHideout()
+function camEnemyBaseDetected_scavHideout()
+{
+	camCallOnce("activateYellowScavs");
+}
+
+function camEnemyBaseDetected_rampDefenses()
+{
+	camCallOnce("activateYellowScavs");
+}
+
+function activateYellowScavs()
 {
 	camEnableFactory("yScavFactory");
+	setAlliance(YELLOW_SCAVS, CYAN_SCAVS, false);
 }
 
 // These are all defence/patrol groups of units
 function activateScavGroups()
 {
-	camManageGroup(camMakeGroup("factoryDefenceGroup"), CAM_ORDER_DEFEND, {
-		pos: camMakePos("factoryDefencePos"),
-		radius: 3,
+	camManageGroup(camMakeGroup("factoryDefenceGroup"), CAM_ORDER_PATROL, {
+		pos: [
+			camMakePos("factoryDefencePos"),
+			camMakePos("factoryDefenceGroup"),
+		],
+		interval: camSecondsToMilliseconds(20),
 		regroup: false,
 		count: -1
 	});
@@ -259,41 +269,41 @@ function eventStartLevel()
 	camSetArtifacts({
 		"cScavFactory1": { tech: "R-Wpn-Cannon1Mk1" }, // Light Cannon
 		"cScavFactory2": { tech: "R-Wpn-Flamer01Mk1" }, // Flamer
-		"cScavFactory3": { tech: "R-Wpn-MG-ROF01" }, // Chaingun Upgrade
+		"cScavFactory3": { tech: "R-Vehicle-Metals01" }, // Composite Alloys
 	});
 
 	camSetEnemyBases({
-		"ScavHideout": {
+		"scavHideout": {
 			cleanup: "yScavBase",
 			detectMsg: "YSCAV_BASE",
 			detectSnd: "pcv374.ogg",
 			eliminateSnd: "pcv392.ogg"
 		},
-		"FactoryZone": {
+		"factoryZone": {
 			cleanup: "cScavBase1",
 			detectMsg: "CSCAV_BASE1",
 			detectSnd: "pcv374.ogg",
 			eliminateSnd: "pcv392.ogg"
 		},
-		"RampDefences": {
+		"rampDefenses": {
 			cleanup: "cScavBase2",
 			detectMsg: "CSCAV_BASE2",
 			detectSnd: "pcv375.ogg",
 			eliminateSnd: "pcv391.ogg"
 		},
-		"MortarRidge": {
+		"mortarRidge": {
 			cleanup: "cScavBase3",
 			detectMsg: "CSCAV_BASE3",
 			detectSnd: "pcv375.ogg",
 			eliminateSnd: "pcv391.ogg"
 		},
-		"MountainBase": {
+		"mountainBase": {
 			cleanup: "cScavBase4",
 			detectMsg: "CSCAV_BASE4",
 			detectSnd: "pcv374.ogg",
 			eliminateSnd: "pcv392.ogg"
 		},
-		"CityBase": {
+		"cityBase": {
 			cleanup: "cScavBase5",
 			detectMsg: "CSCAV_BASE5",
 			detectSnd: "pcv374.ogg",
@@ -309,7 +319,7 @@ function eventStartLevel()
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
 			data: {
-				pos: camMakePos("yScavAssembly"),
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			templates: [cTempl.bloke, cTempl.buggy, cTempl.lance, cTempl.trike]
 		},
@@ -324,8 +334,9 @@ function eventStartLevel()
 				fallback: camMakePos("cScavAssembly1"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
-			templates: [cTempl.bloke, cTempl.lance, cTempl.bjeep, cTempl.rbjeep, cTempl.lance, cTempl.minitruck] // Variety
+			templates: [cTempl.bloke, cTempl.lance, cTempl.bjeep, cTempl.buscan, cTempl.rbjeep, cTempl.lance, cTempl.minitruck] // Variety
 		},
 		"cScavFactory2": {
 			assembly: "cScavAssembly2",
@@ -338,6 +349,7 @@ function eventStartLevel()
 				fallback: camMakePos("cScavAssembly2"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			templates: [cTempl.bloke, cTempl.minitruck, cTempl.bjeep, cTempl.buscan, cTempl.rbjeep, cTempl.lance, cTempl.firetruck] // Mix of light and heavy vehicles
 		},
@@ -352,6 +364,7 @@ function eventStartLevel()
 				fallback: camMakePos("cScavAssembly3"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			// Mostly light units, but will also build monster bus tanks
 			templates: [cTempl.bloke, cTempl.bjeep, cTempl.moncan, cTempl.rbjeep, cTempl.lance, cTempl.monhmg]
@@ -365,11 +378,15 @@ function eventStartLevel()
 	// Set dummy transport colour to match the player, and ally it to the player
 	changePlayerColour(DUMMY_TRANSPORT, playerData[0].colour);
 	setAlliance(DUMMY_TRANSPORT, CAM_HUMAN_PLAYER, true);
+	setAlliance(YELLOW_SCAVS, CYAN_SCAVS, true); // Just so the cyan scavs don't get distracted from attacking the player
 
 	// Place a dummy transport on the LZ
 	addDroid(DUMMY_TRANSPORT, 31, 20, "Transport", "TransporterBody", "V-Tol", "", "", "MG3-VTOL");
 
 	queue("startScavAttack", camSecondsToMilliseconds(12));
+
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", CYAN_SCAVS);
 
 	// Restrict the map to the original level for now
 	setScrollLimits(0, 0, 64, 64);

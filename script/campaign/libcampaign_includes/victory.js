@@ -135,7 +135,6 @@ function camSetStandardWinLossConditions(kind, nextLevel, data)
 			__camDefeatOnTimeout = true;
 			__camVictoryData = data;
 			setReinforcementTime(__camVictoryData.reinforcements);
-			__camSetOffworldLimits();
 			useSafetyTransport(false);
 			break;
 		case CAM_VICTORY_TIMEOUT:

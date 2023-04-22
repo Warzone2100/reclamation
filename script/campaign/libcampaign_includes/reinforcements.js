@@ -47,7 +47,9 @@ function camSendReinforcement(player, position, list, kind, data)
 				var prop = __camChangePropulsionOnDiff(template.prop);
 				droids.push(addDroid(player, pos.x, pos.y, "Reinforcement", template.body, prop, "", "", template.weap));
 			}
-			camManageGroup(camMakeGroup(droids), order, order_data);
+			var group = camMakeGroup(droids);
+			camManageGroup(group, order, order_data);
+			return group;
 			break;
 		case CAM_REINFORCE_TRANSPORT:
 			__camTransporterQueue.push({

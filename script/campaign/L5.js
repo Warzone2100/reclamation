@@ -22,6 +22,21 @@ const CYAN_SCAVS = 2;
 const YELLOW_SCAVS = 3;
 const INFESTED = 4;
 
+// ID of the scav monster bus used to trigger Boom Tick demonstration
+var showBus;
+// All factory-produced infested units are automatically assigned to this group
+var infGlobalAttackGroup;
+
+// Needed to ensure the Boom Tick showcase can be triggered after a save/load
+function eventGameLoaded()
+{
+	if (camDef(getObject(DROID, CYAN_SCAVS, showBus)) && getObject(DROID, CYAN_SCAVS, showBus) !== null)
+	{
+		addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, CYAN_SCAVS, showBus)) }, "showBusST", false);
+		resetLabel("showBusST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen
+	}
+}
+
 //Remove scav helicopters.
 camAreaEvent("heliRemoveZone", function(droid)
 {
@@ -42,30 +57,125 @@ function messageAlert()
 	playSound("beep7.ogg"); // Play a little noise to notify the player that they have a new message
 }
 
+function eventDestroyed(obj)
+{
+	var label = getLabel(obj);
+	if (!camDef(label) || !(label === "infestedFactory2" || label === "infestedFactory3" || label === "infestedFactory4"))
+	{
+		return false;
+	}
+
+	// Count how many factories remain
+	var factCount = 0;
+	if (getObject("infestedFactory2") !== null && label !== "infestedFactory2") factCount++;
+	if (getObject("infestedFactory3") !== null && label !== "infestedFactory3") factCount++;
+	if (getObject("infestedFactory4") !== null && label !== "infestedFactory4") factCount++;
+
+	switch (factCount)
+	{
+	case 2: // One factory down; increase wave spawn rate
+		removeTimer("sendInfestedReinforcements");
+		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(55)));
+		break;
+	case 1: // Two factories down; increase wave spawn rate further
+		removeTimer("sendInfestedReinforcements");
+		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(35)));
+		break;
+	default: // All factories down; stop waves and activate any remaing scav factories
+		removeTimer("sendInfestedReinforcements");
+		camCallOnce("townAmbush2");
+		camEnableFactory("yScavFactory2");
+		camEnableFactory("yScavFactory3");
+		camEnableFactory("yScavFactory4");
+		break;
+	}
+}
+
+// Damage infested units when they're built
+function eventDroidBuilt(droid, structure)
+{
+	if (droid.player === INFESTED)
+	{
+		if (droid.body !== "CrawlerBody")
+		{
+			// 50% to 80% base HP
+			setHealth(droid, 50 + camRand(41));
+		}
+		if (!camDef(infGlobalAttackGroup))
+		{
+			infGlobalAttackGroup = camMakeGroup(droid);
+			camManageGroup(infGlobalAttackGroup, CAM_ORDER_ATTACK, {removable: false, targetPlayer: CAM_HUMAN_PLAYER})
+		}
+		else
+		{
+			groupAdd(infGlobalAttackGroup, droid);
+		}
+	}
+}
+
 // Damage infested structures
-function preDamageInfestedStructs()
+function preDamageInfested()
 {
 	var structures = enumStruct(INFESTED);
-
 	for (var i = 0; i < structures.length; ++i)
 	{
-		var struc = structures[i];
 		// 60% to 90% base HP
-		setHealth(struc, 60 + camRand(31));
+		setHealth(structures[i], 60 + camRand(31));
+	}
+
+	var units = enumDroid(INFESTED);
+	for (var i = 0; i < units.length; ++i)
+	{
+		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
+		{
+			// 50% to 80% base HP
+			setHealth(units[i], 50 + camRand(41));
+		}
+	}
+}
+
+// Damage infested reinforcements
+function preDamageInfestedGroup(group)
+{
+	var units = enumGroup(group);
+	for (var i = 0; i < units.length; ++i)
+	{
+		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
+		{
+			// 50% to 80% base HP
+			setHealth(units[i], 50 + camRand(31));
+		}
+	}
+}
+
+// Used to trigger Boom Tick demonstration (when the player sees the monste bus)
+function eventGroupSeen(viewer, group)
+{
+	if (camDef(getObject(DROID, CYAN_SCAVS, showBus)) && getObject(DROID, CYAN_SCAVS, showBus) !== null 
+		&& group === getObject(DROID, CYAN_SCAVS, showBus).group)
+	{
+		// Unleash the thingamabob
+		camManageGroup(camMakeGroup("boomShowcaseGroup"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
+		camManageGroup(camMakeGroup("showcaseBoomTick"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
 	}
 }
 
 // Triggered when discovering the scav outpost
-function camEnemyBaseDetected_ScavOutpost()
+function camEnemyBaseDetected_scavOutpost()
 {
 	// Enable the outpost's factory
 	camEnableFactory("yScavFactory1");
 
 	// Send out the outpost's guards
 	camManageGroup(camMakeGroup("outpostGuard"), CAM_ORDER_ATTACK, {
-			morale: 60,
-			fallback: camMakePos("outpostDefensePos")
+		morale: 60,
+		fallback: camMakePos("outpostGuard"),
+		targetPlayer: CAM_HUMAN_PLAYER
 	});
+
+	// Tell the player to go destroy the scavengers (again)
+	camPlayVideos(["pcv455.ogg", {video: "L5_SCAVMSG", type: MISS_MSG}]);
+	queue("messageAlert", camSecondsToMilliseconds(3.4));
 }
 
 // Triggered when entering the scavenger outpost
@@ -80,24 +190,22 @@ camAreaEvent("outpostAmbushTrigger", function(droid)
 		radius: 3
 		});
 
-		// Send infested to attack the outpost and awaken the infested base
-		camEnableFactory("infestedFactory");
+		// Send infested to attack the outpost and awaken the infested bases
+		camEnableFactory("infestedFactory1");
+		camEnableFactory("infestedFactory2");
+		camEnableFactory("infestedFactory3");
+		camEnableFactory("infestedFactory4");
 
-		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(25)));
+		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(75)));
 
-		// Two waves at once
+		// Two groups at once, from both sides
 		var group1 = [cTempl.stinger, cTempl.stinger, cTempl.infrbjeep, cTempl.infbuscan, cTempl.infbuggy, cTempl.inffiretruck];
-		camSendReinforcement(INFESTED, camMakePos("ambushEntry1"), randomTemplates(group1),
-			CAM_REINFORCE_GROUND, {
-				data: {regroup: false, count: -1,},
-			}
-		);
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn1"), randomTemplates(group1), CAM_REINFORCE_GROUND));
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn1"), randomTemplates(group1), CAM_REINFORCE_GROUND));
+
 		var group2 = [cTempl.stinger, cTempl.inftrike, cTempl.infbuggy, cTempl.infbjeep, cTempl.infrbuggy, cTempl.infbjeep];
-		camSendReinforcement(INFESTED, camMakePos("ambushEntry1"), randomTemplates(group2),
-			CAM_REINFORCE_GROUND, {
-				data: {regroup: false, count: -1,},
-			}
-		);
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn2"), randomTemplates(group2), CAM_REINFORCE_GROUND));
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn2"), randomTemplates(group2), CAM_REINFORCE_GROUND));
 	}
 	else
 	{
@@ -107,72 +215,154 @@ camAreaEvent("outpostAmbushTrigger", function(droid)
 
 function sendInfestedReinforcements()
 {
-	// Stop if the infested factory was destroyed
-	if (getObject("infestedFactory") === null)
+	// NE entrance
+	if (getObject("infestedFactory2") !== null) // Stop if the infested factory was destroyed
 	{
-		removeTimer("sendInfestedReinforcements");
-		return;
+		var droids = [cTempl.stinger, cTempl.infbloke, cTempl.infbloke, cTempl.infminitruck, cTempl.infbuggy, cTempl.infrbuggy];
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry2"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
+		));
 	}
 
-	var droids = [cTempl.stinger, cTempl.inffiretruck, cTempl.infbuscan, cTempl.infminitruck, cTempl.infbuggy, cTempl.infrbuggy];
+	// NW entrance
+	if (getObject("infestedFactory3") !== null)
+	{
+		var droids = [cTempl.stinger, cTempl.inffiretruck, cTempl.infbloke, cTempl.inflance, cTempl.infbuggy, cTempl.infrbuggy];
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry1"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
+		));
+	}
 
-	camSendReinforcement(INFESTED, camMakePos("ambushEntry2"), randomTemplates(droids),
-		CAM_REINFORCE_GROUND, {
-			data: {regroup: false, count: -1,},
-		}
-	);
+	// West entrance
+	if (getObject("infestedFactory4") !== null)
+	{
+		var droids = [cTempl.stinger, cTempl.inflance, cTempl.infbuscan, cTempl.infbloke, cTempl.infbjeep, cTempl.infrbjeep];
+		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry4"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
+		));
+	}
 }
 
-// Triggered when leaving the outpost
-camAreaEvent("boomTickAmbushTrigger", function(droid)
+// Triggered when approaching the town
+camAreaEvent("boomTownAmbushTrigger1", function(droid)
 {
 	// Trigger only if it's a player unit
 	if (droid.player === CAM_HUMAN_PLAYER)
 	{
-		// Send the road Boom Tick to attack the player
-		camManageGroup(camMakeGroup("boomTickGroup1"), CAM_ORDER_ATTACK);
+		camCallOnce("townAmbush1");
 	}
 	else
 	{
-		resetLabel("boomTickAmbushTrigger", CAM_HUMAN_PLAYER);
+		resetLabel("boomTownAmbushTrigger1", CAM_HUMAN_PLAYER);
 	}
 });
 
-// Triggered when entering the infested town
-camAreaEvent("townAmbushTrigger", function(droid)
+function camEnemyBaseDetected_infestedStation()
+{
+	camCallOnce("townAmbush1");
+}
+
+// Triggered when the player approaches the town, or detects the town's infested base
+function townAmbush1()
+{
+	// Send the road Boom Tick to attack the player
+	camManageGroup(camMakeGroup("boomTownGroup1"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
+}
+
+// Triggered when entering the south part of the infested town
+camAreaEvent("boomTownAmbushTrigger2", function(droid)
 {
 	// Trigger only if it's a player unit
 	if (droid.player === CAM_HUMAN_PLAYER)
 	{
-		// Send the town Boom Tick to attack the player and send some reinforcements
-		camManageGroup(camMakeGroup("boomTickGroup2"), CAM_ORDER_ATTACK);
-
-		var droids = [cTempl.stinger, cTempl.stinger, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infmoncan];
-		camSendReinforcement(INFESTED, camMakePos("ambushEntry3"), droids,
-			CAM_REINFORCE_GROUND, {
-				data: {regroup: false, count: -1,},
-			}
-		);
+		camCallOnce("townAmbush2");
 	}
 	else
 	{
-		resetLabel("townAmbushTrigger", CAM_HUMAN_PLAYER);
+		resetLabel("boomTownAmbushTrigger2", CAM_HUMAN_PLAYER);
 	}
 });
 
 // Triggered when discovering the large scavenger base
-function camEnemyBaseDetected_ScavAllianceBase()
+function camEnemyBaseDetected_scavAllianceBase()
 {
-	// Enable the base's factories
+	camCallOnce("townAmbush2");
+
+	// Enable factories
 	camEnableFactory("yScavFactory2");
-	camEnableFactory("cScavFactory");
+	camEnableFactory("yScavFactory4");
 
 	// Start helicopter attacks
 	queue("heliAttack", camChangeOnDiff(camMinutesToMilliseconds(1.5)));
+}
 
-	// Tell the player to go kill everything (once again)
-	camPlayVideos(["pcv455.ogg", {video: "L5_SCAVMSG", type: MISS_MSG}]);
-	queue("messageAlert", camSecondsToMilliseconds(3.4));
+// Triggered when the player approaches the the south part of town, or detects the scavenger alliance base
+function townAmbush2()
+{
+	// Send the town Boom Tick to attack the player and send some reinforcements
+	camManageGroup(camMakeGroup("boomTownGroup2"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
+
+	var droids = [cTempl.stinger, cTempl.stinger, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infmoncan];
+	preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry3"), droids, CAM_REINFORCE_GROUND,
+		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
+	));
+
+	// Also enables the cyan scav's factory
+	camEnableFactory("cScavFactory");
+}
+
+// Triggered when approaching the western infested base from the north
+camAreaEvent("westBoomTrigger", function(droid)
+{
+	// Trigger only if it's a player unit
+	if (droid.player === CAM_HUMAN_PLAYER)
+	{
+		camCallOnce("westAmbush");
+	}
+	else
+	{
+		resetLabel("westBoomTrigger", CAM_HUMAN_PLAYER);
+	}
+});
+
+function camEnemyBaseDetected_infestedCampW()
+{
+	camCallOnce("westAmbush");
+
+	// Also activate the factory in the SW
+	camEnableFactory("yScavFactory3");
+}
+
+// Triggered when the player approaches or detects the western infested base
+function westAmbush()
+{
+	camManageGroup(camMakeGroup("westBoomGroup1"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
+	camManageGroup(camMakeGroup("westBoomGroup2"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
+}
+
+// Triggered when approaching the western infested base from the north
+camAreaEvent("northBoomTrigger", function(droid)
+{
+	// Trigger only if it's a player unit
+	if (droid.player === CAM_HUMAN_PLAYER)
+	{
+		camCallOnce("northAmbush");
+	}
+	else
+	{
+		resetLabel("northBoomTrigger", CAM_HUMAN_PLAYER);
+	}
+});
+
+function camEnemyBaseDetected_infestedCampNW()
+{
+	camCallOnce("northAmbush");
+}
+
+// Triggered when the player approaches or detects the northwest infested base
+function northAmbush()
+{
+	camManageGroup(camMakeGroup("northBoomGroup"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
 }
 
 function heliAttack()
@@ -181,7 +371,8 @@ function heliAttack()
 	var ext = {
 		limit: [1, 1], //paired with template list
 		alternate: true,
-		altIdx: 0
+		altIdx: 0,
+		targetPlayer: CAM_HUMAN_PLAYER
 	};
 
 	// A helicopter will attack the player every 90 seconds.
@@ -194,7 +385,7 @@ function randomTemplates(list)
 {
 	var i = 0;
 	var droids = [];
-	var coreSize = 4 + camRand(3); // Maximum of 6 core units.
+	var coreSize = 3 + camRand(4); // Maximum of 6 core units.
 	var fodderSize = 14 + camRand(3); // 14 - 16 extra Infested Civilians to the swarm.
 
 	for (i = 0; i < coreSize; ++i)
@@ -208,24 +399,48 @@ function randomTemplates(list)
 		droids.push(cTempl.infciv);
 	}
 
+	// Chance to add a Boom Tick on Hard (10%) or Insane (20%)
+	if ((difficulty === HARD && camRand(101) < 10) || (difficulty === INSANE && camRand(101) < 20))
+	{
+		droids.push(cTempl.boomtick);
+	}
+
 	return droids;
+}
+
+function camEnemyBaseDetected_scavCamp()
+{
+	// Activate factories in the south
+	camEnableFactory("yScavFactory3");
+	camEnableFactory("yScavFactory4");
+}
+
+function camEnemyBaseDetected_scavRoadblock()
+{
+	// Activate factories in the south (and alliance base)
+	camEnableFactory("yScavFactory2");
+	camEnableFactory("yScavFactory3");
+	camEnableFactory("yScavFactory4");
 }
 
 function eventStartLevel()
 {
-	var startpos = getObject("startPosition");
+	var startpos = camMakePos("LZ");
 	var lz = getObject("LZ");
-	var tent = getObject("transporterEntry");
-	var text = getObject("transporterEntry");
+	var tent = camMakePos(28, 88);
+	var text = camMakePos(28, 88);
 
 	camSetStandardWinLossConditions(CAM_VICTORY_OFFWORLD, "L6S", {
 		area: "compromiseZone",
-		reinforcements: camMinutesToSeconds(2),
+		reinforcements: camMinutesToSeconds(1.75),
 		annihilate: true
 	});
 
 	// set up alliances
 	setAlliance(AMBIENT, CAM_HUMAN_PLAYER, true);
+	setAlliance(AMBIENT, CYAN_SCAVS, true);
+	setAlliance(AMBIENT, YELLOW_SCAVS, true);
+	setAlliance(AMBIENT, INFESTED, true);
 	setAlliance(CYAN_SCAVS, YELLOW_SCAVS, true); // The scavs are now friends :)
 
 	centreView(startpos.x, startpos.y);
@@ -238,7 +453,14 @@ function eventStartLevel()
 	camCompleteRequiredResearch(SCAV_RES, YELLOW_SCAVS);
 	camCompleteRequiredResearch(INFESTED_RES, INFESTED);
 
-	changePlayerColour(YELLOW_SCAVS, 8); // Set the yellow scavs back to yellow
+	if (playerData[0].colour != 8)
+	{
+		changePlayerColour(YELLOW_SCAVS, 8); // Set the yellow scavs back to yellow
+	}
+	else
+	{
+		changePlayerColour(YELLOW_SCAVS, 1); // Set as orange if the player is already yellow
+	}
 
 	camSetArtifacts({
 		"cScavFactory": { tech: "R-Vehicle-Prop-Halftracks" }, // Half-Tracks
@@ -247,21 +469,51 @@ function eventStartLevel()
 
 	// Set up bases
 	camSetEnemyBases({
-		"ScavOutpost": {
-			cleanup: "yScavBase",
+		"scavOutpost": {
+			cleanup: "yScavBase1",
 			detectMsg: "SCAV_BASE1",
 			detectSnd: "pcv375.ogg",
 			eliminateSnd: "pcv391.ogg"
 		},
-		"ScavAllianceBase": {
-			cleanup: "scavBase",
+		"scavCamp": {
+			cleanup: "yScavBase2",
 			detectMsg: "SCAV_BASE2",
+			detectSnd: "pcv375.ogg",
+			eliminateSnd: "pcv391.ogg"
+		},
+		"scavRoadblock": {
+			cleanup: "yScavBase3",
+			detectMsg: "SCAV_BASE3",
+			detectSnd: "pcv375.ogg",
+			eliminateSnd: "pcv391.ogg"
+		},
+		"scavAllianceBase": {
+			cleanup: "scavBase",
+			detectMsg: "SCAV_BASE4",
 			detectSnd: "pcv374.ogg",
 			eliminateSnd: "pcv392.ogg"
 		},
-		"InfestedStation": {
-			cleanup: "infestedBase",
-			detectMsg: "INFESTED_BASE",
+		"infestedStation": {
+			cleanup: "infestedBase1",
+			detectMsg: "INFESTED_BASE1",
+			detectSnd: "pcv379.ogg",
+			eliminateSnd: "pcv394.ogg"
+		},
+		"infestedCampNE": {
+			cleanup: "infestedBase2",
+			detectMsg: "INFESTED_BASE2",
+			detectSnd: "pcv379.ogg",
+			eliminateSnd: "pcv394.ogg"
+		},
+		"infestedCampNW": {
+			cleanup: "infestedBase3",
+			detectMsg: "INFESTED_BASE3",
+			detectSnd: "pcv379.ogg",
+			eliminateSnd: "pcv394.ogg"
+		},
+		"infestedCampW": {
+			cleanup: "infestedBase4",
+			detectMsg: "INFESTED_BASE4",
 			detectSnd: "pcv379.ogg",
 			eliminateSnd: "pcv394.ogg"
 		},
@@ -275,71 +527,166 @@ function eventStartLevel()
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
 			data: {
-				morale: 50,
 				fallback: camMakePos("outpostDefensePos"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			templates: [cTempl.bloke, cTempl.buggy, cTempl.lance, cTempl.bloke, cTempl.rbuggy, cTempl.trike] // Light units
 		},
 		"yScavFactory2": {
-			assembly: "baseDefensePos4",
+			assembly: "basePatrolPos4",
+			order: CAM_ORDER_ATTACK,
+			groupSize: 8,
+			maxSize: 10,
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
+			data: {
+				fallback: camMakePos("basePatrolPos4"),
+				regroup: true,
+				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
+			templates: [cTempl.bloke, cTempl.firetruck, cTempl.buggy, cTempl.lance, cTempl.bloke, cTempl.rbuggy, cTempl.buscan, cTempl.buggy, cTempl.minitruck] // Mix of infantry and vehicles
+		},
+		"yScavFactory3": {
+			assembly: "yScavAssembly2",
+			order: CAM_ORDER_ATTACK,
+			groupSize: 8,
+			maxSize: 10,
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
+			data: {
+				fallback: camMakePos("yScavAssembly2"),
+				regroup: true,
+				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
+			templates: [cTempl.bloke, cTempl.firetruck, cTempl.buggy, cTempl.bloke, cTempl.rbuggy, cTempl.buggy] // Light vehicles and fire trucks
+		},
+		"yScavFactory4": {
+			assembly: "yScavAssembly3",
+			order: CAM_ORDER_ATTACK,
+			groupSize: 8,
+			maxSize: 10,
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(15)),
+			data: {
+				fallback: camMakePos("yScavAssembly3"),
+				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
+			templates: [cTempl.bloke, cTempl.buggy, cTempl.lance, cTempl.bloke] // Mostly infantry
+		},
+		"cScavFactory": {
+			assembly: "basePatrolPos2",
 			order: CAM_ORDER_ATTACK,
 			groupSize: 4,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
 			data: {
 				morale: 50,
-				fallback: camMakePos("baseDefensePos4"),
+				fallback: camMakePos("basePatrolPos2"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
-			templates: [cTempl.bloke, cTempl.firetruck, cTempl.buggy, cTempl.lance, cTempl.bloke, cTempl.rbuggy, cTempl.buscan, cTempl.buggy, cTempl.minitruck] // Mix of infantry and vehicles
+			templates: [cTempl.bjeep, cTempl.sartruck, cTempl.rbjeep, cTempl.firetruck, cTempl.monhmg, cTempl.bjeep, cTempl.minitruck, cTempl.monmrl] // Vehicles and bus tanks
 		},
-		"cScavFactory": {
-			assembly: "baseDefensePos2",
+		"infestedFactory1": {
+			assembly: "infestedAssembly1",
 			order: CAM_ORDER_ATTACK,
-			groupSize: 3,
-			maxSize: 8,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
 			data: {
-				morale: 50,
-				fallback: camMakePos("baseDefensePos2"),
-				regroup: true,
-				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
-			templates: [cTempl.bjeep, cTempl.sartruck, cTempl.rbjeep, cTempl.moncan, cTempl.bjeep, cTempl.firetruck, cTempl.monhmg, cTempl.bjeep, cTempl.minitruck, cTempl.monmrl] // Only vehicles and bus tanks
-		},
-		"infestedFactory": {
-			assembly: "infestedAssembly",
-			order: CAM_ORDER_ATTACK,
 			groupSize: 1,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
-			templates: [cTempl.inflance, cTempl.infrbuggy, cTempl.infbjeep, cTempl.infminitruck, cTempl.inffiretruck, cTempl.infrbjeep, cTempl.infbloke] // Mixed units
+			templates: [cTempl.inflance, cTempl.infbjeep, cTempl.infbuscan, cTempl.infbloke] // Mixed light units and cannon buses
+		},
+		"infestedFactory2": {
+			assembly: "infestedAssembly2",
+			order: CAM_ORDER_ATTACK,
+			data: {
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
+			groupSize: 1,
+			maxSize: 8,
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
+			templates: [cTempl.infrbuggy, cTempl.infminitruck, cTempl.infbuggy, cTempl.infbloke] // Mixed light units and MRP trucks
+		},
+		"infestedFactory3": {
+			assembly: "infestedAssembly3",
+			order: CAM_ORDER_ATTACK,
+			data: {
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
+			groupSize: 1,
+			maxSize: 8,
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
+			templates: [cTempl.inflance, cTempl.inffiretruck, cTempl.infbloke] // Infantry and firetrucks
+		},
+		"infestedFactory4": {
+			assembly: "infestedAssembly4",
+			order: CAM_ORDER_ATTACK,
+			data: {
+				targetPlayer: CAM_HUMAN_PLAYER
+			},
+			groupSize: 1,
+			maxSize: 8,
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(10)),
+			templates: [cTempl.infrbuggy, cTempl.infminitruck, cTempl.infbuggy, cTempl.infbloke] // Mixed light units and MRP trucks
 		},
 	});
 
 	// Set up patrols in the large scav base
 	camManageGroup(camMakeGroup("baseDefenseGroup1"), CAM_ORDER_PATROL, {
 		pos: [
-			camMakePos("baseDefensePos1"),
-			camMakePos("baseDefensePos2"),
+			camMakePos("basePatrolPos1"),
+			camMakePos("basePatrolPos2"),
 		],
 		interval: camSecondsToMilliseconds(20)
 	});
 
 	camManageGroup(camMakeGroup("baseDefenseGroup2"), CAM_ORDER_PATROL, {
 		pos: [
-			camMakePos("baseDefensePos3"),
-			camMakePos("baseDefensePos4"),
+			camMakePos("basePatrolPos3"),
+			camMakePos("basePatrolPos4"),
 		],
 		interval: camSecondsToMilliseconds(20)
 	});
 
-	// All infested structures start out partially damaged
-	preDamageInfestedStructs();
+	camManageGroup(camMakeGroup("southScavPatrol"), CAM_ORDER_PATROL, {
+		pos: [
+			camMakePos("southPatrolPos1"),
+			camMakePos("southPatrolPos2"),
+			camMakePos("southPatrolPos3"),
+		],
+		interval: camSecondsToMilliseconds(20)
+	});
+
+	// Infested start out partially damaged
+	preDamageInfested();
 
 	// Change the fog colour to a light pink/purple
 	camSetFog(185, 182, 236);
+
+	// Damage the Boom Tick showcase group
+	var units = enumArea("boomShowcaseGroup");
+	for (var i = 0; i < units.length; ++i)
+	{
+		// 40% to 80% base HP
+		setHealth(units[i], 40 + camRand(41));
+	}
+
+	// Spawn a scav Monster Bus tank (to be blown up)
+	var busPos = camMakePos("boomShowcaseGroup");
+	showBus = addDroid(CYAN_SCAVS, busPos.x, busPos.y, "Battle Bus 4",
+		"MonsterBus", "tracked01", "", "", "RustCannon1Mk1").id;
+	setHealth(getObject(DROID, CYAN_SCAVS, showBus), 20); // Starts very damaged
+	addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, CYAN_SCAVS, showBus)) }, "showBusST", false);
+	resetLabel("showBusST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen (used to trigger Boom Tick demonstration)
+
+	camManageGroup(camMakeGroup("boomShowcaseGroup"), CAM_ORDER_DEFEND, camMakePos("boomShowcaseGroup"));
+
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", YELLOW_SCAVS);
+	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", CYAN_SCAVS);
 }

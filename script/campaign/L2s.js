@@ -19,7 +19,7 @@ function eventStartLevel()
 {
 	camSetupTransporter(31, 20, 25, 16);
 	centreView(32, 20);
-	setNoGoArea(30, 19, 33, 22, CAM_HUMAN_PLAYER);
+	setNoGoArea(30, 19, 32, 21, CAM_HUMAN_PLAYER);
 	setMissionTime(camChangeOnDiff(camMinutesToSeconds(75)));
 	camSetStandardWinLossConditions(CAM_VICTORY_PRE_OFFWORLD, "L2");
 

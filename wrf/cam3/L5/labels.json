@@ -1,159 +1,291 @@
 {
-	"position_0": {
-        "pos": [1973, 8261],
-        "label": "startPosition"
+    "position_0": {
+        "pos": [820, 278],
+        "label": "infestedEntry1"
     },
     "position_1": {
-        "pos": [134, 1279],
-        "label": "ambushEntry1"
+        "pos": [9643, 579],
+        "label": "infestedEntry2"
     },
     "position_2": {
-        "pos": [6460, 174],
-        "label": "ambushEntry2"
+        "pos": [9622, 7617],
+        "label": "infestedEntry3"
     },
     "position_3": {
-        "pos": [8068, 5696],
-        "label": "ambushEntry3"
-    },
-    "position_4": {
-        "pos": [2177, 1857],
+        "pos": [3785, 3814],
         "label": "outpostDefensePos"
     },
+    "position_4": {
+        "pos": [6476, 10229],
+        "label": "basePatrolPos1"
+    },
     "position_5": {
-        "pos": [4800, 8223],
-        "label": "baseDefensePos1"
+        "pos": [7114, 11084],
+        "label": "basePatrolPos2"
     },
     "position_6": {
-        "pos": [5477, 9251],
-        "label": "baseDefensePos2"
+        "pos": [7370, 10053],
+        "label": "basePatrolPos3"
     },
     "position_7": {
-        "pos": [5724, 8125],
-        "label": "baseDefensePos3"
+        "pos": [8923, 10454],
+        "label": "basePatrolPos4"
     },
     "position_8": {
-        "pos": [7283, 8544],
-        "label": "baseDefensePos4"
+        "pos": [7427, 2632],
+        "label": "infestedAssembly1"
     },
     "position_9": {
-        "pos": [8143, 3529],
-        "label": "heliSpawn"
+        "pos": [3076, 13287],
+        "label": "southPatrolPos1"
     },
     "position_10": {
-        "pos": [5563, 963],
-        "label": "infestedAssembly"
+        "pos": [5306, 13137],
+        "label": "southPatrolPos2"
     },
     "position_11": {
-        "pos": [628, 9651],
-        "label": "transporterEntry"
+        "pos": [7931, 12847],
+        "label": "southPatrolPos3"
+    },
+    "position_12": {
+        "pos": [9461, 5406],
+        "label": "heliSpawn"
+    },
+    "position_13": {
+        "pos": [8997, 668],
+        "label": "infestedAssembly2"
+    },
+    "position_14": {
+        "pos": [1213, 584],
+        "label": "infestedAssembly3"
+    },
+    "position_15": {
+        "pos": [1072, 6581],
+        "label": "infestedAssembly4"
+    },
+    "position_16": {
+        "pos": [833, 12991],
+        "label": "yScavAssembly2"
+    },
+    "position_17": {
+        "pos": [5768, 12745],
+        "label": "yScavAssembly3"
+    },
+    "position_18": {
+        "pos": [1722, 3137],
+        "label": "ambushSpawn1"
+    },
+    "position_19": {
+        "pos": [6080, 4546],
+        "label": "ambushSpawn2"
+    },
+    "position_20": {
+        "pos": [198, 5952],
+        "label": "infestedEntry4"
     },
 
-	"area_0": {
-        "pos1": [1792, 8064],
-        "pos2": [2176, 8448],
+    "area_0": {
+        "pos1": [3456, 9984],
+        "pos2": [3839, 10367],
         "label": "LZ"
     },
     "area_1": {
-        "pos1": [2176, 896],
-        "pos2": [2688, 1152],
+        "pos1": [3840, 2816],
+        "pos2": [4352, 3072],
         "label": "outpostDefenseGroup"
     },
     "area_2": {
-        "pos1": [4864, 2432],
-        "pos2": [5248, 2816],
-        "label": "boomTickGroup1"
+        "pos1": [6528, 4352],
+        "pos2": [6912, 4736],
+        "label": "boomTownGroup1"
     },
     "area_3": {
-        "pos1": [5632, 4864],
-        "pos2": [6016, 5248],
-        "label": "boomTickGroup2"
+        "pos1": [7296, 6784],
+        "pos2": [7680, 7168],
+        "label": "boomTownGroup2"
     },
     "area_4": {
-        "pos1": [2048, 2560],
-        "pos2": [2432, 2816],
+        "pos1": [3712, 4480],
+        "pos2": [4096, 4736],
         "label": "outpostGuard"
     },
     "area_5": {
-        "pos1": [4736, 8448],
-        "pos2": [4992, 9216],
+        "pos1": [6400, 10368],
+        "pos2": [6656, 11136],
         "label": "baseDefenseGroup1"
     },
     "area_6": {
-        "pos1": [6016, 9088],
-        "pos2": [6528, 9472],
+        "pos1": [7680, 11008],
+        "pos2": [8192, 11392],
         "label": "baseDefenseGroup2"
     },
     "area_7": {
-        "pos1": [1408, 896],
-        "pos2": [3456, 3456],
-        "label": "yScavBase"
+        "pos1": [3072, 3072],
+        "pos2": [5120, 5376],
+        "label": "yScavBase1"
     },
     "area_8": {
-        "pos1": [4864, 512],
-        "pos2": [6400, 1536],
-        "label": "infestedBase"
+        "pos1": [6528, 2432],
+        "pos2": [8064, 3200],
+        "label": "infestedBase1"
     },
     "area_9": {
-        "pos1": [4224, 7040],
-        "pos2": [7552, 9728],
+        "pos1": [5888, 8960],
+        "pos2": [9216, 12032],
         "label": "scavBase"
     },
     "area_10": {
-        "pos1": [1536, 2176],
-        "pos2": [2688, 2304],
+        "pos1": [3200, 4096],
+        "pos2": [4352, 4224],
         "label": "outpostAmbushTrigger"
     },
     "area_11": {
-        "pos1": [3712, 1792],
-        "pos2": [3840, 3456],
-        "label": "boomTickAmbushTrigger"
+        "pos1": [5504, 3712],
+        "pos2": [5632, 5504],
+        "label": "boomTownAmbushTrigger1"
     },
     "area_12": {
-        "pos1": [4736, 3712],
-        "pos2": [7040, 3840],
-        "label": "townAmbushTrigger"
+        "pos1": [6528, 5376],
+        "pos2": [8704, 5504],
+        "label": "boomTownAmbushTrigger2"
     },
     "area_13": {
-        "label": "compromiseZone",
-        "pos1": [1152, 7424],
-        "pos2": [3200, 9344]
+        "pos1": [2816, 8960],
+        "pos2": [4992, 11264],
+        "label": "compromiseZone"
+    },
+    "area_14": {
+        "pos1": [3584, 7040],
+        "pos2": [4224, 7552],
+        "label": "boomShowcaseGroup"
+    },
+    "area_15": {
+        "pos1": [7424, 384],
+        "pos2": [9344, 1152],
+        "label": "infestedBase2"
+    },
+    "area_16": {
+        "pos1": [640, 384],
+        "pos2": [1792, 1536],
+        "label": "infestedBase3"
+    },
+    "area_17": {
+        "pos1": [768, 6144],
+        "pos2": [1536, 6912],
+        "label": "infestedBase4"
+    },
+    "area_18": {
+        "pos1": [384, 12160],
+        "pos2": [2048, 13696],
+        "label": "yScavBase2"
+    },
+    "area_19": {
+        "pos1": [4352, 12288],
+        "pos2": [7296, 13568],
+        "label": "yScavBase3"
+    },
+    "area_20": {
+        "pos1": [2560, 13312],
+        "pos2": [3328, 13568],
+        "label": "southScavPatrol"
+    },
+    "area_21": {
+        "pos1": [1920, 1664],
+        "pos2": [2304, 1920],
+        "label": "northBoomGroup"
+    },
+    "area_22": {
+        "pos1": [3200, 384],
+        "pos2": [3328, 2304],
+        "label": "northBoomTrigger"
+    },
+    "area_23": {
+        "pos1": [384, 4864],
+        "pos2": [640, 5248],
+        "label": "westBoomGroup1"
+    },
+    "area_24": {
+        "pos1": [2176, 5504],
+        "pos2": [2688, 5888],
+        "label": "westBoomGroup2"
+    },
+    "area_25": {
+        "pos1": [1280, 4224],
+        "pos2": [2176, 4480],
+        "label": "westBoomTrigger"
     },
 
-	"object_0": {
-        "id": 51,
-        "type": 1,
-        "player": 3,
-        "label": "yScavFactory1"
-    },
-    "object_1": {
-        "id": 224,
-        "type": 1,
-        "player": 3,
-        "label": "yScavFactory2"
-    },
-    "object_2": {
-        "id": 108,
+    "object_0": {
+        "id": 914,
         "type": 1,
         "player": 4,
-        "label": "infestedFactory"
+        "label": "infestedFactory2"
     },
-    "object_3": {
-        "id": 225,
+    "object_1": {
+        "id": 925,
         "type": 1,
-        "player": 2,
-        "label": "cScavFactory"
+        "player": 4,
+        "label": "infestedFactory4"
     },
-    "object_4": {
-        "id": 280,
+    "object_2": {
+        "id": 758,
         "type": 1,
         "player": 2,
         "label": "radarTower"
     },
+    "object_3": {
+        "id": 849,
+        "type": 1,
+        "player": 3,
+        "label": "yScavFactory2"
+    },
+    "object_4": {
+        "id": 1056,
+        "type": 0,
+        "player": 4,
+        "label": "showcaseBoomTick"
+    },
+    "object_5": {
+        "id": 884,
+        "type": 1,
+        "player": 2,
+        "label": "cScavFactory"
+    },
+    "object_6": {
+        "id": 975,
+        "type": 1,
+        "player": 3,
+        "label": "yScavFactory4"
+    },
+    "object_7": {
+        "id": 533,
+        "type": 1,
+        "player": 4,
+        "label": "infestedFactory3"
+    },
+    "object_8": {
+        "id": 879,
+        "type": 1,
+        "player": 3,
+        "label": "yScavFactory1"
+    },
+    "object_9": {
+        "id": 942,
+        "type": 1,
+        "player": 3,
+        "label": "yScavFactory3"
+    },
+    "object_10": {
+        "id": 713,
+        "type": 1,
+        "player": 4,
+        "label": "infestedFactory1"
+    },
 
     "radius_0": {
-		"label": "heliRemoveZone",
-		"subscriber": 2,
-		"pos": [8143, 4041],
-		"radius": 250
-	}
+        "subscriber": 2,
+        "pos": [8143, 4297],
+        "radius": 250,
+        "label": "heliRemoveZone"
+    }
 }

@@ -356,17 +356,19 @@ const THEM = 3;
 function check()
 {
 	var nw = getObject(3, 8);
-	var w = getObject(4, 68);
-	var c = getObject(42, 92);
+	var n = getObject(38, 16);
+	var ne = getObject(59, 23);
+	var c = getObject(43, 77);
 	var e = getObject(60, 100);
+	var s = getObject(26, 112);
 
-	if (nw !== null && w !== null && c !== null && e !== null 
-		&& nw.isSensor && w.isSensor && c.isSensor && e.isSensor 
-		&& nw.status === BUILT && w.status === BUILT && c.status === BUILT && e.status === BUILT)
+	if (nw !== null && n !== null && ne !== null && c !== null && e !== null && s !== null
+		&& nw.isSensor && n.isSensor && ne.isSensor && c.isSensor && e.isSensor && s.isSensor
+		&& nw.status === BUILT && n.status === BUILT && ne.status === BUILT && c.status === BUILT && e.status === BUILT && s.status === BUILT)
 	{
 		setTimer("colourSwitch", camSecondsToMilliseconds(0.2));
 		removeTimer("check");
-		spawnThem();
+		camCallOnce("spawnThem");
 	}
 }
 

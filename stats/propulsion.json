@@ -33,6 +33,20 @@
         "type": "Legged",
         "weight": 50
     },
+    "BoomTickLegs": {
+        "buildPoints": 50,
+        "buildPower": 10,
+        "deceleration": 450,
+        "hitpointPctOfBody": 50,
+        "id": "BoomTickLegs",
+        "name": "Cyborg Propulsion",
+        "speed": 550,
+        "spinAngle": 45,
+        "spinSpeed": 450,
+        "turnSpeed": 225,
+        "type": "Legged",
+        "weight": 1
+    },
     "CyborgLegs02": {
         "buildPoints": 50,
         "buildPower": 10,
@@ -281,9 +295,9 @@
         "id": "Helicopter",
         "model": "PRLHELI1.PIE",
         "name": "Helicopter",
-        "speed": 400,
-        "spinSpeed": 5,
-        "turnSpeed": 5,
+        "speed": 300,
+        "spinSpeed": 100,
+        "turnSpeed": 100,
         "type": "Lift",
         "weight": 50
     }

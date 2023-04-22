@@ -216,7 +216,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Flashlight laser",
             "Automatically targets enemies in range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_PulseLas": {
@@ -227,7 +227,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Pulse Laser",
             "Automatically targets enemies in range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_RL1TOW": {
@@ -238,7 +238,7 @@
             "New Defensive Structure Available",
             "Armored guard tower with Needle Gun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_Rail2": {
@@ -247,9 +247,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Rail Gun",
+            "Armored Medium with Rail Gun",
             "Automatically targets enemies in range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_Rail3": {
@@ -260,7 +260,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Gauss Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_SAM1": {

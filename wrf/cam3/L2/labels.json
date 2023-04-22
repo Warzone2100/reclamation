@@ -25,15 +25,15 @@
 	},
 	"position_6": {
 	    "label": "yScavAssembly",
-	    "pos": [5387, 3259]
+	    "pos": [5577, 2748]
 	},
 	"position_7": {
 	    "label": "cScavAssembly1",
-	    "pos": [3785, 6321]
+	    "pos": [4416, 6321]
 	},
 	"position_8": {
 	    "label": "cScavAssembly2",
-	    "pos": [7728, 5756]
+	    "pos": [8242, 5555]
 	},
 	"position_9": {
 	    "label": "transporterEntry",
@@ -51,7 +51,7 @@
 	"area_0": {
 		"label": "LZ",
 		"pos1": [8064, 2432],
-		"pos2": [8448, 2816]
+		"pos2": [8447, 2815]
 	},
 	"area_1": {
 		"label": "yScavPatrol",

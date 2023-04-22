@@ -37,7 +37,7 @@
         "thermal": 12,
         "type": "DEFENSE",
         "weapons": [
-            "MG3Mk1"
+            "MG3-Pillbox"
         ],
         "width": 1
     },
@@ -293,7 +293,7 @@
         "height": 2,
         "hitpoints": 400,
         "id": "InfestedLookOutTower",
-        "name": "Look-Out Tower",
+        "name": "Infested Look-Out Tower",
         "sensorID": "BaBaSensor",
         "strength": "MEDIUM",
         "structureModel": [
@@ -322,7 +322,7 @@
         "thermal": 12,
         "type": "DEFENSE",
         "weapons": [
-            "MG3Mk1"
+            "MG3-Pillbox"
         ],
         "width": 1
     },
@@ -1350,7 +1350,7 @@
         "name": "Hyper Velocity Cannon Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "Blhowmnt.PIE"
         ],
@@ -1373,7 +1373,7 @@
         "name": "Howitzer Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "Blhowmnt.PIE"
         ],
@@ -1419,7 +1419,7 @@
         "name": "Archangel Missile Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1465,7 +1465,7 @@
         "name": "Mini-Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1488,7 +1488,7 @@
         "name": "Seraph Missile Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1557,7 +1557,7 @@
         "name": "Flashlight Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1580,7 +1580,7 @@
         "name": "Pulse Laser Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1603,7 +1603,7 @@
         "name": "Railgun Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1626,7 +1626,7 @@
         "name": "Gauss Cannon Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -1649,7 +1649,7 @@
         "name": "Ripple Rocket Battery",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "Blhowmnt.PIE"
         ],
@@ -1672,7 +1672,7 @@
         "name": "Hellstorm Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHOWMNT.PIE"
         ],
@@ -2537,7 +2537,7 @@
         "id": "Sys-NX-SensorTower",
         "name": "*Sys-NX-SensorTower*",
         "resistance": 150,
-        "sensorID": "SensorTower2Mk1",
+        "sensorID": "SensorTower1Mk1",
         "strength": "HARD",
         "structureModel": [
             "Blgrdnex.PIE"
@@ -2595,7 +2595,7 @@
         "height": 3,
         "hitpoints": 450,
         "id": "Sys-SensoTower01",
-        "name": "Rusty Sensor Tower",
+        "name": "Sensor Tower",
         "resistance": 150,
         "sensorID": "SensorTower1Mk1",
         "strength": "MEDIUM",
@@ -2606,7 +2606,7 @@
         "type": "DEFENSE",
         "width": 1
     },
-    "Sys-NotRustSensoTower01": {
+    "Sys-RustSensoTower01": {
         "armour": 10,
         "breadth": 1,
         "buildPoints": 300,
@@ -2614,10 +2614,10 @@
         "ecmID": "ZNULLECM",
         "height": 3,
         "hitpoints": 450,
-        "id": "Sys-NotRustSensoTower01",
-        "name": "Sensor Tower",
+        "id": "Sys-RustSensoTower01",
+        "name": "Rusty Sensor Tower",
         "resistance": 150,
-        "sensorID": "NotRustySensorTower1Mk1",
+        "sensorID": "RustySensorTower1Mk1",
         "strength": "MEDIUM",
         "structureModel": [
             "BLGUARDM.PIE"
@@ -2637,7 +2637,7 @@
         "id": "Sys-SensoTower02",
         "name": "Hardened Sensor Tower",
         "resistance": 150,
-        "sensorID": "SensorTower2Mk1",
+        "sensorID": "SensorTower1Mk1",
         "strength": "HARD",
         "structureModel": [
             "BLGUARDR.pie"
@@ -2675,9 +2675,29 @@
         "height": 3,
         "hitpoints": 600,
         "id": "Sys-VTOL-RadarTower01",
-        "name": "Rusty VTOL Radar Tower",
+        "name": "VTOL Radar Tower",
         "resistance": 150,
         "sensorID": "Sys-VTOLRadarTower01",
+        "strength": "HARD",
+        "structureModel": [
+            "BLGUARDR.pie"
+        ],
+        "thermal": 15,
+        "type": "DEFENSE",
+        "width": 1
+    },
+    "Sys-VTOL-RustyRadarTower01": {
+        "armour": 10,
+        "breadth": 1,
+        "buildPoints": 300,
+        "buildPower": 60,
+        "ecmID": "ZNULLECM",
+        "height": 3,
+        "hitpoints": 450,
+        "id": "Sys-VTOL-RadarTower01",
+        "name": "Rusty VTOL Radar Tower",
+        "resistance": 150,
+        "sensorID": "Sys-RustyVTOLRadarTower01",
         "strength": "MEDIUM",
         "structureModel": [
             "BLGUARDM.pie"
@@ -2925,7 +2945,7 @@
         "name": "Inferno Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -3175,7 +3195,7 @@
         "armour": 15,
         "breadth": 1,
         "buildPoints": 400,
-        "buildPower": 150,
+        "buildPower": 100,
         "ecmID": "ZNULLECM",
         "height": 1,
         "hitpoints": 400,
@@ -3183,7 +3203,7 @@
         "name": "Flamer Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],
@@ -3198,7 +3218,7 @@
         "armour": 15,
         "breadth": 1,
         "buildPoints": 400,
-        "buildPower": 150,
+        "buildPower": 100,
         "ecmID": "ZNULLECM",
         "height": 1,
         "hitpoints": 400,
@@ -3206,7 +3226,7 @@
         "name": "Light Cannon Emplacement",
         "resistance": 150,
         "sensorID": "DefaultSensor1Mk1",
-        "strength": "HARD",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLHARDPT.PIE"
         ],

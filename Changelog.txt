@@ -1,3 +1,61 @@
+Reclamation 1.2.0
+
+Major update with sweeping changes and full level overhauls.
+Overall changes:
+- L4 has been remade entirely.
+- L5 has been expanded.
+- Scavenger units have had their hitpoints increased (excluding Bus Tanks and Choppers).
+- Scavenger Jeep and Buggy rockets have new models to convey that they deal anti-tank damage (and to differentiate from the MRA).
+- Scavenger Choppers have a tighter turning radius, but a slower movement speed.
+- Imported "under attack" message system from Fractured Kingdom.
+- Imported parts of tactics.js from Fractured Kingdom.
+- Imported some projectile/explosion effects from Fractured Kingdom.
+- Cyborg Grenadier grenades have a unique projectile model now.
+- The "color me" chat command can now be used with any color.
+- If the player is the same color as an enemy faction, then that faction will now choose a different color.
+- Man-made features (huts, skyscrapers, etc.) have significantly more hitpoints.
+- All mission messages now have an indicator of the sender at the beginning.
+- Emplacements are now considered "Medium" structures (instead of "Hard").
+- Cyborg component research now displays the actual cyborg model.
+- Increased the frame rate of Chopper animations.
+- Infested units now universally start pre-damaged (except Crawlers).
+- Crawler (Stingers, Boom Ticks, and Vile Stingers) models have been improved.
+- Stingers and Vile Stingers have a new unique weapon sfx (no longer reusing the Light Cannon's).
+- Stingers have had their weapon damage reduced.
+- Boom Ticks have had their movement speed increased.
+- Vile Stingers have had their hitpoints increased, and their weapon range reduced.
+Level specific changes:
+L1
+- The NASDA structures on L1 now start somewhat damaged.
+L2
+- Slightly moved some of the scavenger factory assembly points.
+L3
+- Changed the terrain around the southern ramp, adding a (small) new route.
+- Changed the terrain around the eastern scavenger base.
+- Scavenger Choppers will now be more focused on the player's base, instead of constantly trying to attack the closest player structure.
+- The yellow scavenger factory will activate once the player reaches the southern ramp.
+- The southwest scavenger factory now holds the artifact for Composite Alloys (instead of the Chaingun Upgrade).
+- Added a hack to prevent the south half of the map from being dark after save/loading during the surprise attack.
+L4
+- The first scavenger factory now holds the artifact for the Chaingun Upgrade.
+- Scavengers now have fewer weapon upgrades than before.
+L5
+- Reinforcement time has been reduced to 1:45 minutes (from 2 minutes).
+- Introduce Boom Ticks with a live demonstration.
+- Additional Boom Ticks now accompany Infested waves on Hard/Insane.
+L6
+- AA-emplacement locations are now marked on the map.
+- Added a new transmission to emphasize that only the AA sites are required.
+- Added a new cache of oil drums.
+- The player's transport now takes a new route after the first landing.
+- Infested attacks begin much sooner and are now activated on a timer instead of crossing a trigger.
+- Added a Crawler patrol in the central Infested base.
+L7
+- The Infested no longer use Mini-Rocket Arrays.
+- Autosaves at 10 minutes remaining no longer break Infested spawning.
+- The lighting changes during the ending scene now.
+- A unique message if the player beats the level on Insane.
+
 Reclamation 1.1.2
 
 Minor update with some bugfixes and improvements.

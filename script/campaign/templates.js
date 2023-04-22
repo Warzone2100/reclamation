@@ -1,7 +1,7 @@
 var cTempl = {
 ////////////////////////////////////////////////////////////////////////////////
 
-// CUSTOM CAMPAIGN
+// Reclamation Campaign
 // Player Units:
 truck: { body: "Body1REC", prop: "wheeled01", weap: "Spade1Mk1" }, // Truck Viper Wheels
 
@@ -38,9 +38,9 @@ infbuggy: { body: "Infestedsml-buggy01", prop: "BaBaProp", weap: "BabaBuggyMG" }
 infrbuggy: { body: "InfestedRKbuggy01", prop: "BaBaProp", weap: "BabaRocket" }, // Infested Rocket Buggy
 infbjeep: { body: "InfestedJeepBody", prop: "BaBaProp", weap: "InfJeepMG" }, // Infested Jeep
 infrbjeep: { body: "InfestedRKJeepBody", prop: "BaBaProp", weap: "BabaRocket" }, // Infested Rocket Jeep
-stinger: { body: "CyborgHeavyBody", prop: "CyborgLegs", weap: "StingerTail" }, // Stinger Crawler
-vilestinger: { body: "CyborgHeavyBody", prop: "CyborgLegs", weap: "VileStingerTail" }, // Vile Stinger Crawler
-boomtick: { body: "CyborgHeavyBody", prop: "CyborgLegs", weap: "BoomTickSac" }, // Boom Tick Crawler
+stinger: { body: "CrawlerBody", prop: "CyborgLegs", weap: "StingerTail" }, // Stinger Crawler
+vilestinger: { body: "CrawlerBody", prop: "CyborgLegs", weap: "VileStingerTail" }, // Vile Stinger Crawler
+boomtick: { body: "CrawlerBody", prop: "BoomTickLegs", weap: "BoomTickSac" }, // Boom Tick Crawler
 
 // CAM_1A
 bloke: { body: "B1BaBaPerson01", prop: "BaBaLegs", weap: "BabaMG" },

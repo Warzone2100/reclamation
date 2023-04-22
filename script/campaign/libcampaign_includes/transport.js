@@ -88,7 +88,7 @@ function __camDispatchTransporterUnsafe()
 		var template = list[i];
 		var prop = __camChangePropulsionOnDiff(template.prop);
 		// Hacky solution to make sure that the trucks gained on L1 have a meaningful name
-		var droid = addDroid(player, -1, -1, "Truck Viper Wheels", template.body, prop, "", "", template.weap);
+		var droid = addDroid(player, -1, -1, _("Truck Viper Wheels"), template.body, prop, "", "", template.weap);
 		droids.push(droid);
 		addDroidToTransporter(trans, droid);
 	}

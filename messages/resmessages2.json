@@ -128,7 +128,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Hyper-Velocity Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_HVATR": {
@@ -205,7 +205,7 @@
             "New Defensive Structure Available",
             "Armored strongpoint with Assault Cannon",
             "Automatically targets enemies in range",
-            "Defensive Strength: High"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_RotHOW": {

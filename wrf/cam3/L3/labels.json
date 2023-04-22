@@ -64,7 +64,7 @@
         "label": "heliAttackPos"
     },
     "position_16": {
-        "pos": [6341, 16184],
+        "pos": [3904, 16184],
         "label": "heliSpawn"
     },
 
@@ -125,7 +125,7 @@
     },
     "area_11": {
         "pos1": [2816, 12416],
-        "pos2": [3328, 13056],
+        "pos2": [3328, 13696],
         "label": "mointainBaseTrigger"
     },
 

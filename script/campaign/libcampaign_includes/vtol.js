@@ -18,6 +18,9 @@
 //		altIdx: Which design index the spawn will first cycle through the list of templates from.
 //		minVTOLs: Minimum amount of VTOLs that will spawn.
 //		maxRandomVTOLs: Random amount of VTOLs that will spawn in addition to minVTOLs.
+//		targetPlayer: A specific player to focus attention onto. (See CAM_ORDER_ATTACK in tactics.js)
+//		pos: A specific position (or list of positions) to focus on. (See CAM_ORDER_ATTACK in tactics.js)
+//		radius: Circle radius around ```pos``` to scan for targets. (See CAM_ORDER_ATTACK in tactics.js)
 function camSetVtolData(player, startPos, exitPos, templates, timer, obj, extras)
 {
 	__camVtolDataSystem.push({
@@ -126,6 +129,9 @@ function __camSpawnVtols()
 		let amount = minVtolAmount + camRand(maxRandomAdditions + 1);
 		let droids = [];
 		let pos;
+		let targetPlayer;
+		let targetPos;
+		let targetRadius;
 
 		//Make sure to catch multiple start positions also.
 		if(__camVtolDataSystem[idx].startPosition instanceof Array)
@@ -153,6 +159,9 @@ function __camSpawnVtols()
 		{
 			var lim = amount;
 			var alternate = false;
+			targetPlayer = __camVtolDataSystem[idx].extras.targetPlayer;
+			targetPos = __camVtolDataSystem[idx].extras.pos;
+			targetRadius = __camVtolDataSystem[idx].extras.radius;
 			if (camDef(__camVtolDataSystem[idx].extras.alternate))
 			{
 				alternate = __camVtolDataSystem[idx].extras.alternate; //Only use one template type
@@ -199,7 +208,7 @@ function __camSpawnVtols()
 		//...And send them.
 		camSendReinforcement(__camVtolDataSystem[idx].player, camMakePos(pos), droids, CAM_REINFORCE_GROUND, {
 			order: CAM_ORDER_ATTACK,
-			data: { regroup: false, count: -1 }
+			data: { regroup: false, count: -1, targetPlayer: targetPlayer, pos: targetPos, radius: targetRadius}
 		});
 	}
 }

@@ -5,6 +5,10 @@ MISBRI			_("---------------------------- MISSION BRIEFING ----------------------
 INCOMTRAN		_("------------------------- INCOMING TRANSMISSION -------------------------")
 NEWINTEL		_("------------------------ NEW INTELLIGENCE REPORT ------------------------")
 AREAREPORT		_("---------------------------- NEW AREA REPORT ----------------------------")
+/* Message ID's */
+UNKWNID				_("FROM: UNKNOWN")
+CLAYDEID			_("FROM: OFFICE OF GENERAL CLAYDE")
+ASSID				_("FROM: COUNCIL ASSOCIATE")
 /* General Footers */
 ENDBRI			_("----------------------------- BRIEFING ENDS -----------------------------")
 ENDTRAN			_("--------------------------- TRANSMISSION ENDS ---------------------------")
@@ -41,7 +45,7 @@ L1_DETMSG1		_("Commander, monitoring of scavenger radio chatter shows that they'
 L1_DETMSG2		_("Be ready to defend our base.")
 L1_DETMSG3		_("Do not allow them to compromise the mission!")
 
-/* L2S Hostages (Setup) */
+/* L2S Hostages (Setup)*/
 /* Mission Briefing */
 L2_BMSG1		_("Congratulations on securing our new base, Commander.")
 L2_BMSG2		_("The Council has reviewed the report of your success and are pleased with the establishment of our base of operations.")
@@ -66,7 +70,7 @@ L2_SCAV2MSG3	_("You've proven yourself quite capable, Commander. I am confident 
 
 /* L3 Surprise Attack */
 /* Mission Briefing */
-L3_BMSG1		_("Congratulations once again Commander, you've saved our civilian contacts.") 
+L3_BMSG1		_("Congratulations once again Commander, you've saved our civilian contacts.")
 L3_BMSG2		_("With their help, the Council has been able to pinpoint the location of the research facility we're looking for.")
 L3_BMSG3		_("But they also had some ill news: according to the rescued civilians, the scavengers you've been fighting are searching for this same facility.")
 L3_BMSG4		_("It is unknown if they have discovered its location yet. If the Council's understanding of this facility's purpose is correct, we must prevent the scavengers from finding it.")
@@ -74,18 +78,18 @@ L3_BMSG5		_("Furthermore, the Council has once again sought to condemn our metho
 L3_BMSG6		_("But let me be clear, this operation is under my directive. And as long as we continue to succeed in our goals, I see no reason for us to not use the most effective methods at our disposal.")
 L3_BMSG7		_("Prepare your forces for transport, we are going after that research facility.")
 /* Surprise Attack Message */
-L3_ATTMSG1		_("Commander, we're detecting a large scavenger attack coming in from the south.") 
-L3_ATTMSG2		_("Repulse this attack immediately.") 
-L3_ATTMSG3		_("We cannot afford to lose this site!") 
+L3_ATTMSG1		_("Commander, we're detecting a large scavenger attack coming in from the south.")
+L3_ATTMSG2		_("Repulse this attack immediately.")
+L3_ATTMSG3		_("We cannot afford to lose this site!")
 /* 'Now Go Kill Everything' Message */
-L3_KILLMSG1		_("Helicopters? Perhaps I have truly underestimated the ingenuity of these scavengers after all...") 
-L3_KILLMSG2		_("But we've come too far to be outplayed now.") 
-L3_KILLMSG3		_("Commander, I'm overriding your previous objective. That research facility can wait.") 
-L3_KILLMSG4		_("Make your way south, and eradicate those scavengers. Wipe out anything that gets in your way.") 
+L3_KILLMSG1		_("Helicopters? Perhaps I have truly underestimated the ingenuity of these scavengers after all...")
+L3_KILLMSG2		_("But we've come too far to be outplayed now.")
+L3_KILLMSG3		_("Commander, I'm overriding your previous objective. That research facility can wait.")
+L3_KILLMSG4		_("Make your way south, and eradicate those scavengers. Wipe out anything that gets in your way.")
 
-/* L4S Biological Research (Setup) */
+/* L4S Biological Research (Setup)*/
 /* Mission Briefing */
-L4_BMSG1		_("Extraordinary work Commander, I knew I could count on you.") 
+L4_BMSG1		_("Extraordinary work Commander, I knew I could count on you.")
 L4_BMSG2		_("I have not submitted a report to the Council about this... reprisal by the scavengers.")
 L4_BMSG3		_("The way I see it, if the Council is so adamant on their objections to how I conduct my operations, then they don't need to know the details of said operations.")
 L4_BMSG4		_("I will submit a report when you've secured the research facility. Go and send your forces now.")
@@ -93,7 +97,7 @@ L4_BMSG5		_("If the little intel we have about this site is even close to accura
 
 /* L4 Biological Research */
 /* Ominous Message */
-L4_WARNMSG1		_("Damnation! Those scavengers are already here.") 
+L4_WARNMSG1		_("Damnation! Those scavengers are already here.")
 L4_WARNMSG2		_("Clear them out and advance towards the research facility.")
 L4_WARNMSG3		_("With any luck, we may still have enough time to stop them.")
 /* Ambush Message */
@@ -101,61 +105,65 @@ L4_AMBUSHMSG1	_("Heads up Commander, I'm detecting a large amount of movement ap
 /* `Go Break Stuff` Message */
 L4_KILLMSG1		_("I'm looking through my feed data, and I have a hard time believing what I'm seeing. So I will give you a new, clear objective.")
 L4_KILLMSG2		_("Commander, destroy that research facility and destroy anyone or anything that stands in your way.")
-L4_KILLMSG3		_("Lockdown this entire area. Don't let anything here survive, scavenger or otherwise.")
+L4_KILLMSG3		_("Lock down this entire area. Don't let anything here survive, scavenger or otherwise.")
 
-/* L5S Town Purge (Setup) */
+/* L5S Town Purge (Setup)*/
 /* Mission Briefing */
-L5_BMSG1		_("These have been a troubling turn of events, to say the least.") 
-L5_BMSG2		_("That laboratory must have been designing some sort of bio-weapon. Some sort of virus or parasite that's turning those scavengers into mindless swarms.") 
-L5_BMSG3		_("And now that plague is free. Monitoring of scavenger radio waves show that they're in a state of panic.") 
-L5_BMSG4		_("If the Council were to learn of our failure to reach the facility in time, of your failure to contain this outbreak...") 
-L5_BMSG5		_("Commander, from now on we will be continuing this operation independent of the Council's 'oversight'. I will be the one giving every order going forward.") 
-L5_BMSG6		_("I don't want you or any of your men to have any contact with the Council. For the success of this operation, they cannot know what is happening here.") 
-L5_BMSG7		_("Your primary objective now is to curtail this infestation, and to crush anything that stands in the way of us establishing our hold.") 
-L5_BMSG8		_("There is an old industrial town nearby. Scavenger radio chatter suggests it is under attack by the infested.") 
-L5_BMSG9		_("Take your forces there and purge the town. We must move swiftly and hit hard in order to succeed.") 
+L5_BMSG1		_("These have been a troubling turn of events, to say the least.")
+L5_BMSG2		_("That laboratory must have been designing some sort of bio-weapon. Some sort of virus or parasite that's turning those scavengers into mindless swarms.")
+L5_BMSG3		_("And now that plague is free. Monitoring of scavenger radio waves show that they're in a state of panic.")
+L5_BMSG4		_("If the Council were to learn of our failure to reach the facility in time, of your failure to contain this outbreak...")
+L5_BMSG5		_("Commander, from now on we will be continuing this operation independent of the Council's 'oversight'. I will be the one giving every order going forward.")
+L5_BMSG6		_("I don't want you or any of your men to have any contact with the Council. For the success of this operation, they cannot know what is happening here.")
+L5_BMSG7		_("Your primary objective now is to curtail this infestation, and to crush anything that stands in the way of us establishing our hold.")
+L5_BMSG8		_("There is an old industrial town nearby. Scavenger radio chatter suggests it is under attack by the infested.")
+L5_BMSG9		_("Take your forces there and purge the town. We must move swiftly and hit hard in order to succeed.")
 
 /* L5 Town Purge */
 /* Scav Base Message */
-L5_SCAVMSG1		_("Commander, continue forward and eradicate that scavenger base.") 
-L5_SCAVMSG2		_("Infested or not, they still pose a threat to our cause, and as such must be rooted out.") 
-L5_SCAVMSG3		_("If we are to succeed, we cannot allow any loose ends to remain.") 
+L5_SCAVMSG1		_("Commander, continue forward and eradicate that scavenger base.")
+L5_SCAVMSG2		_("Infested or not, they still pose a threat to our cause, and as such must be rooted out.")
+L5_SCAVMSG3		_("If we are to succeed, we cannot allow any loose ends to remain.")
 
-/* L6S AA Hunter (Setup) */
+/* L6S AA Hunter (Setup)*/
 /* Mission Briefing */
-L6_BMSG1		_("Hello Commander, I am a representative of the Council.") 
-L6_BMSG2		_("General Clayde has informed us about the situation, and about the events that have transpired since your last report.") 
-L6_BMSG3		_("...") 
-L6_BMSG4		_("As per direction of the Council, I will be acting as your overseer going forward with this operation.") 
-L6_BMSG5		_("We have constructed a plan to evacuate this area of all survivors via moving them to a nearby secure location.") 
-L6_BMSG6		_("Unfortunately, we have detected multiple anti-air batteries located along the fastest route between our base and the haven.") 
-L6_BMSG7		_("If we are to succeed in this evacuation effort, these emplacements must be taken offline.") 
-L6_BMSG8		_("This area has also served as a major stronghold for the local scavengers. Based on your previous actions, reaching any sort of diplomatic solution with these holdouts seems impossible.") 
-L6_BMSG9		_("Good luck, Commander. Countless lives are now depending on your success.") 
+L6_BMSG1		_("Hello Commander, I am a representative of the Council.")
+L6_BMSG2		_("General Clayde has informed us about the situation, and about the events that have transpired since your last report.")
+L6_BMSG3		_("...")
+L6_BMSG4		_("As per direction of the Council, I will be acting as your overseer going forward with this operation.")
+L6_BMSG5		_("We have constructed a plan to evacuate this area of all survivors via moving them to a nearby secure location.")
+L6_BMSG6		_("Unfortunately, we have detected multiple anti-air batteries located along the fastest route between our base and the haven.")
+L6_BMSG7		_("If we are to succeed in this evacuation effort, these emplacements must be taken offline.")
+L6_BMSG8		_("This area has also served as a major stronghold for the local scavengers. Based on your previous actions, reaching any sort of diplomatic solution with these holdouts seems impossible.")
+L6_BMSG9		_("Good luck, Commander. Countless lives are now depending on your success.")
 
 /* L6 AA Hunter */
 /* Infested Wave Warning Message */
-L6_INFESMSG1	_("Commander be advised: we have received reports that large numbers of infested amassing just outside your area of operation.") 
-L6_INFESMSG2	_("Judging by the large scavenger presence here, the infested are most likely preparing to overrun whatever is left of them.") 
-L6_INFESMSG3	_("Please work quickly, as we are unsure of when they will begin to descend upon this position.")  
+L6_INFESMSG1	_("Commander be advised: we have received reports that large numbers of infested are amassing just outside your area of operation.")
+L6_INFESMSG2	_("Judging by the large scavenger presence here, the infested are most likely preparing to overrun whatever is left of them.")
+L6_INFESMSG3	_("Please work quickly; we are unsure of when they will begin to descend upon this position.")
+/* AA Site Reminder Message */
+L6_AAMSG1		_("Commander, a reminder to not allow yourself to be distracted from your goal.")
+L6_AAMSG2		_("Your primary objective is to neutralize the designated anti-aircraft batteries, and then return to base.")
+L6_AAMSG3		_("We cannot afford to have you waste time out there, Commander.")
 /* Infested Wave Imminent Message */
-L6_WAVEMSG1		_("Commander, the infested are converging towards your location.") 
-L6_WAVEMSG2		_("The incoming infested are too numerous to count; we are ordering an immediate retreat to LZ for extraction.") 
-L6_WAVEMSG3		_("There's no feasible way for your forces to hold out there for long.") 
+L6_WAVEMSG1		_("Commander, the infested are converging towards your location en mass.")
+L6_WAVEMSG2		_("Their numbers are far too great to estimate accurately; we are ordering an immediate retreat to LZ for extraction.")
+L6_WAVEMSG3		_("There's no feasible way for your forces to maintain their position this far from the base against so many.")
 /* 'You Are Taking Too Long' Message */
-L6_SCOLDMSG1	_("What are you still doing out there?!") 
-L6_SCOLDMSG2	_("Are you searching for more glory? More bloodshed by combat?") 
-L6_SCOLDMSG3	_("By delaying your orders to retreat, you are only putting yourself and your own troops at risk.") 
-L6_SCOLDMSG4	_("Regroup at the LZ for evac, unless you'd rather we call off the transports and leave you behind.") 
+L6_SCOLDMSG1	_("What are you still doing out there?!")
+L6_SCOLDMSG2	_("Are you searching for more glory? More trial by combat?")
+L6_SCOLDMSG3	_("By delaying your orders to retreat, you are only putting yourself and your own troops at risk.")
+L6_SCOLDMSG4	_("Regroup at the LZ for evac, unless you'd rather we call off the transports and leave you behind.")
 
 /* L7 Final Defensive */
 /* Mission Briefing */
-L7_BMSG1		_("Welcome back, Commander. We are pleased with your success in taking those AA guns offline.") 
+L7_BMSG1		_("Welcome back, Commander. We are pleased with your success in taking those AA guns offline.")
 L7_BMSG2		_("However, even without them impeding our progress, our evacuation is still behind schedule.")
-L7_BMSG3		_("We're still getting groups of stragglers, and the infested are closing in on our position at this very moment.") 
-L7_BMSG4		_("We don't have much time left. You must defend the base while we finish the evacuation.") 
-L7_BMSG5		_("Once all civilians and critical personnel are away, we'll have the transports come back for you and your forces.") 
-L7_BMSG6		_("This is it Commander. Good luck.") 
+L7_BMSG3		_("We're still getting groups of stragglers, and the infested are closing in on our position at this very moment.")
+L7_BMSG4		_("We don't have much time left. You must defend the base while we finish the evacuation.")
+L7_BMSG5		_("Once all civilians and critical personnel are away, we'll have the transports come back for you and your forces.")
+L7_BMSG6		_("This is it Commander. Good luck.")
 /* Detonation Message */
 L7_DETMSG1		_("Greetings Commander. This is General Clayde.")
 L7_DETMSG2		_("The evacuation was a success, the final transports have taken off...")
@@ -379,3 +387,10 @@ TEXT1		_("01101000 01110100 01110100 01110000 01110011 00111010 00101111 0010111
 TEXT2		_("01110111 01100101 00100000 01100100 01101111 00100000 01100001 00100000 01101100 01101001 01110100 01110100 01101100 01100101 00100000 01110100 01110010 01101111 01101100 01101100 01101001 01101110 01100111")
 
 TEXT3		_("01001000 01101111 01110111 00100000 01100100 01101001 01100100 00100000 01111001 01101111 01110101 00100000 01100101 01110110 01100101 01101110 00100000 01100110 01101001 01101110 01100100 00100000 01110100 01101000 01101001 01110011 00111111")
+
+TEXT4		_("YOU HAVE PERFORMED WONDERFULLY.")
+TEXT5		_("SO WELL, IN FACT, THAT I BELIEVE YOU DESERVE SOMETHING SPECIAL.")
+TEXT6		_("FIND ALL OF THE WATER TOWERS NEAR YOUR BASE, AND REPLACE THEM WITH YOUR OWN SENSORS.")
+TEXT7		_("THEN, YOU MAY BE REWARDED.")
+TEXT8		_("UNTIL WE MEET AGAIN...")
+TEXT9		_("COMMANDER.")

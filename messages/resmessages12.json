@@ -18,7 +18,7 @@
             "New Defensive Structure Available",
             "Mini-rocket armored strongpoint",
             "Assigned automatically to nearest sensor or CB tower",
-            "Defensive Strength: Hard"
+            "Defensive Strength: Medium"
         ]
     },
     "RES_EMP_Mpit": {
@@ -202,7 +202,7 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "Short-ranged artillery that fires salvoes of mini-rockets",
+            "Short-ranged artillery that fires salvoes of explosive mini-rockets",
             "Effective against: Infantry, wheeled vehicles and structures",
             "Ineffective against: Tracked vehicles and bunkers",
             "Does not require line of sight to a target and can be assigned to a sensor",

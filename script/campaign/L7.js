@@ -20,6 +20,20 @@ const INFESTED_RES = [
 	"R-Vehicle-Metals01", "R-Struc-Materials01", "R-Defense-WallUpgrade01",
 ];
 
+// Damage infested reinforcements
+function preDamageInfestedGroup(group)
+{
+	var units = enumGroup(group);
+	for (var i = 0; i < units.length; ++i)
+	{
+		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
+		{
+			// 50% to 80% base HP
+			setHealth(units[i], 50 + camRand(31));
+		}
+	}
+}
+
 //Remove infested helicopters.
 camAreaEvent("heliRemoveZone", function(droid)
 {
@@ -74,7 +88,7 @@ function startPhaseTwo()
 	setTimer("countDown", camSecondsToMilliseconds(0.4));
 
 	// Also queue the return of the infested attacks, but meaner this time
-	queue("startAttackWaves", camMinutesToMilliseconds(2));
+	queue("startAttackWaves", camSecondsToMilliseconds(125));
 }
 
 // Give a message and change the objective text
@@ -156,8 +170,12 @@ function prepareEnding()
 function endEffects()
 {
 	// Make a big explosion at the player's base and stop the small ones
-	fireWeaponAtLoc("LargeExplosion", 30, 17, CAM_HUMAN_PLAYER);
+	fireWeaponAtLoc("LargeExplosion", 32, 17, CAM_HUMAN_PLAYER);
 	removeTimer("smallExplosionFX");
+
+	// Adjust the lighting
+	setSunPosition(0, -0.2, -0.3);
+	setSunIntensity(0.7, 0.5, 0.5, 1.4, 0.6, 0.6, 1.4, 0.6, 0.6);
 
 	// Procedurally blow up everything on the map
 	setTimer("killSweep", camSecondsToMilliseconds(0.3));
@@ -187,7 +205,15 @@ function killSweep()
 	if (killSweepY === 128)
 	{
 		removeTimer("killSweep");
-		queue("youWin", camSecondsToMilliseconds(4));
+		if (difficulty !== INSANE)
+		{
+			queue("youWin", camSecondsToMilliseconds(4));
+		}
+		else
+		{
+			queue("hintMessage", camSecondsToMilliseconds(4));
+			queue("youWin", camSecondsToMilliseconds(12));
+		}
 	}
 
 	var list = enumArea(1, 1, 64, killSweepY, ALL_PLAYERS, false); // Get everything in the kill zone
@@ -206,6 +232,13 @@ function killSweep()
 function youWin()
 {
 	camScriptedVictory();
+}
+
+// Give a hint on how to do something i guess.
+function hintMessage()
+{
+	camPlayVideos({video: "HINTMSG", type: MISS_MSG});
+	queue("messageAlert", camSecondsToMilliseconds(0.2));
 }
 
 // Start sending attack waves
@@ -278,7 +311,7 @@ function infestedAttackWaves()
 
 	var westMarshDroids = [cTempl.infmonhmg, cTempl.infbuscan, cTempl.inffiretruck, cTempl.boomtick, cTempl.infbloke, cTempl.infbjeep];
 
-	var eastIndustryDroids = [cTempl.stinger, cTempl.infmoncan, cTempl.infrbjeep, cTempl.infmonmrl, cTempl.infbuscan, cTempl.inflance, cTempl.infbloke];
+	var eastIndustryDroids = [cTempl.stinger, cTempl.infmoncan, cTempl.infrbjeep, cTempl.infbuscan, cTempl.inflance, cTempl.infbloke];
 
 	var eastRoadDroids = [cTempl.boomtick, cTempl.infmoncan, cTempl.infrbjeep, cTempl.infsartruck, cTempl.infbloke, cTempl.inffiretruck];
 
@@ -378,13 +411,15 @@ function sendCivGroup(entrance)
 // Spawn a group of infested at a given entrance
 function sendInfestedGroup(entrance, droids)
 {
-	camSendReinforcement(INFESTED, camMakePos(entrance), randomTemplates(droids), CAM_REINFORCE_GROUND, {});
+	preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos(entrance), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
+	));
 }
 
 // Randomize the provided list of units and tack on a bunch of extra rocket fodder
 // Each individual wave is a bit smaller than in L6, to compensate for there being way more of them
 // Each wave also has a chance to include an extra Vile Stinger
-function randomTemplates(list)
+function randomTemplates(coreUnits)
 {
 	var i = 0;
 	var droids = [];
@@ -393,7 +428,7 @@ function randomTemplates(list)
 
 	for (i = 0; i < coreSize; ++i)
 	{
-		droids.push(list[camRand(list.length)]);
+		droids.push(coreUnits[camRand(coreUnits.length)]);
 	}
 
 	// Add a bunch of Infested Civilians.

@@ -205,37 +205,37 @@ function eventStartLevel()
 
 	// Set up bases
 	camSetEnemyBases({
-		"YellowBase": {
+		"yellowBase": {
 			cleanup: "yScavBase1",
 			detectMsg: "YSCAV_BASE1",
 			detectSnd: "pcv374.ogg",
 			eliminateSnd: "pcv392.ogg"
 		},
-		"MortarRidge": {
+		"mortarRidge": {
 			cleanup: "yScavBase2",
 			detectMsg: "YSCAV_BASE2",
 			detectSnd: "pcv375.ogg",
 			eliminateSnd: "pcv391.ogg"
 		},
-		"Roadblock": {
+		"roadblock": {
 			cleanup: "yScavBase3",
 			detectMsg: "YSCAV_BASE3",
 			detectSnd: "pcv375.ogg",
 			eliminateSnd: "pcv391.ogg"
 		},
-		"CyanDepot": {
+		"cyanDepot": {
 			cleanup: "cScavBase1",
 			detectMsg: "CSCAV_BASE1",
 			detectSnd: "pcv374.ogg",
 			eliminateSnd: "pcv392.ogg"
 		},
-		"BridgeDefences": {
+		"bridgeDefences": {
 			cleanup: "cScavBase2",
 			detectMsg: "CSCAV_BASE2",
 			detectSnd: "pcv375.ogg",
 			eliminateSnd: "pcv391.ogg"
 		},
-		"CyanBase": {
+		"cyanBase": {
 			cleanup: "cScavBase3",
 			detectMsg: "CSCAV_BASE3",
 			detectSnd: "pcv374.ogg",
@@ -255,6 +255,7 @@ function eventStartLevel()
 				fallback: camMakePos("yScavAssembly"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			templates: [cTempl.bloke, cTempl.buggy, cTempl.lance, cTempl.bloke, cTempl.rbuggy, cTempl.trike] // Variety
 		},
@@ -269,6 +270,7 @@ function eventStartLevel()
 				fallback: camMakePos("cScavAssembly1"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			templates: [cTempl.bloke, cTempl.lance, cTempl.bloke, cTempl.bjeep] // Mostly infantry
 		},
@@ -283,6 +285,7 @@ function eventStartLevel()
 				fallback: camMakePos("cScavAssembly2"),
 				regroup: true,
 				count: -1,
+				targetPlayer: CAM_HUMAN_PLAYER
 			},
 			templates: [cTempl.buscan, cTempl.bloke, cTempl.bjeep, cTempl.rbjeep, cTempl.firetruck] // Mostly vehicles
 		},
@@ -310,6 +313,9 @@ function eventStartLevel()
 
 	// Spawn civilians in their zones
 	populateCivilians();
+
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", YELLOW_SCAVS);
 
 	// Check the civilian groups on loop
 	setTimer("checkCivilianGuards", camSecondsToMilliseconds(2));
