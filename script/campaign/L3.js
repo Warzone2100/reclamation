@@ -358,7 +358,7 @@ function eventStartLevel()
 			order: CAM_ORDER_ATTACK,
 			groupSize: 3,
 			maxSize: 6,
-			throttle: camChangeOnDiff(camSecondsToMilliseconds(25)),
+			throttle: camChangeOnDiff(camSecondsToMilliseconds(30)),
 			data: {
 				morale: 40,
 				fallback: camMakePos("cScavAssembly3"),

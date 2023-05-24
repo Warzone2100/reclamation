@@ -1,3 +1,13 @@
+Reclamation 1.2.1
+
+Minor update with some level tweaks and some enemy changes.
+- Boom ticks now explode on death.
+- Scav Walls and Power Generators are now MEDIUM structures.
+- Scav choppers have increased speed and deceleration.
+- The southwest scav factory on L3 (the one that produces bus tanks) is now slightly slower.
+- Made later Infested waves on L4 slightly easier on difficulties below Hard.
+- The north Infested factory on L6 no longer produces Sarissa firetrucks.
+
 Reclamation 1.2.0
 
 Major update with sweeping changes and full level overhauls.

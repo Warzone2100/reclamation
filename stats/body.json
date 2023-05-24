@@ -260,6 +260,21 @@
         "weaponSlots": 1,
         "weight": 100
     },
+    "BoomBaitBody": {
+        "armourHeat": 1,
+        "armourKinetic": 1,
+        "buildPoints": 20,
+        "buildPower": 1,
+        "droidType": "PERSON",
+        "hitpoints": 10000,
+        "id": "BoomBaitBody",
+        "model": "infciv.pie",
+        "name": "*Boom Bait Body*",
+        "powerOutput": 125,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 100
+    },
     "InfestedScavBody": {
         "armourHeat": 1,
         "armourKinetic": 1,

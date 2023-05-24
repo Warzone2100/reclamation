@@ -20,7 +20,6 @@ const INFESTED_RES = [
 // Player values
 const AMBIENT = 1;
 const CYAN_SCAVS = 2;
-const INFESTED = 4;
 
 // Keep track of how many waves have spawned for the second part of the level
 var numWaves;
@@ -657,7 +656,7 @@ function eventStartLevel()
 			data: {
 				targetPlayer: CAM_HUMAN_PLAYER
 			},
-			templates: [cTempl.inflance, cTempl.infsartruck, cTempl.infbjeep, cTempl.infbloke, cTempl.inffiretruck, cTempl.infrbjeep, cTempl.infbloke] // Mixed units
+			templates: [cTempl.inflance, cTempl.infbjeep, cTempl.infbloke, cTempl.inffiretruck, cTempl.infrbjeep, cTempl.infbloke] // Mixed units
 		},
 	});
 

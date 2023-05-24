@@ -648,3 +648,17 @@ function __camAiPowerReset()
 		setPower(AI_POWER, i);
 	}
 }
+
+// Cause an explosion after a boomtick dies
+function __camDetonateBoomtick(boomBaitId)
+{
+	var bait = getObject(DROID, INFESTED, boomBaitId);
+	if (!camDef(bait))
+	{
+		return;
+	}
+	else
+	{
+		fireWeaponAtObj("BoomTickBlast", bait, INFESTED);
+	}
+}

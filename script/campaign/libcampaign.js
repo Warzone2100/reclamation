@@ -82,6 +82,7 @@ const CAM_HUMAN_PLAYER = 0;
 const NEW_PARADIGM = 1;
 const THE_COLLECTIVE = 2;
 const NEXUS = 3;
+const INFESTED = 4;
 const SCAV_6 = 6;
 const SCAV_7 = 7;
 

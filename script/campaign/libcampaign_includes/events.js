@@ -182,6 +182,13 @@ function cam_eventDestroyed(obj)
 				delete __camPlayerTransports[obj.player];
 			}
 		}
+		else if (camDef(obj.weapons[0]) && obj.weapons[0].id === _("BoomTickSac"))
+		{
+			var boomBaitId = addDroid(INFESTED, obj.x, obj.y, "Boom Bait",
+				"BoomBaitBody", "BaBaLegs", "", "", "InfestedMelee").id; // Spawn an infested civilian where the boom tick died...
+			queue("__camDetonateBoomtick", CAM_TICKS_PER_FRAME, boomBaitId + ""); // ...then blow them up
+		}
+
 	}
 }
 

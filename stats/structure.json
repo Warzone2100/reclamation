@@ -143,7 +143,7 @@
         "id": "InfHorizontalWall",
         "name": "Infested Scavenger Horizontal Wall",
         "sensorID": "BaBaSensor",
-        "strength": "SOFT",
+        "strength": "MEDIUM",
         "structureModel": [
             "infBLBRBWLH.PIE"
         ],
@@ -181,14 +181,14 @@
         "buildPower": 10,
         "ecmID": "ZNULLECM",
         "height": 2,
-        "hitpoints": 400,
+        "hitpoints": 300,
         "id": "InfPowerGenerator",
         "name": "Infested Scavenger Power Generator",
         "powerPoints": 50,
         "modulePowerPoints": 25,
         "resistance": 150,
         "sensorID": "BaBaSensor",
-        "strength": "SOFT",
+        "strength": "MEDIUM",
         "structureModel": [
             "infBLBRBGEN.PIE"
         ],
@@ -253,7 +253,7 @@
         "id": "InfCornerWall",
         "name": "Infested Scavenger CornerWall",
         "sensorID": "ZNULLSENSOR",
-        "strength": "SOFT",
+        "strength": "MEDIUM",
         "structureModel": [
             "infBLBRBCR1.PIE"
         ],
@@ -428,7 +428,7 @@
         "id": "A0BaBaHorizontalWall",
         "name": "Scavenger Horizontal Wall",
         "sensorID": "BaBaSensor",
-        "strength": "SOFT",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLBRBWLH.PIE"
         ],
@@ -466,14 +466,14 @@
         "buildPower": 10,
         "ecmID": "ZNULLECM",
         "height": 2,
-        "hitpoints": 400,
+        "hitpoints": 300,
         "id": "A0BaBaPowerGenerator",
         "name": "Scavenger Power Generator",
         "powerPoints": 50,
         "modulePowerPoints": 25,
         "resistance": 150,
         "sensorID": "BaBaSensor",
-        "strength": "SOFT",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLBRBGEN.PIE"
         ],
@@ -538,7 +538,7 @@
         "id": "A0BabaCornerWall",
         "name": "Scavenger CornerWall",
         "sensorID": "ZNULLSENSOR",
-        "strength": "SOFT",
+        "strength": "MEDIUM",
         "structureModel": [
             "BLBRBCR1.PIE"
         ],

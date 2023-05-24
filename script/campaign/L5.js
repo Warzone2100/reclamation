@@ -20,7 +20,6 @@ const INFESTED_RES = [
 const AMBIENT = 1;
 const CYAN_SCAVS = 2;
 const YELLOW_SCAVS = 3;
-const INFESTED = 4;
 
 // ID of the scav monster bus used to trigger Boom Tick demonstration
 var showBus;
@@ -59,35 +58,38 @@ function messageAlert()
 
 function eventDestroyed(obj)
 {
-	var label = getLabel(obj);
-	if (!camDef(label) || !(label === "infestedFactory2" || label === "infestedFactory3" || label === "infestedFactory4"))
+	if (obj.type === STRUCTURE)
 	{
-		return false;
-	}
+		var label = getLabel(obj);
+		if (!camDef(label) || !(label === "infestedFactory2" || label === "infestedFactory3" || label === "infestedFactory4"))
+		{
+			return false;
+		}
 
-	// Count how many factories remain
-	var factCount = 0;
-	if (getObject("infestedFactory2") !== null && label !== "infestedFactory2") factCount++;
-	if (getObject("infestedFactory3") !== null && label !== "infestedFactory3") factCount++;
-	if (getObject("infestedFactory4") !== null && label !== "infestedFactory4") factCount++;
+		// Count how many factories remain
+		var factCount = 0;
+		if (getObject("infestedFactory2") !== null && label !== "infestedFactory2") factCount++;
+		if (getObject("infestedFactory3") !== null && label !== "infestedFactory3") factCount++;
+		if (getObject("infestedFactory4") !== null && label !== "infestedFactory4") factCount++;
 
-	switch (factCount)
-	{
-	case 2: // One factory down; increase wave spawn rate
-		removeTimer("sendInfestedReinforcements");
-		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(55)));
-		break;
-	case 1: // Two factories down; increase wave spawn rate further
-		removeTimer("sendInfestedReinforcements");
-		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(35)));
-		break;
-	default: // All factories down; stop waves and activate any remaing scav factories
-		removeTimer("sendInfestedReinforcements");
-		camCallOnce("townAmbush2");
-		camEnableFactory("yScavFactory2");
-		camEnableFactory("yScavFactory3");
-		camEnableFactory("yScavFactory4");
-		break;
+		switch (factCount)
+		{
+		case 2: // One factory down; increase wave spawn rate
+			removeTimer("sendInfestedReinforcements");
+			setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(55)));
+			break;
+		case 1: // Two factories down; increase wave spawn rate further
+			removeTimer("sendInfestedReinforcements");
+			setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(35)));
+			break;
+		default: // All factories down; stop waves and activate any remaing scav factories
+			removeTimer("sendInfestedReinforcements");
+			camCallOnce("townAmbush2");
+			camEnableFactory("yScavFactory2");
+			camEnableFactory("yScavFactory3");
+			camEnableFactory("yScavFactory4");
+			break;
+		}
 	}
 }
 
@@ -680,7 +682,7 @@ function eventStartLevel()
 	var busPos = camMakePos("boomShowcaseGroup");
 	showBus = addDroid(CYAN_SCAVS, busPos.x, busPos.y, "Battle Bus 4",
 		"MonsterBus", "tracked01", "", "", "RustCannon1Mk1").id;
-	setHealth(getObject(DROID, CYAN_SCAVS, showBus), 20); // Starts very damaged
+	setHealth(getObject(DROID, CYAN_SCAVS, showBus), 15); // Starts very damaged
 	addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, CYAN_SCAVS, showBus)) }, "showBusST", false);
 	resetLabel("showBusST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen (used to trigger Boom Tick demonstration)
 

@@ -4,7 +4,6 @@ include("script/campaign/templates.js");
 // Player values
 const CIVILIANS = 1; // Used for civilian groups
 const TRANSPORT = 2; // Used for the transport that comes to pick them up
-const INFESTED = 4;
 
 var numWaves = 0; // How many infested attack waves have occured
 var phaseTwo = false; // Spawning behaviour changes at 10 minutes remaining

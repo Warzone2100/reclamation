@@ -20,7 +20,6 @@ const INFESTED_RES = [
 const RESEARCH_FACILITY = 1;
 const CYAN_SCAVS = 2;
 const AMBIENT = 3;
-const INFESTED = 4; // New enemy faction!
 const FAUX_INFESTED = 5;
 
 // Used to determine which entrances can spawn infested waves
@@ -347,7 +346,7 @@ function randomTemplates(coreUnits)
 	var droids = [];
 	var coreSize = camRand(3); // 0 - 2 core units.
 	if (infestedTier2) coreSize += 2; // 2 - 4 core units.
-	if (infestedTier3) coreSize += 2; // 4 - 6 core units.
+	if (infestedTier3 && difficulty >= HARD) coreSize += 2; // 4 - 6 core units.
 	var fodderSize = 10 + camRand(5); // 10 - 14 extra Infested Civilians to the swarm.
 
 	for (i = 0; i < coreSize; ++i)
