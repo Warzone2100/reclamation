@@ -1,20 +1,20 @@
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const YELLOW_SCAV_RES = [
+const mis_yellowScavRes = [
 	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage01",
 ];
-const CYAN_SCAV_RES = [
+const mis_cyanScavRes = [
 	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage01", "R-Wpn-Rocket-ROF01",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF01", "R-Wpn-Cannon-ROF01",
 ];
 
 // Player values
-const CIVILIANS = 1; // Civilian Team
-const CYAN_SCAVS = 2; // Cyan Scavengers
-const YELLOW_SCAVS = 3; // Yellow Scavengers
+const MIS_CIVILIANS = 1; // Civilian Team
+const MIS_CYAN_SCAVS = 2; // Cyan Scavengers
+const MIS_YELLOW_SCAVS = 3; // Yellow Scavengers
 
 // Keep track of which civilian groups have been freed
 var civGroup1Free = false;
@@ -30,12 +30,12 @@ function messageAlert()
 //Remove rescued civilians
 camAreaEvent("civilianRemoveZone", function(droid)
 {
-	if (droid.player === CIVILIANS)
+	if (droid.player === MIS_CIVILIANS)
 	{
 		camSafeRemoveObject(droid, false);
 	}
 
-	resetLabel("civilianRemoveZone", CIVILIANS);
+	resetLabel("civilianRemoveZone", MIS_CIVILIANS);
 });
 
 // Triggered when approaching the yellow scavs
@@ -86,14 +86,15 @@ camAreaEvent("cScavAttack", function(droid)
 // If so, free that civilian group
 function checkCivilianGuards()
 {
-	var  civExit = getObject("civilianExit");
+	const civExit = getObject("civilianExit");
+	const SND_CIV_RESCUE = "pcv612.ogg"; // "Civilian Rescued"
 
 	// Ruins group
 	if (getObject("civGuard1") === null && !civGroup1Free)
 	{
-		var area = getObject("civGroup1");
-		var civs = enumArea(area.x, area.y, area.x2, area.y2, CIVILIANS, false);
-		for (var i = 0; i < civs.length; ++i)
+		const area = getObject("civGroup1");
+		const civs = enumArea(area.x, area.y, area.x2, area.y2, MIS_CIVILIANS, false);
+		for (let i = 0; i < civs.length; ++i)
 		{
 			if (civs[i].type === DROID)
 			{
@@ -101,14 +102,14 @@ function checkCivilianGuards()
 			}
 		}
 		civGroup1Free = true;
-		playSound("pcv612.ogg");	//"Civilian Rescued".
+		playSound(SND_CIV_RESCUE);
 	}
 	// Yellow scav group
 	if (getObject("civGuard2") === null && !civGroup2Free)
 	{
-		var area = getObject("civGroup2");
-		var civs = enumArea(area.x, area.y, area.x2, area.y2, CIVILIANS, false);
-		for (var i = 0; i < civs.length; ++i)
+		const area = getObject("civGroup2");
+		const civs = enumArea(area.x, area.y, area.x2, area.y2, MIS_CIVILIANS, false);
+		for (let i = 0; i < civs.length; ++i)
 		{
 			if (civs[i].type === DROID)
 			{
@@ -116,14 +117,14 @@ function checkCivilianGuards()
 			}
 		}
 		civGroup2Free = true;
-		playSound("pcv612.ogg");	//"Civilian Rescued".
+		playSound(SND_CIV_RESCUE);
 	}
 	// Cyan scav group
 	if (getObject("civGuard3") === null && !civGroup3Free)
 	{
-		var area = getObject("civGroup3");
-		var civs = enumArea(area.x, area.y, area.x2, area.y2, CIVILIANS, false);
-		for (var i = 0; i < civs.length; ++i)
+		const area = getObject("civGroup3");
+		const civs = enumArea(area.x, area.y, area.x2, area.y2, MIS_CIVILIANS, false);
+		for (let i = 0; i < civs.length; ++i)
 		{
 			if (civs[i].type === DROID)
 			{
@@ -131,48 +132,48 @@ function checkCivilianGuards()
 			}
 		}
 		civGroup3Free = true;
-		playSound("pcv612.ogg");	//"Civilian Rescued".
+		playSound(SND_CIV_RESCUE);
 	}
 }
 
 // Spawn civilians in random positions inside of their group areas
 function populateCivilians()
 {
-	var area = getObject("civGroup1");
-	for (var i = 0; i < 5; ++i) // Spawn 5 civilians in area 1
+	const area1 = getObject("civGroup1");
+	for (let i = 0; i < 5; ++i) // Spawn 5 civilians in area 1
 	{
-		var posX = area.x + (camRand(2)); // 2 tiles wide area
-		var posY = area.y + (camRand(3)); // 3 tiles tall area
-		addDroid(CIVILIANS, posX, posY, "Civilian",
+		const POS_X = area1.x + (camRand(2)); // 2 tiles wide area
+		const POS_Y = area1.y + (camRand(3)); // 3 tiles tall area
+		addDroid(MIS_CIVILIANS, POS_X, POS_Y, "Civilian",
 		"CivilianBody", "BaBaLegs", "", "", "BabaMG");
 	}
 
-	var area = getObject("civGroup2");
-	for (var i = 0; i < 6; ++i) // Spawn 7 civilians in area 2
+	const area2 = getObject("civGroup2");
+	for (let i = 0; i < 6; ++i) // Spawn 7 civilians in area 2
 	{
-		var posX = area.x + (camRand(2)); // 2 tiles wide area
-		var posY = area.y + (camRand(3)); // 3 tiles tall area
-		addDroid(CIVILIANS, posX, posY, "Civilian",
+		const POS_X = area2.x + (camRand(2)); // 2 tiles wide area
+		const POS_Y = area2.y + (camRand(3)); // 3 tiles tall area
+		addDroid(MIS_CIVILIANS, POS_X, POS_Y, "Civilian",
 		"CivilianBody", "BaBaLegs", "", "", "BabaMG");
 	}
 
-	var area = getObject("civGroup3");
-	for (var i = 0; i < 6; ++i) // Spawn 6 civilians in area 3
+	const area3 = getObject("civGroup3");
+	for (let i = 0; i < 6; ++i) // Spawn 6 civilians in area 3
 	{
-		var posX = area.x + (camRand(4)); // 4 tiles wide area
-		var posY = area.y + (camRand(2)); // 2 tiles tall area
-		addDroid(CIVILIANS, posX, posY, "Civilian",
+		const POS_X = area3.x + (camRand(4)); // 4 tiles wide area
+		const POS_Y = area3.y + (camRand(2)); // 2 tiles tall area
+		addDroid(MIS_CIVILIANS, POS_X, POS_Y, "Civilian",
 		"CivilianBody", "BaBaLegs", "", "", "BabaMG");
 	}
 }
 
 function eventStartLevel()
 {
-	var startpos = getObject("startPosition");
-	var lz = getObject("LZ");
-	var tent = getObject("transporterEntry");
-	var text = getObject("transporterExit");
-	var busPos = getObject("monsterBusGroup");
+	const startpos = getObject("startPosition");
+	const lz = getObject("LZ");
+	const tent = getObject("transporterEntry");
+	const text = getObject("transporterExit");
+	const busPos = getObject("monsterBusGroup");
 
 	camSetStandardWinLossConditions(CAM_VICTORY_OFFWORLD, "L3", {
 		area: "compromiseZone",
@@ -182,9 +183,9 @@ function eventStartLevel()
 	camSetExtraObjectiveMessage("Rescue the civilian hostages");
 
 	// ally scavengers with civilians
-	setAlliance(CIVILIANS, CAM_HUMAN_PLAYER, true);
-	setAlliance(CIVILIANS, CYAN_SCAVS, true);
-	setAlliance(CIVILIANS, YELLOW_SCAVS, true);
+	setAlliance(MIS_CIVILIANS, CAM_HUMAN_PLAYER, true);
+	setAlliance(MIS_CIVILIANS, MIS_CYAN_SCAVS, true);
+	setAlliance(MIS_CIVILIANS, MIS_YELLOW_SCAVS, true);
 
 	centreView(startpos.x, startpos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
@@ -193,10 +194,10 @@ function eventStartLevel()
 
 	// Give scavengers weapon upgrades
 	// Cyan scavengers get ROF upgrades too
-	camCompleteRequiredResearch(CYAN_SCAV_RES, CYAN_SCAVS);
-	camCompleteRequiredResearch(YELLOW_SCAV_RES, YELLOW_SCAVS);
+	camCompleteRequiredResearch(mis_cyanScavRes, MIS_CYAN_SCAVS);
+	camCompleteRequiredResearch(mis_yellowScavRes, MIS_YELLOW_SCAVS);
 
-	changePlayerColour(CIVILIANS, 10); // Civilians to white (The scavengers keep their colours from last mission)
+	changePlayerColour(MIS_CIVILIANS, 10); // Civilians to white (The scavengers keep their colours from last mission)
 
 	camSetArtifacts({
 		"mortarPit": { tech: "R-Wpn-Mortar01Lt" }, // Mortar
@@ -308,14 +309,14 @@ function eventStartLevel()
 	});
 
 	// Spawn the scav Monster Bus tank
-	addDroid(CYAN_SCAVS, busPos.x, busPos.y, "The Battle Bus",
+	addDroid(MIS_CYAN_SCAVS, busPos.x, busPos.y, "The Battle Bus",
 		"MonsterBus", "tracked01", "", "", "RustCannon1Mk1");
 
 	// Spawn civilians in their zones
 	populateCivilians();
 
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", YELLOW_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_YELLOW_SCAVS);
 
 	// Check the civilian groups on loop
 	setTimer("checkCivilianGuards", camSecondsToMilliseconds(2));

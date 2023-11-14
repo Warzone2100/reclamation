@@ -1,14 +1,14 @@
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const SCAV_RES = [
+const mis_scavRes = [
 	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage03",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage03", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
 	"R-Vehicle-Metals01", "R-Struc-Materials01", "R-Defense-WallUpgrade01",
 ];
-const INFESTED_RES = [
+const mis_infestedRes = [
 	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage01",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF01",
@@ -17,9 +17,9 @@ const INFESTED_RES = [
 ];
 
 // Player values
-const AMBIENT = 1;
-const CYAN_SCAVS = 2;
-const YELLOW_SCAVS = 3;
+const MIS_AMBIENT = 1;
+const MIS_CYAN_SCAVS = 2;
+const MIS_YELLOW_SCAVS = 3;
 
 // ID of the scav monster bus used to trigger Boom Tick demonstration
 var showBus;
@@ -29,9 +29,9 @@ var infGlobalAttackGroup;
 // Needed to ensure the Boom Tick showcase can be triggered after a save/load
 function eventGameLoaded()
 {
-	if (camDef(getObject(DROID, CYAN_SCAVS, showBus)) && getObject(DROID, CYAN_SCAVS, showBus) !== null)
+	if (camDef(getObject(DROID, MIS_CYAN_SCAVS, showBus)) && getObject(DROID, MIS_CYAN_SCAVS, showBus) !== null)
 	{
-		addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, CYAN_SCAVS, showBus)) }, "showBusST", false);
+		addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, MIS_CYAN_SCAVS, showBus)) }, "showBusST", false);
 		resetLabel("showBusST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen
 	}
 }
@@ -47,7 +47,7 @@ camAreaEvent("heliRemoveZone", function(droid)
 		}
 	}
 
-	resetLabel("heliRemoveZone", CYAN_SCAVS);
+	resetLabel("heliRemoveZone", MIS_CYAN_SCAVS);
 });
 
 // This function is called after a video is played, a delay is required for the 'alert' sound to play properly in all cases
@@ -60,14 +60,14 @@ function eventDestroyed(obj)
 {
 	if (obj.type === STRUCTURE)
 	{
-		var label = getLabel(obj);
+		const label = getLabel(obj);
 		if (!camDef(label) || !(label === "infestedFactory2" || label === "infestedFactory3" || label === "infestedFactory4"))
 		{
 			return false;
 		}
 
 		// Count how many factories remain
-		var factCount = 0;
+		let factCount = 0;
 		if (getObject("infestedFactory2") !== null && label !== "infestedFactory2") factCount++;
 		if (getObject("infestedFactory3") !== null && label !== "infestedFactory3") factCount++;
 		if (getObject("infestedFactory4") !== null && label !== "infestedFactory4") factCount++;
@@ -96,7 +96,7 @@ function eventDestroyed(obj)
 // Damage infested units when they're built
 function eventDroidBuilt(droid, structure)
 {
-	if (droid.player === INFESTED)
+	if (droid.player === CAM_INFESTED)
 	{
 		if (droid.body !== "CrawlerBody")
 		{
@@ -118,15 +118,15 @@ function eventDroidBuilt(droid, structure)
 // Damage infested structures
 function preDamageInfested()
 {
-	var structures = enumStruct(INFESTED);
-	for (var i = 0; i < structures.length; ++i)
+	const structures = enumStruct(CAM_INFESTED);
+	for (let i = 0; i < structures.length; ++i)
 	{
 		// 60% to 90% base HP
 		setHealth(structures[i], 60 + camRand(31));
 	}
 
-	var units = enumDroid(INFESTED);
-	for (var i = 0; i < units.length; ++i)
+	const units = enumDroid(CAM_INFESTED);
+	for (let i = 0; i < units.length; ++i)
 	{
 		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
 		{
@@ -139,8 +139,8 @@ function preDamageInfested()
 // Damage infested reinforcements
 function preDamageInfestedGroup(group)
 {
-	var units = enumGroup(group);
-	for (var i = 0; i < units.length; ++i)
+	const units = enumGroup(group);
+	for (let i = 0; i < units.length; ++i)
 	{
 		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
 		{
@@ -153,8 +153,8 @@ function preDamageInfestedGroup(group)
 // Used to trigger Boom Tick demonstration (when the player sees the monste bus)
 function eventGroupSeen(viewer, group)
 {
-	if (camDef(getObject(DROID, CYAN_SCAVS, showBus)) && getObject(DROID, CYAN_SCAVS, showBus) !== null 
-		&& group === getObject(DROID, CYAN_SCAVS, showBus).group)
+	if (camDef(getObject(DROID, MIS_CYAN_SCAVS, showBus)) && getObject(DROID, MIS_CYAN_SCAVS, showBus) !== null 
+		&& group === getObject(DROID, MIS_CYAN_SCAVS, showBus).group)
 	{
 		// Unleash the thingamabob
 		camManageGroup(camMakeGroup("boomShowcaseGroup"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
@@ -201,13 +201,13 @@ camAreaEvent("outpostAmbushTrigger", function(droid)
 		setTimer("sendInfestedReinforcements", camChangeOnDiff(camSecondsToMilliseconds(75)));
 
 		// Two groups at once, from both sides
-		var group1 = [cTempl.stinger, cTempl.stinger, cTempl.infrbjeep, cTempl.infbuscan, cTempl.infbuggy, cTempl.inffiretruck];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn1"), randomTemplates(group1), CAM_REINFORCE_GROUND));
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn1"), randomTemplates(group1), CAM_REINFORCE_GROUND));
+		const group1 = [cTempl.stinger, cTempl.stinger, cTempl.infrbjeep, cTempl.infbuscan, cTempl.infbuggy, cTempl.inffiretruck];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("ambushSpawn1"), randomTemplates(group1), CAM_REINFORCE_GROUND));
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("ambushSpawn1"), randomTemplates(group1), CAM_REINFORCE_GROUND));
 
-		var group2 = [cTempl.stinger, cTempl.inftrike, cTempl.infbuggy, cTempl.infbjeep, cTempl.infrbuggy, cTempl.infbjeep];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn2"), randomTemplates(group2), CAM_REINFORCE_GROUND));
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("ambushSpawn2"), randomTemplates(group2), CAM_REINFORCE_GROUND));
+		const group2 = [cTempl.stinger, cTempl.inftrike, cTempl.infbuggy, cTempl.infbjeep, cTempl.infrbuggy, cTempl.infbjeep];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("ambushSpawn2"), randomTemplates(group2), CAM_REINFORCE_GROUND));
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("ambushSpawn2"), randomTemplates(group2), CAM_REINFORCE_GROUND));
 	}
 	else
 	{
@@ -220,8 +220,8 @@ function sendInfestedReinforcements()
 	// NE entrance
 	if (getObject("infestedFactory2") !== null) // Stop if the infested factory was destroyed
 	{
-		var droids = [cTempl.stinger, cTempl.infbloke, cTempl.infbloke, cTempl.infminitruck, cTempl.infbuggy, cTempl.infrbuggy];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry2"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.infbloke, cTempl.infbloke, cTempl.infminitruck, cTempl.infbuggy, cTempl.infrbuggy];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntry2"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -229,8 +229,8 @@ function sendInfestedReinforcements()
 	// NW entrance
 	if (getObject("infestedFactory3") !== null)
 	{
-		var droids = [cTempl.stinger, cTempl.inffiretruck, cTempl.infbloke, cTempl.inflance, cTempl.infbuggy, cTempl.infrbuggy];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry1"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.inffiretruck, cTempl.infbloke, cTempl.inflance, cTempl.infbuggy, cTempl.infrbuggy];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntry1"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -238,8 +238,8 @@ function sendInfestedReinforcements()
 	// West entrance
 	if (getObject("infestedFactory4") !== null)
 	{
-		var droids = [cTempl.stinger, cTempl.inflance, cTempl.infbuscan, cTempl.infbloke, cTempl.infbjeep, cTempl.infrbjeep];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry4"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.inflance, cTempl.infbuscan, cTempl.infbloke, cTempl.infbjeep, cTempl.infrbjeep];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntry4"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -304,8 +304,8 @@ function townAmbush2()
 	// Send the town Boom Tick to attack the player and send some reinforcements
 	camManageGroup(camMakeGroup("boomTownGroup2"), CAM_ORDER_ATTACK, {targetPlayer: CAM_HUMAN_PLAYER});
 
-	var droids = [cTempl.stinger, cTempl.stinger, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infmoncan];
-	preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntry3"), droids, CAM_REINFORCE_GROUND,
+	const droids = [cTempl.stinger, cTempl.stinger, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infciv, cTempl.infmoncan];
+	preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntry3"), droids, CAM_REINFORCE_GROUND,
 		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 	));
 
@@ -369,8 +369,8 @@ function northAmbush()
 
 function heliAttack()
 {
-	var list = [cTempl.helcan, cTempl.helhmg];
-	var ext = {
+	const list = [cTempl.helcan, cTempl.helhmg];
+	const ext = {
 		limit: [1, 1], //paired with template list
 		alternate: true,
 		altIdx: 0,
@@ -379,24 +379,23 @@ function heliAttack()
 
 	// A helicopter will attack the player every 90 seconds.
 	// The helicopter attacks stop when the VTOL radar tower is destroyed.
-	camSetVtolData(CYAN_SCAVS, "heliSpawn", "heliRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(1.5)), "radarTower", ext);
+	camSetVtolData(MIS_CYAN_SCAVS, "heliSpawn", "heliRemoveZone", list, camChangeOnDiff(camMinutesToMilliseconds(1.5)), "radarTower", ext);
 }
 
 // Randomize the provided list of units and tack on a bunch of extra rocket fodder
 function randomTemplates(list)
 {
-	var i = 0;
-	var droids = [];
-	var coreSize = 3 + camRand(4); // Maximum of 6 core units.
-	var fodderSize = 14 + camRand(3); // 14 - 16 extra Infested Civilians to the swarm.
+	const droids = [];
+	const CORE_SIZE = 3 + camRand(4); // Maximum of 6 core units.
+	const FODDER_SIZE = 14 + camRand(3); // 14 - 16 extra Infested Civilians to the swarm.
 
-	for (i = 0; i < coreSize; ++i)
+	for (let i = 0; i < CORE_SIZE; ++i)
 	{
 		droids.push(list[camRand(list.length)]);
 	}
 
 	// Add a bunch of Infested Civilians.
-	for (i = 0; i < fodderSize; ++i)
+	for (let i = 0; i < FODDER_SIZE; ++i)
 	{
 		droids.push(cTempl.infciv);
 	}
@@ -427,10 +426,10 @@ function camEnemyBaseDetected_scavRoadblock()
 
 function eventStartLevel()
 {
-	var startpos = camMakePos("LZ");
-	var lz = getObject("LZ");
-	var tent = camMakePos(28, 88);
-	var text = camMakePos(28, 88);
+	const startpos = camMakePos("LZ");
+	const lz = getObject("LZ");
+	const tent = camMakePos(28, 88);
+	const text = camMakePos(28, 88);
 
 	camSetStandardWinLossConditions(CAM_VICTORY_OFFWORLD, "L6S", {
 		area: "compromiseZone",
@@ -439,11 +438,11 @@ function eventStartLevel()
 	});
 
 	// set up alliances
-	setAlliance(AMBIENT, CAM_HUMAN_PLAYER, true);
-	setAlliance(AMBIENT, CYAN_SCAVS, true);
-	setAlliance(AMBIENT, YELLOW_SCAVS, true);
-	setAlliance(AMBIENT, INFESTED, true);
-	setAlliance(CYAN_SCAVS, YELLOW_SCAVS, true); // The scavs are now friends :)
+	setAlliance(MIS_AMBIENT, CAM_HUMAN_PLAYER, true);
+	setAlliance(MIS_AMBIENT, MIS_CYAN_SCAVS, true);
+	setAlliance(MIS_AMBIENT, MIS_YELLOW_SCAVS, true);
+	setAlliance(MIS_AMBIENT, CAM_INFESTED, true);
+	setAlliance(MIS_CYAN_SCAVS, MIS_YELLOW_SCAVS, true); // The scavs are now friends :)
 
 	centreView(startpos.x, startpos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
@@ -451,17 +450,17 @@ function eventStartLevel()
 	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
 
 	// Give research upgrades
-	camCompleteRequiredResearch(SCAV_RES, CYAN_SCAVS);
-	camCompleteRequiredResearch(SCAV_RES, YELLOW_SCAVS);
-	camCompleteRequiredResearch(INFESTED_RES, INFESTED);
+	camCompleteRequiredResearch(mis_scavRes, MIS_CYAN_SCAVS);
+	camCompleteRequiredResearch(mis_scavRes, MIS_YELLOW_SCAVS);
+	camCompleteRequiredResearch(mis_infestedRes, CAM_INFESTED);
 
 	if (playerData[0].colour != 8)
 	{
-		changePlayerColour(YELLOW_SCAVS, 8); // Set the yellow scavs back to yellow
+		changePlayerColour(MIS_YELLOW_SCAVS, 8); // Set the yellow scavs back to yellow
 	}
 	else
 	{
-		changePlayerColour(YELLOW_SCAVS, 1); // Set as orange if the player is already yellow
+		changePlayerColour(MIS_YELLOW_SCAVS, 1); // Set as orange if the player is already yellow
 	}
 
 	camSetArtifacts({
@@ -671,24 +670,24 @@ function eventStartLevel()
 	camSetFog(185, 182, 236);
 
 	// Damage the Boom Tick showcase group
-	var units = enumArea("boomShowcaseGroup");
-	for (var i = 0; i < units.length; ++i)
+	const units = enumArea("boomShowcaseGroup");
+	for (let i = 0; i < units.length; ++i)
 	{
 		// 40% to 80% base HP
 		setHealth(units[i], 40 + camRand(41));
 	}
 
 	// Spawn a scav Monster Bus tank (to be blown up)
-	var busPos = camMakePos("boomShowcaseGroup");
-	showBus = addDroid(CYAN_SCAVS, busPos.x, busPos.y, "Battle Bus 4",
+	const busPos = camMakePos("boomShowcaseGroup");
+	showBus = addDroid(MIS_CYAN_SCAVS, busPos.x, busPos.y, "Battle Bus 4",
 		"MonsterBus", "tracked01", "", "", "RustCannon1Mk1").id;
-	setHealth(getObject(DROID, CYAN_SCAVS, showBus), 15); // Starts very damaged
-	addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, CYAN_SCAVS, showBus)) }, "showBusST", false);
+	setHealth(getObject(DROID, MIS_CYAN_SCAVS, showBus), 15); // Starts very damaged
+	addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, MIS_CYAN_SCAVS, showBus)) }, "showBusST", false);
 	resetLabel("showBusST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen (used to trigger Boom Tick demonstration)
 
 	camManageGroup(camMakeGroup("boomShowcaseGroup"), CAM_ORDER_DEFEND, camMakePos("boomShowcaseGroup"));
 
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", YELLOW_SCAVS);
-	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_YELLOW_SCAVS);
+	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", MIS_CYAN_SCAVS);
 }

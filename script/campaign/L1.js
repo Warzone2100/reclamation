@@ -1,18 +1,18 @@
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const PLAYER_RES = [
+const mis_playerRes = [
 	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels",
 	"R-Comp-SynapticLink", "R-Cyborg-Wpn-MG", "R-Cyb-Sys-Construct",
 ];
-const SCAV_RES = [
+const mis_scavRes = [
 	"R-Wpn-Flamer-Damage01", "R-Wpn-Cannon-Damage01",
 ];
 
 // Player values
-const NASDA = 1; // NASDA Base
-const CYAN_SCAVS = 2; // Cyan Scavengers
-const YELLOW_SCAVS = 3; // Yellow Scavengers
+const MIS_NASDA = 1; // NASDA Base
+const MIS_CYAN_SCAVS = 2; // Cyan Scavengers
+const MIS_YELLOW_SCAVS = 3; // Yellow Scavengers
 
 // Whether the player has been detected by either of the scavenger factions
 var playerDetected = false;
@@ -25,11 +25,11 @@ var playerColour;
 // Damage NASDA structures
 function preDamageNasdaStructs()
 {
-	var structures = enumStruct(NASDA);
+	const structures = enumStruct(MIS_NASDA);
 
-	for (var i = 0; i < structures.length; ++i)
+	for (let i = 0; i < structures.length; ++i)
 	{
-		var struc = structures[i];
+		const struc = structures[i];
 		// 60% to 90% base HP
 		setHealth(struc, 60 + camRand(31));
 	}
@@ -52,10 +52,10 @@ camAreaEvent("captureZone", function(droid)
 		setPower(900, CAM_HUMAN_PLAYER);
 	}
 
-	camAbsorbPlayer(NASDA, CAM_HUMAN_PLAYER); // Give NASDA base to player
-	changePlayerColour(NASDA, playerColour); // NASDA Base to player's colour
+	camAbsorbPlayer(MIS_NASDA, CAM_HUMAN_PLAYER); // Give NASDA base to player
+	changePlayerColour(MIS_NASDA, playerColour); // NASDA Base to player's colour
 
-	var lz = getObject("LZ");
+	const lz = getObject("LZ");
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER); // Set up LZ
 
 	camCallOnce("sendPlayerTransporter"); // Call in a truck transporter
@@ -84,11 +84,11 @@ camAreaEvent("captureZone", function(droid)
 // Damage NASDA structures again (because apparently donating structures resets health)
 function reDamageNasdaStructs()
 {
-	var structures = enumStruct(CAM_HUMAN_PLAYER);
+	const structures = enumStruct(CAM_HUMAN_PLAYER);
 
-	for (var i = 0; i < structures.length; ++i)
+	for (let i = 0; i < structures.length; ++i)
 	{
-		var struc = structures[i];
+		const struc = structures[i];
 		// 60% to 90% base HP
 		setHealth(struc, 60 + camRand(31));
 	}
@@ -142,6 +142,9 @@ function expandMap()
 	// (and defend the base)
 	camPlayVideos({video: "L1_SCAVMSG", type: MISS_MSG});
 	queue("messageAlert", camSecondsToMilliseconds(0.2));
+
+	// Hack to prevent the south half of the map from being dark after the expansion
+	setSunPosition(225.0, -601.0, 450.0); // Move the sun just a wee bit (default is 225.0, -600.0, 450.0)
 }
 
 // This is used to start make scavengers "detect" the player once they're attacked
@@ -151,12 +154,12 @@ function eventAttacked(victim, attacker)
 	{
 		return;
 	}
-	if (victim.player === CYAN_SCAVS && attacker.player === CAM_HUMAN_PLAYER && !playerDetected)
+	if (victim.player === MIS_CYAN_SCAVS && attacker.player === CAM_HUMAN_PLAYER && !playerDetected)
 	{
 		camCallOnce("cScavDetectCountdown");
 		return;
 	}
-	if (victim.player === YELLOW_SCAVS && attacker.player === CAM_HUMAN_PLAYER && !playerDetected)
+	if (victim.player === MIS_YELLOW_SCAVS && attacker.player === CAM_HUMAN_PLAYER && !playerDetected)
 	{
 		camCallOnce("yScavDetectCountdown");
 		return;
@@ -167,11 +170,11 @@ function eventAttacked(victim, attacker)
 function eventTransporterLanded(transport)
 {
 	// Count all "NASDA" units
-	var units = enumDroid(NASDA);
+	const units = enumDroid(MIS_NASDA);
 
-	for (var i = 0, len = units.length; i < len; i++)
+	for (let i = 0, len = units.length; i < len; i++)
 	{
-		var droid = units[i];
+		const droid = units[i];
 		if (!camIsTransporter(droid)) // Give every unit that isn't a transport
 		{
 			donateObject(droid, CAM_HUMAN_PLAYER);
@@ -280,9 +283,9 @@ camAreaEvent("wallMsg", function(droid)
 
 function sendPlayerTransporter()
 {
-	var trucks = [cTempl.truck, cTempl.truck, cTempl.truck, cTempl.truck]; // 4 trucks
+	const trucks = [cTempl.truck, cTempl.truck, cTempl.truck, cTempl.truck]; // 4 trucks
 
-	camSendReinforcement(NASDA, camMakePos("LZ"), trucks,
+	camSendReinforcement(MIS_NASDA, camMakePos("LZ"), trucks,
 		CAM_REINFORCE_TRANSPORT, {
 			entry: { x: 2, y: 2 },
 			exit: { x: 2, y: 2 }
@@ -292,14 +295,14 @@ function sendPlayerTransporter()
 
 function enableBaseStructures()
 {
-	const STRUCTS = [
+	const structs = [
 		"A0CommandCentre", "A0PowerGenerator", "A0ResourceExtractor",
 		"A0ResearchFacility", "A0LightFactory", "A0CyborgFactory",
 	];
 
-	for (var i = 0; i < STRUCTS.length; ++i)
+	for (let i = 0; i < structs.length; ++i)
 	{
-		enableStructure(STRUCTS[i], CAM_HUMAN_PLAYER);
+		enableStructure(structs[i], CAM_HUMAN_PLAYER);
 	}
 }
 
@@ -323,7 +326,7 @@ function checkMissileSilos()
 // Allow the player to change to colors that are hard-coded to be unselectable
 function eventChat(from, to, message)
 {
-	var colour = 0;
+	let colour = 0;
 	switch (message)
 	{
 		case "green me":
@@ -361,8 +364,34 @@ function eventChat(from, to, message)
 		case "white me":
 			colour = 10; // White
 			break;
+		case "bright blue me":
+		case "bright me":
+			colour = 11; // Bright Blue
+			break;
+		case "neon green me":
+		case "neon me":
+		case "bright green me":
+			colour = 12; // Neon Green
+			break;
+		case "infrared me":
+		case "infra red me":
+		case "infra me":
+		case "dark red me":
+			colour = 13; // Infrared
+			break;
+		case "ultraviolet me":
+		case "ultra violet me":
+		case "ultra me":
+		case "uv me":
+		case "dark blue me":
+			colour = 14; // Ultraviolet
+			break;
+		case "brown me":
+		case "dark green me":
+			colour = 15; // Brown
+			break;
 		default:
-			return; // Some other message
+			return; // Some other message; do nothing
 	}
 
 	if (allowColourChange) // Only let the player change colors before capturing the NASDA base.
@@ -373,20 +402,20 @@ function eventChat(from, to, message)
 		// Make sure the scavengers aren't choosing conflicting colours with the player
 		if (colour === 7)
 		{
-			changePlayerColour(CYAN_SCAVS, 0); // Switch to green
+			changePlayerColour(MIS_CYAN_SCAVS, 0); // Switch to green
 		}
 		else
 		{
-			changePlayerColour(CYAN_SCAVS, 7); // Keep as cyan
+			changePlayerColour(MIS_CYAN_SCAVS, 7); // Keep as cyan
 		}
 
 		if (colour === 8)
 		{
-			changePlayerColour(YELLOW_SCAVS, 1); // Switch to orange
+			changePlayerColour(MIS_YELLOW_SCAVS, 1); // Switch to orange
 		}
 		else
 		{
-			changePlayerColour(YELLOW_SCAVS, 8); // Keep as yellow
+			changePlayerColour(MIS_YELLOW_SCAVS, 8); // Keep as yellow
 		}
 
 		playSound("beep6.ogg");
@@ -404,38 +433,38 @@ function eventStartLevel()
 	// Make sure the scavengers aren't choosing conflicting colours with the player
 	if (playerColour !== 7)
 	{
-		changePlayerColour(CYAN_SCAVS, 7); // Primary scavengers to cyan
+		changePlayerColour(MIS_CYAN_SCAVS, 7); // Primary scavengers to cyan
 	}
 	else
 	{
-		changePlayerColour(CYAN_SCAVS, 0); // Switch to green if player is already cyan
+		changePlayerColour(MIS_CYAN_SCAVS, 0); // Switch to green if player is already cyan
 	}
 
 	if (playerColour !== 8)
 	{
-		changePlayerColour(YELLOW_SCAVS, 8); // Secondary scavengers to yellow
+		changePlayerColour(MIS_YELLOW_SCAVS, 8); // Secondary scavengers to yellow
 	}
 	else
 	{
-		changePlayerColour(YELLOW_SCAVS, 1); // Switch to orange if player is already yellow
+		changePlayerColour(MIS_YELLOW_SCAVS, 1); // Switch to orange if player is already yellow
 	}
-	changePlayerColour(NASDA, 10); // NASDA Base to white (it doesn't really matter if the player is already white)
+	changePlayerColour(MIS_NASDA, 10); // NASDA Base to white (it doesn't really matter if the player is already white)
 
 	// Make extra sure no one attacks the base before it's captured 
-	setAlliance(CYAN_SCAVS, NASDA, true);
-	setAlliance(YELLOW_SCAVS, NASDA, true);
-	setAlliance(CAM_HUMAN_PLAYER, NASDA, true);
+	setAlliance(MIS_CYAN_SCAVS, MIS_NASDA, true);
+	setAlliance(MIS_YELLOW_SCAVS, MIS_NASDA, true);
+	setAlliance(CAM_HUMAN_PLAYER, MIS_NASDA, true);
 
 	// Restrict the map for now.
 	setScrollLimits(0, 0, 64, 30);
 
-	var startpos = getObject("startPosition");
+	const startpos = getObject("startPosition");
 	centreView(startpos.x, startpos.y);
 
 	enableBaseStructures(); // Allow the player to build base structures (Command Center, Factory, etc.)
-	camCompleteRequiredResearch(PLAYER_RES, CAM_HUMAN_PLAYER); // Give starting tech
-	camCompleteRequiredResearch(SCAV_RES, CYAN_SCAVS); // Give scavengers weapon upgrades
-	camCompleteRequiredResearch(SCAV_RES, YELLOW_SCAVS);
+	camCompleteRequiredResearch(mis_playerRes, CAM_HUMAN_PLAYER); // Give starting tech
+	camCompleteRequiredResearch(mis_scavRes, MIS_CYAN_SCAVS); // Give scavengers weapon upgrades
+	camCompleteRequiredResearch(mis_scavRes, MIS_YELLOW_SCAVS);
 
 	// Give player briefing.
 	camPlayVideos({video: "L1_BRIEF", type: MISS_MSG});
@@ -537,5 +566,5 @@ function eventStartLevel()
 	preDamageNasdaStructs();
 
 	// Replace the scav's sensor tower with its rusty version
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_CYAN_SCAVS);
 }

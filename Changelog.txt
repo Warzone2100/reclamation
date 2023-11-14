@@ -1,3 +1,10 @@
+Reclamation 1.3.0
+
+Update with a lot of script tidying-up to match the current libcampaign standards introduced in 4.4.0, this should not have a noticeable impact on actual gameplay.
+NOTE: Saves from previous versions may not work for most levels, as some variable names have been changed.
+Also:
+- Added new color options for the "color me" chat command on L1 ("bright blue", "neon green", "ultraviolet", "infrared", and "brown").
+
 Reclamation 1.2.1
 
 Minor update with some level tweaks and some enemy changes.

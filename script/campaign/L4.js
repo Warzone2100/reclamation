@@ -1,14 +1,14 @@
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const CYAN_SCAV_RES = [
+const mis_cyanScavRes = [
 	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF01",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF01",
 	"R-Vehicle-Metals01", "R-Struc-Materials01", "R-Defense-WallUpgrade01",
 ];
-const INFESTED_RES = [
+const mis_infestedRes = [
 	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage01",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF01",
@@ -17,10 +17,10 @@ const INFESTED_RES = [
 ];
 
 // Player values
-const RESEARCH_FACILITY = 1;
-const CYAN_SCAVS = 2;
-const AMBIENT = 3;
-const FAUX_INFESTED = 5;
+const MIS_RESEARCH_FACILITY = 1;
+const MIS_CYAN_SCAVS = 2;
+const MIS_AMBIENT = 3;
+const MIS_FAUX_INFESTED = 5;
 
 // Used to determine which entrances can spawn infested waves
 var infestedTier2;
@@ -51,7 +51,7 @@ function messageAlert()
 
 function eventDestroyed(obj)
 {
-	var label = getLabel(obj);
+	const label = getLabel(obj);
 	if (!camDef(label))
 	{
 		return false;
@@ -71,7 +71,7 @@ function eventDestroyed(obj)
 // Damage infested units when they're built
 function eventDroidBuilt(droid, structure)
 {
-	if (droid.player === INFESTED)
+	if (droid.player === CAM_INFESTED)
 	{
 		if (droid.body !== "CrawlerBody")
 		{
@@ -93,15 +93,15 @@ function eventDroidBuilt(droid, structure)
 // Damage infested stuff
 function preDamageInfested()
 {
-	var structures = enumStruct(INFESTED);
-	for (var i = 0; i < structures.length; ++i)
+	const structures = enumStruct(CAM_INFESTED);
+	for (let i = 0; i < structures.length; ++i)
 	{
 		// 60% to 90% base HP
 		setHealth(structures[i], 60 + camRand(31));
 	}
 
-	var units = enumDroid(INFESTED);
-	for (var i = 0; i < units.length; ++i)
+	const units = enumDroid(CAM_INFESTED);
+	for (let i = 0; i < units.length; ++i)
 	{
 		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
 		{
@@ -114,8 +114,8 @@ function preDamageInfested()
 // Damage infested reinforcements
 function preDamageInfestedGroup(group)
 {
-	var units = enumGroup(group);
-	for (var i = 0; i < units.length; ++i)
+	const units = enumGroup(group);
+	for (let i = 0; i < units.length; ++i)
 	{
 		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
 		{
@@ -128,10 +128,10 @@ function preDamageInfestedGroup(group)
 // Damage some scav stuff
 function preDamageScavs()
 {
-	var scavStuff = enumArea("scavDamagedDefenses", CYAN_SCAVS, false);
-	scavStuff = scavStuff.concat(enumArea("scavRefugees", CYAN_SCAVS, false));
-	scavStuff = scavStuff.concat(enumArea("scavBase2", CYAN_SCAVS, false));
-	for (var i = 0; i < scavStuff.length; ++i)
+	let scavStuff = enumArea("scavDamagedDefenses", MIS_CYAN_SCAVS, false);
+	scavStuff = scavStuff.concat(enumArea("scavRefugees", MIS_CYAN_SCAVS, false));
+	scavStuff = scavStuff.concat(enumArea("scavBase2", MIS_CYAN_SCAVS, false));
+	for (let i = 0; i < scavStuff.length; ++i)
 	{
 		// 65% to 75% base HP
 		setHealth(scavStuff[i], 65 + camRand(11));
@@ -276,8 +276,8 @@ function infestedAmbush3()
 	infestedTier3 = true;
 
 	// Spawn a one-time group of infested
-	var droids = [cTempl.inftrike, cTempl.stinger, cTempl.inftrike, cTempl.stinger, cTempl.stinger];
-	for (var i = 0; i < 20; i++)
+	const droids = [cTempl.inftrike, cTempl.stinger, cTempl.inftrike, cTempl.stinger, cTempl.stinger];
+	for (let i = 0; i < 20; i++)
 	{
 		droids.push(cTempl.infciv);
 	}
@@ -285,7 +285,7 @@ function infestedAmbush3()
 	{
 		dorids.push(cTempl.boomtick);
 	}
-	preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntryPos6"), droids, CAM_REINFORCE_GROUND, 
+	preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos6"), droids, CAM_REINFORCE_GROUND, 
 		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 	));
 }
@@ -296,8 +296,8 @@ function sendInfestedReinforcements()
 	// NW entrance
 	if (getObject("infestedFactory1") !== null) // Stop if the infested factory was destroyed
 	{
-		var droids = [cTempl.stinger, cTempl.infbloke];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntryPos1"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.infbloke];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos1"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -305,8 +305,8 @@ function sendInfestedReinforcements()
 	// SW entrance
 	if (getObject("infestedFactory2") !== null)
 	{
-		var droids = [cTempl.stinger, cTempl.infbloke, cTempl.infbjeep];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntryPos2"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.infbloke, cTempl.infbjeep];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos2"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -314,8 +314,8 @@ function sendInfestedReinforcements()
 	// NE entrance
 	if (getObject("infestedFactory3") !== null)
 	{
-		var droids = [cTempl.stinger, cTempl.infbjeep, cTempl.infrbjeep];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntryPos3"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.infbjeep, cTempl.infrbjeep];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos3"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -323,8 +323,8 @@ function sendInfestedReinforcements()
 	// SE entrance 1
 	if (getObject("infestedFactory4") !== null && infestedTier2)
 	{
-		var droids = [cTempl.stinger, cTempl.stinger, cTempl.infbjeep, cTempl.infbloke];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntryPos4"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.stinger, cTempl.infbjeep, cTempl.infbloke];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos4"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -332,8 +332,8 @@ function sendInfestedReinforcements()
 	// SE entrance 2
 	if (getObject("infestedFactory4") !== null && infestedTier3)
 	{
-		var droids = [cTempl.stinger, cTempl.inflance, cTempl.infbuscan, cTempl.infrbjeep, cTempl.infbjeep];
-		preDamageInfestedGroup(camSendReinforcement(INFESTED, camMakePos("infestedEntryPos5"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
+		const droids = [cTempl.stinger, cTempl.inflance, cTempl.infbuscan, cTempl.infrbjeep, cTempl.infbjeep];
+		preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos5"), randomTemplates(droids), CAM_REINFORCE_GROUND, 
 			{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
 		));
 	}
@@ -342,20 +342,19 @@ function sendInfestedReinforcements()
 // Randomize the provided list of units and tack on a bunch of extra rocket fodder
 function randomTemplates(coreUnits)
 {
-	var i = 0;
-	var droids = [];
-	var coreSize = camRand(3); // 0 - 2 core units.
+	const droids = [];
+	let coreSize = camRand(3); // 0 - 2 core units.
 	if (infestedTier2) coreSize += 2; // 2 - 4 core units.
 	if (infestedTier3 && difficulty >= HARD) coreSize += 2; // 4 - 6 core units.
-	var fodderSize = 10 + camRand(5); // 10 - 14 extra Infested Civilians to the swarm.
+	const FODDER_SIZE = 10 + camRand(5); // 10 - 14 extra Infested Civilians to the swarm.
 
-	for (i = 0; i < coreSize; ++i)
+	for (let i = 0; i < coreSize; ++i)
 	{
 		droids.push(coreUnits[camRand(coreUnits.length)]);
 	}
 
 	// Add a bunch of Infested Civilians.
-	for (i = 0; i < fodderSize; ++i)
+	for (let i = 0; i < FODDER_SIZE; ++i)
 	{
 		droids.push(cTempl.infciv);
 	}
@@ -387,9 +386,9 @@ function enableReinforcements()
 // Move the "fake" infested away from the LZ
 function clearLZ()
 {
-	var exit = camMakePos("exitPos");
-	var units = enumDroid(FAUX_INFESTED);
-	for (var i = 0; i < units.length; ++i)
+	const exit = camMakePos("exitPos");
+	const units = enumDroid(MIS_FAUX_INFESTED);
+	for (let i = 0; i < units.length; ++i)
 	{
 		orderDroidLoc(units[i], DORDER_MOVE, exit.x, exit.y);
 	}
@@ -432,10 +431,10 @@ function checkResearchFacility()
 
 function eventStartLevel()
 {
-	var startpos = camMakePos("LZ");
-	var lz = getObject("LZ");
-	var tent = camMakePos(21, 4);
-	var text = camMakePos(21, 4);
+	const startpos = camMakePos("LZ");
+	const lz = getObject("LZ");
+	const tent = camMakePos(21, 4);
+	const text = camMakePos(21, 4);
 
 	infestedTier2 = false;
 	infestedTier3 = false;
@@ -450,14 +449,14 @@ function eventStartLevel()
 	camSetExtraObjectiveMessage(["Investigate the Research Facility"]);
 
 	// set up alliances
-	setAlliance(RESEARCH_FACILITY, CYAN_SCAVS, true);
-	setAlliance(RESEARCH_FACILITY, INFESTED, true);
+	setAlliance(MIS_RESEARCH_FACILITY, MIS_CYAN_SCAVS, true);
+	setAlliance(MIS_RESEARCH_FACILITY, CAM_INFESTED, true);
 
-	setAlliance(AMBIENT, CAM_HUMAN_PLAYER, true);
-	setAlliance(AMBIENT, CYAN_SCAVS, true);
-	setAlliance(AMBIENT, INFESTED, true);
+	setAlliance(MIS_AMBIENT, CAM_HUMAN_PLAYER, true);
+	setAlliance(MIS_AMBIENT, MIS_CYAN_SCAVS, true);
+	setAlliance(MIS_AMBIENT, CAM_INFESTED, true);
 
-	setAlliance(FAUX_INFESTED, CAM_HUMAN_PLAYER, true); // Don't compromise LZ or aggro transport
+	setAlliance(MIS_FAUX_INFESTED, CAM_HUMAN_PLAYER, true); // Don't compromise LZ or aggro transport
 
 	centreView(startpos.x, startpos.y);
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
@@ -465,20 +464,20 @@ function eventStartLevel()
 	setTransporterExit(text.x, text.y, CAM_HUMAN_PLAYER);
 
 	// Give research upgrades
-	camCompleteRequiredResearch(CYAN_SCAV_RES, CYAN_SCAVS);
-	camCompleteRequiredResearch(INFESTED_RES, INFESTED);
+	camCompleteRequiredResearch(mis_cyanScavRes, MIS_CYAN_SCAVS);
+	camCompleteRequiredResearch(mis_infestedRes, CAM_INFESTED);
 
-	changePlayerColour(RESEARCH_FACILITY, 10); // Set the research facility to white
-	changePlayerColour(AMBIENT, 10);
+	changePlayerColour(MIS_RESEARCH_FACILITY, 10); // Set the research facility to white
+	changePlayerColour(MIS_AMBIENT, 10);
 	if (playerData[0].colour != 9)
 	{
-		changePlayerColour(INFESTED, 9); // Set infested to purple
-		changePlayerColour(FAUX_INFESTED, 9); // Set fake infested to the same color as the real infested
+		changePlayerColour(CAM_INFESTED, 9); // Set infested to purple
+		changePlayerColour(MIS_FAUX_INFESTED, 9); // Set fake infested to the same color as the real infested
 	}
 	else
 	{
-		changePlayerColour(INFESTED, 4); // Set infested to red if the player is already purple
-		changePlayerColour(FAUX_INFESTED, 4);
+		changePlayerColour(CAM_INFESTED, 4); // Set infested to red if the player is already purple
+		changePlayerColour(MIS_FAUX_INFESTED, 4);
 	}
 
 	camSetArtifacts({
@@ -638,8 +637,8 @@ function eventStartLevel()
 	queue("sendScouts", camSecondsToMilliseconds(14));
 
 	// Spawn a scav Monster Bus tank
-	var busPos = camMakePos("scavBase2");
-	addDroid(CYAN_SCAVS, busPos.x, busPos.y, "Battle Bus 3",
+	const busPos = camMakePos("scavBase2");
+	addDroid(MIS_CYAN_SCAVS, busPos.x, busPos.y, "Battle Bus 3",
 		"MonsterBus", "tracked01", "", "", "RustMG3Mk1");
 
 	// Infested start out partially damaged
@@ -654,7 +653,7 @@ function eventStartLevel()
 	// Clear the infested from the LZ
 	queue("clearLZ", camSecondsToMilliseconds(0.1));
 
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_CYAN_SCAVS);
 
 	// Place a (green) dot on the research facility
 	hackAddMessage("RESEARCH_GO", PROX_MSG, CAM_HUMAN_PLAYER, false);

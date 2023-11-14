@@ -2,18 +2,18 @@ include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
 // Player values
-const DUMMY_TRANSPORT = 1; // "Fake" transport at beginning of the level
-const CYAN_SCAVS = 2; // Cyan Scavengers
-const YELLOW_SCAVS = 3; // Yellow Scavengers
+const MIS_DUMMY_TRANSPORT = 1; // "Fake" transport at beginning of the level
+const MIS_CYAN_SCAVS = 2; // Cyan Scavengers
+const MIS_YELLOW_SCAVS = 3; // Yellow Scavengers
 
 var waveNum = 1; // How many scavenger attack waves have occured
 
-const YELLOW_SCAV_RES = [
+const mis_yellowScavRes = [
 	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02",
 ];
-const CYAN_SCAV_RES = [
+const mis_cyanScavRes = [
 	"R-Wpn-MG-Damage01", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF01",
@@ -32,7 +32,7 @@ camAreaEvent("heliRemoveZone", function(droid)
 		}
 	}
 
-	resetLabel("heliRemoveZone", CYAN_SCAVS);
+	resetLabel("heliRemoveZone", MIS_CYAN_SCAVS);
 });
 
 // Enable the mountain base factory after the player gets over the ramp
@@ -50,8 +50,8 @@ function messageAlert()
 //Setup helicopter attacks.
 function heliAttack()
 {
-	var list = [cTempl.helcan, cTempl.helhmg];
-	var ext = {
+	const list = [cTempl.helcan, cTempl.helhmg];
+	const ext = {
 		limit: [1, 1], //paired with template list
 		alternate: true,
 		altIdx: 0,
@@ -61,7 +61,7 @@ function heliAttack()
 
 	// A helicopter will attack the player every 3 minutes.
 	// The helicopter attacks stop when the VTOL radar tower is destroyed.
-	camSetVtolData(CYAN_SCAVS, "heliSpawn", "heliExit", list, camChangeOnDiff(camMinutesToMilliseconds(3)), "radarTower", ext);
+	camSetVtolData(MIS_CYAN_SCAVS, "heliSpawn", "heliExit", list, camChangeOnDiff(camMinutesToMilliseconds(3)), "radarTower", ext);
 }
 
 function expandMap()
@@ -95,8 +95,8 @@ function expandMap()
 // Send scavenger attack waves
 function sendScavAttackWaves()
 {
-	var westDroids;
-	var eastDroids;
+	let westDroids;
+	let eastDroids;
 
 	switch(waveNum)
 	{
@@ -129,10 +129,10 @@ function sendScavAttackWaves()
 
 	if (waveNum < 4)
 	{
-		camSendReinforcement(CYAN_SCAVS, camMakePos("westAttackPos"), westDroids,
+		camSendReinforcement(MIS_CYAN_SCAVS, camMakePos("westAttackPos"), westDroids,
 			CAM_REINFORCE_GROUND, {order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}});
 
-		camSendReinforcement(CYAN_SCAVS, camMakePos("eastAttackPos"), eastDroids,
+		camSendReinforcement(MIS_CYAN_SCAVS, camMakePos("eastAttackPos"), eastDroids,
 			CAM_REINFORCE_GROUND, {order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}});
 	}
 
@@ -140,7 +140,7 @@ function sendScavAttackWaves()
 	if (waveNum === 3)
 	{
 		// Send the attack chopper
-		camSendReinforcement(CYAN_SCAVS, camMakePos("heliAttackPos"), [cTempl.helcan],
+		camSendReinforcement(MIS_CYAN_SCAVS, camMakePos("heliAttackPos"), [cTempl.helcan],
 			CAM_REINFORCE_GROUND, {order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}});
 
 		// Spawn no more waves, and queue up the map expansion
@@ -164,7 +164,7 @@ function camEnemyBaseDetected_rampDefenses()
 function activateYellowScavs()
 {
 	camEnableFactory("yScavFactory");
-	setAlliance(YELLOW_SCAVS, CYAN_SCAVS, false);
+	setAlliance(MIS_YELLOW_SCAVS, MIS_CYAN_SCAVS, false);
 }
 
 // These are all defence/patrol groups of units
@@ -215,8 +215,8 @@ function activateScavGroups()
 function startScavAttack()
 {
 	// Get the dummy transport to fly away
-	var transportExit = getObject("transportRemoveZone");
-	var transport = enumDroid(DUMMY_TRANSPORT);
+	const transportExit = getObject("transportRemoveZone");
+	const transport = enumDroid(MIS_DUMMY_TRANSPORT);
 	orderDroidLoc(transport[0], DORDER_MOVE, transportExit.x, transportExit.y);
 	queue("removeTransport", camSecondsToMilliseconds(5));
 
@@ -232,7 +232,7 @@ function startScavAttack()
 // Remove the dummy transport
 function removeTransport()
 {
-	var transport = enumDroid(DUMMY_TRANSPORT);
+	const transport = enumDroid(MIS_DUMMY_TRANSPORT);
 	camSafeRemoveObject(transport[0], false);
 }
 
@@ -249,8 +249,8 @@ function checkMissileSilos()
 
 function eventStartLevel()
 {
-	var startpos = getObject("startPosition");
-	var lz = getObject("LZ");
+	const startpos = getObject("startPosition");
+	const lz = getObject("LZ");
 
    	camSetStandardWinLossConditions(CAM_VICTORY_STANDARD, "L4S", {
 		callback: "checkMissileSilos"
@@ -263,8 +263,8 @@ function eventStartLevel()
 	setNoGoArea(lz.x, lz.y, lz.x2, lz.y2, CAM_HUMAN_PLAYER);
 
 	// Give research upgrades to scavs, the cyan scavs also get armor upgrades
-	camCompleteRequiredResearch(CYAN_SCAV_RES, CYAN_SCAVS);
-	camCompleteRequiredResearch(YELLOW_SCAV_RES, YELLOW_SCAVS); 
+	camCompleteRequiredResearch(mis_cyanScavRes, MIS_CYAN_SCAVS);
+	camCompleteRequiredResearch(mis_yellowScavRes, MIS_YELLOW_SCAVS); 
 
 	camSetArtifacts({
 		"cScavFactory1": { tech: "R-Wpn-Cannon1Mk1" }, // Light Cannon
@@ -376,17 +376,17 @@ function eventStartLevel()
 	queue("messageAlert", camSecondsToMilliseconds(0.2));
 
 	// Set dummy transport colour to match the player, and ally it to the player
-	changePlayerColour(DUMMY_TRANSPORT, playerData[0].colour);
-	setAlliance(DUMMY_TRANSPORT, CAM_HUMAN_PLAYER, true);
-	setAlliance(YELLOW_SCAVS, CYAN_SCAVS, true); // Just so the cyan scavs don't get distracted from attacking the player
+	changePlayerColour(MIS_DUMMY_TRANSPORT, playerData[0].colour);
+	setAlliance(MIS_DUMMY_TRANSPORT, CAM_HUMAN_PLAYER, true);
+	setAlliance(MIS_YELLOW_SCAVS, MIS_CYAN_SCAVS, true); // Just so the cyan scavs don't get distracted from attacking the player
 
 	// Place a dummy transport on the LZ
-	addDroid(DUMMY_TRANSPORT, 31, 20, "Transport", "TransporterBody", "V-Tol", "", "", "MG3-VTOL");
+	addDroid(MIS_DUMMY_TRANSPORT, 31, 20, "Transport", "TransporterBody", "V-Tol", "", "", "MG3-VTOL");
 
 	queue("startScavAttack", camSecondsToMilliseconds(12));
 
-	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", CYAN_SCAVS);
-	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_CYAN_SCAVS);
+	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", MIS_CYAN_SCAVS);
 
 	// Restrict the map to the original level for now
 	setScrollLimits(0, 0, 64, 64);
