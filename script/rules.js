@@ -481,12 +481,10 @@ function eventAttacked(victim, attacker)
 		if (victim.type === STRUCTURE)
 		{
 			playSound("pcv337.ogg", victim.x, victim.y, victim.z); // "Structure under attack!"
-			playSound("pcv337.ogg", victim.x, victim.y, victim.z);
 		}
 		else
 		{
 			playSound("pcv399.ogg", victim.x, victim.y, victim.z); // "Unit under attack!"
-			playSound("pcv399.ogg", victim.x, victim.y, victim.z);
 		}
 	}
 }
