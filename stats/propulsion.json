@@ -255,7 +255,7 @@
         "model": "prlwhl1.PIE",
         "name": "Wheels",
         "skidDeceleration": 350,
-        "speed": 175,
+        "speed": 225,
         "type": "Wheeled",
         "weight": 300
     },
@@ -268,7 +268,7 @@
         "model": "prlwhl1.PIE",
         "name": "Wheels II",
         "skidDeceleration": 350,
-        "speed": 175,
+        "speed": 225,
         "type": "Wheeled",
         "weight": 250
     },
@@ -281,7 +281,7 @@
         "model": "prlwhl1.PIE",
         "name": "Wheels III",
         "skidDeceleration": 350,
-        "speed": 175,
+        "speed": 225,
         "type": "Wheeled",
         "weight": 200
     },
