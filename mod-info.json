@@ -1,0 +1,40 @@
+{
+  "name": "Reclamation",
+  "version": "1.4.0",
+  "author": "DARwins",
+  "type": "alternateCampaign",
+  "license": "GPL-2.0-or-later",
+  "minVersionSupported": "4.4.2",
+  "maxVersionTested": "4.5.0",
+  "description": {
+     "en": "(Prequel) Set out under the command of renowned General Edmund Clayde with the goal of laying the foundations of a new world. What could possibly go wrong?"
+  },
+  "updatesUrl": "https://github.com/DARwins1/reclamation/releases/latest",
+  "campaigns": [
+    "aarec1.json"
+  ],
+  "universe": "wz2100extended",
+  "difficultyLevels": "default",
+  "camTweakOptions": [
+    {
+      "id": "timerPowerBonus",
+      "default": true,
+      "userEditable": false
+    },
+    {
+      "id": "classicTimers",
+      "default": false,
+      "userEditable": false
+    },
+    {
+      "id": "playerUnitCap40",
+      "default": false,
+      "userEditable": false
+    },
+    {
+      "id": "autosavesOnly",
+      "default": false,
+      "userEditable": false
+    }
+  ]
+}

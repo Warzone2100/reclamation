@@ -1,0 +1,23 @@
+{
+    "_Format": {
+        "_comment": "fileName: [file.ogg], loop: [false/true], range: [world units, 128 = 1 tile], volume: [0-100]"
+    },
+    "Beeps": {
+        "_name": "Beep sounds",
+        "data": [
+            { "fileName": "beep7.ogg", "loop": false, "range": 1800, "volume": 60, "z_comment": "Zoom On Radar" }
+        ]
+    },
+    "WeaponSounds": {
+        "_name": "Weapon sounds",
+        "data": [
+            { "fileName": "nxstower.ogg", "loop": false, "range": 1800, "volume": 40, "z_comment": "We can't add new weapon SFX, so this now is a punching sound" }
+        ]
+    },
+    "ConstructionSounds": {
+        "_name": "Construction sounds",
+        "data": [
+            { "fileName": "weld-1.ogg", "loop": false, "range": 1800, "volume": 70, "z_comment": "We can't add new weapon SFX, so this now is a stinger projectile sound" }
+        ]
+    }
+}
