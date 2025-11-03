@@ -685,10 +685,9 @@ function eventStartLevel()
 	addLabel({ type: GROUP, id: camMakeGroup(getObject(DROID, MIS_CYAN_SCAVS, showBus)) }, "showBusST", false);
 	resetLabel("showBusST", CAM_HUMAN_PLAYER); // subscribe for eventGroupSeen (used to trigger Boom Tick demonstration)
 
-	camManageGroup(camMakeGroup("boomShowcaseGroup"), CAM_ORDER_DEFEND, {pos: camMakePos("boomShowcaseGroup")});
-
 	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_CYAN_SCAVS);
 	camUpgradeOnMapStructures("Sys-SensoTower01", "Sys-RustSensoTower01", MIS_YELLOW_SCAVS);
 	camUpgradeOnMapStructures("Sys-VTOL-RadarTower01", "Sys-VTOL-RustyRadarTower01", MIS_CYAN_SCAVS);
 }
+
 
