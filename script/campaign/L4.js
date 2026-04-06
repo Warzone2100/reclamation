@@ -283,7 +283,7 @@ function infestedAmbush3()
 	}
 	if (difficulty >= HARD) // Add a single Boom Tick on Hard+
 	{
-		dorids.push(cTempl.boomtick);
+		droids.push(cTempl.boomtick);
 	}
 	preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos("infestedEntryPos6"), droids, CAM_REINFORCE_GROUND, 
 		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
