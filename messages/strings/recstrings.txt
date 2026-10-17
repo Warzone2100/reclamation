@@ -1011,8 +1011,8 @@ A4L6_BMSG16		_(" We're almost out of this, we just need to pull through one last
 A4L6_BMSG17		_(" Good luck, Commanders.")
 /* Delta Transport Crash Message */
 A4L6_DELTAMSG1	_("<DELTA>: Lieutenant!")
-A4L6_DELTAMSG2	_("< The Collective just downed one of our transports with some kind of surface-to-air missile!")
-A4L6_DELTAMSG3	_("< It crash-landed east of our position!")
+A4L6_DELTAMSG2	_("The Collective just downed one of our transports with some kind of surface-to-air missile!")
+A4L6_DELTAMSG3	_("It crash-landed east of our position!")
 A4L6_DELTAMSG4	_("<LIEUTENANT>: We can't just let them die out there...")
 A4L6_DELTAMSG5	_("Commander Bravo, rescue any survivors of that crash and escort them back to base.")
 A4L6_DELTAMSG6	_("Commanders Charlie and Delta, cover team Bravo and keep the Collective off of their back.")
