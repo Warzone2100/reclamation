@@ -1,0 +1,13 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "OSCAV_BASE1": { "message": "BARBASE_MSG", "x": 960, "y": 832, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "OSCAV_BASE2": { "message": "BARBASE_MSG", "x": 3264, "y": 832, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "OSCAV_BASE3": { "message": "BARPOST_MSG", "x": 2240, "y": 2112, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "PSCAV_BASE1": { "message": "BARBASE_MSG", "x": 2496, "y": 4160, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "PSCAV_BASE2": { "message": "BARBASE_MSG", "x": 4160, "y": 5184, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "PSCAV_BASE3": { "message": "BARBASE_MSG", "x": 6080, "y": 4544, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "RSCAV_BASE1": { "message": "BARBASE_MSG", "x": 1088, "y": 6592, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "RSCAV_BASE2": { "message": "BARBASE_MSG", "x": 7360, "y": 6592, "z": 0, "audio": "pcv389.ogg", "type": 0 }
+    }
+}

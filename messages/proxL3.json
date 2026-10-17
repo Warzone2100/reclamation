@@ -1,0 +1,13 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "WEST_ATTACK": { "message": "ENEMYUNIT_MSG", "x": 2240, "y": 7744, "z": 0, "audio": "pcv373.ogg", "type": 0 },
+        "EAST_ATTACK": { "message": "ENEMYUNIT_MSG", "x": 5824, "y": 7744, "z": 0, "audio": "pcv373.ogg", "type": 0 },
+        "YSCAV_BASE": { "message": "BARBASE_MSG", "x": 832, "y": 8896, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE1": { "message": "BARBASE_MSG", "x": 6464, "y": 9920, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE2": { "message": "BARPOST_MSG", "x": 1984, "y": 12608, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "CSCAV_BASE3": { "message": "BARPOST_MSG", "x": 4544, "y": 11584, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "CSCAV_BASE4": { "message": "BARBASE_MSG", "x": 5312, "y": 14400, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE5": { "message": "BARBASE_MSG", "x": 1216, "y": 15296, "z": 0, "audio": "pcv389.ogg", "type": 0 }
+    }
+}

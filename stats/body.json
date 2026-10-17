@@ -14,6 +14,21 @@
         "weaponSlots": 1,
         "weight": 100
     },
+    "B1BaBaPerson01-Kev": {
+        "armourHeat": 5,
+        "armourKinetic": 1,
+        "buildPoints": 20,
+        "buildPower": 5,
+        "droidType": "PERSON",
+        "hitpoints": 99,
+        "id": "B1BaBaPerson01-Kev",
+        "model": "kevbloke.pie",
+        "name": "*BaBa Kevlar Body*",
+        "powerOutput": 125,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 100
+    },
     "CivilianBody": {
         "armourHeat": 1,
         "armourKinetic": 1,
@@ -44,14 +59,73 @@
         "weaponSlots": 1,
         "weight": 100
     },
+    "BaBaLanceBody-Kev": {
+        "armourHeat": 5,
+        "armourKinetic": 1,
+        "buildPoints": 20,
+        "buildPower": 5,
+        "droidType": "PERSON",
+        "hitpoints": 99,
+        "id": "BaBaLanceBody-Kev",
+        "model": "kevlance.pie",
+        "name": "*Scavenger Kevlar Lance Body*",
+        "powerOutput": 125,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 100
+    },
+    "ScavTruckBody": {
+        "armourHeat": 5,
+        "armourKinetic": 9,
+        "buildPoints": 65,
+        "buildPower": 15,
+        "class": "Babas",
+        "hitpoints": 190,
+        "id": "ScavTruckBody",
+        "model": "exflatbed.pie",
+        "name": "Scavenger Flatbed",
+        "powerOutput": 8000,
+        "size": "LIGHT",
+        "weaponSlots": 3,
+        "weight": 2000
+    },
+    "InfScavTruckBody": {
+        "armourHeat": 5,
+        "armourKinetic": 9,
+        "buildPoints": 65,
+        "buildPower": 15,
+        "class": "Babas",
+        "hitpoints": 190,
+        "id": "InfScavTruckBody",
+        "model": "infflatbed.pie",
+        "name": "Infested Scavenger Flatbed",
+        "powerOutput": 8000,
+        "size": "LIGHT",
+        "weaponSlots": 3,
+        "weight": 2000
+    },
+    "ScavCraneBody": {
+        "armourHeat": 4,
+        "armourKinetic": 10,
+        "buildPoints": 50,
+        "buildPower": 25,
+        "class": "Babas",
+        "hitpoints": 110,
+        "id": "ScavCraneBody",
+        "model": "cranebody1.pie",
+        "name": "Crane Body",
+        "powerOutput": 2800,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 400
+    },
     "ScavengerChopper": {
         "armourHeat": 1,
         "armourKinetic": 4,
         "buildPoints": 75,
         "buildPower": 4,
         "class": "Droids",
-        "designable": 1,
-        "hitpoints": 200,
+        "hitpoints": 125,
         "id": "ScavengerChopper",
         "model": "scavchop.pie",
         "name": "Scavenger Chopper",
@@ -72,7 +146,7 @@
         "buildPoints": 75,
         "buildPower": 4,
         "class": "Droids",
-        "hitpoints": 200,
+        "hitpoints": 125,
         "id": "InfestedScavengerChopper",
         "model": "infscavchop.pie",
         "name": "Infested Scavenger Chopper",
@@ -87,14 +161,55 @@
         "weaponSlots": 1,
         "weight": 1200
     },
+    "ScavengerHvyChopper": {
+        "armourHeat": 1,
+        "armourKinetic": 6,
+        "buildPoints": 75,
+        "buildPower": 4,
+        "class": "Droids",
+        "hitpoints": 185,
+        "id": "ScavengerHvyChopper",
+        "model": "hvychop.pie",
+        "name": "Scavenger Heavy Chopper",
+        "powerOutput": 4000,
+        "propulsionExtraModels": {
+            "Helicopter": {
+                "moving": "hvyblades.pie",
+                "still": "hvyblades-still.pie"
+            }
+        },
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 2400
+    },
+    "InfScavengerHvyChopper": {
+        "armourHeat": 1,
+        "armourKinetic": 6,
+        "buildPoints": 75,
+        "buildPower": 4,
+        "class": "Droids",
+        "hitpoints": 185,
+        "id": "InfScavengerHvyChopper",
+        "model": "infhvychop.pie",
+        "name": "Infested Scavenger Heavy Chopper",
+        "powerOutput": 4000,
+        "propulsionExtraModels": {
+            "Helicopter": {
+                "moving": "hvyblades.pie",
+                "still": "hvyblades-still.pie"
+            }
+        },
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 2400
+    },
     "MonsterBus": {
         "armourHeat": 1,
         "armourKinetic": 4,
         "buildPoints": 75,
         "buildPower": 4,
         "class": "Droids",
-        "designable": 1,
-        "hitpoints": 200,
+        "hitpoints": 100,
         "id": "MonsterBus",
         "model": "exmonsterbus.pie",
         "name": "Monster Bus",
@@ -120,7 +235,7 @@
         "buildPoints": 75,
         "buildPower": 4,
         "class": "Droids",
-        "hitpoints": 200,
+        "hitpoints": 100,
         "id": "InfestedMonsterBus",
         "model": "infexmonsterbus.pie",
         "name": "Infested Monster Bus",
@@ -132,8 +247,8 @@
                 "moving": "fxheli5to8.pie"
             },
             "tracked01": {
-                "left": "rustltrk.pie",
-                "right": "rustrtrk.pie"
+                "left": "infrustltrk.pie",
+                "right": "infrustrtrk.pie"
             }
         },
         "size": "LIGHT",
@@ -149,7 +264,7 @@
         "hitpoints": 350,
         "id": "InfestedBusBody",
         "model": "infexschool.pie",
-        "name": "*School Bus Body*",
+        "name": "*Infested School Bus Body*",
         "powerOutput": 4000,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -164,7 +279,7 @@
         "hitpoints": 350,
         "id": "InfestedFireBody",
         "model": "infexfire.pie",
-        "name": "*Fire Engine Body*",
+        "name": "*Infested Fire Engine Body*",
         "powerOutput": 4000,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -179,7 +294,7 @@
         "hitpoints": 210,
         "id": "InfestedB2JeepBody",
         "model": "infexjeep.pie",
-        "name": "*Jeep Body*",
+        "name": "*Infested Jeep Body*",
         "powerOutput": 2200,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -192,9 +307,9 @@
         "buildPower": 4,
         "class": "Babas",
         "hitpoints": 210,
-        "id": "InfestedB2RKJeepBody",
+        "id": "InfestedRKJeepBody",
         "model": "infexjeeprk.pie",
-        "name": "*Rocket Jeep Body*",
+        "name": "*Infested Rocket Jeep Body*",
         "powerOutput": 2200,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -207,9 +322,9 @@
         "buildPower": 3,
         "class": "InfestedBabas",
         "hitpoints": 175,
-        "id": "B3body-sml-buggy01",
+        "id": "Infestedsml-buggy01",
         "model": "infexbuggy.pie",
-        "name": "*Buggy Body*",
+        "name": "*Infested Buggy Body*",
         "powerOutput": 2200,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -224,7 +339,7 @@
         "hitpoints": 175,
         "id": "InfestedRKbuggy01",
         "model": "infexbugrk.pie",
-        "name": "*Rocket Buggy Body*",
+        "name": "*Infested Rocket Buggy Body*",
         "powerOutput": 2200,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -239,7 +354,7 @@
         "hitpoints": 140,
         "id": "Infestedtrike01",
         "model": "infextrike.pie",
-        "name": "*Trike Body*",
+        "name": "*Infested Trike Body*",
         "powerOutput": 2100,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -254,7 +369,22 @@
         "hitpoints": 49,
         "id": "InfestedCivilianBody",
         "model": "infciv.pie",
-        "name": "*Infested Civilian Body*",
+        "name": "*Infested Civilian Body 1*",
+        "powerOutput": 125,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 100
+    },
+    "InfestedCivilianBodyAlt": {
+        "armourHeat": 1,
+        "armourKinetic": 1,
+        "buildPoints": 20,
+        "buildPower": 1,
+        "droidType": "PERSON",
+        "hitpoints": 49,
+        "id": "InfestedCivilianBodyAlt",
+        "model": "infciv2.pie",
+        "name": "*Infested Civilian Body 2*",
         "powerOutput": 125,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -290,6 +420,21 @@
         "weaponSlots": 1,
         "weight": 100
     },
+    "InfestedScavBody-Kev": {
+        "armourHeat": 5,
+        "armourKinetic": 1,
+        "buildPoints": 20,
+        "buildPower": 3,
+        "droidType": "PERSON",
+        "hitpoints": 99,
+        "id": "InfestedScavBody-Kev",
+        "model": "infkevbloke.pie",
+        "name": "*Infested Kevlar Scavenger Body*",
+        "powerOutput": 125,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 100
+    },
     "InfestedLanceBody": {
         "armourHeat": 1,
         "armourKinetic": 1,
@@ -299,7 +444,22 @@
         "hitpoints": 49,
         "id": "InfestedLanceBody",
         "model": "inflance.pie",
-        "name": "*Scavenger Lance Body*",
+        "name": "*Infested Scavenger Lance Body*",
+        "powerOutput": 125,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 100
+    },
+    "InfestedLanceBody-Kev": {
+        "armourHeat": 5,
+        "armourKinetic": 1,
+        "buildPoints": 20,
+        "buildPower": 3,
+        "droidType": "PERSON",
+        "hitpoints": 99,
+        "id": "InfestedLanceBody-Kev",
+        "model": "infkevlance.pie",
+        "name": "*Infested Kevlar Scavenger Lance Body*",
         "powerOutput": 125,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -383,7 +543,7 @@
     "Body10MBT": {
         "armourHeat": 25,
         "armourKinetic": 28,
-        "buildPoints": 470,
+        "buildPoints": 440,
         "buildPower": 80,
         "class": "Droids",
         "designable": 1,
@@ -449,7 +609,7 @@
     "Body11ABT": {
         "armourHeat": 9,
         "armourKinetic": 20,
-        "buildPoints": 350,
+        "buildPoints": 320,
         "buildPower": 60,
         "class": "Droids",
         "designable": 1,
@@ -512,10 +672,75 @@
         "weaponSlots": 1,
         "weight": 2700
     },
+    "InfBody11ABT": {
+        "armourHeat": 9,
+        "armourKinetic": 20,
+        "buildPoints": 320,
+        "buildPower": 60,
+        "class": "Droids",
+        "hitpoints": 200,
+        "id": "InfBody11ABT",
+        "model": "infhbod11.pie",
+        "name": "Infested Python",
+        "powerOutput": 20000,
+        "propulsionExtraModels": {
+            "HalfTrack": {
+                "left": "infprhhtr3.pie"
+            },
+            "HalfTrack02": {
+                "left": "infprhhtr3.pie"
+            },
+            "HalfTrack03": {
+                "left": "infprhhtr3.pie"
+            },
+            "V-Tol": {
+                "left": "prhvtl3.pie",
+                "moving": "fxvtl11.pie"
+            },
+            "V-Tol02": {
+                "left": "prhvtl3.pie",
+                "moving": "fxvtl11.pie"
+            },
+            "V-Tol03": {
+                "left": "prhvtl3.pie",
+                "moving": "fxvtl11.pie"
+            },
+            "hover01": {
+                "left": "infprhhov1.pie"
+            },
+            "hover02": {
+                "left": "infprhhov1.pie"
+            },
+            "hover03": {
+                "left": "infprhhov1.pie"
+            },
+            "tracked01": {
+                "left": "infprhtrk3.pie"
+            },
+            "tracked02": {
+                "left": "infprhtrk3.pie"
+            },
+            "tracked03": {
+                "left": "infprhtrk3.pie"
+            },
+            "wheeled01": {
+                "left": "infprhwhl1.pie"
+            },
+            "wheeled02": {
+                "left": "infprhwhl1.pie"
+            },
+            "wheeled03": {
+                "left": "infprhwhl1.pie"
+            }
+        },
+        "size": "HEAVY",
+        "weaponSlots": 1,
+        "weight": 2700
+    },
     "Body12SUP": {
         "armourHeat": 18,
         "armourKinetic": 18,
-        "buildPoints": 350,
+        "buildPoints": 320,
         "buildPower": 52,
         "class": "Droids",
         "designable": 1,
@@ -581,7 +806,7 @@
     "Body1REC": {
         "armourHeat": 4,
         "armourKinetic": 10,
-        "buildPoints": 150,
+        "buildPoints": 115,
         "buildPower": 30,
         "class": "Droids",
         "designable": 1,
@@ -644,10 +869,75 @@
         "weaponSlots": 1,
         "weight": 600
     },
+    "InfBody1REC": {
+        "armourHeat": 4,
+        "armourKinetic": 10,
+        "buildPoints": 115,
+        "buildPower": 30,
+        "class": "Droids",
+        "hitpoints": 65,
+        "id": "InfBody1REC",
+        "model": "inflbod01.pie",
+        "name": "Infested Viper",
+        "powerOutput": 5000,
+        "propulsionExtraModels": {
+            "HalfTrack": {
+                "left": "infprlhtr1.pie"
+            },
+            "HalfTrack02": {
+                "left": "infprlhtr1.pie"
+            },
+            "HalfTrack03": {
+                "left": "infprlhtr1.pie"
+            },
+            "V-Tol": {
+                "left": "prlvtl1.pie",
+                "moving": "fxvtl01.pie"
+            },
+            "V-Tol02": {
+                "left": "prlvtl1.pie",
+                "moving": "fxvtl01.pie"
+            },
+            "V-Tol03": {
+                "left": "prlvtl1.pie",
+                "moving": "fxvtl01.pie"
+            },
+            "hover01": {
+                "left": "infprlhov1.pie"
+            },
+            "hover02": {
+                "left": "infprlhov1.pie"
+            },
+            "hover03": {
+                "left": "infprlhov1.pie"
+            },
+            "tracked01": {
+                "left": "infprltrk1.pie"
+            },
+            "tracked02": {
+                "left": "infprltrk1.pie"
+            },
+            "tracked03": {
+                "left": "infprltrk1.pie"
+            },
+            "wheeled01": {
+                "left": "infprlwhl1.pie"
+            },
+            "wheeled02": {
+                "left": "infprlwhl1.pie"
+            },
+            "wheeled03": {
+                "left": "infprlwhl1.pie"
+            }
+        },
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 600
+    },
     "Body2SUP": {
         "armourHeat": 6,
         "armourKinetic": 12,
-        "buildPoints": 220,
+        "buildPoints": 152,
         "buildPower": 41,
         "class": "Droids",
         "designable": 1,
@@ -655,7 +945,7 @@
         "id": "Body2SUP",
         "model": "drlbod02.pie",
         "name": "Leopard",
-        "powerOutput": 6500,
+        "powerOutput": 4000,
         "propulsionExtraModels": {
             "HalfTrack": {
                 "left": "prlhtr1.pie"
@@ -710,10 +1000,75 @@
         "weaponSlots": 1,
         "weight": 750
     },
+    "InfBody2SUP": {
+        "armourHeat": 6,
+        "armourKinetic": 12,
+        "buildPoints": 152,
+        "buildPower": 41,
+        "class": "Droids",
+        "hitpoints": 107,
+        "id": "InfBody2SUP",
+        "model": "inflbod02.pie",
+        "name": "Infested Leopard",
+        "powerOutput": 4000,
+        "propulsionExtraModels": {
+            "HalfTrack": {
+                "left": "infprlhtr1.pie"
+            },
+            "HalfTrack02": {
+                "left": "infprlhtr1.pie"
+            },
+            "HalfTrack03": {
+                "left": "infprlhtr1.pie"
+            },
+            "V-Tol": {
+                "left": "prlvtl2.pie",
+                "moving": "fxvtl2and3.pie"
+            },
+            "V-Tol02": {
+                "left": "prlvtl2.pie",
+                "moving": "fxvtl2and3.pie"
+            },
+            "V-Tol03": {
+                "left": "prlvtl2.pie",
+                "moving": "fxvtl2and3.pie"
+            },
+            "hover01": {
+                "left": "infprlhov1.pie"
+            },
+            "hover02": {
+                "left": "infprlhov1.pie"
+            },
+            "hover03": {
+                "left": "infprlhov1.pie"
+            },
+            "tracked01": {
+                "left": "infprltrk1.pie"
+            },
+            "tracked02": {
+                "left": "infprltrk1.pie"
+            },
+            "tracked03": {
+                "left": "infprltrk1.pie"
+            },
+            "wheeled01": {
+                "left": "infprlwhl1.pie"
+            },
+            "wheeled02": {
+                "left": "infprlwhl1.pie"
+            },
+            "wheeled03": {
+                "left": "infprlwhl1.pie"
+            }
+        },
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 750
+    },
     "Body3MBT": {
         "armourHeat": 15,
         "armourKinetic": 20,
-        "buildPoints": 170,
+        "buildPoints": 146,
         "buildPower": 43,
         "class": "Droids",
         "designable": 1,
@@ -845,7 +1200,7 @@
     "Body5REC": {
         "armourHeat": 6,
         "armourKinetic": 15,
-        "buildPoints": 250,
+        "buildPoints": 205,
         "buildPower": 46,
         "class": "Droids",
         "designable": 1,
@@ -908,10 +1263,75 @@
         "weaponSlots": 1,
         "weight": 2000
     },
+    "InfBody5REC": {
+        "armourHeat": 6,
+        "armourKinetic": 15,
+        "buildPoints": 205,
+        "buildPower": 46,
+        "class": "Droids",
+        "hitpoints": 130,
+        "id": "InfBody5REC",
+        "model": "infmbod05.pie",
+        "name": "Infested Cobra",
+        "powerOutput": 15000,
+        "propulsionExtraModels": {
+            "HalfTrack": {
+                "left": "infprmhtr2.pie"
+            },
+            "HalfTrack02": {
+                "left": "infprmhtr2.pie"
+            },
+            "HalfTrack03": {
+                "left": "infprmhtr2.pie"
+            },
+            "V-Tol": {
+                "left": "prmvtl1.pie",
+                "moving": "fxvtl5to8.pie"
+            },
+            "V-Tol02": {
+                "left": "prmvtl1.pie",
+                "moving": "fxvtl5to8.pie"
+            },
+            "V-Tol03": {
+                "left": "prmvtl1.pie",
+                "moving": "fxvtl5to8.pie"
+            },
+            "hover01": {
+                "left": "infprmhov1.pie"
+            },
+            "hover02": {
+                "left": "infprmhov1.pie"
+            },
+            "hover03": {
+                "left": "infprmhov1.pie"
+            },
+            "tracked01": {
+                "left": "infprmtrk2.pie"
+            },
+            "tracked02": {
+                "left": "infprmtrk2.pie"
+            },
+            "tracked03": {
+                "left": "infprmtrk2.pie"
+            },
+            "wheeled01": {
+                "left": "infprmwhl1.pie"
+            },
+            "wheeled02": {
+                "left": "infprmwhl1.pie"
+            },
+            "wheeled03": {
+                "left": "infprmwhl1.pie"
+            }
+        },
+        "size": "MEDIUM",
+        "weaponSlots": 1,
+        "weight": 2000
+    },
     "Body6SUPP": {
         "armourHeat": 9,
         "armourKinetic": 18,
-        "buildPoints": 300,
+        "buildPoints": 254,
         "buildPower": 57,
         "class": "Droids",
         "designable": 1,
@@ -919,7 +1339,7 @@
         "id": "Body6SUPP",
         "model": "drmbod06.pie",
         "name": "Panther",
-        "powerOutput": 18000,
+        "powerOutput": 13000,
         "propulsionExtraModels": {
             "HalfTrack": {
                 "left": "prmhtr2.pie"
@@ -974,10 +1394,95 @@
         "weaponSlots": 1,
         "weight": 2500
     },
+    "InfBody6SUPP": {
+        "armourHeat": 9,
+        "armourKinetic": 18,
+        "buildPoints": 254,
+        "buildPower": 57,
+        "class": "Droids",
+        "hitpoints": 193,
+        "id": "InfBody6SUPP",
+        "model": "infmbod06.pie",
+        "name": "Infested Panther",
+        "powerOutput": 13000,
+        "propulsionExtraModels": {
+            "HalfTrack": {
+                "left": "infprmhtr2.pie"
+            },
+            "HalfTrack02": {
+                "left": "infprmhtr2.pie"
+            },
+            "HalfTrack03": {
+                "left": "infprmhtr2.pie"
+            },
+            "V-Tol": {
+                "left": "prmvtl1.pie",
+                "moving": "fxvtl5to8.pie"
+            },
+            "V-Tol02": {
+                "left": "prmvtl1.pie",
+                "moving": "fxvtl5to8.pie"
+            },
+            "V-Tol03": {
+                "left": "prmvtl1.pie",
+                "moving": "fxvtl5to8.pie"
+            },
+            "hover01": {
+                "left": "infprmhov1.pie"
+            },
+            "hover02": {
+                "left": "infprmhov1.pie"
+            },
+            "hover03": {
+                "left": "infprmhov1.pie"
+            },
+            "tracked01": {
+                "left": "infprmtrk2.pie"
+            },
+            "tracked02": {
+                "left": "infprmtrk2.pie"
+            },
+            "tracked03": {
+                "left": "infprmtrk2.pie"
+            },
+            "wheeled01": {
+                "left": "infprmwhl1.pie"
+            },
+            "wheeled02": {
+                "left": "infprmwhl1.pie"
+            },
+            "wheeled03": {
+                "left": "infprmwhl1.pie"
+            }
+        },
+        "size": "MEDIUM",
+        "weaponSlots": 1,
+        "weight": 2500
+    },
+    "Body6SUPPBroken": {
+        "armourHeat": 9,
+        "armourKinetic": 18,
+        "buildPoints": 254,
+        "buildPower": 57,
+        "class": "Droids",
+        "hitpoints": 193,
+        "id": "Body6SUPPBroken",
+        "model": "deredrmbod06.pie",
+        "name": "Derelict Panther",
+        "powerOutput": 0,
+        "propulsionExtraModels": {
+            "tracked01": {
+                "left": "dereprmtrk2.pie"
+            }
+        },
+        "size": "MEDIUM",
+        "weaponSlots": 1,
+        "weight": 2500
+    },
     "Body7ABT": {
         "armourHeat": 20,
         "armourKinetic": 24,
-        "buildPoints": 330,
+        "buildPoints": 260,
         "buildPower": 64,
         "class": "Droids",
         "designable": 1,
@@ -1043,7 +1548,7 @@
     "Body8MBT": {
         "armourHeat": 12,
         "armourKinetic": 12,
-        "buildPoints": 250,
+        "buildPoints": 185,
         "buildPower": 39,
         "class": "Droids",
         "designable": 1,
@@ -1109,7 +1614,7 @@
     "Body9REC": {
         "armourHeat": 15,
         "armourKinetic": 22,
-        "buildPoints": 420,
+        "buildPoints": 390,
         "buildPower": 71,
         "class": "Droids",
         "designable": 1,
@@ -1172,6 +1677,91 @@
         "weaponSlots": 1,
         "weight": 3300
     },
+    "InfBody9REC": {
+        "armourHeat": 15,
+        "armourKinetic": 22,
+        "buildPoints": 390,
+        "buildPower": 71,
+        "class": "Droids",
+        "hitpoints": 284,
+        "id": "InfBody9REC",
+        "model": "infhbod09.pie",
+        "name": "Infested Tiger",
+        "powerOutput": 18000,
+        "propulsionExtraModels": {
+            "HalfTrack": {
+                "left": "infprhhtr3.pie"
+            },
+            "HalfTrack02": {
+                "left": "infprhhtr3.pie"
+            },
+            "HalfTrack03": {
+                "left": "infprhhtr3.pie"
+            },
+            "V-Tol": {
+                "left": "prhvtl1.pie",
+                "moving": "fxvtl09.pie"
+            },
+            "V-Tol02": {
+                "left": "prhvtl1.pie",
+                "moving": "fxvtl09.pie"
+            },
+            "V-Tol03": {
+                "left": "prhvtl1.pie",
+                "moving": "fxvtl09.pie"
+            },
+            "hover01": {
+                "left": "infprhhov1.pie"
+            },
+            "hover02": {
+                "left": "infprhhov1.pie"
+            },
+            "hover03": {
+                "left": "infprhhov1.pie"
+            },
+            "tracked01": {
+                "left": "infprhtrk3.pie"
+            },
+            "tracked02": {
+                "left": "infprhtrk3.pie"
+            },
+            "tracked03": {
+                "left": "infprhtrk3.pie"
+            },
+            "wheeled01": {
+                "left": "infprhwhl1.pie"
+            },
+            "wheeled02": {
+                "left": "infprhwhl1.pie"
+            },
+            "wheeled03": {
+                "left": "infprhwhl1.pie"
+            }
+        },
+        "size": "HEAVY",
+        "weaponSlots": 1,
+        "weight": 3300
+    },
+    "Body9RECBroken": {
+        "armourHeat": 15,
+        "armourKinetic": 22,
+        "buildPoints": 390,
+        "buildPower": 71,
+        "class": "Droids",
+        "hitpoints": 284,
+        "id": "Body9RECBroken",
+        "model": "deredrhbod09.pie",
+        "name": "Derelict Tiger",
+        "powerOutput": 0,
+        "propulsionExtraModels": {
+            "tracked01": {
+                "left": "dereprhtrk3.pie"
+            }
+        },
+        "size": "HEAVY",
+        "weaponSlots": 1,
+        "weight": 3300
+    },
     "BusBody": {
         "armourHeat": 1,
         "armourKinetic": 4,
@@ -1196,8 +1786,40 @@
         "droidType": "CYBORG_SUPER",
         "hitpoints": 100,
         "id": "CrawlerBody",
-        "model": "spiderstand.pie",
+        "model": "spiderbody.pie",
         "name": "Crawler Body",
+        "powerOutput": 500,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 250
+    },
+    "BoomTickBody": {
+        "armourHeat": 8,
+        "armourKinetic": 15,
+        "buildPoints": 205,
+        "buildPower": 50,
+        "class": "Cyborgs",
+        "droidType": "CYBORG_SUPER",
+        "hitpoints": 100,
+        "id": "BoomTickBody",
+        "model": "boomtickbody.pie",
+        "name": "Boom Tick Body",
+        "powerOutput": 500,
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 250
+    },
+    "BasherBody": {
+        "armourHeat": 8,
+        "armourKinetic": 15,
+        "buildPoints": 205,
+        "buildPower": 50,
+        "class": "Cyborgs",
+        "droidType": "CYBORG_SUPER",
+        "hitpoints": 100,
+        "id": "BasherBody",
+        "model": "basherbody.pie",
+        "name": "Basher Body",
         "powerOutput": 500,
         "size": "LIGHT",
         "weaponSlots": 1,
@@ -1210,7 +1832,7 @@
         "buildPower": 50,
         "class": "Cyborgs",
         "droidType": "CYBORG_SUPER",
-        "hitpoints": 100,
+        "hitpoints": 300,
         "id": "CyborgHeavyBody",
         "model": "scbd_std.pie",
         "name": "Cyborg Heavy Body",
@@ -1441,6 +2063,27 @@
         "size": "LIGHT",
         "weaponSlots": 1,
         "weight": 3000
+    },
+    "MonsterFireBody": {
+        "armourHeat": 1,
+        "armourKinetic": 4,
+        "buildPoints": 75,
+        "buildPower": 4,
+        "class": "Droids",
+        "hitpoints": 100,
+        "id": "MonsterFireBody",
+        "model": "exmonsterfire.pie",
+        "name": "Monster Fire Truck",
+        "powerOutput": 8000,
+        "propulsionExtraModels": {
+            "tracked01": {
+                "left": "rustltrk.pie",
+                "right": "rustrtrk.pie"
+            }
+        },
+        "size": "LIGHT",
+        "weaponSlots": 1,
+        "weight": 1200
     },
     "Superbody": {
         "armourHeat": 999,

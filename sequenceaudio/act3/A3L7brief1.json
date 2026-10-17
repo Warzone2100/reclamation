@@ -1,0 +1,122 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 7.0,
+   "end": 9.0,
+   "area": "header",
+   "textId": "A3L7_BMSG1"
+  },
+  {
+   "start": 9.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "A3L7_BMSG2",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 13.0,
+   "end": 15.0,
+   "area": "header",
+   "textId": "A3L7_BMSG3"
+  },
+  {
+   "start": 15.0,
+   "end": 17.0,
+   "area": "header",
+   "textId": "A3L7_BMSG4",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 17.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "A3L7_BMSG5",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 20.0,
+   "end": 25.0,
+   "area": "header",
+   "textId": "A3L7_BMSG6",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 25.0,
+   "end": 29.0,
+   "area": "header",
+   "textId": "A3L7_BMSG7",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 29.0,
+   "end": 33.0,
+   "area": "header",
+   "textId": "A3L7_BMSG8",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 33.0,
+   "end": 36.0,
+   "area": "header",
+   "textId": "A3L7_BMSG9",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 36.0,
+   "end": 38.0,
+   "area": "header",
+   "textId": "A3L7_BMSG10",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 39.0,
+   "end": 42.0,
+   "area": "header",
+   "textId": "A3L7_BMSG11",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 42.0,
+   "end": 45.0,
+   "area": "header",
+   "textId": "A3L7_BMSG12",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 45.0,
+   "end": 49.0,
+   "area": "header",
+   "textId": "A3L7_BMSG13",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 49.0,
+   "end": 53.0,
+   "area": "header",
+   "textId": "A3L7_BMSG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 54.0,
+   "end": 55.0,
+   "area": "header",
+   "textId": "A3L7_BMSG15"
+  },
+  {
+   "start": 55.0,
+   "end": 57.0,
+   "area": "header",
+   "textId": "A3L7_BMSG16",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 57.0,
+   "end": 60.0,
+   "area": "header",
+   "textId": "A3L7_BMSG17",
+   "speaker": "CHARLIE"
+  }
+ ]
+}

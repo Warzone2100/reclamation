@@ -1,0 +1,366 @@
+{
+	"position_0": {
+		"label": "nwHeliSpawn",
+		"pos": [257, 243]
+	},
+
+
+	"position_1": {
+		"label": "heliRemovePos",
+		"pos": [9792, 448]
+	},
+
+
+	"position_2": {
+		"label": "southPatrolPos1",
+		"pos": [2703, 10825]
+	},
+
+
+	"position_3": {
+		"label": "southPatrolPos2",
+		"pos": [5150, 10511]
+	},
+
+
+	"position_4": {
+		"label": "eHeliSpawn",
+		"pos": [9791, 8465]
+	},
+
+
+	"position_5": {
+		"label": "southAssembly",
+		"pos": [1718, 12345]
+	},
+
+
+	"position_6": {
+		"label": "highwayAssembly",
+		"pos": [1198, 6861]
+	},
+
+
+	"position_7": {
+		"label": "roadAssembly",
+		"pos": [9157, 2358]
+	},
+
+
+	"position_8": {
+		"label": "wMountainAssembly",
+		"pos": [1078, 3913]
+	},
+
+
+	"position_9": {
+		"label": "nwAssembly1",
+		"pos": [3412, 1273]
+	},
+
+
+	"position_10": {
+		"label": "nwAssembly2",
+		"pos": [3904, 1287]
+	},
+
+
+	"position_11": {
+		"label": "eAssembly",
+		"pos": [9162, 10162]
+	},
+
+
+	"position_12": {
+		"label": "wPatrolPos1",
+		"pos": [1883, 3291]
+	},
+
+
+	"position_13": {
+		"label": "wPatrolPos2",
+		"pos": [3232, 4226]
+	},
+
+
+	"position_14": {
+		"label": "wPatrolPos3",
+		"pos": [2040, 4675]
+	},
+
+
+	"position_15": {
+		"label": "nePatrolPos1",
+		"pos": [7355, 6849]
+	},
+
+
+	"position_16": {
+		"label": "nePatrolPos2",
+		"pos": [9540, 7490]
+	},
+
+
+	"position_17": {
+		"label": "ePatrolPos1",
+		"pos": [9197, 9140]
+	},
+
+
+	"position_18": {
+		"label": "ePatrolPos2",
+		"pos": [7867, 8893]
+	},
+
+
+	"position_19": {
+		"label": "nwPatrolPos1",
+		"pos": [3968, 1506]
+	},
+
+
+	"position_20": {
+		"label": "nwPatrolPos2",
+		"pos": [2470, 1647]
+	},
+
+
+	"position_21": {
+		"label": "wHighwayEntry",
+		"pos": [155, 7166]
+	},
+
+
+	"position_22": {
+		"label": "nBaseEntry",
+		"pos": [4161, 198]
+	},
+
+
+	"position_23": {
+		"label": "nwRoadEntry",
+		"pos": [196, 1476]
+	},
+
+
+	"position_24": {
+		"label": "neRoadEntry",
+		"pos": [9959, 2489]
+	},
+
+
+	"position_25": {
+		"label": "eHighwayEntry",
+		"pos": [10093, 7157]
+	},
+
+
+	"position_26": {
+		"label": "highwayPatrolPos",
+		"pos": [4625, 7177]
+	},
+
+
+	"position_27": {
+		"label": "transporterEntry",
+		"pos": [579, 10688]
+	},
+
+
+	"area_0": {
+		"label": "LZ",
+		"pos1": [9216, 13184],
+		"pos2": [9599, 13567]
+	},
+
+
+	"area_1": {
+		"label": "compromiseZone",
+		"pos1": [8320, 12544],
+		"pos2": [10239, 14335]
+	},
+
+
+	"area_2": {
+		"label": "infestedHighwayBase",
+		"pos1": [384, 6528],
+		"pos2": [2560, 8448]
+	},
+
+
+	"area_3": {
+		"label": "infestedRoadBase",
+		"pos1": [7296, 2048],
+		"pos2": [9856, 3584]
+	},
+
+
+	"area_4": {
+		"label": "swScavBase",
+		"pos1": [1024, 11904],
+		"pos2": [2688, 13312]
+	},
+
+
+	"area_5": {
+		"label": "wScavOutpost",
+		"pos1": [2432, 3072],
+		"pos2": [4096, 5248]
+	},
+
+
+	"area_6": {
+		"label": "nwScavFactoryBase",
+		"pos1": [1408, 768],
+		"pos2": [5248, 2944]
+	},
+
+
+	"area_7": {
+		"label": "wScavMountainBase",
+		"pos1": [512, 3712],
+		"pos2": [1664, 4864]
+	},
+
+
+	"area_8": {
+		"label": "neScavOutpost",
+		"pos1": [6528, 6400],
+		"pos2": [9856, 7680]
+	},
+
+
+	"area_9": {
+		"label": "eScavBase",
+		"pos1": [6912, 7808],
+		"pos2": [9472, 10368]
+	},
+
+
+	"area_10": {
+		"label": "scavSouthPatrolGroup",
+		"pos1": [2432, 10624],
+		"pos2": [2944, 11008]
+	},
+
+
+	"area_11": {
+		"label": "scavAttackTrigger",
+		"pos1": [4992, 5632],
+		"pos2": [6016, 5888]
+	},
+
+
+	"area_12": {
+		"label": "wPatrolGroup",
+		"pos1": [3072, 3968],
+		"pos2": [3456, 4480]
+	},
+
+
+	"area_13": {
+		"label": "nwPatrolGroup",
+		"pos1": [3072, 512],
+		"pos2": [3712, 768]
+	},
+
+
+	"area_14": {
+		"label": "nePatrolGroup",
+		"pos1": [7936, 6784],
+		"pos2": [8448, 7168]
+	},
+
+
+	"area_15": {
+		"label": "ePatrolGroup",
+		"pos1": [8320, 8704],
+		"pos2": [8832, 9088]
+	},
+
+
+	"area_16": {
+		"label": "infestedHighwayPatrol",
+		"pos1": [1280, 7168],
+		"pos2": [1536, 7424]
+	},
+
+
+	"object_0": {
+		"label": "southScavFactory",
+		"id": 1064,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "eRadarTower",
+		"id": 960,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "westInfestedFactory",
+		"id": 1047,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "northInfestedFactory",
+		"id": 1446,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "eastScavFactory",
+		"id": 932,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "nwScavFactory2",
+		"id": 1419,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "nwRadarTower",
+		"id": 1067,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "westScavFactory",
+		"id": 976,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "nwScavFactory1",
+		"id": 1418,
+		"player": 2,
+		"type": 1
+	},
+
+	"radius_0": {
+        "label": "heliRemoveZone",
+        "subscriber": 2,
+        "pos": [9792, 448],
+        "radius": 250
+    }
+}

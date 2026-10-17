@@ -1,0 +1,11 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::general",
+	"title": "General",
+	"sort": "0",
+	"contents": [
+		"This guide will help walk you through key facets of the game.",
+		"",
+		"(If you are playing the campaign, new guide topics may be unlocked as you progress through the game.)"
+	]
+}

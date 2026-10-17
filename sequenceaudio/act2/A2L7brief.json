@@ -1,0 +1,144 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 8.0,
+   "end": 10.0,
+   "area": "header",
+   "textId": "A2L7_BSMG1"
+  },
+  {
+   "start": 10.0,
+   "end": 13.0,
+   "area": "header",
+   "textId": "A2L7_BSMG2"
+  },
+  {
+   "start": 13.0,
+   "end": 15.0,
+   "area": "header",
+   "textId": "A2L7_BSMG3"
+  },
+  {
+   "start": 16.0,
+   "end": 17.0,
+   "area": "header",
+   "textId": "A2L7_BSMG4"
+  },
+  {
+   "start": 17.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "A2L7_BSMG5"
+  },
+  {
+   "start": 19.0,
+   "end": 21.0,
+   "area": "header",
+   "textId": "A2L7_BSMG6"
+  },
+  {
+   "start": 21.0,
+   "end": 25.0,
+   "area": "header",
+   "textId": "A2L7_BSMG7"
+  },
+  {
+   "start": 26.0,
+   "end": 29.0,
+   "area": "header",
+   "textId": "A2L7_BSMG8"
+  },
+  {
+   "start": 29.0,
+   "end": 33.0,
+   "area": "header",
+   "textId": "A2L7_BSMG9"
+  },
+  {
+   "start": 34.0,
+   "end": 36.0,
+   "area": "header",
+   "textId": "A2L7_BSMG10"
+  },
+  {
+   "start": 37.0,
+   "end": 39.0,
+   "area": "header",
+   "textId": "A2L7_BSMG11"
+  },
+  {
+   "start": 39.0,
+   "end": 42.0,
+   "area": "header",
+   "textId": "A2L7_BSMG12"
+  },
+  {
+   "start": 43.0,
+   "end": 45.0,
+   "area": "header",
+   "textId": "A2L7_BSMG13"
+  },
+  {
+   "start": 45.0,
+   "end": 48.0,
+   "area": "header",
+   "textId": "A2L7_BSMG14"
+  },
+  {
+   "start": 49.0,
+   "end": 50.0,
+   "area": "header",
+   "textId": "A2L7_BSMG15"
+  },
+  {
+   "start": 54.0,
+   "end": 56.0,
+   "area": "header",
+   "textId": "A2L7_BSMG16"
+  },
+  {
+   "start": 57.0,
+   "end": 60.0,
+   "area": "header",
+   "textId": "A2L7_BSMG17"
+  },
+  {
+   "start": 60.0,
+   "end": 63.0,
+   "area": "header",
+   "textId": "A2L7_BSMG18"
+  },
+  {
+   "start": 63.0,
+   "end": 66.0,
+   "area": "header",
+   "textId": "A2L7_BSMG19"
+  },
+  {
+   "start": 66.0,
+   "end": 69.0,
+   "area": "header",
+   "textId": "A2L7_BSMG20"
+  },
+  {
+   "start": 69.0,
+   "end": 73.0,
+   "area": "header",
+   "textId": "A2L7_BSMG21"
+  },
+  {
+   "start": 74.0,
+   "end": 78.0,
+   "area": "header",
+   "textId": "A2L7_BSMG22"
+  },
+  {
+   "start": 78.0,
+   "end": 80.0,
+   "area": "header",
+   "textId": "A2L7_BSMG23"
+  }
+ ]
+}

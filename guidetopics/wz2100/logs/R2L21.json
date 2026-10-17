@@ -1,0 +1,25 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::logs::R2L21",
+	"title": "[21] Urban Sighting",
+	"sort": "021",
+	"visual": {
+		"imagePath": "nxsketch.png"
+	},
+	"contents": [
+		"[A note written by Commander Golf, with a drawing attached]",
+		"",
+		"One of our squads reported back that they'd seen some movement while on patrol, saying they caught a glimpse of what looked like a vehicle moving between some of the buildings.",
+		"I asked why they were bringing this up in particular.",
+		"It's not like seeing a stray vehicle is anything noteworthy nowadays. Especially now with those infested Collective tanks.",
+		"I guess those zombies don't have enough brain left inside to know when to stop, so they just keep driving them around until the tanks just fall apart.",
+		"There's broken down vehicles all over the contaminated sections of the city.",
+		"",
+		"Anyway, the squad leader claimed that all of their sensor equipment stopped working when they tried to investigate.",
+		"So. They came all the way back to report a vehicle, and they didn't even get a picture of it?!",
+		"I asked them why they were bothering me if they didn't have anything to show.",
+		"Then, one of them handed me this drawing???",
+		"",
+		"I don't really know what to do with this, but I doubt the Supreme General would care."
+	]
+}

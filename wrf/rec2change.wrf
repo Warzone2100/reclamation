@@ -1,0 +1,11 @@
+/*
+ * rec2change.wrf
+ *
+ * Used when transitioning between Acts 1 through 4
+ *
+ */
+
+
+directory	"texpages"
+file		TERTILES	"tertilesc2hw"
+

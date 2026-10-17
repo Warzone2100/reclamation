@@ -14,8 +14,8 @@ function camNexusLaugh()
 	const __LAUGH_CHANCE = 45;
 	if (camRand(100) < __LAUGH_CHANCE)
 	{
-		const laughs = [CAM_LAUGH1_SND, CAM_LAUGH2_SND, CAM_LAUGH3_SND];
-		playSound(laughs[camRand(laughs.length)]);
+		const laughs = [cam_sounds.nexus.laugh1, cam_sounds.nexus.laugh2, cam_sounds.nexus.laugh3];
+		playSound(camRandFrom(laughs));
 	}
 }
 
@@ -104,7 +104,7 @@ function camHackIntoPlayer(player, to)
 	}
 
 	__camLastNexusAttack = gameTime;
-	target = objects[camRand(objects.length)];
+	target = camRandFrom(objects);
 
 	if ((camRand(100) < __GIFT_CHANCE) && !(target.type === STRUCTURE && target.stattype === WALL))
 	{
@@ -126,16 +126,16 @@ function camHackIntoPlayer(player, to)
 			{
 				if (target.stattype === DEFENSE)
 				{
-					sound = CAM_DEFENSE_NEUTRALIZE_SND;
+					sound = cam_sounds.nexus.defensesNeutralized;
 				}
 				else
 				{
-					sound = CAM_STRUCTURE_NEUTRALIZE_SND;
+					sound = cam_sounds.nexus.structureNeutralized;
 				}
 			}
 			else if (target.type === DROID)
 			{
-				sound = CAM_UNIT_NEUTRALIZE_SND;
+				sound = cam_sounds.nexus.unitNeutralized;
 			}
 
 			if (camDef(sound))
@@ -210,7 +210,7 @@ function __camChooseNexusTarget(player)
 		//As the player researches more resistance upgrades their higher exp units will become more safe
 		//Trucks get a little more safe with each upgrade also.
 		objects = objects.filter((d) => {
-			if (__camNextLevel === CAM_GAMMA_OUT)
+			if (__camNextLevel === CAM_A4_OUT)
 			{
 				return true; //Final mission has a static fail chance to hack everything.
 			}

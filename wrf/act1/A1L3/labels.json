@@ -1,0 +1,361 @@
+{
+	"position_0": {
+		"label": "collectiveRepairPos",
+		"pos": [15734, 3200]
+	},
+
+
+	"position_1": {
+		"label": "redAssembly1",
+		"pos": [9668, 3904]
+	},
+
+
+	"position_2": {
+		"label": "redAssembly2",
+		"pos": [11069, 4537]
+	},
+
+
+	"position_3": {
+		"label": "redAssembly3",
+		"pos": [11078, 7611]
+	},
+
+
+	"position_4": {
+		"label": "redAssembly4",
+		"pos": [13884, 6813]
+	},
+
+
+	"position_5": {
+		"label": "redAssembly5",
+		"pos": [15278, 6203]
+	},
+
+
+	"position_6": {
+		"label": "orangeAssembly1",
+		"pos": [9418, 1012]
+	},
+
+
+	"position_7": {
+		"label": "orangeAssembly2",
+		"pos": [11452, 834]
+	},
+
+
+	"position_8": {
+		"label": "orangeAssembly3",
+		"pos": [13119, 2238]
+	},
+
+
+	"position_9": {
+		"label": "orangeAssembly4",
+		"pos": [14903, 812]
+	},
+
+
+	"position_10": {
+		"label": "heliAttackPos",
+		"pos": [15344, 7853]
+	},
+
+
+	"position_11": {
+		"label": "patrolPos1",
+		"pos": [15849, 4674]
+	},
+
+
+	"position_12": {
+		"label": "patrolPos2",
+		"pos": [14527, 5770]
+	},
+
+
+	"position_13": {
+		"label": "patrolPos3",
+		"pos": [13311, 6726]
+	},
+
+
+	"position_14": {
+		"label": "patrolPos4",
+		"pos": [12325, 5466]
+	},
+
+
+	"position_15": {
+		"label": "patrolPos5",
+		"pos": [11404, 6706]
+	},
+
+
+	"position_16": {
+		"label": "patrolPos6",
+		"pos": [11452, 4790]
+	},
+
+
+	"position_17": {
+		"label": "patrolPos7",
+		"pos": [9834, 4737]
+	},
+
+
+	"position_18": {
+		"label": "patrolPos8",
+		"pos": [13435, 1252]
+	},
+
+
+	"position_19": {
+		"label": "patrolPos9",
+		"pos": [11371, 1585]
+	},
+
+
+	"position_20": {
+		"label": "patrolPos10",
+		"pos": [9845, 1626]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [5760, 1280],
+		"pos2": [6144, 1664]
+	},
+
+
+	"area_1": {
+		"label": "redBase1",
+		"pos1": [9088, 5504],
+		"pos2": [10752, 6784]
+	},
+
+
+	"area_2": {
+		"label": "redBase2",
+		"pos1": [8960, 3712],
+		"pos2": [10368, 5376]
+	},
+
+
+	"area_3": {
+		"label": "redBase3",
+		"pos1": [10368, 3328],
+		"pos2": [12160, 5504]
+	},
+
+
+	"area_4": {
+		"label": "redBase4",
+		"pos1": [9984, 7040],
+		"pos2": [11776, 7680]
+	},
+
+
+	"area_5": {
+		"label": "redBase5",
+		"pos1": [11904, 4864],
+		"pos2": [15616, 7424]
+	},
+
+
+	"area_6": {
+		"label": "orangeBase1",
+		"pos1": [8576, 640],
+		"pos2": [9856, 2176]
+	},
+
+
+	"area_7": {
+		"label": "orangeBase2",
+		"pos1": [9984, 384],
+		"pos2": [12416, 1152]
+	},
+
+
+	"area_8": {
+		"label": "orangeBase3",
+		"pos1": [12544, 1408],
+		"pos2": [13440, 2816]
+	},
+
+
+	"area_9": {
+		"label": "orangeBase4",
+		"pos1": [14464, 384],
+		"pos2": [15872, 1280]
+	},
+
+
+	"area_10": {
+		"label": "landingZoneCollective",
+		"pos1": [15360, 3840],
+		"pos2": [15616, 4096]
+	},
+
+
+	"area_11": {
+		"label": "collectiveLZBaseArea",
+		"pos1": [15104, 3584],
+		"pos2": [16000, 4480]
+	},
+
+
+	"area_12": {
+		"label": "collectiveUplinkBaseArea",
+		"pos1": [13440, 5760],
+		"pos2": [14336, 7040]
+	},
+
+
+	"area_13": {
+		"label": "collectiveEntrance",
+		"pos1": [15872, 3200],
+		"pos2": [16128, 3968]
+	},
+
+
+	"area_14": {
+		"label": "scavAttackGroup1",
+		"pos1": [12160, 4992],
+		"pos2": [12800, 5376]
+	},
+
+
+	"area_15": {
+		"label": "scavAttackGroup2",
+		"pos1": [12928, 4992],
+		"pos2": [13568, 5376]
+	},
+
+
+	"area_16": {
+		"label": "scavPatrolGroup1",
+		"pos1": [11520, 6400],
+		"pos2": [11904, 6656]
+	},
+
+
+	"area_17": {
+		"label": "scavPatrolGroup2",
+		"pos1": [15360, 6400],
+		"pos2": [15744, 6656]
+	},
+
+
+	"area_18": {
+		"label": "scavPatrolGroup3",
+		"pos1": [11264, 3456],
+		"pos2": [11648, 3712]
+	},
+
+
+	"area_19": {
+		"label": "scavPatrolGroup4",
+		"pos1": [12800, 1024],
+		"pos2": [13440, 1408]
+	},
+
+
+	"object_0": {
+		"label": "redFactory1",
+		"id": 2,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "heliTower1",
+		"id": 71,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "redFactory3",
+		"id": 9,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "heliTower2",
+		"id": 122,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "redFactory5",
+		"id": 137,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "redFactory2",
+		"id": 4,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "orangeFactory2",
+		"id": 6,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "orangeFactory3",
+		"id": 7,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "orangeFactory4",
+		"id": 5,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "orangeFactory1",
+		"id": 8,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "redFactory4",
+		"id": 3,
+		"player": 6,
+		"type": 1
+	},
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [1841, 7895],
+		"radius": 128,
+		"subscriber": 6
+	}
+}

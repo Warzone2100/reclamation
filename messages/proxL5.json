@@ -1,0 +1,13 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "SCAV_BASE1": { "message": "BARPOST_MSG", "x": 3904, "y": 3776, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "SCAV_BASE2": { "message": "BARPOST_MSG", "x": 960, "y": 12992, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "SCAV_BASE3": { "message": "BARPOST_MSG", "x": 5312, "y": 12992, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "SCAV_BASE4": { "message": "BARBASE_MSG", "x": 7744, "y": 10560, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "INFESTED_BASE1": { "message": "INFESBASE_MSG", "x": 7232, "y": 2880, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE2": { "message": "INFESBASE_MSG", "x": 8896, "y": 704, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE3": { "message": "INFESBASE_MSG", "x": 832, "y": 832, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE4": { "message": "INFESBASE_MSG", "x": 1216, "y": 6464, "z": 0, "audio": "pcv393.ogg", "type": 0 }
+    }
+}

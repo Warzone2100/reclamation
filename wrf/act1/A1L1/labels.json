@@ -1,0 +1,268 @@
+{
+	"position_0": {
+		"label": "orangeAssemblyPos1",
+		"pos": [892, 759]
+	},
+
+
+	"position_1": {
+		"label": "orangeAssemblyPos2",
+		"pos": [3076, 780]
+	},
+
+
+	"position_2": {
+		"label": "pinkAssemblyPos1",
+		"pos": [2492, 4158]
+	},
+
+
+	"position_3": {
+		"label": "pinkAssemblyPos2",
+		"pos": [4533, 5311]
+	},
+
+
+	"position_4": {
+		"label": "pinkAssemblyPos3",
+		"pos": [5960, 4658]
+	},
+
+
+	"position_5": {
+		"label": "redAssemblyPos1",
+		"pos": [1271, 6457]
+	},
+
+
+	"position_6": {
+		"label": "redAssemblyPos2",
+		"pos": [7365, 6841]
+	},
+
+
+	"position_7": {
+		"label": "redPatrolPos1",
+		"pos": [1759, 7090]
+	},
+
+
+	"position_8": {
+		"label": "redPatrolPos2",
+		"pos": [3682, 7519]
+	},
+
+
+	"position_9": {
+		"label": "redPatrolPos3",
+		"pos": [5416, 7088]
+	},
+
+
+	"position_10": {
+		"label": "orangePatrolPos1",
+		"pos": [961, 1330]
+	},
+
+
+	"position_11": {
+		"label": "orangePatrolPos2",
+		"pos": [960, 2745]
+	},
+
+
+	"position_12": {
+		"label": "pinkPatrolPos1",
+		"pos": [3571, 3957]
+	},
+
+
+	"position_13": {
+		"label": "pinkPatrolPos2",
+		"pos": [5698, 3910]
+	},
+
+
+	"position_14": {
+		"label": "heliAttackPos",
+		"pos": [6466, 7904]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [5760, 1280],
+		"pos2": [6144, 1664]
+	},
+
+
+	"area_1": {
+		"label": "orangeScavBase1",
+		"pos1": [640, 384],
+		"pos2": [1408, 1280]
+	},
+
+
+	"area_2": {
+		"label": "orangeScavBase2",
+		"pos1": [2688, 640],
+		"pos2": [3712, 1280]
+	},
+
+
+	"area_3": {
+		"label": "orangeScavBase3",
+		"pos1": [1792, 1792],
+		"pos2": [2816, 2560]
+	},
+
+
+	"area_4": {
+		"label": "pinkScavBase1",
+		"pos1": [1664, 3712],
+		"pos2": [3072, 5120]
+	},
+
+
+	"area_5": {
+		"label": "redScavBase1",
+		"pos1": [640, 6272],
+		"pos2": [2176, 7296]
+	},
+
+
+	"area_6": {
+		"label": "redScavBase2",
+		"pos1": [6528, 6272],
+		"pos2": [7680, 7424]
+	},
+
+
+	"area_7": {
+		"label": "redPatrolGroup",
+		"pos1": [5888, 7040],
+		"pos2": [6272, 7296]
+	},
+
+
+	"area_8": {
+		"label": "orangePatrolGroup",
+		"pos1": [896, 1408],
+		"pos2": [1280, 1664]
+	},
+
+
+	"area_9": {
+		"label": "pinkPatrolGroup",
+		"pos1": [4864, 3712],
+		"pos2": [5248, 4096]
+	},
+
+
+	"area_10": {
+		"label": "orangeAmbushGroup",
+		"pos1": [3712, 1920],
+		"pos2": [3968, 2048]
+	},
+
+
+	"area_11": {
+		"label": "pinkAmbushGroup",
+		"pos1": [5504, 3712],
+		"pos2": [5888, 3968]
+	},
+
+
+	"area_12": {
+		"label": "pinkScavBase2",
+		"pos1": [3712, 4608],
+		"pos2": [4864, 5760]
+	},
+
+
+	"area_13": {
+		"label": "pinkScavBase3",
+		"pos1": [4608, 3968],
+		"pos2": [6656, 4864]
+	},
+
+
+	"object_0": {
+		"label": "redFactory1",
+		"id": 8,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "pinkFactory1",
+		"id": 3,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "orangeFactory1",
+		"id": 82,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "redFactory2",
+		"id": 7,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "pinkFactory2",
+		"id": 2,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "orangeFactory2",
+		"id": 81,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "heliTower",
+		"id": 131,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "redMiniPit",
+		"id": 206,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "pinkFactory3",
+		"id": 1,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [1841, 7895],
+		"radius": 128,
+		"subscriber": 6
+	}
+}

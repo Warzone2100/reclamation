@@ -9,18 +9,11 @@ function checkMissileSilos()
 	}
 }
 
-// This function is called after a video is played, a delay is required for the 'alert' sound to play properly in all cases
-function messageAlert()
-{
-	playSound("beep7.ogg"); // Play a little noise to notify the player that they have a new message
-}
-
 function eventStartLevel()
 {
-	camSetupTransporter(31, 20, 39, 26);
+	camSetupTransporter(31, 20, 36, 12);
 	centreView(32, 20);
 	setNoGoArea(30, 19, 33, 22, CAM_HUMAN_PLAYER);
-	setMissionTime(camChangeOnDiff(camMinutesToSeconds(75)));
 	camSetStandardWinLossConditions(CAM_VICTORY_PRE_OFFWORLD, "L5");
 
 	// Set a timer for checking that the player didn't demolish the missile silos.
@@ -28,8 +21,20 @@ function eventStartLevel()
 
 	// Give player briefing.
 	camPlayVideos({video: "L5_BRIEF", type: MISS_MSG});
-	queue("messageAlert", camSecondsToMilliseconds(0.2));
 
-	// Set the fog to it's default colours
-	camSetFog(182, 225, 236);
+	if (!tweakOptions.rec_timerlessMode)
+	{
+		setMissionTime(camChangeOnDiff(camMinutesToSeconds(75)));
+	}
+	else
+	{
+		setMissionTime(-1);
+	}
+
+	// Darken the fog to 1/2 default brightness
+	camSetFog(90, 112, 118);
+	// Darken the lighting a wee bit
+	camSetSunIntensity(.45,.45,.45);
+	// Constant snow
+	camSetWeather(CAM_WEATHER_SNOWSTORM);
 }

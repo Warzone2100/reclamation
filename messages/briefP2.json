@@ -1,0 +1,65 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "P2_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "prologue/P2intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "prologue/P2brief1.webm" },
+                { "loop": 0, "subtitles": "BLANK", "video": "prologue/P2brief2.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "P2_BMSG1",
+                    "P2_BMSG2",
+                    "P2_BMSG3",
+                    "P2_BMSG4",
+                    "P2_BMSG5",
+                    "P2_BMSG6",
+                    "P2_BMSG7",
+                    "P2_BMSG8",
+                    "P2_BMSG9",
+                    "P2_BMSG10",
+                    "P2_BMSG11",
+                    "P2_BMSG12",
+                    "P2_BMSG13",
+                    "P2_BMSG14",
+                    "P2_BMSG15",
+                    "P2_BMSG16",
+                    "P2_BMSG17",
+                    "P2_BMSG18",
+                    "P2_BMSG19",
+                    "P2_BMSG20",
+                    "P2_BMSG21",
+                    "P2_BMSG22",
+                    "P2_BMSG23",
+                    "P2_BMSG24",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "P2_CIVS": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "prologue/P2civs.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "P2_CIVMSG1",
+                    "P2_CIVMSG2",
+                    "P2_CIVMSG3",
+                    "P2_CIVMSG4",
+                    "P2_CIVMSG5",
+                    "P2_CIVMSG6",
+                    "P2_CIVMSG7",
+                    "P2_CIVMSG8",
+                    "P2_CIVMSG9",
+                    "P2_CIVMSG10",
+                    "P2_CIVMSG11",
+                    "P2_CIVMSG12",
+                    "P2_CIVMSG13",
+                    "P2_CIVMSG14",
+                    "P2_CIVMSG15",
+                    "P2_CIVMSG16",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

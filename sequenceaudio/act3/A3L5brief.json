@@ -1,0 +1,122 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 7.0,
+   "end": 9.0,
+   "area": "header",
+   "textId": "A3L5_BMSG1"
+  },
+  {
+   "start": 9.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "A3L5_BMSG2",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 12.0,
+   "end": 14.0,
+   "area": "header",
+   "textId": "A3L5_BMSG3",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 15.0,
+   "end": 18.0,
+   "area": "header",
+   "textId": "A3L5_BMSG4",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 18.0,
+   "end": 21.0,
+   "area": "header",
+   "textId": "A3L5_BMSG5",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 21.0,
+   "end": 25.0,
+   "area": "header",
+   "textId": "A3L5_BMSG6",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 26.0,
+   "end": 30.0,
+   "area": "header",
+   "textId": "A3L5_BMSG7"
+  },
+  {
+   "start": 30.0,
+   "end": 34.0,
+   "area": "header",
+   "textId": "A3L5_BMSG8",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 35.0,
+   "end": 37.0,
+   "area": "header",
+   "textId": "A3L5_BMSG9"
+  },
+  {
+   "start": 37.0,
+   "end": 41.0,
+   "area": "header",
+   "textId": "A3L5_BMSG10",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 41.0,
+   "end": 45.0,
+   "area": "header",
+   "textId": "A3L5_BMSG11",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 45.0,
+   "end": 50.0,
+   "area": "header",
+   "textId": "A3L5_BMSG12",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 50.0,
+   "end": 54.0,
+   "area": "header",
+   "textId": "A3L5_BMSG13",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 55.0,
+   "end": 58.0,
+   "area": "header",
+   "textId": "A3L5_BMSG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 58.0,
+   "end": 61.0,
+   "area": "header",
+   "textId": "A3L5_BMSG15",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 61.0,
+   "end": 64.0,
+   "area": "header",
+   "textId": "A3L5_BMSG16",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 64.0,
+   "end": 66.0,
+   "area": "header",
+   "textId": "A3L5_BMSG17",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

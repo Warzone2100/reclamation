@@ -1,0 +1,29 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L2_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L2intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L2brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L2_BMSG1",
+                    "L2_BMSG2",
+                    "L2_BMSG3",
+                    "L2_BMSG4",
+                    "L2_BMSG5",
+                    "L2_BMSG6",
+                    "L2_BMSG7",
+                    "L2_BMSG8",
+                    "L2_BMSG9",
+                    "L2_BMSG10",
+                    "L2_BMSG11",
+                    "L2_BMSG12",
+                    "L2_BMSG13",
+                    "L2_BMSG14",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

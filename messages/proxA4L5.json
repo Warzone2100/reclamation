@@ -1,0 +1,32 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "COL_ENTRY1": { "message": "ENEMYUNIT_MSG", "x": 2112, "y": 384, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY2": { "message": "ENEMYUNIT_MSG", "x": 8832, "y": 384, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY3": { "message": "ENEMYUNIT_MSG", "x": 15424, "y": 384, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY4": { "message": "ENEMYUNIT_MSG", "x": 19392, "y": 384, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY5": { "message": "ENEMYUNIT_MSG", "x": 22144, "y": 10880, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY6": { "message": "ENEMYUNIT_MSG", "x": 15040, "y": 21120, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY7": { "message": "ENEMYUNIT_MSG", "x": 11648, "y": 21120, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY8": { "message": "ENEMYUNIT_MSG", "x": 384, "y": 20608, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY9": { "message": "ENEMYUNIT_MSG", "x": 384, "y": 13696, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY10": { "message": "ENEMYUNIT_MSG", "x": 384, "y": 6144, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY11": { "message": "ENEMYUNIT_MSG", "x": 384, "y": 4480, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "AIR_ENTRY1": { "message": "ENEMYVTOL_MSG", "x": 22144, "y": 384, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "AIR_ENTRY2": { "message": "ENEMYVTOL_MSG", "x": 6720, "y": 384, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "AIR_ENTRY3": { "message": "ENEMYVTOL_MSG", "x": 384, "y": 2240, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "AIR_ENTRY4": { "message": "ENEMYVTOL_MSG", "x": 384, "y": 17728, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "AIR_ENTRY5": { "message": "ENEMYVTOL_MSG", "x": 22144, "y": 18880, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "AIR_ENTRY6": { "message": "ENEMYVTOL_MSG", "x": 22144, "y": 8128, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_LZ1": { "message": "COLLZ_MSG", "x": 19136, "y": 2240, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ2": { "message": "COLLZ_MSG", "x": 7744, "y": 18240, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ3": { "message": "COLLZ_MSG", "x": 1472, "y": 15936, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ4": { "message": "COLLZ_MSG", "x": 16192, "y": 10816, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ5": { "message": "COLLZ_MSG", "x": 13504, "y": 13120, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ6": { "message": "COLLZ_MSG", "x": 8768, "y": 14528, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ7": { "message": "COLLZ_MSG", "x": 12608, "y": 5824, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ8": { "message": "COLLZ_MSG", "x": 11968, "y": 2880, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ9": { "message": "COLLZ_MSG", "x": 4288, "y": 3904, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZ10": { "message": "COLLZ_MSG", "x": 2624, "y": 8256, "z": 0, "audio": "pcv396.ogg", "type": 0 }
+    }
+}

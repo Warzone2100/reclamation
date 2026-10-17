@@ -1,0 +1,231 @@
+{
+	"position_0": {
+		"label": "heliAttackPos",
+		"pos": [208, 7089]
+	},
+
+
+	"position_1": {
+		"label": "eastPatrolPos1",
+		"pos": [10431, 5386]
+	},
+
+
+	"position_2": {
+		"label": "eastPatrolPos2",
+		"pos": [9296, 3757]
+	},
+
+
+	"position_3": {
+		"label": "eastPatrolPos3",
+		"pos": [11524, 4586]
+	},
+
+
+	"position_4": {
+		"label": "westPatrolPos1",
+		"pos": [1691, 4175]
+	},
+
+
+	"position_5": {
+		"label": "westPatrolPos2",
+		"pos": [732, 5382]
+	},
+
+
+	"position_6": {
+		"label": "westPatrolPos3",
+		"pos": [1711, 6762]
+	},
+
+
+	"position_7": {
+		"label": "scavAssembly1",
+		"pos": [11332, 2225]
+	},
+
+
+	"position_8": {
+		"label": "scavAssembly2",
+		"pos": [2101, 6570]
+	},
+
+
+	"position_9": {
+		"label": "charlieDefensePos",
+		"pos": [9172, 6772]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [7936, 6400],
+		"pos2": [8319, 6783]
+	},
+
+
+	"area_1": {
+		"label": "civZone1",
+		"pos1": [5632, 4736],
+		"pos2": [6272, 5248]
+	},
+
+
+	"area_2": {
+		"label": "civZone2",
+		"pos1": [9728, 1280],
+		"pos2": [10368, 1792]
+	},
+
+
+	"area_3": {
+		"label": "civZone3",
+		"pos1": [4608, 512],
+		"pos2": [5120, 1152]
+	},
+
+
+	"area_4": {
+		"label": "civZone4",
+		"pos1": [384, 384],
+		"pos2": [1152, 1024]
+	},
+
+
+	"area_5": {
+		"label": "scavAmbushGroup",
+		"pos1": [11008, 5632],
+		"pos2": [11392, 5888]
+	},
+
+
+	"area_6": {
+		"label": "scavBase1",
+		"pos1": [10240, 2048],
+		"pos2": [11904, 4224]
+	},
+
+
+	"area_7": {
+		"label": "scavBase2",
+		"pos1": [768, 2560],
+		"pos2": [1408, 3712]
+	},
+
+
+	"area_8": {
+		"label": "scavBase3",
+		"pos1": [256, 4480],
+		"pos2": [2560, 7296]
+	},
+
+
+	"area_9": {
+		"label": "safeZone",
+		"pos1": [5376, 5760],
+		"pos2": [9600, 7680]
+	},
+
+
+	"area_10": {
+		"label": "depositZone",
+		"pos1": [7808, 7168],
+		"pos2": [8576, 7680]
+	},
+
+
+	"area_11": {
+		"label": "sensorZone",
+		"pos1": [5504, 3200],
+		"pos2": [8064, 5376]
+	},
+
+
+	"area_12": {
+		"label": "infExit",
+		"pos1": [3584, 7296],
+		"pos2": [4352, 7936]
+	},
+
+
+	"area_13": {
+		"label": "infEntry1",
+		"pos1": [7168, 256],
+		"pos2": [7808, 512]
+	},
+
+
+	"area_14": {
+		"label": "infEntry2",
+		"pos1": [3200, 256],
+		"pos2": [3712, 512]
+	},
+
+
+	"area_15": {
+		"label": "playerEntry",
+		"pos1": [11520, 7424],
+		"pos2": [12032, 7936]
+	},
+
+
+	"area_16": {
+		"label": "ambushTrigger",
+		"pos1": [10752, 6656],
+		"pos2": [11008, 8064]
+	},
+
+
+	"area_17": {
+		"label": "charlieDefenseGroup",
+		"pos1": [8576, 6656],
+		"pos2": [8832, 6912]
+	},
+
+
+	"area_18": {
+		"label": "westPatrolGroup",
+		"pos1": [1536, 3840],
+		"pos2": [1920, 4224]
+	},
+
+
+	"area_19": {
+		"label": "eastPatrolGroup",
+		"pos1": [10240, 3200],
+		"pos2": [10624, 3584]
+	},
+
+
+	"object_0": {
+		"label": "scavFactory1",
+		"id": 1,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "scavFactory2",
+		"id": 2,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "heliTower",
+		"id": 52,
+		"player": 2,
+		"type": 1
+	},
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [2112, 192],
+		"radius": 256,
+		"subscriber": 2
+	}
+}

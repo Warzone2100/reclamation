@@ -1,0 +1,42 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L1_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L1intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L1brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L1_BMSG1",
+                    "L1_BMSG2",
+                    "L1_BMSG3",
+                    "L1_BMSG4",
+                    "L1_BMSG5",
+                    "L1_BMSG6",
+                    "L1_BMSG7",
+                    "L1_BMSG8",
+                    "L1_BMSG9",
+                    "L1_BMSG10",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L1_SCAVMSG": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L1scavs.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "L1_SCAVMSG1",
+                    "L1_SCAVMSG2",
+                    "L1_SCAVMSG3",
+                    "L1_SCAVMSG4",
+                    "L1_SCAVMSG5",
+                    "L1_SCAVMSG6",
+                    "L1_SCAVMSG7",
+                    "L1_SCAVMSG8",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

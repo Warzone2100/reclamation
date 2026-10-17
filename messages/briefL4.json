@@ -1,0 +1,52 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L4_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L4intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L4brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L4_BMSG1",
+                    "L4_BMSG2",
+                    "L4_BMSG3",
+                    "L4_BMSG4",
+                    "L4_BMSG5",
+                    "L4_BMSG6",
+                    "L4_BMSG7",
+                    "L4_BMSG8",
+                    "L4_BMSG9",
+                    "L4_BMSG10",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L4_AMBUSHMSG": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L4ambush.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "L4_AMBUSHMSG1",
+                    "L4_AMBUSHMSG2",
+                    "L4_AMBUSHMSG3",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L4_KILLMSG": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L4kill.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "L4_KILLMSG1",
+                    "L4_KILLMSG2",
+                    "L4_KILLMSG3",
+                    "L4_KILLMSG4",
+                    "L4_KILLMSG5",
+                    "L4_KILLMSG6",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

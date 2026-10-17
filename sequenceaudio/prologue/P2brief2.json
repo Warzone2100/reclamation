@@ -1,0 +1,71 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 0.0,
+   "end": 1.0,
+   "area": "header",
+   "textId": "P2_BMSG15",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 2.0,
+   "end": 4.0,
+   "area": "header",
+   "textId": "P2_BMSG16"
+  },
+  {
+   "start": 5.0,
+   "end": 9.0,
+   "area": "header",
+   "textId": "P2_BMSG17"
+  },
+  {
+   "start": 9.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "P2_BMSG18",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 12.0,
+   "end": 15.0,
+   "area": "header",
+   "textId": "P2_BMSG19",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 16.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "P2_BMSG20"
+  },
+  {
+   "start": 20.0,
+   "end": 22.0,
+   "area": "header",
+   "textId": "P2_BMSG21"
+  },
+  {
+   "start": 25.0,
+   "end": 28.0,
+   "area": "header",
+   "textId": "P2_BMSG22"
+  },
+  {
+   "start": 28.0,
+   "end": 31.0,
+   "area": "header",
+   "textId": "P2_BMSG23",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 31.0,
+   "end": 34.0,
+   "area": "header",
+   "textId": "P2_BMSG24",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

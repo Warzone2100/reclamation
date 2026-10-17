@@ -1,0 +1,10 @@
+/*
+ * P0.wrf
+ *
+ */
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory "script/campaign"
+file JAVASCRIPT "P0.js"

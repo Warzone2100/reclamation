@@ -1,0 +1,40 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 3.0,
+   "end": 6.0,
+   "area": "header",
+   "textId": "A3L9_FOXMSG1"
+  },
+  {
+   "start": 6.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A3L9_FOXMSG2",
+   "speaker": "FOXTROT"
+  },
+  {
+   "start": 11.0,
+   "end": 14.0,
+   "area": "header",
+   "textId": "A3L9_FOXMSG3",
+   "speaker": "FOXTROT"
+  },
+  {
+   "start": 15.0,
+   "end": 17.0,
+   "area": "header",
+   "textId": "A3L9_FOXMSG4",
+   "speaker": "FOXTROT"
+  },
+  {
+   "start": 17.0,
+   "end": 21.0,
+   "area": "header",
+   "textId": "A3L9_FOXMSG5",
+   "speaker": "FOXTROT"
+  }
+ ]
+}

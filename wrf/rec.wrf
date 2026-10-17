@@ -1,0 +1,10 @@
+/***********************************************************/
+/*  You may have to modify this file for it to be correct! */ 
+/*******************       WRF\Rec.wrf      *******************/
+
+
+directory	"messages/strings"
+file		STR_RES	"genstrings.txt"
+file		STR_RES	"recstrings.txt"
+directory	"messages"
+file		SMSG	"genmessages.txt"

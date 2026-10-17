@@ -1,0 +1,10 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "COL_LZBASE1": { "message": "COLLZ_MSG", "x": 7232, "y": 3392, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE2": { "message": "COLLZ_MSG", "x": 6592, "y": 1600, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE3": { "message": "COLLZ_MSG", "x": 7232, "y": 7360, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "NASDA_POWER": { "message": "RUINS_MSG", "x": 1216, "y": 8960, "z": 0, "audio": "pcv448.ogg", "type": 0 },
+        "RET_LZ": { "message": "LZ_MSG", "x": 3008, "y": 3520, "z": 0, "audio": "pcv448.ogg", "type": 2 }
+    }
+}

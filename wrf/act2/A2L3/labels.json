@@ -1,0 +1,314 @@
+{
+	"position_0": {
+		"label": "hoverPatrolPos1",
+		"pos": [3964, 8854]
+	},
+
+
+	"position_1": {
+		"label": "hoverPatrolPos2",
+		"pos": [5640, 10519]
+	},
+
+
+	"position_2": {
+		"label": "hoverPatrolPos3",
+		"pos": [4421, 12148]
+	},
+
+
+	"position_3": {
+		"label": "hoverPatrolPos4",
+		"pos": [8677, 10591]
+	},
+
+
+	"position_4": {
+		"label": "hoverPatrolPos5",
+		"pos": [11602, 10126]
+	},
+
+
+	"position_5": {
+		"label": "patrolPos1",
+		"pos": [648, 8934]
+	},
+
+
+	"position_6": {
+		"label": "patrolPos2",
+		"pos": [2290, 11275]
+	},
+
+
+	"position_7": {
+		"label": "patrolPos3",
+		"pos": [4790, 13617]
+	},
+
+
+	"position_8": {
+		"label": "patrolPos4",
+		"pos": [5464, 7986]
+	},
+
+
+	"position_9": {
+		"label": "patrolPos5",
+		"pos": [6999, 8863]
+	},
+
+
+	"position_10": {
+		"label": "patrolPos6",
+		"pos": [1623, 14002]
+	},
+
+
+	"position_11": {
+		"label": "patrolPos7",
+		"pos": [4027, 14456]
+	},
+
+
+	"position_12": {
+		"label": "scavAssembly1",
+		"pos": [7109, 13004]
+	},
+
+
+	"position_13": {
+		"label": "scavAssembly2",
+		"pos": [4036, 15084]
+	},
+
+
+	"position_14": {
+		"label": "scavAssembly3",
+		"pos": [1070, 14190]
+	},
+
+
+	"position_15": {
+		"label": "scavAssembly4",
+		"pos": [831, 15509]
+	},
+
+
+	"position_16": {
+		"label": "heliAttackPos1",
+		"pos": [300, 14137]
+	},
+
+
+	"position_17": {
+		"label": "heliAttackPos2",
+		"pos": [4904, 7106]
+	},
+
+
+	"position_18": {
+		"label": "vtolAttackPos",
+		"pos": [189, 7359]
+	},
+
+
+	"position_19": {
+		"label": "colAssembly",
+		"pos": [1467, 9443]
+	},
+
+
+	"position_20": {
+		"label": "colCybAssembly",
+		"pos": [2638, 8075]
+	},
+
+
+	"position_21": {
+		"label": "cScavAssembly",
+		"pos": [6206, 8287]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [12800, 14720],
+		"pos2": [13184, 15104]
+	},
+
+
+	"area_1": {
+		"label": "colCommandGroup",
+		"pos1": [1536, 8960],
+		"pos2": [1920, 9472]
+	},
+
+
+	"area_2": {
+		"label": "landingZoneCollective",
+		"pos1": [640, 11136],
+		"pos2": [1024, 11520]
+	},
+
+
+	"area_3": {
+		"label": "colLzStructs",
+		"pos1": [512, 11008],
+		"pos2": [1152, 11648]
+	},
+
+
+	"area_4": {
+		"label": "colBase",
+		"pos1": [384, 7424],
+		"pos2": [3200, 10624]
+	},
+
+
+	"area_5": {
+		"label": "scavBase1",
+		"pos1": [5632, 12288],
+		"pos2": [7552, 14080]
+	},
+
+
+	"area_6": {
+		"label": "scavBase2",
+		"pos1": [512, 13440],
+		"pos2": [4224, 15744]
+	},
+
+
+	"area_7": {
+		"label": "cScavBase",
+		"pos1": [4352, 7424],
+		"pos2": [7936, 9856]
+	},
+
+
+	"area_8": {
+		"label": "cyborgPatrolGroup",
+		"pos1": [5376, 8192],
+		"pos2": [5760, 8448]
+	},
+
+
+	"area_9": {
+		"label": "scavPatrolGroup",
+		"pos1": [3840, 14208],
+		"pos2": [4224, 14464]
+	},
+
+
+	"object_0": {
+		"label": "scavFactory2",
+		"id": 29,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "scavFactory4",
+		"id": 36,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "scavFactory3",
+		"id": 40,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "scavFactory1",
+		"id": 76,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "colResearch",
+		"id": 154,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "cScavFactory",
+		"id": 159,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "colCC",
+		"id": 176,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "colCybFactory",
+		"id": 199,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "colTruck",
+		"id": 223,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_9": {
+		"label": "colFactory",
+		"id": 225,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "colCommander",
+		"id": 229,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_11": {
+		"label": "scavHeliTower",
+		"id": 285,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_12": {
+		"label": "cScavHeliTower",
+		"id": 289,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"radius_0": {
+		"label": "vtolRemoveZone",
+		"pos": [11328, 6976],
+		"radius": 256,
+		"subscriber": 2
+	}
+}

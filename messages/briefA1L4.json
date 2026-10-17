@@ -1,0 +1,69 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A1L4_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act1/A1L4intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act1/A1L4brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A1L4_BMSG1",
+                    "A1L4_BMSG2",
+                    "A1L4_BMSG3",
+                    "A1L4_BMSG4",
+                    "A1L4_BMSG5",
+                    "A1L4_BMSG6",
+                    "A1L4_BMSG7",
+                    "A1L4_BMSG8",
+                    "A1L4_BMSG9",
+                    "A1L4_BMSG10",
+                    "A1L4_BMSG11",
+                    "A1L4_BMSG12",
+                    "A1L4_BMSG13",
+                    "A1L4_BMSG14",
+                    "A1L4_BMSG15",
+                    "A1L4_BMSG16",
+                    "A1L4_BMSG17",
+                    "A1L4_BMSG18",
+                    "A1L4_BMSG19",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A1L4_EVAC": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act1/A1L4evac.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A1L4_EVACMSG1",
+                    "A1L4_EVACMSG2",
+                    "A1L4_EVACMSG3",
+                    "A1L4_EVACMSG4",
+                    "A1L4_EVACMSG5",
+                    "A1L4_EVACMSG6",
+                    "A1L4_EVACMSG7",
+                    "A1L4_EVACMSG8",
+                    "A1L4_EVACMSG9",
+                    "A1L4_EVACMSG10",
+                    "A1L4_EVACMSG11",
+                    "A1L4_EVACMSG12",
+                    "A1L4_EVACMSG13",
+                    "A1L4_EVACMSG14",
+                    "A1L4_EVACMSG15",
+                    "A1L4_EVACMSG16",
+                    "A1L4_EVACMSG17",
+                    "A1L4_EVACMSG18",
+                    "A1L4_EVACMSG19",
+                    "A1L4_EVACMSG20",
+                    "A1L4_EVACMSG21",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A1L4_ESCAPE": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act1/A1L4escape.webm" }
+            ]
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "INF_BASE1": { "message": "INFESBASE_MSG", "x": 1472, "y": 15936, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE2": { "message": "INFESBASE_MSG", "x": 960, "y": 19008, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE3": { "message": "INFESBASE_MSG", "x": 832, "y": 20544, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE4": { "message": "INFESBASE_MSG", "x": 2112, "y": 20544, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE5": { "message": "INFESBASE_MSG", "x": 16064, "y": 14528, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE6": { "message": "INFESBASE_MSG", "x": 21824, "y": 14144, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE7": { "message": "INFESBASE_MSG", "x": 21440, "y": 12736, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "GOLF_BASE1": { "message": "GOLFBASE_MSG", "x": 18368, "y": 19136, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "GOLF_BASE2": { "message": "GOLFBASE_MSG", "x": 15168, "y": 19904, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "GOLF_BASE3": { "message": "GOLFBASE_MSG", "x": 8256, "y": 19648, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "GOLF_BASE4": { "message": "GOLFBASE_MSG", "x": 12352, "y": 14784, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE1": { "message": "FOXTROTBASE_MSG", "x": 21440, "y": 6336, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE2": { "message": "FOXTROTBASE_MSG", "x": 20416, "y": 1472, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE3": { "message": "FOXTROTBASE_MSG", "x": 15680, "y": 3904, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE4": { "message": "FOXTROTBASE_MSG", "x": 12608, "y": 832, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE5": { "message": "FOXTROTBASE_MSG", "x": 11968, "y": 2880, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE6": { "message": "FOXTROTBASE_MSG", "x": 10048, "y": 4672, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "FOXTROT_BASE7": { "message": "FOXTROTBASE_MSG", "x": 12608, "y": 8000, "z": 0, "audio": "pcv393.ogg", "type": 0 }
+    }
+}

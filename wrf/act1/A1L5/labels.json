@@ -1,0 +1,295 @@
+{
+	"position_0": {
+		"label": "baitFallbackPos",
+		"pos": [6263, 2739]
+	},
+
+
+	"position_1": {
+		"label": "hoverPatrolPos1",
+		"pos": [953, 4160]
+	},
+
+
+	"position_2": {
+		"label": "hoverPatrolPos2",
+		"pos": [5384, 4172]
+	},
+
+
+	"position_3": {
+		"label": "patrolPos1",
+		"pos": [1546, 6036]
+	},
+
+
+	"position_4": {
+		"label": "patrolPos2",
+		"pos": [3607, 6291]
+	},
+
+
+	"position_5": {
+		"label": "patrolPos3",
+		"pos": [4202, 783]
+	},
+
+
+	"position_6": {
+		"label": "patrolPos4",
+		"pos": [2517, 1905]
+	},
+
+
+	"position_7": {
+		"label": "patrolPos5",
+		"pos": [7043, 1775]
+	},
+
+
+	"position_8": {
+		"label": "patrolPos6",
+		"pos": [4357, 2354]
+	},
+
+
+	"position_9": {
+		"label": "heliAttackPos1",
+		"pos": [310, 2983]
+	},
+
+
+	"position_10": {
+		"label": "heliAttackPos2",
+		"pos": [7498, 296]
+	},
+
+
+	"position_11": {
+		"label": "scavAssembly1",
+		"pos": [3867, 6655]
+	},
+
+
+	"position_12": {
+		"label": "scavAssembly2",
+		"pos": [3037, 6643]
+	},
+
+
+	"position_13": {
+		"label": "scavAssembly3",
+		"pos": [1253, 6244]
+	},
+
+
+	"position_14": {
+		"label": "scavAssembly4",
+		"pos": [6261, 1078]
+	},
+
+
+	"position_15": {
+		"label": "colAssembly",
+		"pos": [2435, 1297]
+	},
+
+
+	"position_16": {
+		"label": "colRepairPos",
+		"pos": [976, 911]
+	},
+
+
+	"position_17": {
+		"label": "transportEntryPos",
+		"pos": [7448, 7277]
+	},
+
+
+	"position_18": {
+		"label": "transportEntryPosCollective",
+		"pos": [8928, 5067]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [8064, 6400],
+		"pos2": [8448, 6784]
+	},
+
+
+	"area_1": {
+		"label": "landingZoneCollective",
+		"pos1": [1536, 512],
+		"pos2": [1920, 896]
+	},
+
+
+	"area_2": {
+		"label": "scavBaitGroup",
+		"pos1": [4096, 4992],
+		"pos2": [4608, 5248]
+	},
+
+
+	"area_3": {
+		"label": "colAmbushGroup",
+		"pos1": [5376, 2176],
+		"pos2": [7168, 2944]
+	},
+
+
+	"area_4": {
+		"label": "colAmbushTrigger",
+		"pos1": [5376, 2944],
+		"pos2": [7168, 3456]
+	},
+
+
+	"area_5": {
+		"label": "scavBase1",
+		"pos1": [384, 4992],
+		"pos2": [4992, 7168]
+	},
+
+
+	"area_6": {
+		"label": "scavBase2",
+		"pos1": [6016, 768],
+		"pos2": [8576, 2048]
+	},
+
+
+	"area_7": {
+		"label": "colBase",
+		"pos1": [384, 384],
+		"pos2": [4992, 3328]
+	},
+
+
+	"area_8": {
+		"label": "colPatrolGroup1",
+		"pos1": [1408, 5760],
+		"pos2": [1664, 6016]
+	},
+
+
+	"area_9": {
+		"label": "colPatrolGroup2",
+		"pos1": [3840, 768],
+		"pos2": [4224, 1024]
+	},
+
+
+	"area_10": {
+		"label": "compromiseZone",
+		"pos1": [7424, 5760],
+		"pos2": [8960, 7296]
+	},
+
+
+	"object_0": {
+		"label": "colFactory",
+		"id": 2,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "heliTower1",
+		"id": 97,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "colAASite",
+		"id": 47,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "colCommandCenter",
+		"id": 10,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "scavFactory1",
+		"id": 109,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "scavFactory3",
+		"id": 1,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "colCommandRelay",
+		"id": 4,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "heliTower2",
+		"id": 98,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "colRepairFacility",
+		"id": 333,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "scavFactory4",
+		"id": 53,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "scavFactory2",
+		"id": 52,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_11": {
+		"label": "colResearchFacility",
+		"id": 7,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [192, 192],
+		"radius": 128,
+		"subscriber": 2
+	}
+}

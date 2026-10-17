@@ -1,0 +1,26 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::logs::R1L04",
+	"title": "[4] Transfer Manifest",
+	"sort": "004",
+	"contents": [
+		"[Most of the document has deteriorated; only the final part is still legible]",
+		"",
+		"...Capsule(s) (Prototype)",
+		"1 Influence Node(s) (Prototype)",
+		"Facility Departure Time: (see below)",
+		"",
+		"OUTBOUND (NASDA Central):",
+		"2 Capsule(s) (Prototype)",
+		"3 Influence Node(s) (Prototype)",
+		"Facility Departure Time: 14:36",
+		"",
+		"ADDENDUM:",
+		"All outbound shipments must be packaged with appropriate documentation related to use, purpose, and relevant project development as defined in Article 7 of the \"Project X\" Charter.",
+		"",
+		"ADDITIONAL NOTES:",
+		"All of these shipments have to be routed through the local delivery port before they can be shipped cross-country!",
+		"Make sure someone keeps an eye on those shipments while they wait in town, at least until the higher-ups get here.",
+		"The LAST thing we need is one of our shipments getting mixed up with some random civilian one."
+	]
+}

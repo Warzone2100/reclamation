@@ -1,0 +1,55 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 0.0,
+   "end": 4.0,
+   "area": "header",
+   "textId": "A1L1_BMSG17",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 4.0,
+   "end": 7.0,
+   "area": "header",
+   "textId": "A1L1_BMSG18",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 7.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A1L1_BMSG19",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 11.0,
+   "end": 14.0,
+   "area": "header",
+   "textId": "A1L1_BMSG20",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 14.0,
+   "end": 18.0,
+   "area": "header",
+   "textId": "A1L1_BMSG21",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 18.0,
+   "end": 22.0,
+   "area": "header",
+   "textId": "A1L1_BMSG22",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 22.0,
+   "end": 25.0,
+   "area": "header",
+   "textId": "A1L1_BMSG23",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

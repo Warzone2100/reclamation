@@ -1,0 +1,43 @@
+{
+ "type": "wz2100.subtitleareas.v1",
+ "reference": [
+  640,
+  480
+ ],
+ "areas": {
+  "header": {
+   "x": 23,
+   "y": 23,
+   "width": 454,
+   "height": 74,
+   "padding": 4,
+   "fontSize": 9,
+   "valign": "center",
+   "alwaysShow": true
+  },
+  "titleAct": {
+   "x": 23,
+   "y": 170,
+   "width": 594,
+   "height": 20,
+   "fontSize": 9,
+   "alwaysShow": true
+  },
+  "titleMission": {
+   "x": 23,
+   "y": 190,
+   "width": 594,
+   "height": 20,
+   "fontSize": 9,
+   "alwaysShow": true
+  },
+  "titleName": {
+   "x": 23,
+   "y": 240,
+   "width": 594,
+   "height": 24,
+   "fontSize": 11,
+   "alwaysShow": true
+  }
+ }
+}

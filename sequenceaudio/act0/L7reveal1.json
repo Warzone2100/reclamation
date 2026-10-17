@@ -1,0 +1,131 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 5.0,
+   "end": 8.0,
+   "area": "header",
+   "textId": "L7_REVMSG1"
+  },
+  {
+   "start": 8.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "L7_REVMSG2",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 13.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "L7_REVMSG3",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 17.0,
+   "end": 21.0,
+   "area": "header",
+   "textId": "L7_REVMSG4",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 21.0,
+   "end": 24.0,
+   "area": "header",
+   "textId": "L7_REVMSG5",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 24.0,
+   "end": 27.0,
+   "area": "header",
+   "textId": "L7_REVMSG6",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 27.0,
+   "end": 30.0,
+   "area": "header",
+   "textId": "L7_REVMSG7",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 30.0,
+   "end": 34.0,
+   "area": "header",
+   "textId": "L7_REVMSG8",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 35.0,
+   "end": 37.0,
+   "area": "header",
+   "textId": "L7_REVMSG9",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 37.0,
+   "end": 39.0,
+   "area": "header",
+   "textId": "L7_REVMSG10",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 39.0,
+   "end": 41.0,
+   "area": "header",
+   "textId": "L7_REVMSG11",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 41.0,
+   "end": 44.0,
+   "area": "header",
+   "textId": "L7_REVMSG12",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 44.0,
+   "end": 46.0,
+   "area": "header",
+   "textId": "L7_REVMSG13",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 47.0,
+   "end": 50.0,
+   "area": "header",
+   "textId": "L7_REVMSG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 50.0,
+   "end": 53.0,
+   "area": "header",
+   "textId": "L7_REVMSG15",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 53.0,
+   "end": 55.0,
+   "area": "header",
+   "textId": "L7_REVMSG16",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 56.0,
+   "end": 59.0,
+   "area": "header",
+   "textId": "L7_REVMSG17",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 59.0,
+   "end": 60.0,
+   "area": "header",
+   "textId": "L7_REVMSG18",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

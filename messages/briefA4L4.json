@@ -1,0 +1,41 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A4L4_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L4intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L4brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A4L4_BMSG1",
+                    "A4L4_BMSG2",
+                    "A4L4_BMSG3",
+                    "A4L4_BMSG4",
+                    "A4L4_BMSG5",
+                    "A4L4_BMSG6",
+                    "A4L4_BMSG7",
+                    "A4L4_BMSG8",
+                    "A4L4_BMSG9",
+                    "A4L4_BMSG10",
+                    "A4L4_BMSG11",
+                    "A4L4_BMSG12",
+                    "A4L4_BMSG13",
+                    "A4L4_BMSG14",
+                    "A4L4_BMSG15",
+                    "A4L4_BMSG16",
+                    "A4L4_BMSG17",
+                    "A4L4_BMSG18",
+                    "A4L4_BMSG19",
+                    "A4L4_BMSG20",
+                    "A4L4_BMSG21",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A4L4_CRASH": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L4crash.webm" }
+            ]
+        }
+    }
+}

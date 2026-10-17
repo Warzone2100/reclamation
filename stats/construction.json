@@ -11,6 +11,17 @@
         "sensorModel": "TRLCON.PIE",
         "weight": 800
     },
+    "Spade1Trans": {
+        "buildPoints": 85,
+        "buildPower": 17,
+        "constructPoints": 8,
+        "droidType": "DROID_CONSTRUCT",
+        "hitpoints": 25,
+        "id": "Spade1Trans",
+        "name": "Transport Truck",
+        "sensorModel": "TRLCONTRANS.PIE",
+        "weight": 800
+    },
     "CyborgSpade": {
         "buildPoints": 65,
         "buildPower": 10,
@@ -19,9 +30,20 @@
         "hitpoints": 35,
         "id": "CyborgSpade",
         "mountModel": "cybody.pie",
-        "name": "*Combat Engineer*",
+        "name": "Combat Engineer Cyborg",
         "sensorModel": "cy_con.pie",
         "weight": 150
+    },
+    "ScavCrane": {
+        "buildPoints": 25,
+        "buildPower": 10,
+        "constructPoints": 4,
+        "droidType": "DROID_CONSTRUCT",
+        "hitpoints": 35,
+        "id": "ScavCrane",
+        "name": "Crane",
+        "sensorModel": "excranearm.pie",
+        "weight": 800
     },
     "ZNULLCONSTRUCT": {
         "id": "ZNULLCONSTRUCT",

@@ -1,0 +1,231 @@
+{
+	"position_0": {
+		"label": "hoverPatrolPos1",
+		"pos": [1229, 2510]
+	},
+
+
+	"position_1": {
+		"label": "hoverPatrolPos2",
+		"pos": [3688, 3862]
+	},
+
+
+	"position_2": {
+		"label": "hoverPatrolPos3",
+		"pos": [5777, 1115]
+	},
+
+
+	"position_3": {
+		"label": "hoverPatrolPos4",
+		"pos": [9812, 995]
+	},
+
+
+	"position_4": {
+		"label": "hoverPatrolPos5",
+		"pos": [3798, 6472]
+	},
+
+
+	"position_5": {
+		"label": "hoverPatrolPos6",
+		"pos": [4207, 9923]
+	},
+
+
+	"position_6": {
+		"label": "hoverPatrolPos7",
+		"pos": [4865, 12357]
+	},
+
+
+	"position_7": {
+		"label": "hoverPatrolPos8",
+		"pos": [8699, 10468]
+	},
+
+
+	"position_8": {
+		"label": "hoverPatrolPos9",
+		"pos": [11764, 10083]
+	},
+
+
+	"position_9": {
+		"label": "vtolAttackPos1",
+		"pos": [198, 4060]
+	},
+
+
+	"position_10": {
+		"label": "vtolAttackPos2",
+		"pos": [8117, 586]
+	},
+
+
+	"position_11": {
+		"label": "vtolAttackPos3",
+		"pos": [143, 2269]
+	},
+
+
+	"position_12": {
+		"label": "vtolAttackPos4",
+		"pos": [15429, 407]
+	},
+
+
+	"position_13": {
+		"label": "transportEntryPos",
+		"pos": [190, 8302]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [12800, 14720],
+		"pos2": [13184, 15104]
+	},
+
+
+	"area_1": {
+		"label": "groundEntry1",
+		"pos1": [16000, 12544],
+		"pos2": [16256, 13312]
+	},
+
+
+	"area_2": {
+		"label": "groundEntry2",
+		"pos1": [16000, 10368],
+		"pos2": [16256, 11008]
+	},
+
+
+	"area_3": {
+		"label": "groundEntry3",
+		"pos1": [16000, 4608],
+		"pos2": [16256, 5120]
+	},
+
+
+	"area_4": {
+		"label": "groundEntry4",
+		"pos1": [14720, 128],
+		"pos2": [15232, 384]
+	},
+
+
+	"area_5": {
+		"label": "groundEntry5",
+		"pos1": [7040, 128],
+		"pos2": [7808, 384]
+	},
+
+
+	"area_6": {
+		"label": "groundEntry6",
+		"pos1": [4480, 128],
+		"pos2": [4992, 384]
+	},
+
+
+	"area_7": {
+		"label": "groundEntry7",
+		"pos1": [128, 384],
+		"pos2": [384, 1024]
+	},
+
+
+	"area_8": {
+		"label": "groundEntry8",
+		"pos1": [128, 4480],
+		"pos2": [384, 5376]
+	},
+
+
+	"area_9": {
+		"label": "groundEntry9",
+		"pos1": [128, 11008],
+		"pos2": [384, 11648]
+	},
+
+
+	"area_10": {
+		"label": "groundEntry10",
+		"pos1": [128, 14720],
+		"pos2": [384, 15488]
+	},
+
+
+	"area_11": {
+		"label": "colLZ1",
+		"pos1": [9856, 3712],
+		"pos2": [10240, 4096]
+	},
+
+
+	"area_12": {
+		"label": "colLZ2",
+		"pos1": [5632, 8064],
+		"pos2": [6016, 8448]
+	},
+
+
+	"area_13": {
+		"label": "colLZ3",
+		"pos1": [3200, 12416],
+		"pos2": [3584, 12800]
+	},
+
+
+	"area_14": {
+		"label": "colLZ4",
+		"pos1": [12032, 7552],
+		"pos2": [12416, 7936]
+	},
+
+
+	"area_15": {
+		"label": "colLZBaseArea1",
+		"pos1": [9472, 3328],
+		"pos2": [10368, 4224]
+	},
+
+
+	"area_16": {
+		"label": "colLZBaseArea2",
+		"pos1": [5376, 7808],
+		"pos2": [6272, 8704]
+	},
+
+
+	"area_17": {
+		"label": "colLZBaseArea3",
+		"pos1": [2688, 12032],
+		"pos2": [3840, 13184]
+	},
+
+
+	"area_18": {
+		"label": "colLZBaseArea4",
+		"pos1": [11648, 7168],
+		"pos2": [12800, 8064]
+	},
+
+
+	"area_19": {
+		"label": "hoverEntry1",
+		"pos1": [9216, 128],
+		"pos2": [9984, 384]
+	},
+
+
+	"area_20": {
+		"label": "hoverEntry2",
+		"pos1": [128, 2176],
+		"pos2": [384, 2816]
+	}
+}

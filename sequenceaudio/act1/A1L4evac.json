@@ -1,0 +1,148 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 3.0,
+   "end": 5.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG1"
+  },
+  {
+   "start": 5.0,
+   "end": 8.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG2",
+   "speaker": "FOXTROT"
+  },
+  {
+   "start": 8.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG3",
+   "speaker": "FOXTROT"
+  },
+  {
+   "start": 11.0,
+   "end": 13.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG4",
+   "speaker": "FOXTROT"
+  },
+  {
+   "start": 15.0,
+   "end": 17.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG5"
+  },
+  {
+   "start": 17.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG6",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 20.0,
+   "end": 22.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG7"
+  },
+  {
+   "start": 22.0,
+   "end": 25.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG8",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 25.0,
+   "end": 28.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG9",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 28.0,
+   "end": 30.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG10",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 31.0,
+   "end": 33.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG11",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 34.0,
+   "end": 37.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG12"
+  },
+  {
+   "start": 37.0,
+   "end": 39.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG13",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 39.0,
+   "end": 42.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 42.0,
+   "end": 44.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG15",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 48.0,
+   "end": 51.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG16"
+  },
+  {
+   "start": 51.0,
+   "end": 54.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG17",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 54.0,
+   "end": 58.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG18",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 58.0,
+   "end": 60.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG19",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 60.0,
+   "end": 64.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG20",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 64.0,
+   "end": 66.0,
+   "area": "header",
+   "textId": "A1L4_EVACMSG21",
+   "speaker": "LIEUTENANT"
+  }
+ ]
+}

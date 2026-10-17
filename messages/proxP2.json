@@ -1,0 +1,14 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "SAFE_HAVEN": { "message": "RUINS_MSG", "x": 8128, "y": 6592, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "CIVS1": { "message": "RUINS_MSG", "x": 5952, "y": 4928, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "CIVS2": { "message": "RUINS_MSG", "x": 10048, "y": 1472, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "CIVS3": { "message": "RUINS_MSG", "x": 4800, "y": 832, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "CIVS4": { "message": "RUINS_MSG", "x": 832, "y": 704, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "CIV_DEPOSIT": { "message": "RUINS_MSG", "x": 8192, "y": 7360, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "SCAV_BASE1": { "message": "BARBASE_MSG", "x": 11328, "y": 2368, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_BASE2": { "message": "BARPOST_MSG", "x": 1216, "y": 3264, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "SCAV_BASE3": { "message": "BARBASE_MSG", "x": 1472, "y": 6336, "z": 0, "audio": "pcv389.ogg", "type": 0 }
+    }
+}

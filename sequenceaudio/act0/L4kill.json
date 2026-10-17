@@ -1,0 +1,47 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 3.0,
+   "end": 6.0,
+   "area": "header",
+   "textId": "L4_KILLMSG1"
+  },
+  {
+   "start": 6.0,
+   "end": 9.0,
+   "area": "header",
+   "textId": "L4_KILLMSG2",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 9.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "L4_KILLMSG3",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 12.0,
+   "end": 15.0,
+   "area": "header",
+   "textId": "L4_KILLMSG4",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 15.0,
+   "end": 18.0,
+   "area": "header",
+   "textId": "L4_KILLMSG5",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 18.0,
+   "end": 20.0,
+   "area": "header",
+   "textId": "L4_KILLMSG6",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A3L1_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act3/A3L1intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L1brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A3L1_BMSG1",
+                    "A3L1_BMSG2",
+                    "A3L1_BMSG3",
+                    "A3L1_BMSG4",
+                    "A3L1_BMSG5",
+                    "A3L1_BMSG6",
+                    "A3L1_BMSG7",
+                    "A3L1_BMSG8",
+                    "A3L1_BMSG9",
+                    "A3L1_BMSG10",
+                    "A3L1_BMSG11",
+                    "A3L1_BMSG12",
+                    "A3L1_BMSG13",
+                    "A3L1_BMSG14",
+                    "A3L1_BMSG15",
+                    "A3L1_BMSG16",
+                    "A3L1_BMSG17",
+                    "A3L1_BMSG18",
+                    "A3L1_BMSG19",
+                    "A3L1_BMSG20",
+                    "A3L1_BMSG21",
+                    "A3L1_BMSG22",
+                    "A3L1_BMSG23",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

@@ -1,0 +1,113 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 0.0,
+   "end": 2.0,
+   "area": "header",
+   "textId": "A4L2_BMSG16",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 4.0,
+   "end": 6.0,
+   "area": "header",
+   "textId": "A4L2_BMSG17"
+  },
+  {
+   "start": 6.0,
+   "end": 9.0,
+   "area": "header",
+   "textId": "A4L2_BMSG18",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 10.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "A4L2_BMSG19"
+  },
+  {
+   "start": 13.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "A4L2_BMSG20"
+  },
+  {
+   "start": 16.0,
+   "end": 18.0,
+   "area": "header",
+   "textId": "A4L2_BMSG21",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 18.0,
+   "end": 23.0,
+   "area": "header",
+   "textId": "A4L2_BMSG22",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 23.0,
+   "end": 28.0,
+   "area": "header",
+   "textId": "A4L2_BMSG23",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 29.0,
+   "end": 34.0,
+   "area": "header",
+   "textId": "A4L2_BMSG24"
+  },
+  {
+   "start": 34.0,
+   "end": 38.0,
+   "area": "header",
+   "textId": "A4L2_BMSG25",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 38.0,
+   "end": 42.0,
+   "area": "header",
+   "textId": "A4L2_BMSG26",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 43.0,
+   "end": 46.0,
+   "area": "header",
+   "textId": "A4L2_BMSG27"
+  },
+  {
+   "start": 46.0,
+   "end": 51.0,
+   "area": "header",
+   "textId": "A4L2_BMSG28",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 51.0,
+   "end": 55.0,
+   "area": "header",
+   "textId": "A4L2_BMSG29",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 55.0,
+   "end": 60.0,
+   "area": "header",
+   "textId": "A4L2_BMSG30",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 60.0,
+   "end": 62.0,
+   "area": "header",
+   "textId": "A4L2_BMSG31",
+   "speaker": "LIEUTENANT"
+  }
+ ]
+}

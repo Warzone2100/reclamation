@@ -59,14 +59,6 @@ function camSetFactories(factories)
 //;;
 function camSetFactoryData(factoryLabel, factoryData)
 {
-	const structure = getObject(factoryLabel);
-	if (!camDef(structure) || !structure)
-	{
-		// Not an error! It's ok if the factory is already destroyed
-		// when its data was updated.
-		camTrace("Factory", factoryLabel, "not found");
-		return;
-	}
 	// remember the old factory group, if any
 	let droids = [];
 	if (camDef(__camFactoryInfo[factoryLabel]))
@@ -75,12 +67,19 @@ function camSetFactoryData(factoryLabel, factoryData)
 	}
 	__camFactoryInfo[factoryLabel] = factoryData;
 	const fi = __camFactoryInfo[factoryLabel];
+	if (!camDef(fi.order))
+	{
+		// Default to attack if no order is given
+		fi.order = CAM_ORDER_ATTACK;
+	}
 	if (!camDef(fi.data))
 	{
 		fi.data = {};
 	}
 	fi.enabled = false;
 	fi.state = 0;
+	// Automatically re-manage this factory if it's destroyed and rebuilt
+	camAutoReplaceObjectLabel(factoryLabel);
 	if (!camDef(fi.group))
 	{
 		fi.group = camNewGroup();
@@ -88,7 +87,7 @@ function camSetFactoryData(factoryLabel, factoryData)
 	for (let i = 0, l = droids.length; i < l; ++i)
 	{
 		const droid = droids[i];
-		groupAdd(fi.group, droid);
+		camGroupAdd(fi.group, droid);
 	}
 	if (!camDef(fi.data.count))
 	{
@@ -130,55 +129,50 @@ function camEnableFactory(factoryLabel)
 	__camFactoryUpdateTactics(factoryLabel);
 }
 
-//;; ## camQueueDroidProduction(playerId, template)
+//;; ## camDisableFactory(factoryLabel)
+//;;
+//;; Disable a managed factory by the given label.
+//;;
+//;; @param {string} factoryLabel
+//;; @returns {void}
+//;;
+function camDisableFactory(factoryLabel)
+{
+	const fi = __camFactoryInfo[factoryLabel];
+	if (!camDef(fi) || !fi)
+	{
+		camDebug("Factory not managed", factoryLabel);
+		return;
+	}
+	if (!fi.enabled)
+	{
+		// safe, no error
+		camTrace("Factory", factoryLabel, "disabled again");
+		return;
+	}
+	camTrace("Disabling", factoryLabel);
+	fi.enabled = false;
+}
+
+//;; ## camQueueDroidProduction(playerId, template[, position])
 //;;
 //;; Queues up an extra droid template for production.
 //;; It would be produced in the first factory that is capable of producing it,
 //;; at the end of its production loop, first queued first served.
+//;; If a position is given, then ensure the produced droid can reach that position.
 //;;
 //;; @param {number} playerId
 //;; @param {Object} template
+//;; @param {Object} position
 //;; @returns {void}
 //;;
-function camQueueDroidProduction(playerId, template)
+function camQueueDroidProduction(playerId, template, position)
 {
 	if (!camDef(__camFactoryQueue[playerId]))
 	{
 		__camFactoryQueue[playerId] = [];
 	}
-	__camFactoryQueue[playerId][__camFactoryQueue[playerId].length] = template;
-}
-
-//;; ## camSetPropulsionTypeLimit([limit])
-//;;
-//;; This function can automatically augment units to use Type I/II/III propulsions.
-//;; If nothing or zero is passed in then the type limit will match what is in templates.json.
-//;;
-//;; @param {number} [limit]
-//;; @returns {void}
-//;;
-function camSetPropulsionTypeLimit(limit)
-{
-	if (!camDef(limit) || !limit)
-	{
-		__camPropulsionTypeLimit = "NO_USE";
-	}
-	else if (limit === 1)
-	{
-		__camPropulsionTypeLimit = "01";
-	}
-	else if (limit === 2)
-	{
-		__camPropulsionTypeLimit = "02";
-	}
-	else if (limit === 3)
-	{
-		__camPropulsionTypeLimit = "03";
-	}
-	else
-	{
-		camTrace("Unknown propulsion level specified. Use 1 - 3 to force the propulsion type, 0 to disable.");
-	}
+	__camFactoryQueue[playerId][__camFactoryQueue[playerId].length] = {template: template, position: camMakePos(position)};
 }
 
 //;; ## camUpgradeOnMapTemplates(template1, template2, playerId[, excluded])
@@ -211,11 +205,8 @@ function camUpgradeOnMapTemplates(template1, template2, playerId, excluded)
 		{
 			continue; //don't handle systems
 		}
-		const __BODY = dr.body;
-		const __PROP = dr.propulsion;
-		const __WEAP = dr.weapons[0].name;
 		let skip = false;
-		if (__BODY === template1.body && __PROP === template1.prop && __WEAP === template1.weap)
+		if (camDroidMatchesTemplate(dr, template1))
 		{
 			//Check if this object should be excluded from the upgrades
 			if (camDef(excluded))
@@ -241,34 +232,53 @@ function camUpgradeOnMapTemplates(template1, template2, playerId, excluded)
 				}
 			}
 
+			//Check if this object has a label and/or group assigned to it
+			// FIXME: O(n) lookup here
+			const __DROID_LABEL = getLabel(dr);
+			const __DROID_GROUP = dr.group;
+
 			//Replace it
 			const droidInfo = {x: dr.x, y: dr.y, name: dr.name};
 			camSafeRemoveObject(dr, false);
-			const droid = addDroid(playerId, droidInfo.x, droidInfo.y, droidInfo.name, template2.body,
-				__camChangePropulsion(template2.prop, playerId), "", "", template2.weap);
-			camSetDroidExperience(droid);
+			const newDroid = addDroid(playerId, droidInfo.x, droidInfo.y, droidInfo.name, template2.body,
+				template2.prop, "", "", template2.weap);
+
+			if (camDef(__DROID_LABEL)) 
+			{
+				addLabel(newDroid, __DROID_LABEL);
+			}
+			if (__DROID_GROUP !== null)
+			{
+				groupAdd(__DROID_GROUP, newDroid);
+			}
 		}
 	}
 }
 
-//;; ## camUpgradeOnMapStructures(struct1, struct2, player, [excluded object IDs])
+//;; ## camUpgradeOnMapStructures(struct1, struct2, playerId[, excluded])
 //;;
 //;; Search for struct1, save its coordinates, remove it, and then replace with it
 //;; with struct2. A fourth parameter can be specified to ignore specific object
 //;; IDs. Useful if a structure is assigned to an object label. It can be either an array
-//;; or a single ID number. Unfortunatly, structure rotation is not preserved.
+//;; or a single ID number. Unortunatly, structure rotation is not preserved.
 //;; If a structure has a label or group, it will be transferred to the replacement, but if the
 //;; structure has multiple labels, then only one label will be transferred.
 //;;
-function camUpgradeOnMapStructures(struct1, struct2, player, excluded)
+//;; @param {Object} struct1
+//;; @param {Object} struct2
+//;; @param {number} playerId
+//;; @param {number|number[]} [excluded]
+//;; @returns {void}
+//;;
+function camUpgradeOnMapStructures(struct1, struct2, playerId, excluded)
 {
-	if (!camDef(struct1) || !camDef(struct2) || !camDef(player))
+	if (!camDef(struct1) || !camDef(struct2) || !camDef(playerId))
 	{
 		camDebug("Not enough parameters specified for upgrading on map structures");
 		return;
 	}
 
-	const structsOnMap = enumStruct(player, struct1);
+	const structsOnMap = enumStruct(playerId, struct1);
 
 	for (let i = 0, l = structsOnMap.length; i < l; ++i)
 	{
@@ -299,25 +309,117 @@ function camUpgradeOnMapStructures(struct1, struct2, player, excluded)
 			}
 		}
 
-		//Cehck if this object has a label and/or group assigned to it
+		//Check if this object has a label and/or group assigned to it
 		// FIXME: O(n) lookup here
-		let label = (getLabel(structure));
-		let group = (structure.group);
+		const __STRUCT_LABEL = getLabel(structure);
+		const __STRUCT_GROUP = structure.group;
 
 		//Replace it
-		let structInfo = {x: structure.x * 128, y: structure.y * 128};
+		const structInfo = {x: structure.x * 128, y: structure.y * 128};
 		camSafeRemoveObject(structure, false);
-		const newStruct = addStructure(struct2, player, structInfo.x, structInfo.y);
+		const newStruct = addStructure(struct2, playerId, structInfo.x, structInfo.y);
 
-		if (camDef(label)) 
+		if (camDef(__STRUCT_LABEL)) 
 		{
-			addLabel(newStruct, label);
+			addLabel(newStruct, __STRUCT_LABEL);
 		}
-		if (group !== null)
+		if (__STRUCT_GROUP !== null)
 		{
-			groupAdd(group, newStruct);
+			groupAdd(__STRUCT_GROUP, newStruct);
 		}
 	}
+}
+
+//;; ## camSetPreDamageModifier(playerId, droidRange[, structRange[, excludedTemplates]])
+//;;
+//;; Damages all units and structures belonging to the given player to the given HP ranges.
+//;; Applies this modifier to all units and structures currently on the map, as well as any units
+//;; either produced or brought in via reinforcements later in the mission.
+//;; Ignores any units that match the list of excluded templates.
+//;; Ranges should be specified as [LOWER_BOUND, UPPER_BOUND] (e.g. [40, 70] for 40% to 70% HP)
+//;;
+//;; @param {number} playerId
+//;; @param {number[]} droidRange
+//;; @param {number[]} structRange
+//;; @param {Object[]} [excluded]
+//;; @returns {void}
+//;;
+function camSetPreDamageModifier(playerId, droidRange, structRange, excludedTemplates)
+{
+	__camPreDamageModifier[playerId] = {
+		droidRange: droidRange,
+		structRange: (camDef(structRange)) ? structRange : droidRange,
+		excludedTemplates: excludedTemplates
+	};
+
+	const droids = enumDroid(playerId);
+	for (const droid of droids)
+	{
+		__camPreDamageDroid(droid);
+	}
+
+	const structures = enumStruct(playerId);
+	for (const struct of structures)
+	{
+		__camPreDamageStruct(struct);
+	}
+}
+
+//;; ## camDisableInfAutoManagement()
+//;;
+//;; Disables automatically grouping and ordering units produced by player CAM_INFESTED (player 4).
+//;; Useful for levels where player 4 is not used for the Infested.
+//;;
+//;; @returns {void}
+//;;
+function camDisableInfAutoManagement()
+{
+	__camDisableFactoryAutoManagement = true;
+}
+
+//;; ## camAddDroid(playerId, position, template[, droidName])
+//;;
+//;; Wrapper function for addDroid().
+//;; Takes a player ID, position object, template, and an optional name.
+//;; If no name is provided, the template will be named automatically based on its components.
+//;; `position` can be a label for a position or a position object.
+//;; `position` can also be '-1' to place droids "offworld" (calls addDroid with position {-1, -1}).
+//;; Returns the created droid on success, or null on failure.
+//;;
+//;; @param {number} playerId
+//;; @param {Object|string|number} pos
+//;; @param {Object} template
+//;; @param {string} [name]
+//;; @returns {Object}
+//;;
+function camAddDroid(playerId, position, template, droidName)
+{
+	if (position === -1)
+	{
+		pos = {x: -1, y: -1};
+	}
+	else
+	{
+		pos = camMakePos(position);
+	}
+
+	const name = (camDef(droidName) ? droidName : camNameTemplate(template));
+	const __PROP = template.prop;
+	let droid;
+	if (typeof template.weap === "object" && camDef(template.weap[2]))
+	{
+		droid = addDroid(playerId, pos.x, pos.y, name, template.body, __PROP, "", "", template.weap[0], template.weap[1], template.weap[2]);
+	}
+	else if (typeof template.weap === "object" && camDef(template.weap[1]))
+	{
+		droid = addDroid(playerId, pos.x, pos.y, name, template.body, __PROP, "", "", template.weap[0], template.weap[1]);
+	}
+	else
+	{
+		droid = addDroid(playerId, pos.x, pos.y, name, template.body, __PROP, "", "", template.weap);
+	}
+	
+	return droid;
 }
 
 //////////// privates
@@ -343,7 +445,7 @@ function __camFactoryUpdateTactics(flabel)
 		{
 			pos = camMakePos(flabel);
 		}
-		camManageGroup(fi.group, CAM_ORDER_DEFEND, { pos: pos });
+		camManageGroup(fi.group, CAM_ORDER_DEFEND, { pos: pos, radius: __CAM_ASSEMBLY_DEFENSE_RADIUS });
 	}
 }
 
@@ -361,7 +463,16 @@ function __camAddDroidToFactoryGroup(droid, structure)
 		return;
 	}
 	const fi = __camFactoryInfo[__FLABEL];
-	groupAdd(fi.group, droid);
+	if (camDef(fi.assignGroup))
+	{
+		// Assign the droid to an alternate group
+		camGroupAdd(fi.assignGroup, droid);
+		delete __camFactoryInfo[__FLABEL].assignGroup;
+	}
+	else
+	{
+		camGroupAdd(fi.group, droid);
+	}
 	if (camDef(fi.assembly))
 	{
 		// this is necessary in case droid is regrouped manually
@@ -373,59 +484,63 @@ function __camAddDroidToFactoryGroup(droid, structure)
 	__camFactoryUpdateTactics(__FLABEL);
 }
 
-function __camChangePropulsion(propulsion, playerId)
-{
-	if (__camPropulsionTypeLimit === "NO_USE" || playerId === CAM_HUMAN_PLAYER)
-	{
-		return propulsion;
-	}
-
-	let name = propulsion;
-	const validProp = ["CyborgLegs", "HalfTrack", "V-Tol", "hover", "tracked", "wheeled"];
-	const specProps = ["CyborgLegs", "HalfTrack", "V-Tol"]; //Some have "01" at the end and others don't for the base ones.
-
-	const __LAST_TWO = name.substring(name.length - 2);
-	if (__LAST_TWO === "01" || __LAST_TWO === "02" || __LAST_TWO === "03")
-	{
-		name = name.substring(0, name.length - 2);
-	}
-
-	for (let i = 0, l = validProp.length; i < l; ++i)
-	{
-		const __CURRENT_PROP = validProp[i];
-		if (name === __CURRENT_PROP)
-		{
-			if ((__camPropulsionTypeLimit === "01") && (specProps.indexOf(__CURRENT_PROP) !== -1))
-			{
-				return __CURRENT_PROP;
-			}
-			return __CURRENT_PROP.concat(__camPropulsionTypeLimit);
-		}
-	}
-
-	//If all else fails then return the propulsion that came with the template
-	return propulsion;
-}
-
 function __camBuildDroid(template, structure)
 {
 	if (!camDef(structure))
 	{
 		return false;
 	}
-	//if not a normal factory and the template is a constructor then keep it in the
-	//queue until a factory can deal with it.
-	if (template.weap === "Spade1Mk1" && structure.stattype !== FACTORY)
+
+	if (template.prop === "V-Tol" && structure.stattype !== VTOL_FACTORY)
 	{
+		// If not a VTOL factory and the template is a VTOL then keep it in the
+		// queue until a factory can deal with it.
 		return false;
 	}
-	const __PROP = __camChangePropulsion(template.prop, structure.player);
+	if (template.prop === "CyborgLegs" && structure.stattype !== CYBORG_FACTORY)
+	{
+		// Likewise, if not a cyborg factory and the template is a cyborg then
+		// keep it in the queue until a cyborg factory can deal with it.
+		return false;
+	}
+	if ((template.prop === "wheeled01" || template.prop === "HalfTrack" 
+		|| template.prop === "tracked01" || template.prop === "hover01") 
+		&& structure.stattype !== FACTORY)
+	{
+		// Finally, don't build normal units in cyborg or VTOL factories
+		return false;
+	}
+
+	const __PROP = template.prop;
 	makeComponentAvailable(template.body, structure.player);
 	makeComponentAvailable(__PROP, structure.player);
-	makeComponentAvailable(template.weap, structure.player);
-	// const __NAME = [ structure.name, structure.id, template.body, __PROP, template.weap ].join(" ");
-	// multi-turret templates are not supported yet
-	return buildDroid(structure, camNameTemplate(template.weap, template.body, __PROP), template.body, __PROP, "", "", template.weap);
+	const __NAME = camNameTemplate(template.weap, template.body, __PROP);
+
+	if (template.weap === "CommandBrain01")
+	{
+		// If we have a commander template, make sure the turret is available
+		makeComponentAvailable("CommandTurret1", structure.player);
+	}
+
+	// multi-turret templates are NOW supported :)
+	if (typeof template.weap === "object" && camDef(template.weap[2]))
+	{
+		makeComponentAvailable(template.weap[0], structure.player);
+		makeComponentAvailable(template.weap[1], structure.player);
+		makeComponentAvailable(template.weap[2], structure.player);
+		return buildDroid(structure, __NAME, template.body, __PROP, "", "", template.weap[0], template.weap[1], template.weap[2]);
+	}
+	else if (typeof template.weap === "object" && camDef(template.weap[1]))
+	{
+		makeComponentAvailable(template.weap[0], structure.player);
+		makeComponentAvailable(template.weap[1], structure.player);
+		return buildDroid(structure, __NAME, template.body, __PROP, "", "", template.weap[0], template.weap[1]);
+	}
+	else
+	{
+		makeComponentAvailable(template.weap, structure.player);
+		return buildDroid(structure, __NAME, template.body, __PROP, "", "", template.weap);
+	}
 }
 
 //Check if an enabled factory can begin manufacturing something. Doing this
@@ -435,9 +550,21 @@ function __checkEnemyFactoryProductionTick()
 {
 	for (const flabel in __camFactoryInfo)
 	{
-		if (getObject(flabel) !== null && __camFactoryInfo[flabel].enabled === true)
+		if (!__camFactoryInfo[flabel].enabled)
+		{
+			continue;
+		}
+		if (getObject(flabel) !== null)
 		{
 			__camContinueProduction(flabel);
+		}
+		else // If the factory is destroyed, order any idling factory droids to attack
+		{
+			const droids = enumGroup(__camFactoryInfo[flabel].group);
+			if (droids.length > 0)
+			{
+				camManageGroup(camMakeGroup(droids), CAM_ORDER_ATTACK);
+			}
 		}
 	}
 }
@@ -470,12 +597,60 @@ function __camContinueProduction(structure)
 	{
 		return;
 	}
+
+	// check factory queue
+	const __PLAYER = struct.player;
+	if (camDef(__camFactoryQueue[__PLAYER]) && __camFactoryQueue[__PLAYER].length > 0)
+	{
+		// Search sequentially through the queue
+		for (let i = 0; i < __camFactoryQueue[__PLAYER].length; i++)
+		{
+			const template = __camFactoryQueue[__PLAYER][i].template;
+			const destPos = __camFactoryQueue[__PLAYER][i].position;
+
+			// Only build if destination is reachable or undefined
+			if (camDef(destPos))
+			{
+				// If a position is defined, only build this droid if we are the closest viable factory
+				const bestLabel = __camClosestViableFactory(template, destPos, __PLAYER);
+				// Check if our factory is the closest viable one we've found
+				if (camDef(bestLabel) && flabel === bestLabel)
+				{
+					// If so, then attempt to build
+					if (__camBuildDroid(template, struct))
+					{
+						__camFactoryQueue[__PLAYER].splice(i, 1);
+						return; // Don't update the last production time
+					}
+				}
+			}
+			else
+			{
+				// No position set, just try to build the droid here...
+				if (camFactoryCanProduceTemplate(template, struct)
+					&& __camBuildDroid(template, struct))
+				{
+					__camFactoryQueue[__PLAYER].splice(i, 1);
+					return; // Don't update the last production time
+				}
+			}
+		}
+	}
+
 	const fi = __camFactoryInfo[flabel];
+
+	// Only continue if this factory is enabled
+	if (!fi.enabled)
+	{
+		return;
+	}
+
 	if (camDef(fi.maxSize) && groupSize(fi.group) >= fi.maxSize)
 	{
 		// retry later
 		return;
 	}
+
 	if (camDef(fi.throttle) && camDef(fi.lastprod))
 	{
 		const __THROTTLE = gameTime - fi.lastprod;
@@ -485,26 +660,124 @@ function __camContinueProduction(structure)
 			return;
 		}
 	}
-	// check factory queue after every loop
+
+	// reset factory loop
 	if (fi.state === -1)
 	{
 		fi.state = 0;
-		const __PL = struct.player;
-		if (camDef(__camFactoryQueue[__PL]) && __camFactoryQueue[__PL].length > 0)
+	}
+
+	// Check if a refillable group needs a replacement unit
+	const refillableTemplate = __camGetRefillableTemplateForFactory(flabel, struct);
+	if (camDef(refillableTemplate))
+	{
+		// Build this template instead, and assign it to the refillable group
+		__camFactoryInfo[flabel].assignGroup = refillableTemplate.group;
+		__camBuildDroid(refillableTemplate.template, struct);
+	}
+	else // Build the standard unit
+	{
+		if (camDef(fi.templates[fi.state]))
 		{
-			if (__camBuildDroid(__camFactoryQueue[__PL][0], struct))
+			__camBuildDroid(fi.templates[fi.state], struct);
+		}
+		// loop through templates
+		++fi.state;
+		if (fi.state >= fi.templates.length)
+		{
+			fi.state = -1;
+		}
+	}
+	fi.lastprod = gameTime;
+}
+
+// Returns the label of the closest viable factory to the given position
+// A viable factory:
+// Is not destroyed
+// Is enabled
+// Can build the given template
+// Is in a place where the given template can reach the given position from the factory
+// Returns undefined if no viable factory exists
+function __camClosestViableFactory(template, position, player)
+{
+	let closestLabel;
+	let closestDist = -1;
+	// Loop through each factory label
+	for (const compareLabel in __camFactoryInfo)
+	{
+		// If the factory exists and is enabled...
+		if (getObject(compareLabel) !== null && __camFactoryInfo[compareLabel].enabled === true)
+		{
+			const factoryStruct = getObject(compareLabel);
+			const structPos = camMakePos(factoryStruct);
+			// Check if the factory can produce this template and the template can reach the position...
+			if (factoryStruct.player === player &&
+				propulsionCanReach(template.prop, structPos.x, structPos.y, position.x, position.y) &&
+				camFactoryCanProduceTemplate(template, factoryStruct))
 			{
-				__camFactoryQueue[__PL].shift();
-				return;
+				const FACTORY_DIST = camDist(structPos.x, structPos.y, position.x, position.y);
+				// ...Then check if this factory is the closest one we've found...
+				if (FACTORY_DIST < closestDist || closestDist < 0)
+				{
+					closestDist = FACTORY_DIST;
+					closestLabel = compareLabel;
+				}
 			}
 		}
 	}
-	__camBuildDroid(fi.templates[fi.state], struct);
-	// loop through templates
-	++fi.state;
-	if (fi.state >= fi.templates.length)
+	return closestLabel;
+}
+
+// Pre-damage a newly spawned droid
+function __camPreDamageDroid(droid)
+{
+	if (!camDef(__camPreDamageModifier[droid.player]) && __camPreDamageModifier[droid.player] !== null)
 	{
-		fi.state = -1;
+		// No modifier set
+		return;
 	}
-	fi.lastprod = gameTime;
+
+	// Check if this droid is excluded
+	const droidRange = __camPreDamageModifier[droid.player].droidRange;
+	const DIFF = droidRange[1] - droidRange[0];
+	const excludedTemplates = __camPreDamageModifier[droid.player].excludedTemplates;
+	if (camDef(excludedTemplates))
+	{
+		// Check if this droid is excluded
+		let excluded = false;
+		for (const template of excludedTemplates)
+		{
+			if (camDroidMatchesTemplate(droid, template))
+			{
+				excluded = true;
+				break;
+			}
+		}
+
+		if (!excluded)
+		{
+			// Apply pre-damage to this droid...
+			setHealth(droid, droidRange[0] + camRand(DIFF + 1));
+		}
+	}
+	else
+	{
+		// Apply pre-damage to this droid...
+		setHealth(droid, droidRange[0] + camRand(DIFF + 1));
+	}
+}
+
+// Pre-damage a structure
+function __camPreDamageStruct(struct)
+{
+	if (!camDef(__camPreDamageModifier[struct.player]) && __camPreDamageModifier[struct.player] !== null)
+	{
+		// No modifier set
+		return;
+	}
+
+	// Apply pre-damage to this structure...
+	const structRange = __camPreDamageModifier[struct.player].structRange;
+	const DIFF = structRange[1] - structRange[0];
+	setHealth(struct, structRange[0] + camRand(DIFF + 1));
 }

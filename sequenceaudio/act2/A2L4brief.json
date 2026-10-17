@@ -1,0 +1,135 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 7.0,
+   "end": 10.0,
+   "area": "header",
+   "textId": "A2L4_BMSG1"
+  },
+  {
+   "start": 11.0,
+   "end": 14.0,
+   "area": "header",
+   "textId": "A2L4_BMSG2"
+  },
+  {
+   "start": 14.0,
+   "end": 17.0,
+   "area": "header",
+   "textId": "A2L4_BMSG3",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 17.0,
+   "end": 21.0,
+   "area": "header",
+   "textId": "A2L4_BMSG4",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 22.0,
+   "end": 24.0,
+   "area": "header",
+   "textId": "A2L4_BMSG5",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 25.0,
+   "end": 27.0,
+   "area": "header",
+   "textId": "A2L4_BMSG6"
+  },
+  {
+   "start": 27.0,
+   "end": 30.0,
+   "area": "header",
+   "textId": "A2L4_BMSG7",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 30.0,
+   "end": 33.0,
+   "area": "header",
+   "textId": "A2L4_BMSG8",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 33.0,
+   "end": 36.0,
+   "area": "header",
+   "textId": "A2L4_BMSG9",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 36.0,
+   "end": 40.0,
+   "area": "header",
+   "textId": "A2L4_BMSG10",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 41.0,
+   "end": 44.0,
+   "area": "header",
+   "textId": "A2L4_BMSG11"
+  },
+  {
+   "start": 45.0,
+   "end": 49.0,
+   "area": "header",
+   "textId": "A2L4_BMSG12",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 49.0,
+   "end": 54.0,
+   "area": "header",
+   "textId": "A2L4_BMSG13",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 54.0,
+   "end": 58.0,
+   "area": "header",
+   "textId": "A2L4_BMSG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 58.0,
+   "end": 62.0,
+   "area": "header",
+   "textId": "A2L4_BMSG15",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 62.0,
+   "end": 65.0,
+   "area": "header",
+   "textId": "A2L4_BMSG16",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 65.0,
+   "end": 70.0,
+   "area": "header",
+   "textId": "A2L4_BMSG17",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 70.0,
+   "end": 75.0,
+   "area": "header",
+   "textId": "A2L4_BMSG18",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 75.0,
+   "end": 77.0,
+   "area": "header",
+   "textId": "A2L4_BMSG19",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

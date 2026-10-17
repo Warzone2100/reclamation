@@ -1,0 +1,18 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "OLD_TOWN": { "message": "RUINS_MSG", "x": 5056, "y": 1280, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "LZ1": { "message": "RUINS_MSG", "x": 2112, "y": 1088, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "LZ2": { "message": "RUINS_MSG", "x": 1216, "y": 6976, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "LZ3": { "message": "RUINS_MSG", "x": 3392, "y": 7488, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "LZ4": { "message": "RUINS_MSG", "x": 7232, "y": 3776, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "INF_BASE1": { "message": "INFESBASE_MSG", "x": 1344, "y": 5056, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE2": { "message": "INFESBASE_MSG", "x": 1088, "y": 6720, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE3": { "message": "INFESBASE_MSG", "x": 3136, "y": 7232, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE4": { "message": "INFESBASE_MSG", "x": 5440, "y": 6208, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE5": { "message": "INFESBASE_MSG", "x": 8896, "y": 7232, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE6": { "message": "INFESBASE_MSG", "x": 7104, "y": 3520, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE7": { "message": "INFESBASE_MSG", "x": 8768, "y": 704, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE8": { "message": "INFESBASE_MSG", "x": 5440, "y": 1728, "z": 0, "audio": "pcv393.ogg", "type": 0 }
+    }
+}

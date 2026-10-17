@@ -1,0 +1,60 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A3L8_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act3/A3L8intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L8brief1.webm" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L8brief2.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A3L8_BSMG1",
+                    "A3L8_BSMG2",
+                    "A3L8_BSMG3",
+                    "A3L8_BSMG4",
+                    "A3L8_BSMG5",
+                    "A3L8_BSMG6",
+                    "A3L8_BSMG7",
+                    "A3L8_BSMG8",
+                    "A3L8_BSMG9",
+                    "A3L8_BSMG10",
+                    "A3L8_BSMG11",
+                    "A3L8_BSMG12",
+                    "A3L8_BSMG13",
+                    "A3L8_BSMG14",
+                    "A3L8_BSMG15",
+                    "A3L8_BSMG16",
+                    "A3L8_BSMG17",
+                    "A3L8_BSMG18",
+                    "A3L8_BSMG19",
+                    "A3L8_BSMG20",
+                    "A3L8_BSMG21",
+                    "A3L8_BSMG22",
+                    "A3L8_BSMG23",
+                    "A3L8_BSMG24",
+                    "A3L8_BSMG25",
+                    "A3L8_BSMG26",
+                    "A3L8_BSMG27",
+                    "A3L8_BSMG28",
+                    "A3L8_BSMG29",
+                    "A3L8_BSMG30",
+                    "A3L8_BSMG31",
+                    "A3L8_BSMG32",
+                    "A3L8_BSMG33",
+                    "A3L8_BSMG34",
+                    "A3L8_BSMG35",
+                    "A3L8_BSMG36",
+                    "A3L8_BSMG37",
+                    "A3L8_BSMG38",
+                    "A3L8_BSMG39",
+                    "A3L8_BSMG40",
+                    "A3L8_BSMG41",
+                    "A3L8_BSMG42",
+                    "A3L8_BSMG43",
+                    "A3L8_BSMG44",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

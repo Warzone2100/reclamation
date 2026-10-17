@@ -1,0 +1,170 @@
+{
+	"position_0": {
+		"label": "transportEntryPos",
+		"pos": [11664, 7874]
+	},
+
+
+	"position_1": {
+		"label": "vtolAttackPos1",
+		"pos": [14557, 280]
+	},
+
+
+	"position_2": {
+		"label": "vtolAttackPos2",
+		"pos": [16018, 4137]
+	},
+
+
+	"position_3": {
+		"label": "vtolAttackPos3",
+		"pos": [15960, 7662]
+	},
+
+
+	"position_4": {
+		"label": "vtolAttackPos4",
+		"pos": [9561, 7905]
+	},
+
+
+	"position_5": {
+		"label": "vtolAttackPos5",
+		"pos": [418, 7908]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [5760, 1280],
+		"pos2": [6144, 1664]
+	},
+
+
+	"area_1": {
+		"label": "colEntrance3",
+		"pos1": [12416, 7680],
+		"pos2": [13056, 7936]
+	},
+
+
+	"area_2": {
+		"label": "colEntrance4",
+		"pos1": [15872, 3200],
+		"pos2": [16128, 3840]
+	},
+
+
+	"area_3": {
+		"label": "colEntrance5",
+		"pos1": [10752, 7680],
+		"pos2": [11392, 7936]
+	},
+
+
+	"area_4": {
+		"label": "colEntrance6",
+		"pos1": [7680, 256],
+		"pos2": [8320, 512]
+	},
+
+
+	"area_5": {
+		"label": "colEntrance7",
+		"pos1": [4096, 7680],
+		"pos2": [4736, 7936]
+	},
+
+
+	"area_6": {
+		"label": "colEntrance8",
+		"pos1": [256, 4736],
+		"pos2": [512, 5376]
+	},
+
+
+	"area_7": {
+		"label": "colEntrance9",
+		"pos1": [640, 256],
+		"pos2": [1152, 512]
+	},
+
+
+	"area_8": {
+		"label": "colLZ2",
+		"pos1": [10624, 4608],
+		"pos2": [11008, 4992]
+	},
+
+
+	"area_9": {
+		"label": "colLZ1",
+		"pos1": [9088, 1408],
+		"pos2": [9472, 1792]
+	},
+
+
+	"area_10": {
+		"label": "colLZ4",
+		"pos1": [768, 6272],
+		"pos2": [1152, 6656]
+	},
+
+
+	"area_11": {
+		"label": "colLZBaseArea1",
+		"pos1": [8832, 1024],
+		"pos2": [9856, 2048]
+	},
+
+
+	"area_12": {
+		"label": "colLZBaseArea2",
+		"pos1": [10368, 4352],
+		"pos2": [11520, 5248]
+	},
+
+
+	"area_13": {
+		"label": "colLZ3",
+		"pos1": [7424, 6912],
+		"pos2": [7808, 7296]
+	},
+
+
+	"area_14": {
+		"label": "colLZBaseArea3",
+		"pos1": [7168, 6784],
+		"pos2": [8064, 7552]
+	},
+
+
+	"area_15": {
+		"label": "colLZBaseArea4",
+		"pos1": [512, 5888],
+		"pos2": [1536, 6912]
+	},
+
+
+	"area_16": {
+		"label": "colEntrance1",
+		"pos1": [15872, 1280],
+		"pos2": [16128, 1664]
+	},
+
+
+	"area_17": {
+		"label": "colEntrance2",
+		"pos1": [13184, 256],
+		"pos2": [13952, 512]
+	},
+
+
+	"radius_0": {
+		"label": "vtolRemoveZone",
+		"pos": [2112, 320],
+		"radius": 128,
+		"subscriber": 2
+	}
+}

@@ -1,0 +1,81 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A3L9_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act3/A3L9intro.json" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L9brief1.webm" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L9brief2.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A3L9_BMSG1",
+                    "A3L9_BMSG2",
+                    "A3L9_BMSG3",
+                    "A3L9_BMSG4",
+                    "A3L9_BMSG5",
+                    "A3L9_BMSG6",
+                    "A3L9_BMSG7",
+                    "A3L9_BMSG8",
+                    "A3L9_BMSG9",
+                    "A3L9_BMSG10",
+                    "A3L9_BMSG11",
+                    "A3L9_BMSG12",
+                    "A3L9_BMSG13",
+                    "A3L9_BMSG14",
+                    "A3L9_BMSG15",
+                    "A3L9_BMSG16",
+                    "A3L9_BMSG17",
+                    "A3L9_BMSG18",
+                    "A3L9_BMSG19",
+                    "A3L9_BMSG20",
+                    "A3L9_BMSG21",
+                    "A3L9_BMSG22",
+                    "A3L9_BMSG23",
+                    "A3L9_BMSG24",
+                    "A3L9_BMSG25",
+                    "A3L9_BMSG26",
+                    "A3L9_BMSG27",
+                    "A3L9_BMSG28",
+                    "A3L9_BMSG29",
+                    "A3L9_BMSG30",
+                    "A3L9_BMSG31",
+                    "A3L9_BMSG32",
+                    "A3L9_BMSG33",
+                    "A3L9_BMSG34",
+                    "A3L9_BMSG35",
+                    "A3L9_BMSG36",
+                    "A3L9_BMSG37",
+                    "A3L9_BMSG38",
+                    "A3L9_BMSG39",
+                    "A3L9_BMSG40",
+                    "A3L9_BMSG41",
+                    "A3L9_BMSG42",
+                    "A3L9_BMSG43",
+                    "A3L9_BMSG44",
+                    "A3L9_BMSG45",
+                    "A3L9_BMSG46",
+                    "A3L9_BMSG47",
+                    "A3L9_BMSG48",
+                    "A3L9_BMSG49",
+                    "A3L9_BMSG50",
+                    "A3L9_BMSG51",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A3L9_FOXTROT": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L9foxtrot.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A3L9_FOXMSG1",
+                    "A3L9_FOXMSG2",
+                    "A3L9_FOXMSG3",
+                    "A3L9_FOXMSG4",
+                    "A3L9_FOXMSG5",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}
