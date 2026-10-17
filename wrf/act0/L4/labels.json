@@ -1,0 +1,329 @@
+{
+	"position_0": {
+		"label": "exitPos",
+		"pos": [196, 1143]
+	},
+
+
+	"position_1": {
+		"label": "infestedEntryPos1",
+		"pos": [4991, 203]
+	},
+
+
+	"position_2": {
+		"label": "infestedEntryPos2",
+		"pos": [219, 7422]
+	},
+
+
+	"position_3": {
+		"label": "infestedEntryPos3",
+		"pos": [11290, 1087]
+	},
+
+
+	"position_4": {
+		"label": "infestedEntryPos4",
+		"pos": [10434, 8001]
+	},
+
+
+	"position_5": {
+		"label": "infestedEntryPos5",
+		"pos": [11325, 7234]
+	},
+
+
+	"position_6": {
+		"label": "infestedEntryPos6",
+		"pos": [11308, 5056]
+	},
+
+
+	"position_7": {
+		"label": "stingerPatrolPos1",
+		"pos": [8765, 4548]
+	},
+
+
+	"position_8": {
+		"label": "stingerPatrolPos2",
+		"pos": [8127, 5192]
+	},
+
+
+	"position_9": {
+		"label": "scavAssembly",
+		"pos": [2140, 4760]
+	},
+
+
+	"position_10": {
+		"label": "infestedAssembly1",
+		"pos": [4700, 809]
+	},
+
+
+	"position_11": {
+		"label": "infestedAssembly2",
+		"pos": [940, 7457]
+	},
+
+
+	"position_12": {
+		"label": "infestedAssembly3",
+		"pos": [10294, 967]
+	},
+
+
+	"position_13": {
+		"label": "infestedAssembly4",
+		"pos": [10684, 7482]
+	},
+
+
+	"position_14": {
+		"label": "infestedAssembly5",
+		"pos": [9157, 5693]
+	},
+
+
+	"position_15": {
+		"label": "infestedAssembly6",
+		"pos": [7988, 4049]
+	},
+
+
+	"position_16": {
+		"label": "infestedAssembly7",
+		"pos": [9160, 4681]
+	},
+
+
+	"area_0": {
+		"label": "LZ",
+		"pos1": [896, 768],
+		"pos2": [1280, 1152]
+	},
+
+
+	"area_1": {
+		"label": "scavScoutGroup",
+		"pos1": [640, 4096],
+		"pos2": [1024, 4608]
+	},
+
+
+	"area_2": {
+		"label": "scavBase1",
+		"pos1": [768, 3328],
+		"pos2": [3456, 5248]
+	},
+
+
+	"area_3": {
+		"label": "scavDamagedDefenses",
+		"pos1": [2688, 4096],
+		"pos2": [3456, 4864]
+	},
+
+
+	"area_4": {
+		"label": "scavBase2",
+		"pos1": [4352, 5888],
+		"pos2": [5888, 6912]
+	},
+
+
+	"area_5": {
+		"label": "infestedBase1",
+		"pos1": [4096, 640],
+		"pos2": [5376, 1792]
+	},
+
+
+	"area_6": {
+		"label": "infestedBase2",
+		"pos1": [384, 6528],
+		"pos2": [1408, 7680]
+	},
+
+
+	"area_7": {
+		"label": "infestedBase3",
+		"pos1": [9984, 640],
+		"pos2": [10624, 1408]
+	},
+
+
+	"area_8": {
+		"label": "infestedBase4",
+		"pos1": [9984, 6656],
+		"pos2": [11008, 7680]
+	},
+
+
+	"area_9": {
+		"label": "infestedBase5",
+		"pos1": [7808, 3584],
+		"pos2": [9856, 6656]
+	},
+
+
+	"area_10": {
+		"label": "infestedAmbushGroup1",
+		"pos1": [1536, 6656],
+		"pos2": [2304, 7296]
+	},
+
+
+	"area_11": {
+		"label": "infestedAmbushGroup2",
+		"pos1": [4352, 2688],
+		"pos2": [6272, 3712]
+	},
+
+
+	"area_12": {
+		"label": "compromiseZone",
+		"pos1": [512, 512],
+		"pos2": [2432, 1664]
+	},
+
+
+	"area_13": {
+		"label": "scavRefugees",
+		"pos1": [3968, 6144],
+		"pos2": [4352, 6400]
+	},
+
+
+	"area_14": {
+		"label": "stingerPatrolGroup",
+		"pos1": [8832, 4608],
+		"pos2": [9088, 4992]
+	},
+
+
+	"area_15": {
+		"label": "infestedAmbushTrigger1",
+		"pos1": [3840, 4352],
+		"pos2": [4224, 5632]
+	},
+
+
+	"area_16": {
+		"label": "infestedAmbushTrigger2",
+		"pos1": [3072, 5248],
+		"pos2": [3840, 5632]
+	},
+
+
+	"area_17": {
+		"label": "infestedAmbushTrigger3",
+		"pos1": [6912, 1152],
+		"pos2": [7424, 2304]
+	},
+
+
+	"area_18": {
+		"label": "infestedAmbushGroup3",
+		"pos1": [7808, 384],
+		"pos2": [8192, 768]
+	},
+
+
+	"area_19": {
+		"label": "infestedAmbushTrigger4",
+		"pos1": [9984, 3328],
+		"pos2": [11008, 3584]
+	},
+
+
+	"object_0": {
+		"label": "researchFacility",
+		"id": 768,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "infestedFactory1",
+		"id": 307,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "scavFactory",
+		"id": 43,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "infestedFactory4",
+		"id": 356,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "infestedFactory5",
+		"id": 395,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "infestedFactory7",
+		"id": 404,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "infestedFactory6",
+		"id": 407,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "infestedFactory3",
+		"id": 292,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "infestedFactory2",
+		"id": 4,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "mgCrate",
+		"id": 385,
+		"player": 7,
+		"type": 2
+	},
+
+	"radius_0": {
+		"label": "exitRemoveZone",
+		"subscriber": 5,
+		"pos": [196, 1183],
+		"radius": 250
+	}
+}

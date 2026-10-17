@@ -1,0 +1,486 @@
+{
+	"position_0": {
+		"label": "deltaDefensePos",
+		"pos": [1759, 4740]
+	},
+
+
+	"position_1": {
+		"label": "colFallbackPos",
+		"pos": [4300, 4389]
+	},
+
+
+	"position_2": {
+		"label": "cScavAssembly1",
+		"pos": [7199, 859]
+	},
+
+
+	"position_3": {
+		"label": "cScavAssembly2",
+		"pos": [1333, 6737]
+	},
+
+
+	"position_4": {
+		"label": "cScavAssembly3",
+		"pos": [7752, 5822]
+	},
+
+
+	"position_5": {
+		"label": "cScavAssembly4",
+		"pos": [7467, 8183]
+	},
+
+
+	"position_6": {
+		"label": "colCybAssembly1",
+		"pos": [1278, 11385]
+	},
+
+
+	"position_7": {
+		"label": "colCybAssembly2",
+		"pos": [3918, 11302]
+	},
+
+
+	"position_8": {
+		"label": "colAssembly1",
+		"pos": [2284, 11538]
+	},
+
+
+	"position_9": {
+		"label": "colAssembly2",
+		"pos": [5240, 11533]
+	},
+
+
+	"position_10": {
+		"label": "colVtolAssembly",
+		"pos": [7352, 11449]
+	},
+
+
+	"position_11": {
+		"label": "hoverPatrolPos1",
+		"pos": [3285, 8684]
+	},
+
+
+	"position_12": {
+		"label": "hoverPatrolPos2",
+		"pos": [6109, 8843]
+	},
+
+
+	"position_13": {
+		"label": "hoverPatrolPos3",
+		"pos": [6269, 7074]
+	},
+
+
+	"position_14": {
+		"label": "hoverPatrolPos4",
+		"pos": [989, 8667]
+	},
+
+
+	"position_15": {
+		"label": "hoverPatrolPos5",
+		"pos": [490, 6818]
+	},
+
+
+	"position_16": {
+		"label": "transportEntryPos",
+		"pos": [2460, 488]
+	},
+
+
+	"position_17": {
+		"label": "patrolPos1",
+		"pos": [2426, 9975]
+	},
+
+
+	"position_18": {
+		"label": "patrolPos2",
+		"pos": [4087, 9998]
+	},
+
+
+	"position_19": {
+		"label": "patrolPos3",
+		"pos": [5925, 9923]
+	},
+
+
+	"position_20": {
+		"label": "patrolPos4",
+		"pos": [7159, 8912]
+	},
+
+
+	"position_21": {
+		"label": "patrolPos5",
+		"pos": [6212, 5330]
+	},
+
+
+	"position_22": {
+		"label": "patrolPos6",
+		"pos": [3968, 5368]
+	},
+
+
+	"position_23": {
+		"label": "patrolPos7",
+		"pos": [3778, 7389]
+	},
+
+
+	"position_24": {
+		"label": "patrolPos8",
+		"pos": [1210, 7738]
+	},
+
+
+	"position_25": {
+		"label": "heliAttackPos1",
+		"pos": [7660, 449]
+	},
+
+
+	"position_26": {
+		"label": "heliAttackPos2",
+		"pos": [7928, 8118]
+	},
+
+
+	"area_0": {
+		"label": "landingZone2",
+		"pos1": [1024, 4608],
+		"pos2": [1407, 4991]
+	},
+
+
+	"area_1": {
+		"label": "landingZone1",
+		"pos1": [3712, 768],
+		"pos2": [4095, 1151]
+	},
+
+
+	"area_2": {
+		"label": "landingZoneEcho",
+		"pos1": [1280, 9856],
+		"pos2": [1664, 10240]
+	},
+
+
+	"area_3": {
+		"label": "deltaDefenseGroup",
+		"pos1": [640, 4480],
+		"pos2": [1024, 5120]
+	},
+
+
+	"area_4": {
+		"label": "colAmbushGroup",
+		"pos1": [3840, 4224],
+		"pos2": [4224, 4608]
+	},
+
+
+	"area_5": {
+		"label": "cScavBase1",
+		"pos1": [6016, 512],
+		"pos2": [7680, 1536]
+	},
+
+
+	"area_6": {
+		"label": "cScavBase2",
+		"pos1": [512, 6400],
+		"pos2": [2304, 7808]
+	},
+
+
+	"area_7": {
+		"label": "cScavBase3",
+		"pos1": [5888, 5120],
+		"pos2": [7808, 6528]
+	},
+
+
+	"area_8": {
+		"label": "cScavBase4",
+		"pos1": [5248, 7680],
+		"pos2": [7808, 8448]
+	},
+
+
+	"area_9": {
+		"label": "echoLZStructs",
+		"pos1": [1152, 9728],
+		"pos2": [1792, 10368]
+	},
+
+
+	"area_10": {
+		"label": "colBase1",
+		"pos1": [384, 10496],
+		"pos2": [2816, 11648]
+	},
+
+
+	"area_11": {
+		"label": "colBase2",
+		"pos1": [2944, 9216],
+		"pos2": [7808, 11904]
+	},
+
+
+	"area_12": {
+		"label": "ambushTrigger",
+		"pos1": [0, 3072],
+		"pos2": [8191, 3712]
+	},
+
+
+	"area_13": {
+		"label": "colHoverGroup",
+		"pos1": [7296, 10112],
+		"pos2": [7680, 10368]
+	},
+
+
+	"area_14": {
+		"label": "echoCommandGroup",
+		"pos1": [4992, 11008],
+		"pos2": [5248, 11520]
+	},
+
+
+	"area_15": {
+		"label": "compromiseZone",
+		"pos1": [640, 3968],
+		"pos2": [2432, 5760]
+	},
+
+
+	"area_16": {
+		"label": "echoPatrolGroup",
+		"pos1": [2304, 9856],
+		"pos2": [2688, 10240]
+	},
+
+
+	"area_17": {
+		"label": "colAmbushRepairGroup",
+		"pos1": [4352, 4224],
+		"pos2": [4608, 4480]
+	},
+
+
+	"area_18": {
+		"label": "scavPatrolGroup",
+		"pos1": [640, 7680],
+		"pos2": [1024, 8064]
+	},
+
+
+	"area_19": {
+		"label": "spyEscapeTrigger",
+		"pos1": [4992, 5760],
+		"pos2": [5376, 6144]
+	},
+
+
+	"object_0": {
+		"label": "cScavFactory2",
+		"id": 14,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "colResearch2",
+		"id": 27,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "echoVtolTower1",
+		"id": 50,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "cScavFactory4",
+		"id": 135,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "colCybFactory1",
+		"id": 20,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "colFactory2",
+		"id": 19,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "colVtolFactory",
+		"id": 23,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "echoTruck2",
+		"id": 124,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_8": {
+		"label": "echoTruck1",
+		"id": 123,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_9": {
+		"label": "colFactory1",
+		"id": 70,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "cScavFactory1",
+		"id": 12,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_11": {
+		"label": "colResearch1",
+		"id": 245,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_12": {
+		"label": "cScavFactory3",
+		"id": 13,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_13": {
+		"label": "heliTower1",
+		"id": 65,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_14": {
+		"label": "echoVtolTower2",
+		"id": 51,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_15": {
+		"label": "echoCommander",
+		"id": 251,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_16": {
+		"label": "echoVtolTower3",
+		"id": 99,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_17": {
+		"label": "echoVtolSensor",
+		"id": 256,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_18": {
+		"label": "colCybFactory2",
+		"id": 21,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_19": {
+		"label": "heliTower2",
+		"id": 155,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_20": {
+		"label": "echoTruck3",
+		"id": 125,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_21": {
+		"label": "echoSpySensor",
+		"id": 267,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [320, 11584],
+		"radius": 128,
+		"subscriber": 2
+	}
+}

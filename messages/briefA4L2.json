@@ -1,0 +1,61 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A4L2_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L2intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L2brief1.webm" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L2brief2.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A4L2_BMSG1",
+                    "A4L2_BMSG2",
+                    "A4L2_BMSG3",
+                    "A4L2_BMSG4",
+                    "A4L2_BMSG5",
+                    "A4L2_BMSG6",
+                    "A4L2_BMSG7",
+                    "A4L2_BMSG8",
+                    "A4L2_BMSG9",
+                    "A4L2_BMSG10",
+                    "A4L2_BMSG11",
+                    "A4L2_BMSG12",
+                    "A4L2_BMSG13",
+                    "A4L2_BMSG14",
+                    "A4L2_BMSG15",
+                    "A4L2_BMSG16",
+                    "A4L2_BMSG17",
+                    "A4L2_BMSG18",
+                    "A4L2_BMSG19",
+                    "A4L2_BMSG20",
+                    "A4L2_BMSG21",
+                    "A4L2_BMSG22",
+                    "A4L2_BMSG23",
+                    "A4L2_BMSG24",
+                    "A4L2_BMSG25",
+                    "A4L2_BMSG26",
+                    "A4L2_BMSG27",
+                    "A4L2_BMSG28",
+                    "A4L2_BMSG29",
+                    "A4L2_BMSG30",
+                    "A4L2_BMSG31",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A4L2_DELTA": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L2delta.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A4L2_DELTAMSG1",
+                    "A4L2_DELTAMSG2",
+                    "A4L2_DELTAMSG3",
+                    "A4L2_DELTAMSG4",
+                    "A4L2_DELTAMSG5",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

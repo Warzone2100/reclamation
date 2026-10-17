@@ -1,0 +1,29 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A1L2_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act1/A1L2intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act1/A1L2brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A1L2_BMSG1",
+                    "A1L2_BMSG2",
+                    "A1L2_BMSG3",
+                    "A1L2_BMSG4",
+                    "A1L2_BMSG5",
+                    "A1L2_BMSG6",
+                    "A1L2_BMSG7",
+                    "A1L2_BMSG8",
+                    "A1L2_BMSG9",
+                    "A1L2_BMSG10",
+                    "A1L2_BMSG11",
+                    "A1L2_BMSG12",
+                    "A1L2_BMSG13",
+                    "A1L2_BMSG14",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

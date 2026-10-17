@@ -1,0 +1,67 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A2L2_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act2/A2L2intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act2/A2L2brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A2L2_BMSG1",
+                    "A2L2_BMSG2",
+                    "A2L2_BMSG3",
+                    "A2L2_BMSG4",
+                    "A2L2_BMSG5",
+                    "A2L2_BMSG6",
+                    "A2L2_BMSG7",
+                    "A2L2_BMSG8",
+                    "A2L2_BMSG9",
+                    "A2L2_BMSG10",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A2L2_DELTA": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act2/A2L2delta.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A2L2_DELTAMSG1",
+                    "A2L2_DELTAMSG2",
+                    "A2L2_DELTAMSG3",
+                    "A2L2_DELTAMSG4",
+                    "A2L2_DELTAMSG5",
+                    "A2L2_DELTAMSG6",
+                    "A2L2_DELTAMSG7",
+                    "A2L2_DELTAMSG8",
+                    "A2L2_DELTAMSG9",
+                    "A2L2_DELTAMSG10",
+                    "A2L2_DELTAMSG11",
+                    "A2L2_DELTAMSG12",
+                    "A2L2_DELTAMSG13",
+                    "A2L2_DELTAMSG14",
+                    "A2L2_DELTAMSG15",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A2L2_ECHO": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act2/A2L2echo.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A2L2_ECHOMSG1",
+                    "A2L2_ECHOMSG2",
+                    "A2L2_ECHOMSG3",
+                    "A2L2_ECHOMSG4",
+                    "A2L2_ECHOMSG5",
+                    "A2L2_ECHOMSG6",
+                    "A2L2_ECHOMSG7",
+                    "A2L2_ECHOMSG8",
+                    "A2L2_ECHOMSG9",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A4L5_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L5intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L5brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A4L5_BMSG1",
+                    "A4L5_BMSG2",
+                    "A4L5_BMSG3",
+                    "A4L5_BMSG4",
+                    "A4L5_BMSG5",
+                    "A4L5_BMSG6",
+                    "A4L5_BMSG7",
+                    "A4L5_BMSG8",
+                    "A4L5_BMSG9",
+                    "A4L5_BMSG10",
+                    "A4L5_BMSG11",
+                    "A4L5_BMSG12",
+                    "A4L5_BMSG13",
+                    "A4L5_BMSG14",
+                    "A4L5_BMSG15",
+                    "A4L5_BMSG16",
+                    "A4L5_BMSG17",
+                    "A4L5_BMSG18",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A4L5_EVAC": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L5evac.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A4L5_EVACMSG1",
+                    "A4L5_EVACMSG2",
+                    "A4L5_EVACMSG3",
+                    "A4L5_EVACMSG4",
+                    "A4L5_EVACMSG5",
+                    "A4L5_EVACMSG6",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

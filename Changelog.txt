@@ -1,3 +1,9 @@
+Reclamation 2.2.0
+
+- Updated to Reclamation v2, an overhaul of the campaign.
+- Re-encoded the videos as WebM (VP9 + Opus): about 115 MB instead of 1 GB.
+- Requires Warzone 2100 4.8.0 or later.
+
 Reclamation 1.4.0
 
 - Added support for the new Campaign Mod Packaging.

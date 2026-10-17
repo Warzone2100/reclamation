@@ -7,7 +7,7 @@
             "New Construction Options Available",
             "Titanium-reinforced concrete",
             "Enables Hardcrete walls",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_REPTU1": {
@@ -51,7 +51,8 @@
             "New Base Structure Available",
             "Refuels, rearms and repairs VTOLs",
             "Assign a VTOL by selecting the rearming pad as its target",
-            "The VTOL returns to the selected pad for rearming"
+            "The VTOL returns to the selected pad for rearming",
+            "VTOLs with lower weights rearm faster"
         ]
     },
     "RES_SY_CBSTW1": {
@@ -93,7 +94,7 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "Collective Heavy Body",
-            "More armor and body points than Python",
+            "More armor and hitpoints than Python",
             "Slower than Python",
             "High power costs and slow to produce"
         ]
@@ -105,8 +106,10 @@
         "text": [
             "New Propulsion Available for Design",
             "Vertical Take Off and Landing Propulsion",
-            "Speed: VTOL",
-            "Body Points: Low"
+            "Very fast movement speed",
+            "Can traverse over all terrain",
+            "VTOL units carry limited ammo; build rearming pads to restock ammunition and repair",
+            "Requires VTOL factory to produce"
         ]
     },
     "RES_W_CNAC2": {
@@ -125,10 +128,12 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Rocket Available",
-            "High explosive shaped charge missile",
-            "Best Targets: Bunkers and hardpoints",
-            "Body Points: Very Low"
+            "New Weapon Turret Available",
+            "Specialized shaped charge rocket designed to penetrate layers of concrete",
+            "Damage Type: Anti-Structure",
+            "Effective against: Structures",
+            "Ineffective against: Vehicles and Cyborgs",
+            "Greater accuracy at longer ranges"
         ]
     },
     "RES_W_RK_LTAT1": {
@@ -136,10 +141,13 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Rocket Available",
-            "Anti-tank rocket",
-            "Best Targets: Vehicles",
-            "Body Points: Very Low"
+            "New Weapon Turret Available",
+            "Dual-mounted anti-tank rocket launchers",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Cyborgs and structures",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Sarissa"
         ]
     },
     "RES_W_SRK_AC3": {
@@ -158,25 +166,47 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
+            "New Cyborg Available",
             "Armed with Cyborg Grenade Launcher",
+            "Damage Type: Artillery",
             "Effective against: Infantry, wheeled vehicles and structures",
             "Ineffective against: Bunkers and tracked vehicles",
-            "Does not require line of sight to a target and can be assigned to a sensor",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
             "Greater accuracy at longer ranges",
             "Must be stationary to fire",
             "Requires Cyborg factory to produce"
         ]
-    },"RES_CYW_THERM": {
+    },
+    "RES_CYW_MRA": {
+        "id": "RES_CYW_MRA",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_droid.ogg",
+        "text": [
+            "New Cyborg Available",
+            "Armed with Cyborg Mini-Rocket Launcher",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, wheeled vehicles and structures",
+            "Ineffective against: Bunkers and tracked vehicles",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Requires Cyborg factory to produce"
+        ]
+    },
+    "RES_CYW_THERM": {
         "id": "RES_CYW_THERM",
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
+            "New Cyborg Available",
             "Armed with Cyborg Thermite Flamer",
+            "Damage Type: Incendiary",
             "Effective against: Infantry, vehicles and bunkers",
             "Ineffective against: Non-bunker structures",
-            "Can ignite the ground and enemy units causing damage over time",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Can ignite enemy units and structures, causing damage over time",
             "Flames can hit multiple units",
             "Has a very short weapon range",
+            "Obsoletes and replaces Flamer Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -185,6 +215,7 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_systech.ogg",
         "text": [
+            "New System Cyborg Available",
             "Battlefield Repair Cyborg",
             "Repairs Damaged Units",
             "Requires Cyborg factory to produce"
@@ -218,9 +249,15 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "New Weapon Turret Available",
-            "Plasmite Flame-thrower",
-            "Best Targets: Bunkers, wheeled and hover vehicles",
-            "Body Points: Very low"
+            "Heavy flame-thrower firing superheated Plasmite gel",
+            "Damage Type: Incendiary",
+            "Effective against: Infantry, vehicles and bunkers",
+            "Ineffective against: Non-bunker structures",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Can ignite enemy units causing damage over time",
+            "Flames can hit multiple units",
+            "Has a very short weapon range",
+            "Obsoletes Inferno"
         ]
     },
     "RES_EMP_PFL": {
@@ -229,9 +266,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Plasmite Flamer",
+            "Armored bunker with Plasmite Flamer",
             "Automatically targets enemies in range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_DF_HCG1": {
@@ -242,7 +279,7 @@
             "New Construction Options Available",
             "Reinforced Hardcrete Gate",
             "Lowers to allow friendly units to pass",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_CYW_H_AC": {
@@ -250,9 +287,12 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Assault Cannon",
-            "Body Points: Medium",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Obsoletes Super Heavy-Gunner Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -261,9 +301,13 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Scourge Missile Launcher",
-            "Body Points: Medium",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Cyborgs and structures",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Super TK Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -272,9 +316,14 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Hyper Velocity Cannon",
-            "Body Points: Medium",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Only causes damage on direct hit; no splash damage",
+            "Accuracy is unaffected by range",
+            "Can attack aerial targets",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -283,9 +332,12 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Medium Cannon",
-            "Body Points: Medium",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Obsoletes Heavy Gunner Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -294,9 +346,15 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Pulse Laser",
-            "Body Points: Medium",
+            "Damage Type: Anti-Personnel",
+            "Effective against: Infantry and Hover vehicles",
+            "Ineffective against: Structures and Tracked vehicles",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Accuracy is unaffected by range",
+            "Can attack aerial targets",
+            "Obsoletes Flashlight Gunner Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -305,9 +363,13 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Rail Gun",
-            "Body Points: Medium",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Darts can hit multiple units",
+            "Obsoletes Needle Gunner Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -316,9 +378,13 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "New Cyborg Available",
+            "New Super Cyborg Available",
             "Armed with Cyborg Tank Killer Rockets",
-            "Body Points: Medium",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Cyborgs and structures",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Lancer Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -330,7 +396,7 @@
             "New Defensive Structure Available",
             "Armored bunker with Assault Gun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_LANTOW": {
@@ -341,7 +407,7 @@
             "New Defensive Structure Available",
             "Armored guard tower with Lancer AT Rocket",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_EMP_PULSETOW": {
@@ -352,7 +418,7 @@
             "New Defensive Structure Available",
             "Armored guard tower with Pulse Laser",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_DEF_ASSTOW": {
@@ -363,7 +429,7 @@
             "New Defensive Structure Available",
             "Armored guard tower with Assault Gun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_REPTUHVY": {
@@ -382,10 +448,11 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "Sarissa anti-tank rocket launcher",
+            "New Weapon Turret Available",
+            "Single-shot anti-tank rocket launcher",
+            "Damage Type: Anti-Tank",
             "Effective against: Vehicles",
             "Ineffective against: Infantry and structures",
-            "Has a long delay between shots",
             "Greater accuracy at longer ranges"
         ]
     },
@@ -394,14 +461,18 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
+            "New Weapon Turret Available",
             "Artillery weapon firing incendiary mortar shells",
-            "Effective against: Infantry, vehicles and structures",
-            "Ineffective against: ...uhhhh",
-            "Does not require line of sight to a target and can be assigned to a sensor",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, Hover vehicles and structures",
+            "Ineffective against: Tracked vehicles",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
             "Greater accuracy at longer ranges",
-            "Can ignite the ground and enemy units causing damage over time",
-            "Has a very long weapon range",
-            "Must be stationary to fire"
+            "Can ignite enemy units and structures, causing damage over time",
+            "Has a long weapon range",
+            "Must be stationary to fire",
+            "Obsoletes standard Mortar"
         ]
     },
     "RES_CYW_LTRK1": {
@@ -410,9 +481,9 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "Armed with Cyborg Sarissa Rocket",
+            "Damage Type: Anti-Tank",
             "Effective against: Vehicles",
             "Ineffective against: Infantry and structures",
-            "Has a long delay between shots",
             "Greater accuracy at longer ranges",
             "Requires Cyborg factory to produce"
         ]
@@ -456,9 +527,330 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored guard tower with Sarissa AT Rocket",
+            "Steel tower with Sarissa AT Rocket",
             "Automatically targets enemies within sensor range",
             "Defensive Strength: Medium"
+        ]
+    },
+    "RES_CYW_HMG": {
+        "id": "RES_CYW_HMG",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_droid.ogg",
+        "text": [
+            "Armed with Cyborg Heavy Machinegun",
+            "Damage Type: Anti-Personnel",
+            "Effective against: Infantry and wheeled vehicles",
+            "Ineffective against: Structures and tracked vehicles",
+            "Can attack aerial targets",
+            "Obsoletes and replaces Machinegunner Cyborg",
+            "Requires Cyborg factory to produce"
+        ]
+    },
+    "RES_W_RK_MRL2": {
+        "id": "RES_W_RK_MRL2",
+        "imdName": "MICAPSUL.PIE",
+        "sequenceName": "res_weapons.ogg",
+        "text": [
+            "New Weapon Turret Available",
+            "Short-ranged artillery firing salvos of high-explosive rockets",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, Hover vehicles and structures",
+            "Ineffective against: Tracked vehicles and bunkers",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Mini-Rocket Array"
+        ]
+    },
+    "RES_EMP_MRLHVY": {
+        "id": "RES_EMP_MRL",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Mini-rocket armored strongpoint",
+            "Assigned automatically to nearest sensor or CB tower",
+            "Defensive Strength: Medium"
+        ]
+    },
+    "RES_CYW_HVYMOR": {
+        "id": "RES_CYW_HVYMOR",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_droid.ogg",
+        "text": [
+            "New Super Cyborg Available",
+            "Armed with Cyborg Heavy Grenade Launcher",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, wheeled vehicles and structures",
+            "Ineffective against: Bunkers and tracked vehicles",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Must be stationary to fire",
+            "Obsoletes Grenadier Cyborg",
+            "Requires Cyborg factory to produce"
+        ]
+    },
+    "RES_CYW_HRA": {
+        "id": "RES_CYW_HRA",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_droid.ogg",
+        "text": [
+            "New Super Cyborg Available",
+            "Armed with Cyborg Heavy Rocket Launcher",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, wheeled vehicles and structures",
+            "Ineffective against: Bunkers and tracked vehicles",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Mini-Rocket Cyborg",
+            "Requires Cyborg factory to produce"
+        ]
+    },
+    "RES_W_RK_BALAT": {
+        "id": "RES_W_RK_BALAT",
+        "imdName": "MICAPSUL.PIE",
+        "sequenceName": "res_weapons.ogg",
+        "text": [
+            "New Weapon Turret Available",
+            "Heavy rocket launcher firing powerful, long range anti-tank rockets",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Cyborgs and structures",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Has a long weapon range",
+            "Must be stationary to fire",
+            "Unable to fire at enemies that are within a close proximity"
+        ]
+    },
+    "RES_EMP_BALAT": {
+        "id": "RES_EMP_BALAT",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Armored strongpoint with Ballista rocket",
+            "Automatically targets enemies in range",
+            "Defensive Strength: Medium"
+        ]
+    },
+    "RES_EMP_HVCTOW": {
+        "id": "RES_EMP_HVCTOW",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Armored guard tower with Hyper Velocity Cannon",
+            "Automatically targets enemies within sensor range",
+            "Defensive Strength: Hard"
+        ]
+    },
+    "RES_EMP_TKTOW": {
+        "id": "RES_EMP_TKTOW",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Armored guard tower with Tank Killer Rocket",
+            "Automatically targets enemies within sensor range",
+            "Defensive Strength: Hard"
+        ]
+    },
+    "RES_SPECIAL1": {
+        "id": "RES_SPECIAL1",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL2": {
+        "id": "RES_SPECIAL2",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL3": {
+        "id": "RES_SPECIAL3",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL4": {
+        "id": "RES_SPECIAL4",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL5": {
+        "id": "RES_SPECIAL5",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL6": {
+        "id": "RES_SPECIAL6",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL7": {
+        "id": "RES_SPECIAL7",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL8": {
+        "id": "RES_SPECIAL8",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL9": {
+        "id": "RES_SPECIAL9",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL10": {
+        "id": "RES_SPECIAL10",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL11": {
+        "id": "RES_SPECIAL11",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL12": {
+        "id": "RES_SPECIAL12",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL13": {
+        "id": "RES_SPECIAL13",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL14": {
+        "id": "RES_SPECIAL14",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL15": {
+        "id": "RES_SPECIAL15",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL16": {
+        "id": "RES_SPECIAL16",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL17": {
+        "id": "RES_SPECIAL17",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL18": {
+        "id": "RES_SPECIAL18",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL19": {
+        "id": "RES_SPECIAL19",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL20": {
+        "id": "RES_SPECIAL20",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL21": {
+        "id": "RES_SPECIAL21",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
+        ]
+    },
+    "RES_SPECIAL22": {
+        "id": "RES_SPECIAL22",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_com.ogg",
+        "text": [
+            "Incomplete schematics",
+            "Purpose unknown"
         ]
     }
 }

@@ -1,4 +1,5 @@
 /* General Script Strings */
+BLANK		_(" ")
 
 /* Generic Briefing Stuff */
 TRANS_MSG1			_("Briefing Commences:")
@@ -20,17 +21,30 @@ END_MSG1			_("Mission Failed")
 WIN_MSG1			_("Mission Successful")
 
 /* more proximity text */
-LZ_MSG3				_("Enemy Landing Zone")
+ENEMYLZ_MSG			_("Enemy Landing Zone")
 ENEMYBASE_MSG		_("Enemy Base")
 ENEMYPOST_MSG		_("Enemy Outpost")
+ENEMYUNIT_MSG		_("Incoming Enemy Units")
+ENEMYVTOL_MSG		_("Incoming Enemy VTOLs")
+SWARM_MSG			_("Incoming Infested Swarm")
 NPBASE_MSG			_("New Paradigm Base")
 NPPOST_MSG			_("New Paradigm Outpost")
 COLBASE_MSG			_("Collective Base")
 COLPOST_MSG			_("Collective Outpost")
+COLLZ_MSG			_("Collective Landing Zone")
 NEXUSBASE_MSG		_("NEXUS Base")
 NEXUSPOST_MSG		_("NEXUS Outpost")
+DELTABASE_MSG		_("Delta Team Base")
+DELTALZ_MSG			_("Delta Team LZ")
+FOXTROTBASE_MSG		_("Foxtrot Team Base")
+FOXTROTLZ_MSG		_("Foxtrot Team LZ")
+GOLFBASE_MSG		_("Golf Team Base")
+GOLFLZ_MSG			_("Golf Team LZ")
+ZULUBASE_MSG		_("Zulu Team Base")
+ZULULZ_MSG			_("Zulu Team LZ")
 INFESBASE_MSG		_("Infested Base")
 INFESPOST_MSG		_("Infested Outpost")
+INFESLURE_MSG		_("Infested Lure")
 MISSIONTARGET_MSG	_("Mission Target")
 
 /* incoming transmission */

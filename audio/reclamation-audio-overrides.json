@@ -8,16 +8,36 @@
             { "fileName": "beep7.ogg", "loop": false, "range": 1800, "volume": 60, "z_comment": "Zoom On Radar" }
         ]
     },
-    "WeaponSounds": {
-        "_name": "Weapon sounds",
-        "data": [
-            { "fileName": "nxstower.ogg", "loop": false, "range": 1800, "volume": 40, "z_comment": "We can't add new weapon SFX, so this now is a punching sound" }
-        ]
-    },
     "ConstructionSounds": {
         "_name": "Construction sounds",
         "data": [
-            { "fileName": "weld-1.ogg", "loop": false, "range": 1800, "volume": 70, "z_comment": "We can't add new weapon SFX, so this now is a stinger projectile sound" }
+            { "fileName": "weld-1.ogg", "loop": false, "range": 1800, "volume": 70, "z_comment": "We can't add new weapon SFX, so this now is a stinger projectile sound" },
+            { "fileName": "weld-2.ogg", "loop": false, "range": 1800, "volume": 40, "z_comment": "We can't add new weapon SFX, so this now is a punching sound" }
+        ]
+    },
+    "MissionMessages": {
+        "_name": "Mission message sounds",
+        "data": [
+            { "fileName": "pcv478.ogg", "loop": false, "range": 1800, "volume": 0, "z_comment": "Alliance Broken (Silenced)" }
+        ]
+    },
+    "Extra": {
+        "_name": "Extra sounds",
+        "data": [
+            { "fileName": "pcv657.ogg", "loop": false, "range": 1800, "volume": 1, "z_comment": "Used to place a red blip over the artifact carrier on A3L5" },
+            { "fileName": "pcv665.ogg", "loop": false, "range": 1800, "volume": 100, "z_comment": "Enemy Landing Zone Eradicated" }
+        ]
+    },
+    "Miscellaneous": {
+        "_name": "Miscellaneous sounds",
+        "data": [
+            { "fileName": "shield-hit.ogg", "loop": false, "range": 1800, "volume": 135, "z_comment": "We can't add new weapon SFX, so this is the Super Heavy Grenadier SFX" }
+        ]
+    },
+    "MultiplayerAudio": {
+        "_name": "Multiplayer sounds",
+        "data": [
+            { "fileName": "partgun.ogg", "loop": false, "range": 1800, "volume": 135, "z_comment": "We can't add new weapon SFX, so this is the Pod Explosion SFX" }
         ]
     }
 }

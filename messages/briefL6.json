@@ -1,0 +1,45 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L6_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L6intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L6brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L6_BMSG1",
+                    "L6_BMSG2",
+                    "L6_BMSG3",
+                    "L6_BMSG4",
+                    "L6_BMSG5",
+                    "L6_BMSG6",
+                    "L6_BMSG7",
+                    "L6_BMSG8",
+                    "L6_BMSG9",
+                    "L6_BMSG10",
+                    "L6_BMSG11",
+                    "L6_BMSG12",
+                    "L6_BMSG13",
+                    "L6_BMSG14",
+                    "L6_BMSG15",
+                    "L6_BMSG16",
+                    "L6_BMSG17",
+                    "L6_BMSG18",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L6_WAVEMSG": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L6wave.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L6_WAVEMSG1",
+                    "L6_WAVEMSG2",
+                    "L6_WAVEMSG3",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

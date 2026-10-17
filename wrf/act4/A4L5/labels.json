@@ -1,0 +1,420 @@
+{
+	"position_0": {
+		"label": "vtolAttackPos1",
+		"pos": [22339, 180]
+	},
+
+
+	"position_1": {
+		"label": "vtolAttackPos2",
+		"pos": [6660, 159]
+	},
+
+
+	"position_2": {
+		"label": "vtolAttackPos3",
+		"pos": [182, 2214]
+	},
+
+
+	"position_3": {
+		"label": "vtolAttackPos4",
+		"pos": [214, 17726]
+	},
+
+
+	"position_4": {
+		"label": "vtolAttackPos5",
+		"pos": [22349, 18869]
+	},
+
+
+	"position_5": {
+		"label": "vtolAttackPos6",
+		"pos": [22354, 8135]
+	},
+
+
+	"position_6": {
+		"label": "deltaVtolAttackPos",
+		"pos": [22336, 15811]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [8576, 8320],
+		"pos2": [8960, 8704]
+	},
+
+
+	"area_1": {
+		"label": "infEntry1",
+		"pos1": [512, 128],
+		"pos2": [1024, 384]
+	},
+
+
+	"area_2": {
+		"label": "infEntry2",
+		"pos1": [3072, 128],
+		"pos2": [3584, 384]
+	},
+
+
+	"area_3": {
+		"label": "infEntry3",
+		"pos1": [4992, 128],
+		"pos2": [5632, 384]
+	},
+
+
+	"area_4": {
+		"label": "infEntry4",
+		"pos1": [7680, 128],
+		"pos2": [8320, 384]
+	},
+
+
+	"area_5": {
+		"label": "infEntry5",
+		"pos1": [10752, 128],
+		"pos2": [11904, 384]
+	},
+
+
+	"area_6": {
+		"label": "infEntry13",
+		"pos1": [128, 12544],
+		"pos2": [384, 13056]
+	},
+
+
+	"area_7": {
+		"label": "infEntry14",
+		"pos1": [128, 9088],
+		"pos2": [384, 9856]
+	},
+
+
+	"area_8": {
+		"label": "infEntry15",
+		"pos1": [128, 10880],
+		"pos2": [384, 11520]
+	},
+
+
+	"area_9": {
+		"label": "infEntry16",
+		"pos1": [128, 15488],
+		"pos2": [384, 16256]
+	},
+
+
+	"area_10": {
+		"label": "infEntry17",
+		"pos1": [128, 19072],
+		"pos2": [384, 19840]
+	},
+
+
+	"area_11": {
+		"label": "infEntry18",
+		"pos1": [1664, 21120],
+		"pos2": [2176, 21376]
+	},
+
+
+	"area_12": {
+		"label": "infEntry19",
+		"pos1": [3584, 21120],
+		"pos2": [4224, 21376]
+	},
+
+
+	"area_13": {
+		"label": "infEntry20",
+		"pos1": [22144, 11904],
+		"pos2": [22400, 12672]
+	},
+
+
+	"area_14": {
+		"label": "infEntry6",
+		"pos1": [13696, 128],
+		"pos2": [14080, 384]
+	},
+
+
+	"area_15": {
+		"label": "infEntry7",
+		"pos1": [16896, 128],
+		"pos2": [17792, 384]
+	},
+
+
+	"area_16": {
+		"label": "infEntry8",
+		"pos1": [22144, 768],
+		"pos2": [22400, 1536]
+	},
+
+
+	"area_17": {
+		"label": "infEntry9",
+		"pos1": [22144, 5632],
+		"pos2": [22400, 6528]
+	},
+
+
+	"area_18": {
+		"label": "infEntry10",
+		"pos1": [22144, 17152],
+		"pos2": [22400, 17920]
+	},
+
+
+	"area_19": {
+		"label": "infEntry11",
+		"pos1": [13568, 21120],
+		"pos2": [14080, 21376]
+	},
+
+
+	"area_20": {
+		"label": "infEntry12",
+		"pos1": [7424, 21120],
+		"pos2": [8192, 21376]
+	},
+
+
+	"area_21": {
+		"label": "colEntry1",
+		"pos1": [1664, 128],
+		"pos2": [2560, 384]
+	},
+
+
+	"area_22": {
+		"label": "colEntry2",
+		"pos1": [8448, 128],
+		"pos2": [9216, 384]
+	},
+
+
+	"area_23": {
+		"label": "colEntry3",
+		"pos1": [14976, 128],
+		"pos2": [15872, 384]
+	},
+
+
+	"area_24": {
+		"label": "colEntry4",
+		"pos1": [18816, 128],
+		"pos2": [19968, 384]
+	},
+
+
+	"area_25": {
+		"label": "colEntry5",
+		"pos1": [22144, 10496],
+		"pos2": [22400, 11264]
+	},
+
+
+	"area_26": {
+		"label": "colEntry6",
+		"pos1": [14592, 21120],
+		"pos2": [15488, 21376]
+	},
+
+
+	"area_27": {
+		"label": "colEntry7",
+		"pos1": [11008, 21120],
+		"pos2": [12288, 21376]
+	},
+
+
+	"area_28": {
+		"label": "colEntry8",
+		"pos1": [128, 20224],
+		"pos2": [384, 20992]
+	},
+
+
+	"area_29": {
+		"label": "colEntry9",
+		"pos1": [128, 13312],
+		"pos2": [384, 14080]
+	},
+
+
+	"area_30": {
+		"label": "colEntry10",
+		"pos1": [128, 5632],
+		"pos2": [384, 6656]
+	},
+
+
+	"area_31": {
+		"label": "colEntry11",
+		"pos1": [128, 4096],
+		"pos2": [384, 4864]
+	},
+
+
+	"area_32": {
+		"label": "hoverEntry",
+		"pos1": [22144, 20096],
+		"pos2": [22400, 20992]
+	},
+
+
+	"area_33": {
+		"label": "landingZoneCollective1",
+		"pos1": [18944, 2048],
+		"pos2": [19328, 2432]
+	},
+
+
+	"area_34": {
+		"label": "landingZoneCollective2",
+		"pos1": [7552, 18048],
+		"pos2": [7936, 18432]
+	},
+
+
+	"area_35": {
+		"label": "landingZoneCollective3",
+		"pos1": [1280, 15744],
+		"pos2": [1664, 16128]
+	},
+
+
+	"area_36": {
+		"label": "landingZoneCollective4",
+		"pos1": [16000, 10624],
+		"pos2": [16384, 11008]
+	},
+
+
+	"area_37": {
+		"label": "landingZoneCollective5",
+		"pos1": [13312, 12928],
+		"pos2": [13696, 13312]
+	},
+
+
+	"area_38": {
+		"label": "landingZoneCollective6",
+		"pos1": [8576, 14336],
+		"pos2": [8960, 14720]
+	},
+
+
+	"area_39": {
+		"label": "landingZoneCollective7",
+		"pos1": [12416, 5632],
+		"pos2": [12800, 6016]
+	},
+
+
+	"area_40": {
+		"label": "landingZoneCollective8",
+		"pos1": [11776, 2688],
+		"pos2": [12160, 3072]
+	},
+
+
+	"area_41": {
+		"label": "landingZoneCollective9",
+		"pos1": [4096, 3712],
+		"pos2": [4480, 4096]
+	},
+
+
+	"area_42": {
+		"label": "landingZoneCollective10",
+		"pos1": [2432, 8064],
+		"pos2": [2816, 8448]
+	},
+
+
+	"area_43": {
+		"label": "colLZ1",
+		"pos1": [18560, 1664],
+		"pos2": [19968, 2816]
+	},
+
+
+	"area_44": {
+		"label": "colLZ2",
+		"pos1": [7040, 17792],
+		"pos2": [8448, 18944]
+	},
+
+
+	"area_45": {
+		"label": "colLZ3",
+		"pos1": [512, 15360],
+		"pos2": [1920, 17024]
+	},
+
+
+	"area_46": {
+		"label": "colLZ4",
+		"pos1": [15488, 10240],
+		"pos2": [16768, 11520]
+	},
+
+
+	"area_47": {
+		"label": "colLZ5",
+		"pos1": [12800, 12416],
+		"pos2": [14208, 13824]
+	},
+
+
+	"area_48": {
+		"label": "colLZ6",
+		"pos1": [8320, 14080],
+		"pos2": [9088, 14976]
+	},
+
+
+	"area_49": {
+		"label": "colLZ7",
+		"pos1": [12288, 5504],
+		"pos2": [13824, 7040]
+	},
+
+
+	"area_50": {
+		"label": "colLZ8",
+		"pos1": [11264, 2176],
+		"pos2": [12544, 3456]
+	},
+
+
+	"area_51": {
+		"label": "colLZ9",
+		"pos1": [3712, 3328],
+		"pos2": [4992, 4480]
+	},
+
+
+	"area_52": {
+		"label": "colLZ10",
+		"pos1": [1792, 7424],
+		"pos2": [3328, 8704]
+	},
+
+
+	"radius_0": {
+		"label": "vtolRemoveZone",
+		"pos": [22345, 3882],
+		"radius": 256
+	}
+}

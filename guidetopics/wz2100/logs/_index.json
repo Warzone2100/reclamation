@@ -1,0 +1,16 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::logs",
+	"title": "Logs",
+	"sort": "4",
+	"visual": {
+		"stat": "BlackBox"
+	},
+	"contents": [
+		"During missions, you may sometimes find Black Boxes.",
+		"",
+		"Black Boxes contain notes, reports, or messages written by various characters.",
+		"",
+		"Black Boxes may also contain unique schematics."
+	]
+}

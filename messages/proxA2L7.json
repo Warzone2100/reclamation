@@ -1,0 +1,9 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "COL_LZBASE1": { "message": "COLLZ_MSG", "x": 10048, "y": 3904, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE2": { "message": "COLLZ_MSG", "x": 5824, "y": 8256, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE3": { "message": "COLLZ_MSG", "x": 3392, "y": 12608, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE4": { "message": "COLLZ_MSG", "x": 12224, "y": 7744, "z": 0, "audio": "pcv396.ogg", "type": 0 }
+    }
+}

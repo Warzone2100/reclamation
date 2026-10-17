@@ -1,0 +1,20 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "COL_BASE1": { "message": "COLBASE_MSG", "x": 6979, "y": 11712, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE2": { "message": "COLBASE_MSG", "x": 1856, "y": 10304, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE3": { "message": "COLBASE_MSG", "x": 5440, "y": 7360, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE4": { "message": "COLBASE_MSG", "x": 2880, "y": 5056, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE5": { "message": "COLBASE_MSG", "x": 5312, "y": 1472, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_LZBASE": { "message": "COLLZ_MSG", "x": 8256, "y": 5312, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "UPLINK_BEACON": { "message": "RUINS_MSG", "x": 4352, "y": 1536, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "INF_ENTRY1": { "message": "SWARM_MSG", "x": 5696, "y": 16192, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "INF_ENTRY2": { "message": "SWARM_MSG", "x": 10048, "y": 15680, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "INF_ENTRY3": { "message": "SWARM_MSG", "x": 10048, "y": 11840, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "INF_ENTRY4": { "message": "SWARM_MSG", "x": 256, "y": 12992, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "INF_ENTRY5": { "message": "SWARM_MSG", "x": 256, "y": 10304, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "INF_ENTRY6": { "message": "SWARM_MSG", "x": 10048, "y": 8000, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "INF_ENTRY7": { "message": "SWARM_MSG", "x": 256, "y": 5952, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "RET_LZ": { "message": "LZ_MSG", "x": 2368, "y": 15424, "z": 0, "audio": "pcv448.ogg", "type": 2 }
+    }
+}

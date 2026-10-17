@@ -1,0 +1,385 @@
+{
+	"position_0": {
+		"label": "scavOuterAssembly1",
+		"pos": [3967, 9343]
+	},
+
+
+	"position_1": {
+		"label": "scavOuterAssembly2",
+		"pos": [2507, 6597]
+	},
+
+
+	"position_2": {
+		"label": "scavOuterAssembly3",
+		"pos": [5350, 6850]
+	},
+
+
+	"position_3": {
+		"label": "scavOuterAssembly4",
+		"pos": [7441, 3960]
+	},
+
+
+	"position_4": {
+		"label": "scavOuterAssembly5",
+		"pos": [6981, 708]
+	},
+
+
+	"position_5": {
+		"label": "scavInnerAssembly1",
+		"pos": [1579, 2762]
+	},
+
+
+	"position_6": {
+		"label": "scavInnerAssembly2",
+		"pos": [3658, 1997]
+	},
+
+
+	"position_7": {
+		"label": "scavInnerAssembly3",
+		"pos": [2501, 1618]
+	},
+
+
+	"position_8": {
+		"label": "scavPatrolPos1",
+		"pos": [6221, 6830]
+	},
+
+
+	"position_9": {
+		"label": "scavPatrolPos2",
+		"pos": [4349, 7475]
+	},
+
+
+	"position_10": {
+		"label": "scavPatrolPos3",
+		"pos": [3471, 8993]
+	},
+
+
+	"position_11": {
+		"label": "scavPatrolPos4",
+		"pos": [2029, 8038]
+	},
+
+
+	"position_12": {
+		"label": "scavPatrolPos5",
+		"pos": [1470, 5430]
+	},
+
+
+	"position_13": {
+		"label": "scavPatrolPos6",
+		"pos": [3515, 5871]
+	},
+
+
+	"position_14": {
+		"label": "scavPatrolPos7",
+		"pos": [5284, 1263]
+	},
+
+
+	"position_15": {
+		"label": "scavPatrolPos8",
+		"pos": [7255, 2370]
+	},
+
+
+	"position_16": {
+		"label": "scavPatrolPos9",
+		"pos": [6371, 3562]
+	},
+
+
+	"position_17": {
+		"label": "scavPatrolPos10",
+		"pos": [2045, 763]
+	},
+
+
+	"position_18": {
+		"label": "scavPatrolPos11",
+		"pos": [1841, 3170]
+	},
+
+
+	"position_19": {
+		"label": "scavPatrolPos12",
+		"pos": [3285, 2477]
+	},
+
+
+	"position_20": {
+		"label": "heliAttackPos",
+		"pos": [438, 287]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [7168, 6528],
+		"pos2": [7551, 6911]
+	},
+
+
+	"area_1": {
+		"label": "landingZoneCharlie",
+		"pos1": [3584, 9216],
+		"pos2": [3968, 9600]
+	},
+
+
+	"area_2": {
+		"label": "landingZoneFoxtrot",
+		"pos1": [384, 7808],
+		"pos2": [768, 8192]
+	},
+
+
+	"area_3": {
+		"label": "landingZoneGolf",
+		"pos1": [7424, 3968],
+		"pos2": [7808, 4352]
+	},
+
+
+	"area_4": {
+		"label": "scavLZBase1",
+		"pos1": [3200, 8704],
+		"pos2": [4352, 9600]
+	},
+
+
+	"area_5": {
+		"label": "scavLZBase2",
+		"pos1": [384, 7296],
+		"pos2": [1536, 8448]
+	},
+
+
+	"area_6": {
+		"label": "scavLZBase3",
+		"pos1": [6784, 3200],
+		"pos2": [7808, 4480]
+	},
+
+
+	"area_7": {
+		"label": "scavOuterBase1",
+		"pos1": [1408, 6144],
+		"pos2": [3072, 7040]
+	},
+
+
+	"area_8": {
+		"label": "scavOuterBase2",
+		"pos1": [3328, 7424],
+		"pos2": [3840, 7808]
+	},
+
+
+	"area_9": {
+		"label": "scavOuterBase3",
+		"pos1": [4096, 5504],
+		"pos2": [6272, 8064]
+	},
+
+
+	"area_10": {
+		"label": "scavOuterBase4",
+		"pos1": [5504, 384],
+		"pos2": [7424, 1536]
+	},
+
+
+	"area_11": {
+		"label": "nasdaPowerSystems",
+		"pos1": [896, 3072],
+		"pos2": [1536, 4096]
+	},
+
+
+	"area_12": {
+		"label": "powerCaptureZone",
+		"pos1": [640, 2816],
+		"pos2": [1792, 4352]
+	},
+
+
+	"area_13": {
+		"label": "uplinkCaptureZone",
+		"pos1": [2048, 2432],
+		"pos2": [2816, 3200]
+	},
+
+
+	"area_14": {
+		"label": "vtolFactoryCaptureZone",
+		"pos1": [896, 768],
+		"pos2": [1792, 1664]
+	},
+
+
+	"area_15": {
+		"label": "scavAmbushGroup",
+		"pos1": [7424, 9472],
+		"pos2": [7808, 9728]
+	},
+
+
+	"area_16": {
+		"label": "scavPatrolGroup1",
+		"pos1": [1664, 4736],
+		"pos2": [2176, 4992]
+	},
+
+
+	"area_17": {
+		"label": "scavPatrolGroup2",
+		"pos1": [6400, 2176],
+		"pos2": [6912, 2432]
+	},
+
+
+	"area_18": {
+		"label": "scavPatrolGroup3",
+		"pos1": [3072, 2560],
+		"pos2": [3456, 2816]
+	},
+
+
+	"area_19": {
+		"label": "compromiseZone",
+		"pos1": [6656, 6272],
+		"pos2": [7936, 7296]
+	},
+
+
+	"area_20": {
+		"label": "scavCraneZone",
+		"pos1": [768, 384],
+		"pos2": [4480, 5248]
+	},
+
+
+	"object_0": {
+		"label": "uplink",
+		"id": 4217,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "heliTower1",
+		"id": 4715,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "vtolFactory",
+		"id": 4244,
+		"player": 1,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "scavOuterFactory1",
+		"id": 4283,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "repairFacility",
+		"id": 4787,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "scavOuterFactory2",
+		"id": 4284,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "scavInnerFactory1",
+		"id": 4288,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "scavOuterFactory5",
+		"id": 4286,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "scavInnerFactory2",
+		"id": 4289,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "heliTower2",
+		"id": 4281,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "scavOuterFactory3",
+		"id": 4326,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_11": {
+		"label": "scavOuterFactory4",
+		"id": 4285,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_12": {
+		"label": "scavInnerFactory3",
+		"id": 4287,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [4417, 195],
+		"radius": 128,
+		"subscriber": 6
+	}
+}

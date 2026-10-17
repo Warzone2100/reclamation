@@ -1,0 +1,716 @@
+{
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [8576, 8320],
+		"pos2": [8960, 8704]
+	},
+
+
+	"area_1": {
+		"label": "infEntry1",
+		"pos1": [512, 128],
+		"pos2": [1024, 384]
+	},
+
+
+	"area_2": {
+		"label": "infEntry2",
+		"pos1": [3072, 128],
+		"pos2": [3584, 384]
+	},
+
+
+	"area_3": {
+		"label": "infEntry3",
+		"pos1": [4992, 128],
+		"pos2": [5632, 384]
+	},
+
+
+	"area_4": {
+		"label": "infEntry4",
+		"pos1": [7680, 128],
+		"pos2": [8320, 384]
+	},
+
+
+	"area_5": {
+		"label": "infEntry5",
+		"pos1": [10752, 128],
+		"pos2": [11904, 384]
+	},
+
+
+	"area_6": {
+		"label": "infEntry6",
+		"pos1": [13696, 128],
+		"pos2": [14080, 384]
+	},
+
+
+	"area_7": {
+		"label": "infEntry8",
+		"pos1": [14976, 1920],
+		"pos2": [15232, 2944]
+	},
+
+
+	"area_8": {
+		"label": "infEntry9",
+		"pos1": [14976, 3712],
+		"pos2": [15232, 4480]
+	},
+
+
+	"area_9": {
+		"label": "infEntry10",
+		"pos1": [14976, 5120],
+		"pos2": [15232, 5632]
+	},
+
+
+	"area_10": {
+		"label": "infEntry11",
+		"pos1": [14976, 5888],
+		"pos2": [15232, 6528]
+	},
+
+
+	"area_11": {
+		"label": "infEntry12",
+		"pos1": [14976, 8960],
+		"pos2": [15232, 9984]
+	},
+
+
+	"area_12": {
+		"label": "infEntry13",
+		"pos1": [14976, 10496],
+		"pos2": [15232, 11264]
+	},
+
+
+	"area_13": {
+		"label": "infEntry14",
+		"pos1": [14976, 11776],
+		"pos2": [15232, 12800]
+	},
+
+
+	"area_14": {
+		"label": "infEntry15",
+		"pos1": [13568, 14976],
+		"pos2": [14080, 15232]
+	},
+
+
+	"area_15": {
+		"label": "infEntry16",
+		"pos1": [11776, 14976],
+		"pos2": [12672, 15232]
+	},
+
+
+	"area_16": {
+		"label": "infEntry17",
+		"pos1": [9472, 14976],
+		"pos2": [10496, 15232]
+	},
+
+
+	"area_17": {
+		"label": "infEntry18",
+		"pos1": [4480, 14976],
+		"pos2": [5760, 15232]
+	},
+
+
+	"area_18": {
+		"label": "infEntry19",
+		"pos1": [768, 14976],
+		"pos2": [1664, 15232]
+	},
+
+
+	"area_19": {
+		"label": "infEntry20",
+		"pos1": [128, 13568],
+		"pos2": [384, 14592]
+	},
+
+
+	"area_20": {
+		"label": "infEntry21",
+		"pos1": [128, 12544],
+		"pos2": [384, 13056]
+	},
+
+
+	"area_21": {
+		"label": "infEntry22",
+		"pos1": [128, 9088],
+		"pos2": [384, 9856]
+	},
+
+
+	"area_22": {
+		"label": "infEntry23",
+		"pos1": [128, 7424],
+		"pos2": [384, 8192]
+	},
+
+
+	"area_23": {
+		"label": "infEntry24",
+		"pos1": [128, 4096],
+		"pos2": [384, 4864]
+	},
+
+
+	"area_24": {
+		"label": "infEntry25",
+		"pos1": [1792, 128],
+		"pos2": [2304, 384]
+	},
+
+
+	"area_25": {
+		"label": "infEntry26",
+		"pos1": [128, 10880],
+		"pos2": [384, 11520]
+	},
+
+
+	"area_26": {
+		"label": "infBase1",
+		"pos1": [384, 384],
+		"pos2": [3200, 3200]
+	},
+
+
+	"area_27": {
+		"label": "infBase2",
+		"pos1": [3456, 384],
+		"pos2": [3968, 1024]
+	},
+
+
+	"area_28": {
+		"label": "infBase3",
+		"pos1": [4224, 640],
+		"pos2": [4992, 1536]
+	},
+
+
+	"area_29": {
+		"label": "infBase4",
+		"pos1": [3584, 2560],
+		"pos2": [5888, 3456]
+	},
+
+
+	"area_30": {
+		"label": "infBase5",
+		"pos1": [3328, 4096],
+		"pos2": [5120, 5248]
+	},
+
+
+	"area_31": {
+		"label": "infBase6",
+		"pos1": [7296, 384],
+		"pos2": [10112, 2688]
+	},
+
+
+	"area_32": {
+		"label": "infBase7",
+		"pos1": [9344, 3584],
+		"pos2": [10752, 5120]
+	},
+
+
+	"area_33": {
+		"label": "infBase8",
+		"pos1": [10752, 640],
+		"pos2": [11776, 1536]
+	},
+
+
+	"area_34": {
+		"label": "infBase9",
+		"pos1": [11392, 2176],
+		"pos2": [12544, 3456]
+	},
+
+
+	"area_35": {
+		"label": "infBase10",
+		"pos1": [12160, 384],
+		"pos2": [13440, 1408]
+	},
+
+
+	"area_36": {
+		"label": "infBase11",
+		"pos1": [14080, 384],
+		"pos2": [14976, 1536]
+	},
+
+
+	"area_37": {
+		"label": "infBase12",
+		"pos1": [13440, 1536],
+		"pos2": [14848, 2432]
+	},
+
+
+	"area_38": {
+		"label": "infBase13",
+		"pos1": [13184, 3584],
+		"pos2": [14976, 6528]
+	},
+
+
+	"area_39": {
+		"label": "infBase14",
+		"pos1": [12160, 7296],
+		"pos2": [13056, 8576]
+	},
+
+
+	"area_40": {
+		"label": "infBase15",
+		"pos1": [13184, 8576],
+		"pos2": [14976, 10368]
+	},
+
+
+	"area_41": {
+		"label": "infBase16",
+		"pos1": [10752, 10624],
+		"pos2": [11904, 11776]
+	},
+
+
+	"area_42": {
+		"label": "infBase17",
+		"pos1": [10624, 12544],
+		"pos2": [11648, 13056]
+	},
+
+
+	"area_43": {
+		"label": "infBase18",
+		"pos1": [12800, 12160],
+		"pos2": [14208, 13952]
+	},
+
+
+	"area_44": {
+		"label": "infBase19",
+		"pos1": [11264, 13952],
+		"pos2": [12800, 14848]
+	},
+
+
+	"area_45": {
+		"label": "infBase20",
+		"pos1": [8192, 13824],
+		"pos2": [8960, 14976]
+	},
+
+
+	"area_46": {
+		"label": "infBase21",
+		"pos1": [7040, 12544],
+		"pos2": [8192, 13184]
+	},
+
+
+	"area_47": {
+		"label": "infBase22",
+		"pos1": [4864, 14080],
+		"pos2": [5888, 14976]
+	},
+
+
+	"area_48": {
+		"label": "infBase23",
+		"pos1": [384, 13184],
+		"pos2": [4096, 14976]
+	},
+
+
+	"area_49": {
+		"label": "infBase24",
+		"pos1": [512, 12160],
+		"pos2": [2304, 13056]
+	},
+
+
+	"area_50": {
+		"label": "infBase25",
+		"pos1": [2304, 10752],
+		"pos2": [3712, 11520]
+	},
+
+
+	"area_51": {
+		"label": "infBase26",
+		"pos1": [1408, 9344],
+		"pos2": [2944, 10624]
+	},
+
+
+	"area_52": {
+		"label": "infBase27",
+		"pos1": [512, 8448],
+		"pos2": [1280, 10112]
+	},
+
+
+	"area_53": {
+		"label": "infBase28",
+		"pos1": [512, 5504],
+		"pos2": [2048, 7040]
+	},
+
+
+	"area_54": {
+		"label": "infBase29",
+		"pos1": [384, 3840],
+		"pos2": [1536, 5248]
+	},
+
+
+	"area_55": {
+		"label": "westAmbushGroup",
+		"pos1": [1280, 7296],
+		"pos2": [2176, 7936]
+	},
+
+
+	"area_56": {
+		"label": "seAmbushGroup",
+		"pos1": [8320, 12928],
+		"pos2": [8960, 13440]
+	},
+
+
+	"area_57": {
+		"label": "swAmbushGroup",
+		"pos1": [5632, 12672],
+		"pos2": [6272, 13184]
+	},
+
+
+	"area_58": {
+		"label": "northAmbushGroup",
+		"pos1": [7552, 3328],
+		"pos2": [8320, 3840]
+	},
+
+
+	"area_59": {
+		"label": "infEntry7",
+		"pos1": [14976, 256],
+		"pos2": [15232, 768]
+	},
+
+
+	"object_0": {
+		"label": "infFactory1",
+		"id": 1,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "infFactory13",
+		"id": 7,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "infHvyFactory1",
+		"id": 19,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "infFactory24",
+		"id": 34,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "infFactory12",
+		"id": 48,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "infFactory20",
+		"id": 53,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "infFactory14",
+		"id": 56,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "infFactory7",
+		"id": 74,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "infFactory5",
+		"id": 78,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "infCybFactory5",
+		"id": 87,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "infFactory2",
+		"id": 100,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_11": {
+		"label": "infCybFactory1",
+		"id": 108,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_12": {
+		"label": "infFactory16",
+		"id": 142,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_13": {
+		"label": "infHvyFactory2",
+		"id": 228,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_14": {
+		"label": "infHvyFactory5",
+		"id": 232,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_15": {
+		"label": "infCybFactory2",
+		"id": 321,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_16": {
+		"label": "infHvyFactory3",
+		"id": 339,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_17": {
+		"label": "infCybFactory4",
+		"id": 369,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_18": {
+		"label": "infHvyFactory4",
+		"id": 378,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_19": {
+		"label": "infFactory3",
+		"id": 472,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_20": {
+		"label": "infFactory4",
+		"id": 539,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_21": {
+		"label": "infFactory6",
+		"id": 571,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_22": {
+		"label": "infFactory9",
+		"id": 646,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_23": {
+		"label": "infFactory8",
+		"id": 654,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_24": {
+		"label": "infFactory10",
+		"id": 679,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_25": {
+		"label": "infFactory11",
+		"id": 695,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_26": {
+		"label": "infFactory15",
+		"id": 788,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_27": {
+		"label": "infFactory18",
+		"id": 831,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_28": {
+		"label": "infFactory21",
+		"id": 887,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_29": {
+		"label": "infFactory23",
+		"id": 902,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_30": {
+		"label": "infFactory22",
+		"id": 906,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_31": {
+		"label": "infFactory19",
+		"id": 923,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_32": {
+		"label": "infCybFactory3",
+		"id": 939,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_33": {
+		"label": "infFactory17",
+		"id": 948,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_34": {
+		"label": "infFactory25",
+		"id": 978,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_35": {
+		"label": "infResearch",
+		"id": 1113,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [6525, 277],
+		"subscriber": 4,
+		"radius": 255
+	}
+}

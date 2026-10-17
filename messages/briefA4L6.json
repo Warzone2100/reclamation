@@ -1,0 +1,86 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A4L6_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L6intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L6brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A4L6_BMSG1",
+                    "A4L6_BMSG2",
+                    "A4L6_BMSG3",
+                    "A4L6_BMSG4",
+                    "A4L6_BMSG5",
+                    "A4L6_BMSG6",
+                    "A4L6_BMSG7",
+                    "A4L6_BMSG8",
+                    "A4L6_BMSG9",
+                    "A4L6_BMSG10",
+                    "A4L6_BMSG11",
+                    "A4L6_BMSG12",
+                    "A4L6_BMSG13",
+                    "A4L6_BMSG14",
+                    "A4L6_BMSG15",
+                    "A4L6_BMSG16",
+                    "A4L6_BMSG17",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A4L6_DELTA": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L6avenger.webm" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L6delta.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A4L6_DELTAMSG1",
+                    "A4L6_DELTAMSG2",
+                    "A4L6_DELTAMSG3",
+                    "A4L6_DELTAMSG4",
+                    "A4L6_DELTAMSG5",
+                    "A4L6_DELTAMSG6",
+                    "A4L6_DELTAMSG7",
+                    "A4L6_DELTAMSG8",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A4L6_COLLECTIVE": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L6collective.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A4L6_COLMSG1",
+                    "A4L6_COLMSG2",
+                    "A4L6_COLMSG3",
+                    "A4L6_COLMSG4",
+                    "A4L6_COLMSG5",
+                    "A4L6_COLMSG6",
+                    "A4L6_COLMSG7",
+                    "A4L6_COLMSG8",
+                    "A4L6_COLMSG9",
+                    "A4L6_COLMSG10",
+                    "A4L6_COLMSG11",
+                    "A4L6_COLMSG12",
+                    "A4L6_COLMSG13",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A4L6_TRANSPORT": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L6transport.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "A4L6_TRANSMSG1",
+                    "A4L6_TRANSMSG2",
+                    "A4L6_TRANSMSG3",
+                    "A4L6_TRANSMSG4",
+                    "A4L6_TRANSMSG5",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

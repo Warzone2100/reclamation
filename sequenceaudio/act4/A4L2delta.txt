@@ -1,0 +1,5 @@
+-120 50		3.0		6.0		_("<LIEUTENANT>: Bravo, I'm detecting Team Delta's units in the area!")
+-120 50		6.0		8.0		_("<LIEUTENANT>: They must be here for the uplink.")
+-120 50		9.0		12.0	_("<LIEUTENANT>: ...But, we still need that satellite data.")
+-120 50		12.0	15.0	_("<LIEUTENANT>: Do what you have to do, Commander Bravo.")
+-120 50		15.0	17.0	_("<LIEUTENANT>: But be careful.")

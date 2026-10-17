@@ -5,9 +5,21 @@
 
 function cam_eventPickup(feature, droid)
 {
-	if (feature.stattype === ARTIFACT)
+	if (droid.player === CAM_HUMAN_PLAYER)
 	{
-		__camPickupArtifact(feature);
+		if (feature.stattype === ARTIFACT)
+		{
+			__camPickupArtifact(feature);
+		}
+		else if (feature.stattype === OIL_DRUM && feature.name === "Black Box")
+		{
+			camCollectBlackBox(feature.x, feature.y);
+		}
+	}
+	else if (feature.stattype === ARTIFACT && droid.droidType === DROID_CONSTRUCT)
+	{
+		// AI Truck picking up the artifact
+		__camStoreArtifact(feature);
 	}
 }
 
@@ -48,21 +60,16 @@ function cam_eventChat(from, to, message)
 	{
 		__camShowVictoryConditions();
 	}
-	if (message.lastIndexOf("rank ", 0) === 0)
+	if (message === "skip")
 	{
-		camSetExpLevel(Number(message.substring(5)));
-		camSetOnMapEnemyUnitExp();
-	}
-	if (message.lastIndexOf("prop ", 0) === 0)
-	{
-		camSetPropulsionTypeLimit(Number(message.substring(5)));
+		camSkipDialogue();
 	}
 	if (!camIsCheating())
 	{
 		return;
 	}
 	camTrace(from, to, message);
-	if (message === "let me win" && __camNextLevel !== "SUB_1_1")
+	if (message === "let me win" && __camNextLevel !== "A4L6")
 	{
 		__camLetMeWin();
 	}
@@ -108,9 +115,12 @@ function cam_eventStartLevel()
 	// re-initialized on save-load. Otherwise, they are initialized
 	// on the global scope (or wherever necessary).
 	__camGroupInfo = {};
+	__camRefillableGroupInfo = {};
+	__camLabelInfo = [];
 	__camFactoryInfo = {};
 	__camFactoryQueue = {};
-	__camTruckInfo = {};
+	__camTruckInfo = [];
+	__camTruckAssignList = [];
 	__camNeedBonusTime = false;
 	__camDefeatOnTimeout = false;
 	__camRTLZTicker = 0;
@@ -134,19 +144,40 @@ function cam_eventStartLevel()
 	__camNumTransporterExits = 0;
 	__camAllowVictoryMsgClear = true;
 	__camExpLevel = 0;
-	camSetPropulsionTypeLimit(); //disable the propulsion changer by default
+	__camQueuedDialogue = [];
+	__camLatestDialogueTime = 0;
+	__camFogRGB = {};
+	__camFogTargetRGB = {time: 0};
+	__camSunStats = {};
+	__camSunTargetIntensity = {time: 0};
+	__camPlayerVisibilities = [];
+	__camBonusPowerGranted = false;
+	__camPreDamageModifier = [];
+	__camDisableFactoryAutoManagement = false;
+	__camCapturedFactoryIdx = 0;
 	__camAiPowerReset(); //grant power to the AI
+	camSetFog(); // Set fog to it's default color
+	camSetSunPos(); // Set the sun to it's default position
+	camSetSunIntensity(); // Set the sun to it's default position
+	camSetWeather(CAM_WEATHER_DEFAULT);
+	camSetSkyType(CAM_SKY_DAY);
+	__camSetLimits();
 	setTimer("__camSpawnVtols", camSecondsToMilliseconds(0.5));
 	setTimer("__camRetreatVtols", camSecondsToMilliseconds(0.9));
-	setTimer("__checkVtolSpawnObject", camSecondsToMilliseconds(5));
+	// setTimer("__checkVtolSpawnObject", camSecondsToMilliseconds(5));
 	setTimer("__checkEnemyFactoryProductionTick", camSecondsToMilliseconds(0.8));
 	setTimer("__camTick", camSecondsToMilliseconds(1)); // campaign pollers
-	setTimer("__camTruckTick", camSecondsToMilliseconds(10) + camSecondsToMilliseconds(0.1)); // some slower campaign pollers
+	setTimer("__camTruckTick", camSecondsToMilliseconds(5));
 	setTimer("__camAiPowerReset", camMinutesToMilliseconds(3)); //reset AI power every so often
 	setTimer("__camShowVictoryConditions", camMinutesToMilliseconds(5));
+	setTimer("__camViewObjects", camSecondsToMilliseconds(1));
 	setTimer("__camTacticsTick", camSecondsToMilliseconds(0.1));
-	queue("__camShowBetaHintEarly", camSecondsToMilliseconds(4));
+	setTimer("__camPlayScheduledDialogues", camSecondsToMilliseconds(0.1));
+	setTimer("__camGradualEffectsTick", __CAM_GRADUAL_TICK_RATE);
 	queue("__camGrantSpecialResearch", camSecondsToMilliseconds(6));
+	queue("__camEnableGuideTopics", camSecondsToMilliseconds(0.1)); // delayed to handle when mission scripts add research
+	queue("__camResetPower", camSecondsToMilliseconds(1));
+	setTimer("__camWeatherCycle", camSecondsToMilliseconds(45));
 }
 
 function cam_eventDroidBuilt(droid, structure)
@@ -155,25 +186,94 @@ function cam_eventDroidBuilt(droid, structure)
 	{
 		return;
 	}
-	if (!camPlayerMatchesFilter(structure.player, ENEMIES))
+	if (structure.player === CAM_HUMAN_PLAYER || droid.player === CAM_HUMAN_PLAYER)
 	{
 		return;
 	}
-	if (!camPlayerMatchesFilter(droid.player, ENEMIES))
+	if (droid.player === CAM_INFESTED && !__camDisableFactoryAutoManagement)
 	{
-		return;
+		// If an Infested droid was produced from a factory, immediately set it to target the player
+		if (!camDef(__camInfestedGlobalAttackGroup))
+		{
+			__camInfestedGlobalAttackGroup = camMakeGroup(droid);
+			camManageGroup(__camInfestedGlobalAttackGroup, CAM_ORDER_ATTACK, {
+				simplified: true,
+				removable: false,
+				targetPlayer: CAM_HUMAN_PLAYER
+			});
+		}
+		else
+		{
+			groupAdd(__camInfestedGlobalAttackGroup, droid);
+		}
 	}
 	if (camGetNexusState() && droid.player === CAM_NEXUS && __camNextLevel === "CAM3C" && camRand(100) < 7)
 	{
 		// Occasionally hint that NEXUS is producing units on Gamma 5.
-		playSound(CAM_PRODUCTION_COMPLETE_SND);
+		playSound(cam_sounds.nexus.productionCompleted);
+	}
+	if (droid.player === CAM_HUMAN_PLAYER)
+	{
+		// handling guide topics for built units
+		if (droid.isVTOL)
+		{
+			camCallOnce("__camDoAddVTOLUseTopics");
+		}
+		else if (droid.droidType === DROID_COMMAND)
+		{
+			camCallOnce("__camDoAddCommanderUseTopics");
+		}
 	}
 	if (!camDef(__camFactoryInfo))
 	{
 		return;
 	}
-	camSetDroidExperience(droid);
-	__camAddDroidToFactoryGroup(droid, structure);
+	if (droid.droidType === DROID_CONSTRUCT)
+	{
+		__camAssignTruck(droid);
+		return;
+	}
+	__camPreDamageDroid(droid);
+	if (droid.player !== CAM_INFESTED || __camDisableFactoryAutoManagement)
+	{
+		__camAddDroidToFactoryGroup(droid, structure);
+	}
+}
+
+function cam_eventStructureBuilt(struct, droid)
+{
+	if (struct.player !== CAM_HUMAN_PLAYER)
+	{
+		if (struct.stattype === FACTORY || struct.stattype === VTOL_FACTORY 
+			|| struct.stattype === RESEARCH_LAB || struct.stattype === POWER_GEN)
+		{
+			__camTruckCheckForModules(struct.player);
+		}
+
+		// Check if we should re-apply a label to this structure.
+		// If it has, then automatically start managing it again.
+		const PLAYER = struct.player;
+		const X_COORD = struct.x;
+		const Y_COORD = struct.y;
+		const STATTYPE = struct.stattype;
+
+		for (let i = 0; i < __camLabelInfo.length; i++)
+		{
+			const labelInfo = __camLabelInfo[i];
+
+			// Determine if this newly built structure is the same as the old one
+			if (PLAYER === labelInfo.player && X_COORD === labelInfo.x && Y_COORD === labelInfo.y 
+				&& STATTYPE === labelInfo.stattype)
+			{
+				// Everything matches, set the label to refer to the newly built structure now
+				// console("re-applied label: " + labelInfo.label)
+				addLabel(struct, labelInfo.label);
+
+				break;
+			}
+		}
+		__camUpdateBaseGroups(struct);
+	}
 }
 
 function cam_eventDestroyed(obj)
@@ -194,8 +294,17 @@ function cam_eventDestroyed(obj)
 			__camRemoveIncomingTransporter(obj.player);
 			if (obj.player === CAM_HUMAN_PLAYER)
 			{
-				// Player will lose if their transporter gets destroyed
-				__camGameLost();
+				// Player will lose if their transporter gets destroyed outside of evacuation missions
+				// If we're in an evacuation mission, end the mission in victory or failure now
+				if (__camWinLossCallback === CAM_VICTORY_EVACUATION && camCheckExtraObjective())
+				{
+					// Player can progress anyway
+					camEndMission();
+					return;
+				}
+
+				// Otherwise, game over
+				camEndMission(false);
 				return;
 			}
 			if (camDef(__camPlayerTransports[obj.player]))
@@ -203,11 +312,32 @@ function cam_eventDestroyed(obj)
 				delete __camPlayerTransports[obj.player];
 			}
 		}
-		else if (camDef(obj.weapons[0]) && obj.weapons[0].id === _("BoomTickSac"))
+		else if (camDef(obj.weapons[0]))
 		{
-			const BOOM_BAIT_ID = addDroid(CAM_INFESTED, obj.x, obj.y, "Boom Bait",
-				"BoomBaitBody", "BaBaLegs", "", "", "InfestedMelee").id; // Spawn an infested civilian where the boom tick died...
-			queue("__camDetonateBoomtick", __CAM_TICKS_PER_FRAME, BOOM_BAIT_ID + ""); // ...then blow them up
+			if (obj.weapons[0].id === "BoomTickSac")
+			{
+
+				const BOOM_BAIT_ID = addDroid(CAM_INFESTED, obj.x, obj.y, "Boom Bait",
+					"BoomBaitBody", "BaBaLegs", "", "", "InfestedMelee").id; // Spawn an special infested civilian where the boom tick died...
+				queue("__camDetonateBoomtick", __CAM_TICKS_PER_FRAME, BOOM_BAIT_ID + ""); // ...then blow them up
+
+				// Cause an explosion at the location of the Boom Tick
+				// fireWeaponAtLoc("BoomTickBlast", obj.x, obj.y, CAM_INFESTED);
+				// fireWeaponAtLoc("SmallExplosion", obj.x, obj.y, CAM_INFESTED);
+			}
+			else if (obj.weapons[0].id === "InfestedSpade1Trans")
+			{
+				// Summon one last group of Infested on death__camScavStructList
+				camSendReinforcement(obj.player, camMakePos(obj), 
+					camRandInfTemplates(__camInfTruckSummonTemplates, difficulty, __CAM_INFTRUCK_FODDER_COUNT), CAM_REINFORCE_GROUND);
+			}
+		}
+	}
+	else if (obj.type === STRUCTURE)
+	{
+		if (obj.player !== CAM_HUMAN_PLAYER)
+		{
+			__camTruckCheckMissingStructs(obj.player);
 		}
 	}
 }
@@ -233,12 +363,12 @@ function cam_eventTransporterExit(transport)
 		//Audio cue to let the player know they can bring in reinforcements. This
 		//assumes the player can bring in reinforcements immediately after the first
 		//transporter leaves the map. Mission scripts can handle special situations.
-		if (__camNumTransporterExits === 1 &&
+		if (//__camNumTransporterExits === 1 &&
 			((__camWinLossCallback === CAM_VICTORY_OFFWORLD &&
 			__camVictoryData.reinforcements > -1) ||
 			__camWinLossCallback === CAM_VICTORY_STANDARD))
 		{
-			const __REINFORCEMENTS_AVAILABLE_SOUND = "pcv440.ogg";
+			const __REINFORCEMENTS_AVAILABLE_SOUND = cam_sounds.reinforcementsAreAvailable;
 			playSound(__REINFORCEMENTS_AVAILABLE_SOUND);
 			//Show the transporter reinforcement timer when it leaves for the first time.
 			if (__camWinLossCallback === CAM_VICTORY_OFFWORLD)
@@ -246,8 +376,8 @@ function cam_eventTransporterExit(transport)
 				setReinforcementTime(__camVictoryData.reinforcements);
 			}
 		}
-		// Show how long until the transporter comes back on Beta End.
-		if (__camWinLossCallback === CAM_VICTORY_TIMEOUT)
+		// Show how long until the transporter comes on evacuation missions
+		if (__camWinLossCallback === CAM_VICTORY_EVACUATION)
 		{
 			setReinforcementTime(__camVictoryData.reinforcements);
 		}
@@ -274,11 +404,13 @@ function cam_eventTransporterLanded(transport)
 	}
 	else
 	{
-		// Make the transporter timer on Beta End disappear, since the transporter has arrived.
-		if (__camWinLossCallback === CAM_VICTORY_TIMEOUT)
+		// Make the transporter timer on evac missions disappear, since the transporter has arrived.
+		if (__camWinLossCallback === CAM_VICTORY_EVACUATION)
 		{
 			setReinforcementTime(-1);
 		}
+		// Handle enabling guide topics relevant to units potentially "gifted" by libcampaign
+		__camEnableGuideTopicsForTransport(transport);
 	}
 }
 
@@ -289,63 +421,71 @@ function cam_eventMissionTimeout()
 		camTrace("0 minutes remaining.");
 		__camGameLost();
 	}
-	else if (!camIsScripted())
+	else if (__camWinLossCallback !== CAM_VICTORY_SCRIPTED)
 	{
 		const __WON = camCheckExtraObjective();
 		if (!__WON)
 		{
-			__camGameLost();
+			camEndMission(false);
 			return;
 		}
-		__camGameWon();
+		camEndMission();
 	}
 }
 
 function cam_eventAttacked(victim, attacker)
 {
-	if (camDef(victim) && victim && victim.type === DROID)
+	if (camDef(victim) && victim)
 	{
-		if (victim.player !== CAM_HUMAN_PLAYER && !allianceExistsBetween(CAM_HUMAN_PLAYER, victim.player))
+		if (victim.type === DROID)
 		{
-			//Try dynamically creating a group of nearby droids not part
-			//of a group. Only supports those who can hit ground units.
-			if (victim.group === null)
+			if (victim.player !== CAM_HUMAN_PLAYER && !allianceExistsBetween(CAM_HUMAN_PLAYER, victim.player))
 			{
-				const __DEFAULT_RADIUS = 6;
-				const loc = {x: victim.x, y: victim.y};
-				const droids = enumRange(loc.x, loc.y, __DEFAULT_RADIUS, victim.player, false).filter((obj) => (
-					obj.type === DROID &&
-					obj.group === null &&
-					(obj.canHitGround || obj.isSensor) &&
-					obj.droidType !== DROID_CONSTRUCT &&
-					!camIsTransporter(obj) &&
-					!camInNeverGroup(obj)
-				));
-				if (droids.length === 0)
+				//Try dynamically creating a group of nearby droids not part
+				//of a group. Only supports those who can hit ground units.
+				if (victim.group === null)
 				{
-					return;
-				}
-				camManageGroup(camMakeGroup(droids), CAM_ORDER_ATTACK, {
-					count: -1,
-					regroup: false,
-					repair: 70,
-					targetPlayer: CAM_HUMAN_PLAYER
-				});
-			}
-
-			if (camDef(__camGroupInfo[victim.group]))
-			{
-				__camGroupInfo[victim.group].lastHit = gameTime;
-
-				//Increased Nexus intelligence if struck on cam3-4
-				if (__camNextLevel === CAM_GAMMA_OUT)
-				{
-					if (__camGroupInfo[victim.group].order === CAM_ORDER_PATROL)
+					const __DEFAULT_RADIUS = 6;
+					const loc = {x: victim.x, y: victim.y};
+					const droids = enumRange(loc.x, loc.y, __DEFAULT_RADIUS, victim.player, false).filter((obj) => (
+						obj.type === DROID &&
+						obj.group === null &&
+						(obj.canHitGround || obj.isSensor) &&
+						obj.droidType !== DROID_CONSTRUCT &&
+						!camIsTransporter(obj) &&
+						!camInNeverGroup(obj) &&
+						obj.body.indexOf("Broken") == -1 // Do not autogroup "derelict" units
+					));
+					if (droids.length === 0)
 					{
-						__camGroupInfo[victim.group].order = CAM_ORDER_ATTACK;
+						return;
 					}
+					camManageGroup(camMakeGroup(droids), CAM_ORDER_ATTACK, {
+						count: -1,
+						regroup: false,
+						repair: 70,
+						targetPlayer: CAM_HUMAN_PLAYER
+					});
+				}
+
+				if (camDef(__camGroupInfo[victim.group]))
+				{
+					__camGroupInfo[victim.group].lastHit = gameTime;
 				}
 			}
+
+			if (victim.droidType === DROID_WEAPON && camDef(victim.weapons[0]) 
+				&& victim.weapons[0].name === "InfestedSpade1Trans" && victim.id === attacker.id)
+			{
+				// Release a group of Infested from the Infested Truck...
+				camSendReinforcement(victim.player, camMakePos(victim), 
+					camRandInfTemplates(__camInfTruckSummonTemplates, difficulty, __CAM_INFTRUCK_FODDER_COUNT), CAM_REINFORCE_GROUND);
+			}
+		}
+		else if (victim.type === STRUCTURE && __camPlayerVisibilities[attacker.player] && !attacker.hasIndirect)
+		{
+			// If we're sharing vision with a player, reveal bases that they hit with non-artillery attacks
+			__camCheckBaseSeen(victim);
 		}
 	}
 }
@@ -355,49 +495,42 @@ function cam_eventGameLoaded()
 {
 	receiveAllEvents(true);
 	__camSaveLoading = true;
-	const scavKevlarMissions = [
-		"CAM_1CA", "SUB_1_4AS", "SUB_1_4A", "SUB_1_5S", "SUB_1_5",
-		"CAM_1A-C", "SUB_1_7S", "SUB_1_7", "SUB_1_DS", "CAM_1END", "SUB_2_5S"
-	];
 
-	//Need to set the scavenger kevlar vests when loading a save from later Alpha
-	//missions or else it reverts to the original texture.
-	for (let i = 0, l = scavKevlarMissions.length; i < l; ++i)
-	{
-		const __MISSION = scavKevlarMissions[i];
-		if (__camNextLevel === __MISSION)
-		{
-			if (tilesetType === "ARIZONA")
-			{
-				replaceTexture("page-7-barbarians-arizona.png",
-							"page-7-barbarians-kevlar.png");
-			}
-			else if (tilesetType === "URBAN")
-			{
-				replaceTexture("page-7-barbarians-arizona.png",
-							"page-7-barbarians-urban.png");
-			}
-			break;
-		}
-	}
+	// Reset the fog, sun, and sky to the correct values
+	setFogColour(__camFogRGB.r, __camFogRGB.g, __camFogRGB.b);
+	camSetSunPos(__camSunStats.x, __camSunStats.y, __camSunStats.z);
+	setSunIntensity(
+		__camSunStats.ar, __camSunStats.ag, __camSunStats.ab,
+		__camSunStats.dr, __camSunStats.dg, __camSunStats.db,
+		__camSunStats.sr, __camSunStats.sg, __camSunStats.sb
+	);
+	camSetSkyType();
+	__camWeatherCycle();
 
-	// Reset the fog colour to the correct value
-	setFogColour(__camFogR, __camFogG, __camFogB);
-
-	if (__camWinLossCallback === CAM_VICTORY_TIMEOUT
+	if (__camWinLossCallback === CAM_VICTORY_EVACUATION
 		&& enumDroid(CAM_HUMAN_PLAYER, DROID_SUPERTRANSPORTER).length === 0)
 	{
-		// If the transport is gone on Beta End, put a timer up to show when it'll be back
+		// If the transport is gone on an evac mission, put a timer up to show when it'll be back
 		setReinforcementTime(__camVictoryData.reinforcements);
+	}
+
+	if (__camBonusPowerGranted)
+	{
+		// Bonus power has already been granted, don't let the player generate more power
+		setPowerModifier(0, CAM_HUMAN_PLAYER);
 	}
 
 	//Subscribe to eventGroupSeen again.
 	camSetEnemyBases();
 
+	// Ensure appropriate guide topics are displayed
+	__camEnableGuideTopics();
+
 	//Reset any vars
 	__camCheatMode = false;
 
 	__camSaveLoading = false;
+	queue("__camResetPower", camSecondsToMilliseconds(1));
 }
 
 //Plays Nexus sounds if nexusActivated is true.
@@ -410,20 +543,20 @@ function cam_eventObjectTransfer(obj, from)
 		{
 			if (obj.stattype === DEFENSE)
 			{
-				snd = CAM_DEFENSE_ABSORBED_SND;
+				snd = cam_sounds.nexus.defensesAbsorbed;
 			}
 			else if (obj.stattype === RESEARCH_LAB)
 			{
-				snd = CAM_RES_ABSORBED_SND;
+				snd = cam_sounds.nexus.researchAbsorbed;
 			}
 			else
 			{
-				snd = CAM_STRUCTURE_ABSORBED_SND;
+				snd = cam_sounds.nexus.structureAbsorbed;
 			}
 		}
 		else if (obj.type === DROID)
 		{
-			snd = CAM_UNIT_ABSORBED_SND;
+			snd = cam_sounds.nexus.unitAbsorbed;
 		}
 
 		if (camDef(snd))
@@ -432,9 +565,42 @@ function cam_eventObjectTransfer(obj, from)
 		}
 		queue("camNexusLaugh", camSecondsToMilliseconds(1.5));
 	}
+	else if (obj.player === CAM_INFESTED)
+	{
+		// Swap to infested structure/droid variant
+		__camInfestObj(obj, from);
+
+		if (from === CAM_HUMAN_PLAYER)
+		{
+			// Play a sound alerting the player that their stuff's getting stealed
+			if (obj.type === STRUCTURE)
+			{
+				playSound(cam_sounds.infested.structureInfected); // "Structure Infected"
+			}
+			else if (obj.type === DROID)
+			{
+				playSound(cam_sounds.infested.unitInfected); // "Unit Infected"
+			}
+		}
+	}
 }
 
 function cam_eventVideoDone()
 {
 	__camEnqueueVideos(); //Play any remaining videos automatically.
+}
+
+function cam_eventResearched(research, structure, player)
+{
+	if (player !== CAM_HUMAN_PLAYER)
+	{
+		return;
+	}
+	let researchedByStruct = (camDef(structure) && structure);
+	if (!researchedByStruct)
+	{
+		return; // for now, return - don't think we need to process if researched by API call here?
+	}
+	// only pass the research in if it was completed by a structure (not if given by an API call, in which structure would be null)
+	__camProcessResearchGatedGuideTopics(research);
 }

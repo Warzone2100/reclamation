@@ -1,0 +1,6 @@
+-120 50		4.0		8.0		_("<LIEUTENANT>: General, all teams are ready to")
+-120 60		4.0		8.0		_("assault the Collective's prisoner camp.")
+-120 50		9.0		11.0	_("<CLAYDE>: Perfect. I'm deploying my diversion now.")
+-120 50		11.0	13.0	_("<CLAYDE>: Lieutenant, you're in charge of the assault.")
+-120 50		13.0	16.0	_("<CLAYDE>: Destroy that camp, and get our people home safely.")
+-120 50		16.0	18.0	_("<CLAYDE>: General Clayde, signing off.")

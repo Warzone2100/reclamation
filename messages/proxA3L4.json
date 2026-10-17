@@ -1,0 +1,15 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "COL_LZBASE1": { "message": "COLLZ_MSG", "x": 13120, "y": 4544, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE2": { "message": "COLLZ_MSG", "x": 15680, "y": 1216, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE3": { "message": "COLLZ_MSG", "x": 13888, "y": 7616, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_LZBASE4": { "message": "COLLZ_MSG", "x": 17216, "y": 6592, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "COL_ENTRY1": { "message": "ENEMYUNIT_MSG", "x": 18944, "y": 9856, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY2": { "message": "ENEMYUNIT_MSG", "x": 17472, "y": 9856, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY3": { "message": "ENEMYUNIT_MSG", "x": 14208, "y": 9856, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY6": { "message": "ENEMYUNIT_MSG", "x": 10624, "y": 6592, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY7": { "message": "ENEMYUNIT_MSG", "x": 10624, "y": 4352, "z": 0, "audio": "pcv378.ogg", "type": 0 },
+        "COL_ENTRY8": { "message": "ENEMYUNIT_MSG", "x": 10624, "y": 1152, "z": 0, "audio": "pcv378.ogg", "type": 0 }
+    }
+}

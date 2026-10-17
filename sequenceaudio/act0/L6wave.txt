@@ -1,0 +1,6 @@
+-120 50		4.0		8.0		_("<ASSOCIATE>: Commander Alpha, the Infested are converging")
+-120 60		4.0		8.0		_("towards your location en masse.")
+-120 50		8.0		12.0	_("<ASSOCIATE>: Their numbers are far too great to estimate;")
+-120 60		8.0		12.0	_("retreat immediately to the LZ for extraction.")
+-120 50		12.0	16.0	_("<ASSOCIATE>: There's no feasible way for your forces to maintain")
+-120 60		12.0	16.0	_("their position much longer.")

@@ -1,0 +1,71 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L7_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L7intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L7brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L7_BMSG1",
+                    "L7_BMSG2",
+                    "L7_BMSG3",
+                    "L7_BMSG4",
+                    "L7_BMSG5",
+                    "L7_BMSG6",
+                    "L7_BMSG7",
+                    "L7_BMSG8",
+                    "L7_BMSG9",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L7_REVEAL": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L7reveal1.webm" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L7reveal2.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L7_REVMSG1",
+                    "L7_REVMSG2",
+                    "L7_REVMSG3",
+                    "L7_REVMSG4",
+                    "L7_REVMSG5",
+                    "L7_REVMSG6",
+                    "L7_REVMSG7",
+                    "L7_REVMSG8",
+                    "L7_REVMSG9",
+                    "L7_REVMSG10",
+                    "L7_REVMSG11",
+                    "L7_REVMSG12",
+                    "L7_REVMSG13",
+                    "L7_REVMSG14",
+                    "L7_REVMSG15",
+                    "L7_REVMSG16",
+                    "L7_REVMSG17",
+                    "L7_REVMSG18",
+                    "L7_REVMSG19",
+                    "L7_REVMSG20",
+                    "L7_REVMSG21",
+                    "L7_REVMSG22",
+                    "L7_REVMSG23",
+                    "L7_REVMSG24",
+                    "L7_REVMSG25",
+                    "L7_REVMSG26",
+                    "L7_REVMSG27",
+                    "L7_REVMSG28",
+                    "L7_REVMSG29",
+                    "L7_REVMSG30",
+                    "L7_REVMSG31",
+                    "L7_REVMSG32",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L7_FLIGHT": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L7flight.webm" }
+            ]
+        }
+    }
+}

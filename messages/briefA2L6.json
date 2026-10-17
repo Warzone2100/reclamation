@@ -1,0 +1,48 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A2L6_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act2/A2L6intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act2/A2L6brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A2L6_BMSG1",
+                    "A2L6_BMSG2",
+                    "A2L6_BMSG3",
+                    "A2L6_BMSG4",
+                    "A2L6_BMSG5",
+                    "A2L6_BMSG6",
+                    "A2L6_BMSG7",
+                    "A2L6_BMSG8",
+                    "A2L6_BMSG9",
+                    "A2L6_BMSG10",
+                    "A2L6_BMSG11",
+                    "A2L6_BMSG12",
+                    "A2L6_BMSG13",
+                    "A2L6_BMSG14",
+                    "A2L6_BMSG15",
+                    "A2L6_BMSG16",
+                    "A2L6_BMSG17",
+                    "A2L6_BMSG18",
+                    "A2L6_BMSG19",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "A2L6_DIVERSION": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act2/A2L6diversion.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A2L6_DIVMSG1",
+                    "A2L6_DIVMSG2",
+                    "A2L6_DIVMSG3",
+                    "A2L6_DIVMSG4",
+                    "A2L6_DIVMSG5",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

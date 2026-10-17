@@ -1,0 +1,8 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "CSCAV_BASE1": { "message": "BARBASE_MSG", "x": 2112, "y": 6080, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE2": { "message": "BARBASE_MSG", "x": 6848, "y": 960, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "COL_BASE": { "message": "COLBASE_MSG", "x": 2112, "y": 1088, "z": 0, "audio": "pcv393.ogg", "type": 0 }
+    }
+}

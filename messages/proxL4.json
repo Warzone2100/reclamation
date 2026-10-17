@@ -1,0 +1,14 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "RESEARCH_GO": { "message": "RUINS_MSG2", "x": 8448, "y": 4224, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "RESEARCH_KILL": { "message": "RUINS_MSG2", "x": 8448, "y": 4224, "z": 0, "audio": "pcv448.ogg", "type": 0 },
+        "SCAV_BASE1": { "message": "BARBASE_MSG", "x": 2240, "y": 4160, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_BASE2": { "message": "BARPOST_MSG", "x": 5312, "y": 6464, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "INFESTED_BASE1": { "message": "ENEMYBASE_MSG", "x": 4800, "y": 960, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE2": { "message": "ENEMYBASE_MSG", "x": 704, "y": 7360, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE3": { "message": "ENEMYBASE_MSG", "x": 10432, "y": 1088, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE4": { "message": "ENEMYBASE_MSG", "x": 10432, "y": 7232, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INFESTED_BASE5": { "message": "ENEMYBASE_MSG", "x": 8640, "y": 5056, "z": 0, "audio": "pcv393.ogg", "type": 0 }
+    }
+}

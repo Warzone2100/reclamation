@@ -1,0 +1,266 @@
+{
+	"position_0": {
+		"label": "startPosition",
+		"pos": [774, 1026]
+	},
+
+
+	"position_1": {
+		"label": "infAssembly1",
+		"pos": [5568, 7628]
+	},
+
+
+	"position_2": {
+		"label": "infAssembly2",
+		"pos": [9189, 7043]
+	},
+
+
+	"position_3": {
+		"label": "infAssembly3",
+		"pos": [8928, 507]
+	},
+
+
+	"position_4": {
+		"label": "infAssembly4",
+		"pos": [5503, 649]
+	},
+
+
+	"position_5": {
+		"label": "infAssembly5",
+		"pos": [5756, 2679]
+	},
+
+
+	"area_0": {
+		"label": "landingZone1",
+		"pos1": [1920, 896],
+		"pos2": [2304, 1280]
+	},
+
+
+	"area_1": {
+		"label": "landingZone2",
+		"pos1": [1024, 6784],
+		"pos2": [1408, 7168]
+	},
+
+
+	"area_2": {
+		"label": "landingZone3",
+		"pos1": [3200, 7296],
+		"pos2": [3584, 7680]
+	},
+
+
+	"area_3": {
+		"label": "landingZone4",
+		"pos1": [7040, 3584],
+		"pos2": [7424, 3968]
+	},
+
+
+	"area_4": {
+		"label": "landingZone5",
+		"pos1": [5120, 2432],
+		"pos2": [5504, 2816]
+	},
+
+
+	"area_5": {
+		"label": "infAttackGroup1",
+		"pos1": [1536, 4224],
+		"pos2": [1920, 4608]
+	},
+
+
+	"area_6": {
+		"label": "infAttackGroup2",
+		"pos1": [6784, 3456],
+		"pos2": [7040, 3968]
+	},
+
+
+	"area_7": {
+		"label": "infAttackGroup3",
+		"pos1": [4608, 1024],
+		"pos2": [5120, 1408]
+	},
+
+
+	"area_8": {
+		"label": "attackTrigger1",
+		"pos1": [1792, 2560],
+		"pos2": [3072, 2816]
+	},
+
+
+	"area_9": {
+		"label": "attackTrigger2",
+		"pos1": [8064, 4864],
+		"pos2": [9472, 5120]
+	},
+
+
+	"area_10": {
+		"label": "attackTrigger3",
+		"pos1": [7040, 640],
+		"pos2": [7296, 1664]
+	},
+
+
+	"area_11": {
+		"label": "progTrigger1",
+		"pos1": [3072, 5120],
+		"pos2": [3328, 5760]
+	},
+
+
+	"area_12": {
+		"label": "progTrigger2",
+		"pos1": [7296, 6400],
+		"pos2": [7552, 7040]
+	},
+
+
+	"area_13": {
+		"label": "infEntry1",
+		"pos1": [4736, 7808],
+		"pos2": [5888, 8064]
+	},
+
+
+	"area_14": {
+		"label": "infEntry2",
+		"pos1": [8704, 7808],
+		"pos2": [9088, 8064]
+	},
+
+
+	"area_15": {
+		"label": "infEntry3",
+		"pos1": [8704, 128],
+		"pos2": [9088, 384]
+	},
+
+
+	"area_16": {
+		"label": "infEntry4",
+		"pos1": [5504, 128],
+		"pos2": [6016, 384]
+	},
+
+
+	"area_17": {
+		"label": "infBase1",
+		"pos1": [768, 4608],
+		"pos2": [2176, 5376]
+	},
+
+
+	"area_18": {
+		"label": "infBase2",
+		"pos1": [640, 6272],
+		"pos2": [1536, 7168]
+	},
+
+
+	"area_19": {
+		"label": "infBase3",
+		"pos1": [2944, 6528],
+		"pos2": [4096, 7680]
+	},
+
+
+	"area_20": {
+		"label": "infBase4",
+		"pos1": [4352, 5248],
+		"pos2": [6144, 7808]
+	},
+
+
+	"area_21": {
+		"label": "infBase5",
+		"pos1": [7552, 6144],
+		"pos2": [9472, 7808]
+	},
+
+
+	"area_22": {
+		"label": "infBase6",
+		"pos1": [6784, 3328],
+		"pos2": [7680, 4096]
+	},
+
+
+	"area_23": {
+		"label": "infBase7",
+		"pos1": [8320, 384],
+		"pos2": [9344, 1152]
+	},
+
+
+	"area_24": {
+		"label": "infBase8",
+		"pos1": [4864, 384],
+		"pos2": [7040, 3200]
+	},
+
+
+	"area_25": {
+		"label": "infRidgeGroup",
+		"pos1": [1536, 6400],
+		"pos2": [1920, 6784]
+	},
+
+
+	"object_0": {
+		"label": "infFactory1",
+		"id": 164,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "infFactory4",
+		"id": 167,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "infFactory3",
+		"id": 166,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "infFactory2",
+		"id": 165,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "infFactory5",
+		"id": 168,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "landingZoneGuardTower",
+		"id": 5,
+		"player": 4,
+		"type": 1
+	}
+}

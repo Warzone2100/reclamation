@@ -29,7 +29,7 @@
 //;;
 function camSendReinforcement(playerId, position, templates, kind, data)
 {
-	const pos = camMakePos(position);
+	let pos = camMakePos(position);
 	let order = CAM_ORDER_ATTACK;
 	let order_data = { regroup: false, count: -1 };
 	if (camDef(data) && camDef(data.order))
@@ -40,6 +40,11 @@ function camSendReinforcement(playerId, position, templates, kind, data)
 			order_data = data.data;
 		}
 	}
+	if (playerId === CAM_INFESTED)
+	{
+		// Simplify order logic for Infested groups
+		order_data.simplified = true; 
+	}
 	switch (kind)
 	{
 		case CAM_REINFORCE_GROUND:
@@ -47,10 +52,29 @@ function camSendReinforcement(playerId, position, templates, kind, data)
 			const droids = [];
 			for (let i = 0, l = templates.length; i < l; ++i)
 			{
+				if (camDef(position.x2))
+				{
+					// If position is an area, choose random coordinates inside of it
+					pos = camRandPosIn(position);
+				}
+
 				const template = templates[i];
-				const __PROP = __camChangePropulsion(template.prop, playerId);
-				const droid = addDroid(playerId, pos.x, pos.y, camNameTemplate(template.weap, template.body, __PROP), template.body, __PROP, "", "", template.weap);
-				camSetDroidExperience(droid);
+				const __PROP = template.prop;
+				let droid;
+				if (typeof template.weap === "object" && camDef(template.weap[2]))
+				{
+					droid = addDroid(playerId, pos.x, pos.y, camNameTemplate(template), template.body, __PROP, "", "", template.weap[0], template.weap[1], template.weap[2]);
+				}
+				else if (typeof template.weap === "object" && camDef(template.weap[1]))
+				{
+					droid = addDroid(playerId, pos.x, pos.y, camNameTemplate(template), template.body, __PROP, "", "", template.weap[0], template.weap[1]);
+				}
+				else
+				{
+					droid = addDroid(playerId, pos.x, pos.y, camNameTemplate(template), template.body, __PROP, "", "", template.weap);
+				}
+				
+				__camPreDamageDroid(droid);
 				droids.push(droid);
 			}
 			const __GROUP = camMakeGroup(droids);
@@ -61,11 +85,12 @@ function camSendReinforcement(playerId, position, templates, kind, data)
 		{
 			__camTransporterQueue.push({
 				player: playerId,
-				position: position,
+				position: pos,
 				list: templates,
 				data: data,
 				order: order,
-				order_data: order_data
+				order_data: order_data,
+				silent: data.silent
 			});
 			__camDispatchTransporterSafe();
 			break;

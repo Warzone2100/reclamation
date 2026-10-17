@@ -3,165 +3,844 @@
 // Truck management.
 ////////////////////////////////////////////////////////////////////////////////
 
-//;; ## camManageTrucks(playerId)
+//;; ## camManageTrucks(player, data)
 //;;
-//;; Manage trucks for an AI player. This assumes recapturing oils and rebuilding destroyed trucks
-//;; in factories, the latter is implemented via `camQueueDroidProduction()` mechanism.
+//;; Manage trucks for an AI player. This assumes rebuilding bases and
+//;; reconstructing destroyed trucks in factories, the latter is implemented
+//;; via `camQueueDroidProduction()` mechanism. The `data` parameter can 
+//;; have the following attributes: 
+//;; * `label` The label the truck is tied to; can be a base label or a custom one. Used to get 
+//;;	information about assigned trucks. If the label is a base label, allows for automatic truck rebuilding
+//;;	without relying on the level script, and sets the truck's "wander" area to be the base's cleanup zone.
+//;; * `structset` A set of structures the truck will be tasked with building/maintaining. 
+//;; * `template` The design template to use for the truck.
+//;; * `respawnDelay` The delay (in milliseconds) before automatically 
+//;;    rebuilding the truck, if the base it belongs to still exists. If undefined, defaults to 0 (no delay).
+//;; * `truckDroid` A truck droid to be managed. Can be left undefined if a truck 
+//;;	does not yet exist.
+//;; * `rebuildTruck` If true, the truck will be rebuilt automatically after the time set by `respawnDelay`.
+//;;	If false, the truck will not be rebuilt automatically. NOTE: If `label` is not a base label, `rebuildTruck` 
+//;;	will have no effect (the truck will not be automatically rebuild either way). Defaults to TRUE.
+//;; * `rebuildBase` If true, the truck will continue working even if the base set by `label` is eradicated.
+//;;	If false, the truck will self-destruct along with the base, and will not be automatically rebuilt again, 
+//;;	unless the base is restored. If `label` is not a base label, then `rebuildBase` will have no effect (the truck 
+//;;	will not be automatically rebuild either way). Defaults to FALSE. NOTE: If the truck is forcibly rebuilt by 
+//;;	the level script, it will resume working again (even if `rebuildBase` is set to false)!
+//;; * `area` The area that the truck should wander/patrol around when idle, overwrites the cleanup area of a base `label`.
+//;;	 If `label` is not a base label, and this is left undefined, the truck will not wander.
+//;; * `pos` When rebuilding a truck, the truck will only be produced from factories where it can reach this position.
+//;;	If undefined, then will default to the center of `area` or the cleanup zone of `label`.
+//;; * `enabled` Whether this truck should start working immediately. Can be changed later with helper functions. Defaults to TRUE.
+//;; NOTE: `label` and `structset` are REQUIRED! `template` is also required if the truck is to be automatically rebuilt!
 //;;
-//;; @param {number} playerId
-//;; @returns {void}
-//;;
-function camManageTrucks(playerId)
+function camManageTrucks(player, data)
 {
-	__camTruckInfo[playerId] = { enabled: 1, queue: [], player: playerId };
+	const __LENGTH = __camTruckInfo.push({
+		label: data.label,
+		structset: data.structset,
+		obset: [], // List of structures to demolish
+		checkForModuleUpdate: true, // Whether we look for structures to add modules to
+		checkForStructureReplacement: true, // Whether we look for structures to build
+		checkForObsolete: true, // Whether we look for structures to demolish
+		player: player,
+		truckDroid: data.truckDroid, // Holds info about the assigned truck droid
+		template: camDef(data.template) ? data.template : (camDef(data.truckDroid) ? __toTruckTemplate(data.truckDroid) : undefined),
+		respawnDelay: camDef(data.respawnDelay) ? data.respawnDelay : 0,
+		rebuildTruck: camDef(data.rebuildTruck) ? data.rebuildTruck : true,
+		rebuildBase: camDef(data.rebuildBase) ? data.rebuildBase : false,
+		area: camDef(data.area) ? data.area : (camDef(__camEnemyBases[data.label]) ? getObject(__camEnemyBases[data.label].cleanup) : undefined), // NOTE: This checks if a base already exists!
+		pos: camDef(data.pos) ? camMakePos(data.pos) : (camDef(data.area) ? camMakePos(data.area) : (camDef(__camEnemyBases[data.label]) ? camMakePos(__camEnemyBases[data.label].cleanup) : undefined)),
+		enabled: camDef(data.enabled) ? data.enabled : true, // If set to false, do not rebuild or manage
+	});
+
+	if (__camTruckInfo[__LENGTH - 1].enabled && __camTruckInfo[__LENGTH - 1].rebuildTruck)
+	{
+		// Build the new truck
+		camRebuildTruck(__LENGTH - 1, false);
+	}
+
+	// Return the index so levels scripts can hold onto it
+	return __LENGTH - 1;
 }
 
-//;; ## camQueueBuilding(playerId, stat[, position])
-//;;
-//;; Assuming truck management is enabled for the player, issue an order to build a specific building
-//;; near a certain position. The order would be issued once as soon as a free truck becomes available.
-//;; It will not be re-issued in case the truck is destroyed before the building is finished.
-//;; If position is unspecified, the building would be built near the first available truck.
-//;; Otherwise, position may be a label or a `POSITION`-like object.
-//;;
-//;; @param {number} playerId
-//;; @param {string} stat
-//;; @param {string|Object} [position]
-//;; @returns {void}
-//;;
-function camQueueBuilding(playerId, stat, position)
+// Stop managing a given truck.
+// If `destroy` is true, then also destroy the truck.
+function camDisableTruck(what, destroy)
 {
-	const ti = __camTruckInfo[playerId];
-	ti.queue.push({ stat: stat, pos: camMakePos(position) });
+	if (camIsString(what))
+	{
+		what = camGetTruckIndicesFromLabel(what);
+	}
+	else if (Number.isInteger(what))
+	{
+		what = [what];
+	}
+	else if (!(what instanceof Array))
+	{
+		camDebug("Invalid input; must be truck index or base label.");
+		return;
+	}
+
+	for (const _INDEX of what)
+	{
+		__camTruckInfo[_INDEX].enabled = false;
+	}
+}
+
+// Resume managing a given truck, given a label name or an index.
+// Also accepts arrays of labels/indices.
+function camEnableTruck(what)
+{
+	if (!(what instanceof Array))
+	{
+		// If the input wasn't an array, convert it into one
+		what = [what];
+	}
+
+	// top-tier variable names here...
+	for (const thing of what)
+	{
+		let truckIndices;
+		if (camIsString(thing))
+		{
+			// Convert label to array of indices
+			truckIndices = camGetTruckIndicesFromLabel(thing);
+		}
+		else if (Number.isInteger(thing))
+		{
+			truckIndices = [thing];
+		}
+		else
+		{
+			camDebug("Invalid input; must be truck index or base label.");
+			return;
+		}
+
+		for (const __TRUCK_INDEX of truckIndices)
+		{
+			__camTruckInfo[__TRUCK_INDEX].enabled = true;
+			camRebuildTruck(__TRUCK_INDEX, false);
+		}
+	}
+}
+
+// Set a truck's structure set
+function camSetStructureSet(what, newStructSet)
+{
+	if (camIsString(what))
+	{
+		what = camGetTruckIndicesFromLabel(what);
+	}
+	else if (Number.isInteger(what))
+	{
+		what = [what];
+	}
+	else if (!(what instanceof Array))
+	{
+		camDebug("Invalid input; must be truck index or base label.");
+		return;
+	}
+	
+	for (const __INDEX of what)
+	{
+		__camTruckInfo[__INDEX].structset = newStructSet;
+		__camTruckInfo[__INDEX].checkForModuleUpdate = true;
+		__camTruckInfo[__INDEX].checkForStructureReplacement = true;
+		__camTruckInfo[__INDEX].checkForObsolete = true;
+	}
+}
+
+//;; ## camTruckObsoleteStructure(player, obsoleteStruct, newStruct[, noObsolete])
+//;;
+//;; Replace a structure with another structure in a truck's structure set
+//;; Trucks will demolish the old structure type when they come across it
+//;; Setting `noObsolete`` to true will mean trucks will not demolish the old structure,
+//;; only replacing it if is destroyed.
+//;;
+function camTruckObsoleteStructure(player, obsoleteStruct, newStruct, noObsolete)
+{
+	for (let i = 0; i < __camTruckInfo.length; i++)
+	{
+		const ti = __camTruckInfo[i];
+
+		if (ti.player === player)
+		{
+			if (!camDef(noObsolete) || !noObsolete)
+			{
+				// Add the obsolete structure to the obsolete list
+				ti.obset.push(camGetCompNameFromId(obsoleteStruct, "Building"));
+				ti.obset = camRemoveDuplicates(ti.obset);
+				ti.checkForObsolete = true;
+			}
+
+			// Find all the instances of the now obsolete structure in the
+			// structure list and replace it with the new structure
+			for (let j = 0; j < ti.structset.length; j++)
+			{
+				if (ti.structset[j].stat === obsoleteStruct)
+				{
+					ti.structset[j].stat = newStruct;
+				}
+			}
+		}
+	}
+}
+
+//;; ## camTruckUpgradeModule(player, struct)
+//;;
+//;; Tells trucks of the specified player to fully upgrade base structures
+//;; of a certain type.
+function camTruckUpgradeModule(player, struct)
+{
+	if (struct !== "A0PowerGenerator" && struct !== "A0ResearchFacility"
+		&& struct !== "A0LightFactory" && struct !== "A0VTolFactory1")
+	{
+		camDebug("Tried to upgrade the modules of an invalid structure!");
+		return;
+	}
+
+	let numMods = 1;
+	if (struct === "A0LightFactory" || struct === "A0VTolFactory1")
+	{
+		// Factories max out at two modules
+		numMods = 2;
+	}
+	__camTruckCheckForModules(player);
+
+	for (let i = 0; i < __camTruckInfo.length; i++)
+	{
+		if (__camTruckInfo[i].player === player)
+		{
+			// Find all the instances of the matching structure and give them full modules
+			for (let j = 0; j < __camTruckInfo[i].structset.length; j++)
+			{
+				if (__camTruckInfo[i].structset[j].stat === struct)
+				{
+					__camTruckInfo[i].structset[j].mods = numMods;
+				}
+			}
+		}
+	}
+}
+
+//;; ## camRebuildTruck(index, force)
+//;;
+//;; Order a new truck to be built as soon as production.js allows.
+//;; Automatically called after a delay when a truck dies.
+//;; Returns true if successful, returns false if the truck already exists.
+//;; * `what` The index of __camTruckInfo that should have its truck rebuilt.
+//;; * `force` Set to true to rebuild the truck even if its base is gone.
+function camRebuildTruck(index, force)
+{
+	const ti = __camTruckInfo[index];
+
+	if (!ti.enabled)
+	{
+		return false; // Truck management is disabled
+	}
+
+	if (!camDef(ti.template))
+	{
+		return false; // No template to rebuild
+	}
+
+	if (!camDef(force))
+	{
+		force = false;
+	}
+
+	if (!force && (!camDef(__camEnemyBases[ti.label]) || (camBaseIsEliminated(ti.label) && !ti.rebuildBase)))
+	{
+		return false; // Truck's base was destroyed (and we can't rebuild) after queuing (or doesn't exist)
+	}
+
+	if (!force && camDef(__camEnemyBases[ti.label]) && camBaseIsEliminated(ti.label) && ti.rebuildBase && !camAreaSecure(ti.area, ti.player))
+	{
+		// Truck's base area is compromised, requeue the rebuild request and check if it's clear later
+		queue("camRebuildTruck", ti.respawnDelay, "" + index);
+		return false;
+	}
+
+	if (camDef(ti.truckDroid) && ti.truckDroid !== null)
+	{
+		return false; // Truck already exists
+	}
+
+	for (let i = 0; i < __camTruckAssignList.length; i++)
+	{
+		const __AWAITING_INDEX = __camTruckAssignList[i];
+
+		// Search through all the indexes that are already waiting for their truck
+		if (__AWAITING_INDEX === index)
+		{
+			return false; // The truck is already being built
+		}
+	}
+	__camTruckAssignList.push(index); // Start expecting the truck
+	// If we have a base label, mark the base's position
+	camQueueDroidProduction(ti.player, ti.template, camDef(__camEnemyBases[ti.label]) ? __camEnemyBases[ti.label].cleanup : undefined);
+	return true;
+}
+
+//;; ## camGetTruck(index)
+//;;
+//;; Returns a truck droid that correspond is managed this index.
+//;; Returns undefined if no truck exists currently
+function camGetTruck(index)
+{
+	if (!camDef(__camTruckInfo[index]))
+	{
+		return undefined;
+	}
+	else
+	{
+		return __camTruckInfo[index].truckDroid;
+	}
+}
+
+//;; ## camGetTruckIndicesFromLabel(label)
+//;;
+//;; Returns an array of indexes that correspond to a given label.
+function camGetTruckIndicesFromLabel(label)
+{
+	const indexList = [];
+	for (let i = 0; i < __camTruckInfo.length; i++)
+	{
+		if (__camTruckInfo[i].label === label)
+		{
+			indexList.push(i);
+		}
+	}
+
+	return indexList;
+}
+
+//;; ## camGetTrucksFromLabel(label)
+//;;
+//;; Returns an array of truck droids that correspond to a given label.
+//;; NOTE: May return undefined elements for trucks that are dead.
+function camGetTrucksFromLabel(label)
+{
+	const truckList = [];
+	for (let i = 0; i < __camTruckInfo.length; i++)
+	{
+		if (__camTruckInfo[i].label === label)
+		{
+			truckList.push(__camTruckInfo[i].truckDroid);
+		}
+	}
+
+	return truckList;
+}
+
+//;; ## camAssignTruck(droid, index)
+//;; Assign a truck droid to an index
+//;; Overrides this index's template and truck (if one was present)
+//;; Useful for level scripts to handle non-automatic truck replacement.
+function camAssignTruck(droid, index)
+{
+	if (droid === null)
+	{
+		camDebug("Assigned truck is null!");
+		return;
+	}
+
+	if (!camDef(droid) || !camDef(index))
+	{
+		camDebug("Not enough arguments for truck assignment!");
+		return;
+	}
+	if (!camDef(__camTruckInfo[index]))
+	{
+		camDebug("Truck index does not exist!");
+		return;
+	}
+
+	__camTruckInfo[index].truckDroid = droid;
+	__camTruckInfo[index].template = __toTruckTemplate(droid);
+}
+
+//;; ## camAreaToStructSet(area[, player])
+//;; Generate a structure set using the structures in the given area.
+//;; If a player is provided, only consider structures belonging to that player.
+function camAreaToStructSet(area, player)
+{
+	let a = area;
+	if (camIsString(area))
+	{
+		// Area label
+		a = getObject(area);
+	}
+
+	const __PLAYER_FILTER = camDef(player) ? player : ALL_PLAYERS;
+	
+	const structures = enumArea(a.x, a.y, a.x2, a.y2, __PLAYER_FILTER, false).filter((obj) => (obj.type === STRUCTURE));
+	const structSet = [];
+
+	for (const structure of structures)
+	{
+		// Note: The spelling of ".Id" instead of ".id" here is correct!
+		structSet.push({stat: camGetCompStats(structure.name, "Building").Id, 
+			x: structure.x, y: structure.y, 
+			rot: (structure.direction > 2) ? (structure.direction - 1) : structure.direction, // HACK: Structure directions seem to increase by one after 180 degrees?
+			mods: structure.modules});
+	}
+
+	return structSet;
+}
+
+//;; ## camIsScavStruct(struct)
+//;; Returns true if the given structure appears in libcampaign's list of scavenger structures.
+function camIsScavStruct(struct)
+{
+	return __camScavStructList.includes(struct);
+}
+
+//;; ## camDumpStructSet(area, name)
+//;; A helpful function that dumps a structure set to the logs.
+//;; Useful for making pre-defined structure sets when mapping.
+function camDumpStructSet(area, name)
+{
+	dump(name + " = [");
+	const structSet = camAreaToStructSet(area);
+	for (const obj of structSet)
+	{
+		// ex: {stat: "AASite-QuadBof", x: 104, y: 33, rot: 1}
+		let string = "{stat: \"" + obj.stat + "\", x: " + obj.x + ", y: " + obj.y;
+		if (obj.rot !== 0)
+		{
+			string = string + ", rot: " + obj.rot;
+		}
+		string = string + "},";
+
+		dump(string);
+	}
+	dump("]");
 }
 
 //////////// privates
 
-function __camEnumFreeTrucks(player)
+// Check if a truck is busy doing a building-related action
+// If ```strict```` is false, then only consider busy when building or demolishing
+function __camTruckBusy(truck, strict)
 {
-	const rawDroids = enumDroid(player, DROID_CONSTRUCT);
-	const droids = [];
-	for (let i = 0, l = rawDroids.length; i < l; ++i)
+	let DACTION_BUILD = 2;
+	let DACTION_DEMOLISH = 4;
+	let DACTION_REPAIR = 5;
+	let DACTION_MOVETOBUILD = 18;
+	let DACTION_MOVETOREPAIR = 20;
+
+	if (truck.action === DACTION_BUILD || truck.action === DACTION_DEMOLISH)
 	{
-		const droid = rawDroids[i];
-		if (droid.order !== DORDER_BUILD && droid.order !== DORDER_HELPBUILD && droid.order !== DORDER_LINEBUILD)
+		return true;
+	}
+	if (strict)
+	{
+		if (truck.action === DACTION_REPAIR 
+			|| truck.action === DACTION_MOVETOBUILD 
+			|| truck.action === DACTION_MOVETOREPAIR)
 		{
-			droids.push(droid);
+			return true;
 		}
 	}
-	return droids;
+
+	return false;
 }
 
-function __camGetClosestTruck(player, pos, list)
+// Alert this player's trucks to check structures for missing modules
+// called from eventStructureBuilt
+function __camTruckCheckForModules(player)
 {
-	const droids = (camDef(list) && list !== null) ? list : __camEnumFreeTrucks(player);
-	if (droids.length <= 0)
+	for (const __INDEX in __camTruckInfo)
 	{
-		return undefined;
+		const ti = __camTruckInfo[__INDEX];
+		if (ti.player === player)
+		{
+			ti.checkForModuleUpdate = true;
+		}
 	}
+}
 
-	// Find out which one is the closest.
-	let minDroid = droids[0];
-	let minDist = camDist(minDroid, pos);
-	for (let i = 1, l = droids.length; i < l; ++i)
+// Alert this player's trucks to see if any structures must be replaced
+// called from eventDestroyed
+function __camTruckCheckMissingStructs(player)
+{
+	for (const __INDEX in __camTruckInfo)
 	{
-		const droid = droids[i];
-		if (!droidCanReach(droid, pos.x, pos.y))
+		const ti = __camTruckInfo[__INDEX];
+		if (ti.player === player)
 		{
-			continue;
-		}
-		const __DIST = camDist(droid, pos);
-		if (__DIST < minDist)
-		{
-			minDist = __DIST;
-			minDroid = droid;
+			ti.checkForStructureReplacement = true;
 		}
 	}
-	return minDroid;
 }
 
 function __camTruckTick()
 {
-	// Issue truck orders for each player.
+	// Issue truck orders.
 	// See comments inside the loop to understand priority.
-	for (const playerObj in __camTruckInfo)
+	for (let i = 0; i < __camTruckInfo.length; i++)
 	{
-		const ti = __camTruckInfo[playerObj];
-		const __PLAYER = ti.player;
-		let freeTrucks = __camEnumFreeTrucks(__PLAYER);
-		let truck;
+		const ti = __camTruckInfo[i];
 
-		// First, build things that were explicitly ordered.
-		while (ti.queue.length > 0)
+		if (!ti.enabled)
 		{
-			const __QI = ti.queue[0];
-			let pos = __QI.pos;
-			let randx = 0;
-			let randy = 0;
+			continue; // Truck management is disabled
+		}
 
-			if (camDef(pos))
+		let truck = ti.truckDroid;
+
+		// Don't order trucks if they're dead
+		if (!camDef(truck) || truck === null)
+		{
+			continue;
+		}
+
+		const __PLAYER = ti.player;
+		// Update the truck's stored info (in case it has changed)
+		ti.truckDroid = getObject(DROID, __PLAYER, ti.truckDroid.id);
+		truck = ti.truckDroid;
+
+		// Check again in case the truck turned out to be dead
+		if (!camDef(truck) || truck === null)
+		{
+			continue;
+		}
+		
+		// Don't order trucks if they're busy building something
+		if (__camTruckBusy(truck, true))
+		{
+			continue;
+		}
+
+		let orderGiven = false;
+
+		// The truck is alive and ready, let's get started
+		// First, check if there are any base structures that need modules (factories/power/research)
+		if (ti.checkForModuleUpdate)
+		{
+			for (let j = 0; j < ti.structset.length; j++)
 			{
-				// Find the truck most suitable for the job.
-				truck = __camGetClosestTruck(__PLAYER, pos, freeTrucks);
-				if (!camDef(truck))
+				const struct = ti.structset[j];
+
+				// Only compare structures in the struct set that have modules
+				if (struct.mods > 0)
 				{
-					break;
+					// Look to where the structure should be and see if it's missing a module (if it exists).
+					const __TO_BE_UPGRADED = getObject(struct.x, struct.y);
+					if (__TO_BE_UPGRADED !== null && __TO_BE_UPGRADED.type === STRUCTURE 
+						&& __TO_BE_UPGRADED.status === BUILT && __TO_BE_UPGRADED.player === __PLAYER 
+						&& __TO_BE_UPGRADED.modules < struct.mods)
+					{
+						// If the structure exists and does not have enough modules, tell the truck to add one.
+						let moduleType = "";
+						switch (__TO_BE_UPGRADED.stattype)
+						{
+							case FACTORY:
+							case VTOL_FACTORY:
+								moduleType = "A0FacMod1";
+								break;
+							case POWER_GEN:
+								moduleType = "A0PowMod1";
+								break;
+							case RESEARCH_LAB:
+								moduleType = "A0ResearchModule1";
+								break;
+						}
+
+						enableStructure(moduleType, __PLAYER);
+						orderDroidBuild(truck, DORDER_BUILD, moduleType, struct.x, struct.y);
+
+						orderGiven = true;
+						break;
+					}
 				}
+			}
+			// If we get to this point and no modules were needed,
+			// then all buildings have adequate modules.
+			// No point in checking again until further notice
+			if (!orderGiven)
+			{
+				ti.checkForModuleUpdate = false;
+			}
+		}
+
+		// Second, repair any structure in the truck's immediate area (let the truck automatically do this)
+		// Third, build any structure missing from the truck's structure set
+		if (ti.checkForStructureReplacement && !orderGiven && !__camTruckBusy(truck, false))
+		{
+			let minDist = Number.MAX_VALUE;
+			let minDistIndex = -1;
+			const structSet = ti.structset;
+			let artiBlock = false;
+			let destructibleBlock = false;
+			
+			// Find the closest spot that we want to build on
+			for (let j = 0; j < structSet.length; j++)
+			{
+				// Check the structure spot and see if it's unobstructed, except:
+				// When we're trying to build Oil Derricks, we want those ON the oil resource!
+				// If the blocking object is an artifact, pick it up instead!
+				// If the blocking object is a destructible feature (i.e. a tree), blow it up first!
+				const structSpot = getObject(structSet[j].x, structSet[j].y);
+				if (structSpot === null ||
+					(structSet[j].stat === "A0ResourceExtractor" && structSpot.type === FEATURE) ||
+					(structSpot.type === FEATURE && (structSpot.stattype === ARTIFACT || structSpot.damageable)))
+				{
+					// Compare the distance between the truck and the structure location
+					const __DISTANCE = distBetweenTwoPoints(truck.x, truck.y, structSet[j].x, structSet[j].y);
+					if (__DISTANCE < minDist)
+					{
+						minDist = __DISTANCE;
+						minDistIndex = j;
+						if (structSpot !== null && structSpot.type === FEATURE)
+						{
+							if (structSpot.stattype === ARTIFACT)
+							{
+								// This spot is blocked by an artifact
+								artiBlock = true;
+							}
+							else if (structSpot.damageable)
+							{
+								// This spot is blocked by a destructible feature
+								destructibleBlock = true;
+							}
+						}
+						else
+						{
+							// This spot isn't blocked by anything
+							artiBlock = false;
+							destructibleBlock = false;
+						}
+					}
+				}
+			}
+
+			// If we found a clear spot, build the structure
+			if (minDistIndex !== -1)
+			{
+				if (artiBlock)
+				{
+					// Pick up the artifact and build the structure over it
+					// The artifact will be reassigned to the new structure later
+					orderDroidObj(truck, DORDER_RECOVER, getObject(structSet[minDistIndex].x, structSet[minDistIndex].y));
+					// We'll handle building the structure on the next truck tick...
+				}
+				else
+				{
+					if (destructibleBlock)
+					{
+						// If we're being blocked by a destructible feature, blow it up with a psychic truck blast
+						camSafeRemoveObject(getObject(structSet[minDistIndex].x, structSet[minDistIndex].y), true);
+					}
+
+					// Build the structure
+					enableStructure(structSet[minDistIndex].stat, __PLAYER);
+					orderDroidBuild(truck, DORDER_BUILD, structSet[minDistIndex].stat, 
+						structSet[minDistIndex].x, structSet[minDistIndex].y, 
+						structSet[minDistIndex].rot * 90);
+				}
+				
+				orderGiven = true;
 			}
 			else
 			{
-				// Build near any truck if pos was not specified.
-				if (freeTrucks.length <= 0)
+				// No missing structures were found, so there's
+				// no point in checking again until further notice
+				ti.checkForStructureReplacement = false;
+			}
+		}
+
+		// Fourth, demolish any structures in the truck's obsolete list
+		if (ti.checkForObsolete && !orderGiven && !__camTruckBusy(truck, false))
+		{
+			const obsoleteSet = ti.obset;
+			const structSet = ti.structset;
+			let foundObsolete = false;
+
+			for (let j = 0; j < structSet.length; j++)
+			{
+				// Check the coordinates of every structure in the structure set
+				// to see if there's any obsolete structures
+				const __STRUCT_X = structSet[j].x;
+				const __STRUCT_Y = structSet[j].y;
+				const structure = getObject(__STRUCT_X, __STRUCT_Y);
+				// If spot is empty for some reason
+				if (structure === null) continue;
+
+				for (let k = 0; k < obsoleteSet.length; k++)
 				{
+					if (structure.name === obsoleteSet[k])
+					{
+						// There's a structure here that matches an obsolete template
+						// Demolish it.
+						orderDroidObj(truck, DORDER_DEMOLISH, structure);
+						foundObsolete = true;
+						orderGiven = true;
+						// Since we're demolishing a structure, we're probably gonna 
+						// have to build one to replace it.
+						ti.checkForStructureReplacement = true;
+						break;
+					}
+				}
+
+				if (orderGiven)
+				{
+					// Already ordered something to be demolished
 					break;
 				}
-				truck = freeTrucks[0];
-				pos = truck;
-				randx = (camRand(100) < 50) ? -camRand(2) : camRand(2);
-				randy = (camRand(100) < 50) ? -camRand(2) : camRand(2);
 			}
 
-			enableStructure(__QI.stat, __PLAYER);
-			const loc = pickStructLocation(truck, __QI.stat, pos.x, pos.y);
-			if (camDef(loc) && camDef(truck))
+			if (!foundObsolete)
 			{
-				if (orderDroidBuild(truck, DORDER_BUILD, __QI.stat, loc.x + randx, loc.y + randy))
-				{
-					freeTrucks = freeTrucks.filter((tr) => (tr.id !== truck.id));
-					ti.queue.shift(); // consider it handled
-				}
+				// We didn't find any obsolete structures
+				// so there's no point in looking again.
+				ti.checkForObsolete = false;
 			}
 		}
 
-		// Then, capture free oils.
-		const oils = enumFeature(ALL_PLAYERS, "OilResource");
-		if (oils.length === 0)
+		// Lastly, wander around the base
+		// Only do this if the truck is doing absolutely nothing
+		if (camDef(ti.area) && !orderGiven && truck.action === 0) /* DACTION_NONE */
 		{
-			continue;
-		}
-		const oil = oils[0];
-		truck = __camGetClosestTruck(__PLAYER, oil, freeTrucks);
-		if (camDef(truck) && __PLAYER !== CAM_NEXUS)
-		{
-			enableStructure("A0ResourceExtractor", __PLAYER);
-			orderDroidBuild(truck, DORDER_BUILD, "A0ResourceExtractor", oil.x, oil.y);
-			continue;
+			let pos;
+			const baseArea = ti.area;
+			
+			const __BASE_WIDTH = Math.abs(baseArea.x2 - baseArea.x);
+			const __BASE_HEIGHT = Math.abs(baseArea.y2 - baseArea.y);
+			const __BASE_START_X = (baseArea.x < baseArea.x2) ? baseArea.x : baseArea.x2;
+			const __BASE_START_Y = (baseArea.y < baseArea.y2) ? baseArea.y : baseArea.y2;
+
+			// Limit the amount of times we scan for a location
+			let accumulator = 0;
+
+			do
+			{
+				// Find a position within the base area that the truck can reach
+				pos = {x: camRand(__BASE_WIDTH), y: camRand(__BASE_HEIGHT)};
+				pos.x += __BASE_START_X;
+				pos.y += __BASE_START_Y;
+
+				// Give up searching for a good spot after 10 tries
+				accumulator++;
+			} while ((accumulator <= 10) && (getObject(pos.x, pos.y) !== null
+				|| !propulsionCanReach(truck.propulsion, truck.x, truck.y, pos.x, pos.y)));
+
+			// Order the truck to go to the chosen spot
+			// DORDER_SCOUT is used so the truck will stop
+			// and repair/help build structures along the way
+			orderDroidLoc(truck, DORDER_SCOUT, pos.x, pos.y);
 		}
 	}
 }
 
+// Find a job for a newly-produced truck
+// called from eventDroidBuilt
+function __camAssignTruck(droid)
+{
+	// Loop through all the indexes waiting for a truck
+	for (let i = 0; i < __camTruckAssignList.length; i++)
+	{
+		// This will be the index in __camTruckInfo that is awaiting a new truck
+		const __AWAITING_INDEX = __camTruckAssignList[i];
+		const ti = __camTruckInfo[__AWAITING_INDEX];
+
+		if (!camDef(ti.template))
+		{
+			// No template defined, skip this index
+			continue;
+		}
+
+		const __PLAYER = ti.player;
+		const __BODY = ti.template.body;
+		const __PROP = ti.template.prop;
+		const truckDroid = ti.truckDroid;
+
+		// See if the player and template match
+		if (droid.player === __PLAYER && droid.body === __BODY 
+			&& droid.propulsion === __PROP && (!camDef(truckDroid) || truckDroid === null))
+		{
+			const truckPos = camMakePos(droid);
+			const basePos = ti.pos;
+			if (camDef(basePos) && !propulsionCanReach(__PROP, truckPos.x, truckPos.y, basePos.x, basePos.y))
+			{
+				// This truck matches, but can't reach its designated base!
+				camSafeRemoveObject(droid); // Remove it
+				__camTruckAssignList.splice(i, 1); 
+				camRebuildTruck(__AWAITING_INDEX, true); // Rebuild it
+				return;
+			}
+
+			if (!ti.enabled)
+			{
+				// Management is disabled for this truck, remove it instead of assigning it.
+				__camTruckAssignList.splice(i, 1);
+				camSafeRemoveObject(droid);
+			}
+			else 
+			{
+				ti.truckDroid = droid;
+				// This index now has its truck, so remove it from the array
+				__camTruckAssignList.splice(i, 1); 
+			}
+
+			return; // Truck assigned; all done
+		}
+	}
+}
+
+// Remove a dead truck from its assignment
 // called from eventDestroyed
 function __camCheckDeadTruck(obj)
 {
-	if (camDef(__camTruckInfo[obj.player]))
+	for (const __INDEX in __camTruckInfo)
 	{
-		// multi-turret templates are not supported yet
-		// cyborg engineers are not supported yet
-		// cannot use obj.weapons[] because spade is not a weapon
-		camQueueDroidProduction(obj.player, {
-			body: obj.body,
-			prop: obj.propulsion,
-			weap: "Spade1Mk1"
-		});
+		const ti = __camTruckInfo[__INDEX];
+		// Unassign this truck if the id matches
+		if (camDef(ti.truckDroid) && ti.truckDroid !== null && obj.id === ti.truckDroid.id)
+		{
+			ti.truckDroid = undefined;
+
+			if (ti.rebuildTruck && camDef(__camEnemyBases[ti.label]) && !(camBaseIsEliminated(ti.label) && !ti.rebuildBase))
+			{
+				// Queue up another truck if its base still exists
+				queue("camRebuildTruck", ti.respawnDelay, __INDEX);
+			}
+			return; // We've already unassigned the truck and queued a new one.
+		}
 	}
+}
+
+// Destroy check if any trucks should automatically self-destruct
+// Called when a base is eradicated.
+function __camCheckBaseTrucks(baseLabel)
+{
+	for (const __INDEX in __camTruckInfo)
+	{
+		const ti = __camTruckInfo[__INDEX];
+		if (ti.label === baseLabel && !ti.rebuildBase)
+		{
+			__camTruckSelfDestruct(__INDEX);
+		}
+	}
+}
+
+// Destroy this index's truck droid
+// Called when a truck is disabled or when a base is destroyed (and we no longer want the truck).
+function __camTruckSelfDestruct(index)
+{
+	if (camDef(__camTruckInfo[index].truckDroid))
+	{
+		camSafeRemoveObject(__camTruckInfo[index].truckDroid, true);
+		__camTruckInfo[index].truckDroid = undefined;
+	}
+}
+
+function __toTruckTemplate(droid)
+{
+	return {
+		body: droid.body,
+		prop: droid.propulsion,
+		weap: (droid.propulsion == "CyborgLegs") ? "CyborgSpade" : "Spade1Mk1"
+	};
 }

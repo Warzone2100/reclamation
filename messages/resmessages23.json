@@ -6,7 +6,7 @@
         "text": [
             "Cyborg Propulsion Improved",
             "New armored construction",
-            "Increases Body Points",
+            "Increases Hitpoints",
             "All Cyborgs upgraded automatically"
         ]
     },
@@ -106,7 +106,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Hyper-Velocity Cannon",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_W_AAAC2": {
@@ -115,7 +115,7 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "AA Upgrade",
-            "Self-guided rocket powered shells",
+            "Detects and locks-on to VTOL engine emissions",
             "Increases AA accuracy",
             "All AA weapons upgraded automatically"
         ]
@@ -137,9 +137,14 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "New Bomb Bay Available",
-            "Drops incendiary bombs",
-            "Best Targets: Bunkers and Hardpoints",
-            "Body Points: Low"
+            "Drops incendiary phosphorus bombs",
+            "Damage Type: Incendiary",
+            "Effective against: Infantry, vehicles and bunkers",
+            "Ineffective against: Non-bunker structures",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Can ignite enemy units and structures, causing damage over time",
+            "Provides substantial bonus HP",
+            "Can only be equipped onto VTOLs"
         ]
     },
     "RES_W_MG4": {
@@ -149,8 +154,11 @@
         "text": [
             "New Weapon Turret Available",
             "Multi-barrel, rapid-fire machinegun",
-            "Best Targets: Infantry, base structures, wheeled vehicles",
-            "Replaces all machineguns"
+            "Damage Type: Anti-Personnel",
+            "Effective against: Infantry and Hover vehicles",
+            "Ineffective against: Structures and Tracked vehicles",
+            "Can attack aerial targets",
+            "Obsoletes Heavy Machinegun"
         ]
     },
     "RES_W_MG_ROF3": {
@@ -180,10 +188,15 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Indirect Fire Weapon Available",
-            "105mm multi-barrel Howitzer may be assigned to a sensor",
-            "Best Targets: Base Structures, infantry, wheeled vehicles",
-            "Body Points: Low"
+            "New Weapon Turret Available",
+            "105mm multi-barrel rotary Howitzer firing explosive artillery shells",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, Hover vehicles and structures",
+            "Ineffective against: Tracked vehicles and bunkers",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Has a very long weapon range",
+            "Must be stationary to fire"
         ]
     }
 }

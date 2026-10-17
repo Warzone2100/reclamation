@@ -1,0 +1,120 @@
+{
+	"position_0": {
+		"label": "infAssembly",
+		"pos": [1265, 5228]
+	},
+
+
+	"position_1": {
+		"label": "infCybAssembly",
+		"pos": [6201, 3204]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [640, 512],
+		"pos2": [1023, 895]
+	},
+
+
+	"area_1": {
+		"label": "colCommandGroup",
+		"pos1": [6144, 6272],
+		"pos2": [6400, 6528]
+	},
+
+
+	"area_2": {
+		"label": "infBase1",
+		"pos1": [512, 4608],
+		"pos2": [1664, 5632]
+	},
+
+
+	"area_3": {
+		"label": "infBase2",
+		"pos1": [3200, 3712],
+		"pos2": [5248, 4480]
+	},
+
+
+	"area_4": {
+		"label": "infBase3",
+		"pos1": [4992, 512],
+		"pos2": [6656, 3584]
+	},
+
+
+	"area_5": {
+		"label": "infEntry1",
+		"pos1": [128, 3328],
+		"pos2": [512, 4096]
+	},
+
+
+	"area_6": {
+		"label": "infEntry2",
+		"pos1": [128, 5248],
+		"pos2": [384, 5888]
+	},
+
+
+	"area_7": {
+		"label": "infEntry3",
+		"pos1": [1792, 6656],
+		"pos2": [2560, 7040]
+	},
+
+
+	"area_8": {
+		"label": "infEntry4",
+		"pos1": [6656, 4224],
+		"pos2": [7040, 4864]
+	},
+
+
+	"area_9": {
+		"label": "infEntry5",
+		"pos1": [5376, 128],
+		"pos2": [6016, 512]
+	},
+
+
+	"area_10": {
+		"label": "infEntry6",
+		"pos1": [3712, 128],
+		"pos2": [4224, 384]
+	},
+
+
+	"area_11": {
+		"label": "compromiseZone",
+		"pos1": [256, 128],
+		"pos2": [1664, 1280]
+	},
+
+
+	"object_0": {
+		"label": "infFactory",
+		"id": 2,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "colCommander",
+		"id": 4,
+		"player": 2,
+		"type": 0
+	},
+
+
+	"object_2": {
+		"label": "infCybFactory",
+		"id": 23,
+		"player": 4,
+		"type": 1
+	}
+}

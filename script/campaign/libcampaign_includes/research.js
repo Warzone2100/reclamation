@@ -60,6 +60,26 @@ function camCompleteRequiredResearch(researchIds, playerId)
 	}
 }
 
+//;; ## camCompleteRequiredResearch(researchId)
+//;;
+//;; Returns true if the player has the given research available in their menu, false otherwise.
+//;;
+//;; @param {string} researchIds
+//;; @returns {boolean}
+//;;
+function camResearchIsAvailable(researchId)
+{
+	const resList = enumResearch();
+	for (let i = 0; i < resList.length; i++)
+	{
+		if (resList[i].id === researchId)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 //////////// privates
 
 //granted shortly after mission start to give enemy players instant droid production.
@@ -67,10 +87,36 @@ function __camGrantSpecialResearch()
 {
 	for (let i = 1; i < __CAM_MAX_PLAYERS; ++i)
 	{
-		if (!allianceExistsBetween(CAM_HUMAN_PLAYER, i) && (countDroid(DROID_ANY, i) > 0 || enumStruct(i).length > 0))
+		if ((countDroid(DROID_ANY, i) > 0 || enumStruct(i).length > 0))
 		{
 			//Boost AI production to produce all droids within a factory throttle
 			completeResearch("R-Struc-Factory-Upgrade-AI", i);
 		}
+	}
+}
+
+// Give the player the next Black Box schematic (if any more exist)
+function __camGrantBlackBoxResearch()
+{
+	const partialName = "R-Special";
+	let idxNum = 1;
+	let resIdx = "01";
+	let research = getResearch(partialName + resIdx, CAM_HUMAN_PLAYER);
+	while (research !== null && (camResearchIsAvailable(partialName + resIdx) || research.started || research.done))
+	{
+		// If this schematic has already been granted, check the next one
+		idxNum++;
+		resIdx = ((idxNum < 10) ? ("0" + idxNum) : idxNum);
+		research = getResearch(partialName + resIdx, CAM_HUMAN_PLAYER);
+	}
+
+	if (research === null)
+	{
+		// No more schematics left
+		return;
+	}
+	else
+	{
+		enableResearch(partialName + resIdx, CAM_HUMAN_PLAYER);
 	}
 }

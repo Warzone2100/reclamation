@@ -1,0 +1,10 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "COL_BASE1": { "message": "COLBASE_MSG", "x": 13504, "y": 7616, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE2": { "message": "COLBASE_MSG", "x": 13120, "y": 4544, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE3": { "message": "COLBASE_MSG", "x": 11840, "y": 1216, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE1": { "message": "INFESBASE_MSG", "x": 16064, "y": 5184, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "INF_BASE2": { "message": "INFESBASE_MSG", "x": 15680, "y": 1216, "z": 0, "audio": "pcv393.ogg", "type": 0 }
+    }
+}

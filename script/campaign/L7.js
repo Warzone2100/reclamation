@@ -5,33 +5,19 @@ include("script/campaign/templates.js");
 const MIS_CIVILIANS = 1; // Used for civilian groups
 const MIS_TRANSPORT = 2; // Used for the transport that comes to pick them up
 
-var numWaves = 0; // How many infested attack waves have occured
-var phaseTwo = false; // Spawning behaviour changes at 10 minutes remaining
-var killSweepY = 30; // The height of the area where everything dies at the end of the level
+var numWaves; // How many infested attack waves have occured
+var phase; // Spawning behaviour changes at 10 minutes remaining
+var killSweepY; // The height of the area where everything dies at the end of the level
+var endingBlast;
 
-var detonateInfo;
 
 const mis_infestedRes = [
 	"R-Wpn-MG-Damage02", "R-Wpn-Rocket-Damage02",
 	"R-Wpn-Mortar-Damage01", "R-Wpn-Flamer-Damage02",
 	"R-Wpn-Cannon-Damage02", "R-Wpn-MG-ROF01", "R-Wpn-Rocket-ROF02",
 	"R-Wpn-Mortar-ROF01", "R-Wpn-Flamer-ROF02", "R-Wpn-Cannon-ROF02",
-	"R-Vehicle-Metals01", "R-Struc-Materials01", "R-Defense-WallUpgrade01",
+	"R-Vehicle-Metals01", "R-Struc-Materials01",
 ];
-
-// Damage infested reinforcements
-function preDamageInfestedGroup(group)
-{
-	const units = enumGroup(group);
-	for (let i = 0; i < units.length; ++i)
-	{
-		if (units[i].body !== "CrawlerBody") // Don't damage crawlers
-		{
-			// 50% to 80% base HP
-			setHealth(units[i], 50 + camRand(31));
-		}
-	}
-}
 
 //Remove infested helicopters.
 camAreaEvent("heliRemoveZone", function(droid)
@@ -47,121 +33,104 @@ camAreaEvent("heliRemoveZone", function(droid)
 	resetLabel("heliRemoveZone", CAM_INFESTED);
 });
 
-// This function is called after a video is played, a delay is required for the 'alert' sound to play properly in all cases
-function messageAlert()
-{
-	playSound("beep7.ogg"); // Play a little noise to notify the player that they have a new message
-}
-
-// Play alerts if the player's stuff gets infected by a Vile Stinger
-function eventObjectTransfer(obj, from)
-{
-	if (from === CAM_HUMAN_PLAYER && obj.player === CAM_INFESTED)
-	{
-		if (obj.type === STRUCTURE)
-		{
-			playSound("pcv623.ogg"); // "Structure Infected"
-		}
-		else if (obj.type === DROID)
-		{
-			playSound("pcv624.ogg"); // "Unit Infected"
-		}
-	}
-}
-
 // Transition the level into phase two
 // At this point, both ground and air attack waves will stop spawning to give the player some time to reorganize
 // This function should always be called around when the timer hits 12 minutes remaining
 function startPhaseTwo()
 {
-	phaseTwo = true;
+	phase = 2;
 
 	// Stop spawning new attacks for now
 	removeTimer("infestedAttackWaves");
 	camSetVtolSpawnStateAll(false);
 
+	// Stop sending transports
+	removeTimer("transportEvac");
+	const civs = enumDroid(MIS_CIVILIANS);
+	for (const civilian of civs)
+	{
+		// Quietly remove any remaining civilians on the map
+		camSafeRemoveObject(civilian);
+	}
+
 	// Queue delivering the message of the big kaboom that's gonna badoom
-	queue("detonationMessage", camMinutesToMilliseconds(1));
+	queue("startPhaseThree", camMinutesToMilliseconds(6.75));
 
 	// Set up the verbal countdown until detonation
-	setTimer("countDown", camSecondsToMilliseconds(0.4));
+	// setTimer("countDown", camSecondsToMilliseconds(0.4));
 
 	// Also queue the return of the infested attacks, but meaner this time
 	queue("startAttackWaves", camSecondsToMilliseconds(125));
+
+	// Play a message assuring the player that they just need to hold on a little longer
+	camQueueDialogue([
+		{text: "ASSOCIATE: Excellent work, Commander Alpha.", delay: 0, sound: CAM_RCLICK},
+		{text: "ASSOCIATE: All civilians and critical personnel are being transported to a safe distance.", delay: 2, sound: CAM_RCLICK},
+		{text: "ASSOCIATE: We'll be sending the transports back around for you once they're secured.", delay: 3, sound: CAM_RCLICK},
+		{text: "ASSOCIATE: Just hold your position for another few minutes.", delay: 3, sound: CAM_RCLICK},
+		{text: "ASSOCIATE: This will all be over soon...", delay: 4, sound: CAM_RCLICK},
+	]);
 }
 
-// Give a message and change the objective text
-function detonationMessage()
+// Reveal Clayde's betrayal
+// After this point, Infested units will pour in at an absurd rate, but """victory""" is guaranteed.
+// The timer will disappear, and the mission will end once the silos are gone
+// This function should be called at around 5 minutes remaining
+function startPhaseThree()
 {
-	// Stop sending transports
-	removeTimer("transportEvac");
+	phase = 3;
 
-	camPlayVideos(["pcv455.ogg", {video: "L7_DETMSG", type: MISS_MSG}]);
-	queue("messageAlert", camSecondsToMilliseconds(3.4));
-	camSetExtraObjectiveMessage("Defend the missile silos until nuclear detonation");
+	camPlayVideos([cam_sounds.incoming.incomingTransmission, {video: "L7_REVEAL", type: MISS_MSG}]);
+	camSetExtraObjectiveMessage();
+	// Remove the mission timer
+	setMissionTime(-1);
+
+	// Change the win conditions, this basically makes it so the player can't die normally
+	camSetStandardWinLossConditions(CAM_VICTORY_SCRIPTED, CAM_A0_OUT, {
+		defeatOnDeath: false
+	});
+
+	// Give one last (very short) break before going absolutely ballistic
+	removeTimer("infestedAttackWaves");
+	queue("startAttackWaves", camSecondsToMilliseconds(30));
+
+	// Set up a timer for checking if the ending sequence should start
+	setTimer("checkEndingStart", camSecondsToMilliseconds(0.4));
 }
 
-// Play countdown sounds as the timer ticks down
-// Also calls the functions that do all the cool stuff at the end
-function countDown()
+// Check if the nukes should blow up
+function checkEndingStart()
 {
-	let skip = false;
-	const CURRENT_TIME = getMissionTime();
-
-	for (let i = 0, len = detonateInfo.length; i < len; ++i)
+	if (!checkMissileSilos())
 	{
-		if (CURRENT_TIME <= detonateInfo[0].time)
-		{
-			if (len > 1 && (CURRENT_TIME <= detonateInfo[1].time))
-			{
-				skip = true; //Huge time jump?
-			}
-			if (!skip)
-			{
-				playSound(detonateInfo[0].sound, CAM_HUMAN_PLAYER);
-			}
-
-			detonateInfo.shift();
-
-			break;
-		}
-	}
-
-	// Get ready for the cool explosions
-	if (CURRENT_TIME < 5)
-	{
-		camCallOnce("prepareEnding");
-	}
-
-	// Start the cool explosions
-	if (CURRENT_TIME < 1)
-	{
-		camCallOnce("endEffects");
+		// The missile silos are gone...
+		removeTimer("checkEndingStart");
+		camCallOnce("prepareEnding"); // Start mini-blasts and transfer any remaining player objects
+		queue("endEffects", camSecondsToMilliseconds(5)); // Kaboom
 	}
 }
 
 // Make preparations for all the cool stuff at the end
-// Getting all of this stuff to work is really hacky and I wouldn't be suprised if this code makes someone cry
+// Getting all of this stuff to work is really hacky and I wouldn't be surprised if this code makes someone cry
 function prepareEnding()
 {
-	// Change the win conditions, this basically makes it so the player won't die and the timer won't end the level
-	camSetStandardWinLossConditions(CAM_VICTORY_SCRIPTED, "THE_END");
-
 	// Give everything the player has to the "transport" team
-	// This is done so that when everything explodes in a few seconds, the player won't get a bunch of losses reported on the end screen
+	// This is done so that when everything explodes in a few seconds, the player get a bunch of messages about "unit lost/under attack"
 	// Also it's so the player can sit back and watch the fireworks
 	camAbsorbPlayer(CAM_HUMAN_PLAYER, MIS_TRANSPORT);
 
-	// Give the player full vision of the map by placing a spotter on the LZ that has an absurdley long radius
-	addSpotter(32, 20, 0, 16384, false, 0);
+	// Give the player full vision of the map by placing a spotter on the LZ that has an absurdly long radius
+	addSpotter(32, 20, CAM_HUMAN_PLAYER, 16384, false, 0);
 
 	// Start causing a bunch of tiny explosions around the player's base
 	setTimer("smallExplosionFX", camSecondsToMilliseconds(0.3));
 
 	// Move the camera towards the player's base
-	cameraSlide(4032, 2624);
+	const startpos = getObject("startPosition");
+	cameraSlide(startpos.x * 128, startpos.y * 128);
+	cameraZoom(5000, 5000);
 
-	// Force the minimap to be active.
+	// Force the minimap to be active (since the player no longer has an HQ).
 	setMiniMap(true);
 }
 
@@ -172,19 +141,18 @@ function endEffects()
 	fireWeaponAtLoc("LargeExplosion", 32, 17, CAM_HUMAN_PLAYER);
 	removeTimer("smallExplosionFX");
 
-	// Adjust the lighting
-	setSunPosition(0, -0.2, -0.3);
-	setSunIntensity(0.7, 0.5, 0.5, 1.4, 0.6, 0.6, 1.4, 0.6, 0.6);
-
 	// Procedurally blow up everything on the map
 	setTimer("killSweep", camSecondsToMilliseconds(0.3));
 
 	// Stop spawning new attacks waves
-	removeTimer("infestedAttackWaves");
+	endingBlast = true;
 	camSetVtolSpawnStateAll(false);
 
-	// Set the fog to it's default colours
-	camSetFog(182, 225, 236);
+	// Adjust the lighting and fog
+	camSetSunPos(0, -0.2, -0.3);
+	camSetFog(140, 100, 100);
+	camSetSunIntensity(0.7, 0.5, 0.5, 1.4, 0.6, 0.6);
+	camSetWeather(CAM_WEATHER_CLEAR);
 }
 
 // Small explosions effects
@@ -201,18 +169,17 @@ function killSweep()
 {
 	// First check if we've already hit the end of the map
 	// If we have, stop sweeping and queue up the end screen
-	if (killSweepY === 128)
+	if (killSweepY >= 128)
 	{
 		removeTimer("killSweep");
-		if (difficulty !== INSANE)
-		{
-			queue("youWin", camSecondsToMilliseconds(4));
-		}
-		else
-		{
-			queue("hintMessage", camSecondsToMilliseconds(4));
-			queue("youWin", camSecondsToMilliseconds(12));
-		}
+
+		// Gradually darken the skies
+		camGradualFog(camSecondsToMilliseconds(12), 1, 1, 1);
+		camGradualSunIntensity(camSecondsToMilliseconds(12), 0.01, 0.01, 0.01);
+		camSetSkyType(CAM_SKY_NIGHT);
+
+		// Cue the end screen
+		queue("youWin", camSecondsToMilliseconds(12));
 	}
 
 	const list = enumArea(1, 1, 64, killSweepY, ALL_PLAYERS, false); // Get everything in the kill zone
@@ -222,39 +189,57 @@ function killSweep()
 		camSafeRemoveObject(list[i], true); // ... and then blow them up
 	}
 
+	// Create a visual "shockwave" effect by causing explosions at the edge of the kill zone
+	for (let x = ((killSweepY % 4 === 0) ? 1 : 2); x < 64; x += 2)
+	{
+		fireWeaponAtLoc("ShockwaveExplosion", x, killSweepY, CAM_HUMAN_PLAYER);
+	}
+
 	// Increase the kill zone area by 2 units south
 	killSweepY += 2;
+
 }
 
 // You win.
 // Show the ending screen.
 function youWin()
 {
-	camScriptedVictory();
-}
-
-// Give a hint on how to do something i guess.
-function hintMessage()
-{
-	camPlayVideos({video: "HINTMSG", type: MISS_MSG});
-	queue("messageAlert", camSecondsToMilliseconds(0.2));
+	camPlayVideos({video: "L7_FLIGHT", type: MISS_MSG});
+	queue("camEndMission", camSecondsToMilliseconds(0.2));
 }
 
 // Start sending attack waves
 function startAttackWaves()
 {
-	if (!phaseTwo)
+	if (phase == 1)
 	{
 		setTimer("infestedAttackWaves", camChangeOnDiff(camSecondsToMilliseconds(40)));
 		queue("heliAttack", camChangeOnDiff(camMinutesToMilliseconds(6)));
 	}
-	else
+	else if (phase == 2)
 	{
+		// Much faster attack waves
 		setTimer("infestedAttackWaves", camChangeOnDiff(camSecondsToMilliseconds(25)));
 		heliAttack();
 
 		// Change the fog colour to a dark purple
-		camSetFog(114, 73, 156);
+		camGradualFog(camSecondsToMilliseconds(30), 114, 73, 156);
+		// Decrease the lighting, and give it a stronger pink/purple hue
+		camGradualSunIntensity(camSecondsToMilliseconds(30), .5,.45,.5);
+		camSetWeather(CAM_WEATHER_SNOW);
+		camQueueDialogue({text: "--- ANOMALOUS SIGNAL DETECTED ---", delay: 0, sound: cam_sounds.beacon});
+	}
+	else if (phase == 3)
+	{
+		// Make the attack waves go absolutely nuts
+		setTimer("infestedAttackWaves", camChangeOnDiff(camSecondsToMilliseconds(12)));
+
+		// Change the fog colour to a darker purple
+		camGradualFog(camSecondsToMilliseconds(20), 95, 60, 130);
+		// MORE PURPLE !!!
+		camGradualSunIntensity(camSecondsToMilliseconds(20), .5,.4,.5);
+		camSetWeather(CAM_WEATHER_SNOWSTORM);
+		camQueueDialogue({text: "--- ANOMALOUS SIGNAL DETECTED ---", delay: 0, sound: cam_sounds.beacon});
 	}
 }
 
@@ -268,7 +253,7 @@ function heliAttack()
 		altIdx: 0
 	};
 
-	if (!phaseTwo)
+	if (phase == 1)
 	{
 		const heliPositions = [camMakePos("heliSpawn1"), camMakePos("heliSpawn2")];
 
@@ -282,9 +267,14 @@ function heliAttack()
 	}
 }
 
-// Infested attack waves progressor
+// Infested attack waves progression
 function infestedAttackWaves()
 {
+	if (endingBlast)
+	{
+		return; // Don't spawn more during the ending blast
+	}
+
 	numWaves++;
 
 	/*
@@ -308,20 +298,20 @@ function infestedAttackWaves()
 
 	const southEastMountainDroids = [cTempl.inftrike, cTempl.infminitruck, cTempl.infbuggy, cTempl.infmoncan, cTempl.infbuscan, cTempl.inffiretruck];
 
-	const westMarshDroids = [cTempl.infmonhmg, cTempl.infbuscan, cTempl.inffiretruck, cTempl.boomtick, cTempl.infbloke, cTempl.infbjeep];
+	const westMarshDroids = [cTempl.infmonhmg, cTempl.infbuscan, cTempl.inffiretruck, cTempl.boomtick, cTempl.infkevbloke, cTempl.infbjeep];
 
-	const eastIndustryDroids = [cTempl.stinger, cTempl.infmoncan, cTempl.infrbjeep, cTempl.infbuscan, cTempl.inflance, cTempl.infbloke];
+	const eastIndustryDroids = [cTempl.stinger, cTempl.infmoncan, cTempl.infrbjeep, cTempl.infbuscan, cTempl.infkevlance, cTempl.infkevbloke];
 
 	const eastRoadDroids = [cTempl.boomtick, cTempl.infmoncan, cTempl.infrbjeep, cTempl.infsartruck, cTempl.infbloke, cTempl.inffiretruck];
 
-	const westRoadDroids = [cTempl.stinger, cTempl.infbjeep, cTempl.infmonhmg, cTempl.infminitruck, cTempl.infbloke, cTempl.inflance];
+	const westRoadDroids = [cTempl.stinger, cTempl.infbjeep, cTempl.infmonhmg, cTempl.infminitruck, cTempl.infkevbloke, cTempl.inflance];
 
 	const northMountainDroids = [cTempl.stinger, cTempl.vilestinger, cTempl.infrbjeep, cTempl.stinger, cTempl.inffiretruck];
 
 	// This switch block handles spawning waves of civilians from different entrances
 	// Civilians will run towards the LZ for evac by transport
 	// They also serve to clue in the player of where the infested are going to attack from next
-	if (!phaseTwo)
+	if (phase == 1)
 	{
 		switch(numWaves)
 		{
@@ -352,38 +342,60 @@ function infestedAttackWaves()
 		}
 	}
 
-	// These ifs handle the spawning of the actual infested units
+	// Check if the player has abandoned the southern half of the map
+	const NUM_SOUTH_OBJECTS = enumArea("southZone", CAM_HUMAN_PLAYER, false).length; // Count the number of objects in the south half of the map
+	const NUM_EXCLUDED_OBJECTS = enumArea("southExclusionZone", CAM_HUMAN_PLAYER, false).length; // Exclude the objects in the SE "industrial" area
+	const SOUTH_ABANDONED = (NUM_SOUTH_OBJECTS - NUM_EXCLUDED_OBJECTS === 0);
+
+	const entrances = [];
+	const droidPools = [];
+
+	// Spawn Infested from entrances when appropriate
 	if (numWaves > 1)
 	{
-		sendInfestedGroup("southCityEntrance", southCityDroids);
+		entrances.push("southCityEntrance");
+		droidPools.push(southCityDroids);
 	}
-	if (numWaves > 4)
+	if (numWaves > 4 && !SOUTH_ABANDONED)
 	{
-		sendInfestedGroup("southWestCityEntrance", southWestCityDroids);
+		entrances.push("southWestCityEntrance");
+		droidPools.push(southWestCityDroids);
 	}
-	if (numWaves > 7)
+	if (numWaves > 7 && !SOUTH_ABANDONED)
 	{
-		sendInfestedGroup("southEastMountainEntrance", southEastMountainDroids);
+		entrances.push("southEastMountainEntrance");
+		droidPools.push(southEastMountainDroids);
 	}
-	if (numWaves > 12)
+	if (numWaves > 12 && !SOUTH_ABANDONED)
 	{
-		sendInfestedGroup("westMarshEntrance", westMarshDroids);
+		entrances.push("westMarshEntrance");
+		droidPools.push(westMarshDroids);
 	}
 	if (numWaves > 16)
 	{
-		sendInfestedGroup("eastIndustryEntrance", eastIndustryDroids);
+		entrances.push("eastIndustryEntrance");
+		droidPools.push(eastIndustryDroids);
 	}
 	if (numWaves > 21)
 	{
-		sendInfestedGroup("eastRoadEntrance", eastRoadDroids);
+		entrances.push("eastRoadEntrance");
+		droidPools.push(eastRoadDroids);
 	}
 	if (numWaves > 26)
 	{
-		sendInfestedGroup("westRoadEntrance", westRoadDroids);
+		entrances.push("westRoadEntrance");
+		droidPools.push(westRoadDroids);
 	}
 	if (numWaves > 30)
 	{
-		sendInfestedGroup("northMountainEntrance", northMountainDroids);
+		entrances.push("northMountainEntrance");
+		droidPools.push(northMountainDroids);
+	}
+
+	for (const idx in entrances)
+	{
+		// If the south half of the map is abandoned, increase the size of the Infested groups
+		sendInfestedGroup(entrances[idx], droidPools[idx], SOUTH_ABANDONED);
 	}
 }
 
@@ -396,8 +408,7 @@ function sendCivGroup(entrance)
 	// Spawn 10 - 16 civilians
 	for (let i = 0; i < (10 + camRand(7)); i++)
 	{
-		addDroid(MIS_CIVILIANS, spawnPos.x, spawnPos.y, "Civilian",
-		"CivilianBody", "BaBaLegs", "", "", "BabaMG");
+		camAddDroid(MIS_CIVILIANS, spawnPos, cTempl.civ, _("Civilian"));
 	}
 
 	// Order all civilians on the map to move towards the LZ
@@ -408,32 +419,19 @@ function sendCivGroup(entrance)
 }
 
 // Spawn a group of infested at a given entrance
-function sendInfestedGroup(entrance, droids)
+function sendInfestedGroup(entrance, coreDroids, extraDroids)
 {
-	preDamageInfestedGroup(camSendReinforcement(CAM_INFESTED, camMakePos(entrance), randomTemplates(droids), CAM_REINFORCE_GROUND, 
-		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
-	));
-}
+	let coreSize = 2 + camRand(3); // Maximum of 4 core units.
+	let fodderSize = 8 + camRand(5); // 8 - 12 extra Infested Civilians to the swarm.
 
-// Randomize the provided list of units and tack on a bunch of extra rocket fodder
-// Each individual wave is a bit smaller than in L6, to compensate for there being way more of them
-// Each wave also has a chance to include an extra Vile Stinger
-function randomTemplates(coreUnits)
-{
-	const droids = [];
-	const CORE_SIZE = 2 + camRand(3); // Maximum of 4 core units.
-	const FODDER_SIZE = 8 + camRand(5); // 8 - 12 extra Infested Civilians to the swarm.
-
-	for (let i = 0; i < CORE_SIZE; ++i)
+	if (extraDroids)
 	{
-		droids.push(coreUnits[camRand(coreUnits.length)]);
+		// Make the groups a bit larger
+		coreSize += 2;
+		fodderSize += 4;
 	}
 
-	// Add a bunch of Infested Civilians.
-	for (let i = 0; i < FODDER_SIZE; ++i)
-	{
-		droids.push(cTempl.infciv);
-	}
+	const droids = camRandInfTemplates(coreDroids, coreSize, fodderSize);
 
 	// Random chance of adding a Vile Stinger, scales with difficulty
 	if (camRand(101) > camChangeOnDiff(80))
@@ -441,7 +439,9 @@ function randomTemplates(coreUnits)
 		droids.push(cTempl.vilestinger);
 	}
 
-	return droids;
+	camSendReinforcement(CAM_INFESTED, camMakePos(entrance), droids, CAM_REINFORCE_GROUND, 
+		{order: CAM_ORDER_ATTACK, data: {targetPlayer: CAM_HUMAN_PLAYER}}
+	);
 }
 
 // Check if there are any civilians near the LZ, if there are go pick them up with a transport
@@ -505,24 +505,12 @@ function eventStartLevel()
 	const startpos = getObject("startPosition");
 	const lz = getObject("LZ");
 
-	// Sounds to play before detonation (ripped straight from cam3-1 lol)
-	// Lists sound files to play and the time remaining (in seconds) for them to be played
-	detonateInfo = [
-		{sound: "det10min.ogg", time: camMinutesToSeconds(10)},
-		{sound: "det5min.ogg", time: camMinutesToSeconds(5)},
-		{sound: "det4min.ogg", time: camMinutesToSeconds(4)},
-		{sound: "det3min.ogg", time: camMinutesToSeconds(3)},
-		{sound: "det2min.ogg", time: camMinutesToSeconds(2)},
-		{sound: "det1min.ogg", time: camMinutesToSeconds(1)},
-		{sound: "fdetseq.ogg", time: 20},
-		{sound: "10to1.ogg", time: 10},
-	];
-
-   	camSetStandardWinLossConditions(CAM_VICTORY_TIMEOUT, "THE_END", {
+   	camSetStandardWinLossConditions(CAM_VICTORY_SCRIPTED, CAM_A0_OUT, {
 		callback: "checkMissileSilos"
 	});
-	camSetExtraObjectiveMessage(["Survive until evacuation", "Defend the missile silos"]);
+	camSetExtraObjectiveMessage([_("Survive until evacuation"), _("Defend the missile silos")]);
 	setMissionTime(camMinutesToSeconds(30));
+	// NOTE: This mission is basically unchanged in timerless mode
 
 	// Setup lz and starting camera
 	centreView(startpos.x, startpos.y);
@@ -539,9 +527,13 @@ function eventStartLevel()
 	changePlayerColour(MIS_TRANSPORT, playerData[0].colour); // Transport to the player's colour
 	changePlayerColour(MIS_CIVILIANS, 10); // Civilians to white
 
+	numWaves = 0;
+	phase = 1;
+	killSweepY = 30;
+	endingBlast = false;
+
 	// Give player briefing about the incoming infested waves.
 	camPlayVideos({video: "L7_BRIEF", type: MISS_MSG});
-	queue("messageAlert", camSecondsToMilliseconds(0.2));
 
 	// Set up transport runs to pick up civilians
 	setTimer("transportEvac", camMinutesToMilliseconds(2));
@@ -550,8 +542,16 @@ function eventStartLevel()
 	queue("startAttackWaves", (camChangeOnDiff(camSecondsToMilliseconds(20))));
 
 	// Start phase two when there's 12 minutes remaining
-	queue("startPhaseTwo", camMinutesToMilliseconds(18))
+	queue("startPhaseTwo", camMinutesToMilliseconds(18));
+
+	camSetPreDamageModifier(CAM_INFESTED, [50, 80], [60, 90], CAM_INFESTED_PREDAMAGE_EXCLUSIONS);
 
 	// Change the fog colour to a light pink/purple
 	camSetFog(185, 182, 236);
+	// Increase the lighting, and give it a SLIGHT pink/purple hue
+	camSetSunIntensity(.6,.58,.6);
+	// Shift the sun towards the east
+	camSetSunPos(-450.0, -400.0, 225.0);
+	// Clear skies
+	camSetWeather(CAM_WEATHER_CLEAR);
 }

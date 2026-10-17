@@ -1,10 +1,7 @@
+include("script/campaign/transitionTech.js");
 include("script/campaign/libcampaign.js");
 include("script/campaign/templates.js");
 
-const mis_playerRes = [
-	"R-Wpn-MG1Mk1", "R-Vehicle-Body01", "R-Sys-Spade1Mk1", "R-Vehicle-Prop-Wheels",
-	"R-Comp-SynapticLink", "R-Cyborg-Wpn-MG", "R-Cyb-Sys-Construct",
-];
 const mis_scavRes = [
 	"R-Wpn-Flamer-Damage01", "R-Wpn-Cannon-Damage01",
 ];
@@ -15,9 +12,10 @@ const MIS_CYAN_SCAVS = 2; // Cyan Scavengers
 const MIS_YELLOW_SCAVS = 3; // Yellow Scavengers
 
 // Whether the player has been detected by either of the scavenger factions
-var playerDetected = false;
+var playerCyanDetected;
+var playerYellowDetected;
 // Whether the player can use the chat to change colors, disabled when capturing the NASDA base.
-var allowColourChange = true;
+var allowColourChange;
 // Changing the player's colour only updates playerData after save-loading or level progression.
 // This variable is to make sure the transport correctly matches the player's colour on this level.
 var playerColour;
@@ -39,18 +37,7 @@ function preDamageNasdaStructs()
 camAreaEvent("captureZone", function(droid)
 {
 	// Give the player some power
-	if (difficulty === HARD)
-	{
-		setPower(600, CAM_HUMAN_PLAYER);
-	}
-	else if (difficulty === INSANE)
-	{
-		setPower(300, CAM_HUMAN_PLAYER);
-	}
-	else
-	{
-		setPower(900, CAM_HUMAN_PLAYER);
-	}
+	setPower(camChangeOnDiff(1000), CAM_HUMAN_PLAYER);
 
 	camAbsorbPlayer(MIS_NASDA, CAM_HUMAN_PLAYER); // Give NASDA base to player
 	changePlayerColour(MIS_NASDA, playerColour); // NASDA Base to player's colour
@@ -65,8 +52,14 @@ camAreaEvent("captureZone", function(droid)
 	queue("researchFlash", camSecondsToMilliseconds(1));
 
 	// Tell the player to use the inbound trucks
-	camPlayVideos(["pcv621.ogg", {video: "L1_BASEMSG", type: MISS_MSG}]);
-	queue("messageAlert", camSecondsToMilliseconds(3.4));
+	camQueueDialogue([
+		{text: "CLAYDE: Well done, Commander.", delay: 0, sound: CAM_RCLICK},
+		{text: "CLAYDE: I'm sure the Council will be pleased to know of our success.", delay: 2, sound: CAM_RCLICK},
+		{text: "CLAYDE: I've dispatched a transport with trucks to your position.", delay: 4, sound: CAM_RCLICK},
+		{text: "CLAYDE: Use them to get this base up and running as soon as possible.", delay: 3, sound: CAM_RCLICK},
+		{text: "CLAYDE: Make sure to construct a generator and", delay: 4, sound: CAM_RCLICK},
+		{text: "investigate that research facility for anything useful.", delay: 0},
+	]);
 
 	// Activate scavenger factories after a 35 second delay
 	queue("expandMap", camSecondsToMilliseconds(35));
@@ -107,8 +100,14 @@ camAreaEvent("townMsg", function(droid)
 	if (droid.player === CAM_HUMAN_PLAYER)
 	{
 		// Tell the player about the scavengers fighting in the town
-		camPlayVideos({video: "L1_TOWNMSG", type: MISS_MSG});
-		queue("messageAlert", camSecondsToMilliseconds(0.2));
+		camQueueDialogue([
+			{text: "CLAYDE: Look how this small town has been torn apart by these warring gangs...", delay: 4, sound: CAM_RCLICK},
+			{text: "CLAYDE: If we succeed in our goal, we can bring an end to all this chaos.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: We will build a new world.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: A better world.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: But for now...", delay: 4, sound: CAM_RCLICK},
+			{text: "CLAYDE: These scavengers only serve to stand in our way.", delay: 3, sound: CAM_RCLICK},
+		]);
 	}
 	else
 	{
@@ -126,7 +125,26 @@ function expandMap()
 		callback: "checkMissileSilos"
 	});
 
-	setMissionTime(camMinutesToSeconds(60)); // Set mission timer to 60 minutes
+	if (tweakOptions.rec_timerlessMode)
+	{
+		if (difficulty >= HARD)
+		{
+			// Crane for the cyan scav bases
+			// NOTE: The player doesn't really have any effective anti-structure weapons at this point, so we're being nice with the Cranes for now...
+			camManageTrucks(
+				MIS_CYAN_SCAVS, {
+					label: "CyanBase",
+					rebuildBase: false,
+					respawnDelay: camChangeOnDiff(camSecondsToMilliseconds(120)),
+					template: cTempl.crane,
+					structset: camAreaToStructSet("cScavBase3")
+			});
+		}
+	}
+	else
+	{
+		setMissionTime(camMinutesToSeconds(60)); // Set mission timer to 60 minutes
+	}
 
 	camSetExtraObjectiveMessage(_("Defend the missile silos"));
 
@@ -141,28 +159,27 @@ function expandMap()
 	// Tell the player to go and kill all the scavs
 	// (and defend the base)
 	camPlayVideos({video: "L1_SCAVMSG", type: MISS_MSG});
-	queue("messageAlert", camSecondsToMilliseconds(0.2));
 
 	// Hack to prevent the south half of the map from being dark after the expansion
-	setSunPosition(225.0, -601.0, 450.0); // Move the sun just a wee bit (default is 225.0, -600.0, 450.0)
+	camSetSunPos(-225.0, -601.0, 450.0); // Move the sun just a wee bit
 }
 
 // This is used to start make scavengers "detect" the player once they're attacked
-function eventAttacked(victim, attacker) 
+function eventDestroyed(obj)
 {
-	if (!camDef(victim) || !victim || victim.player === CAM_HUMAN_PLAYER)
+	if (obj.type !== STRUCTURE)
 	{
-		return;
+		return; // Only care about structures
 	}
-	if (victim.player === MIS_CYAN_SCAVS && attacker.player === CAM_HUMAN_PLAYER && !playerDetected)
+
+	// NOTE: This assumes that the scavengers will not destroy eachother's structures before the player gets involved!
+	if (obj.player === MIS_CYAN_SCAVS && !playerCyanDetected)
 	{
 		camCallOnce("cScavDetectCountdown");
-		return;
 	}
-	if (victim.player === MIS_YELLOW_SCAVS && attacker.player === CAM_HUMAN_PLAYER && !playerDetected)
+	else if (obj.player === MIS_YELLOW_SCAVS && !playerYellowDetected)
 	{
 		camCallOnce("yScavDetectCountdown");
-		return;
 	}
 }
 
@@ -200,16 +217,20 @@ function yScavDetectCountdown()
 function yScavPlayerDetected()
 {
 	removeTimer("yScavPlayerDetected");
+	playerYellowDetected = true;
 
 	// Tell the player that they've been detected if they haven't already recieved a message before.
-	// Also disable the cyan factory so it doesn't fill the town area with units
-	if (!playerDetected)
+	if (!playerCyanDetected)
 	{
-		camSetFactories({"cScavFactory": {}}); // Clears factory data (disabling the factory)
+		// camSetFactories({"cScavFactory": {}}); // Clears factory data (disabling the factory)
 
-		camPlayVideos({video: "L1_DETMSG", type: MISS_MSG});
-		queue("messageAlert", camSecondsToMilliseconds(0.2));
-		playerDetected = true;
+		camQueueDialogue([
+			{text: "CLAYDE: Commander, we've been monitoring scavenger radio transmissions from your area.", delay: 0, sound: CAM_RCLICK},
+			{text: "CLAYDE: It would appear that some of the scavengers near you are now aware of your presence.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: If their chatter is anything to go by, it looks like they're preparing to retaliate.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: Be ready to defend our base.", delay: 4, sound: CAM_RCLICK},
+			{text: "CLAYDE: Do not allow them to compromise the mission!", delay: 2, sound: CAM_RCLICK},
+		]);
 	}
 
 	// Set the first yellow factory to attack the player (if it still exists)
@@ -236,19 +257,33 @@ function yScavPlayerDetected()
 function cScavPlayerDetected()
 {
 	removeTimer("cScavPlayerDetected");
+	playerCyanDetected = true;
 
 	// Tell the player that they've been detected if they haven't already recieved a message before.
-	// Also disable the yellow factory so it doesn't fill the town area with units
-	if (!playerDetected)
+	if (!playerYellowDetected)
 	{
-		camSetFactories({"yScavFactory1": {}}); // Clears factory data (disabling the factory)
+		// camSetFactories({"yScavFactory1": {}}); // Clears factory data (disabling the factory)
 
-		camPlayVideos({video: "L1_DETMSG", type: MISS_MSG});
-		queue("messageAlert", camSecondsToMilliseconds(0.2));
-		playerDetected = true;
+		camQueueDialogue([
+			{text: "CLAYDE: Commander, we've been monitoring scavenger radio chatter from your area.", delay: 0, sound: CAM_RCLICK},
+			{text: "CLAYDE: It would appear that some of the scavengers near you are now aware of your presence.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: If their chatter is anything to go by, it looks like they're preparing to retaliate.", delay: 3, sound: CAM_RCLICK},
+			{text: "CLAYDE: Be ready to defend our base.", delay: 4, sound: CAM_RCLICK},
+			{text: "CLAYDE: Do not allow them to compromise the mission!", delay: 2, sound: CAM_RCLICK},
+		]);
 	}
 
 	// Set the cyan factory to attack the player (if it still exists)
+	const templates = [cTempl.bjeep, cTempl.bloke, cTempl.rbjeep];
+	if (difficulty <= HARD)
+	{
+		templates.push(cTempl.bloke);
+	}
+	else
+	{
+		// Add a kevlar bloke on Hard+
+		templates.push(cTempl.kevbloke);
+	}
 	camSetFactories({
 		"cScavFactory": {
 			assembly: "cScavAssembly",
@@ -259,13 +294,7 @@ function cScavPlayerDetected()
 			groupSize: 4,
 			maxSize: 8,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(13)),
-			data: {
-				morale: 50,
-				fallback: camMakePos("cScavAssembly"),
-				regroup: true,
-				count: -1,
-			},
-			templates: [ cTempl.bjeep, cTempl.bloke, cTempl.rbjeep, cTempl.bloke ]
+			templates: templates
 		},
 	});
 
@@ -277,8 +306,12 @@ function cScavPlayerDetected()
 camAreaEvent("wallMsg", function(droid)
 {
 	// Tell the player to break through the wall
-	camPlayVideos({video: "L1_WALLMSG", type: MISS_MSG});
-	queue("messageAlert", camSecondsToMilliseconds(0.2));
+	camQueueDialogue([
+		{text: "CLAYDE: You're almost there now, Commander.", delay: 0, sound: CAM_RCLICK},
+		{text: "CLAYDE: This appears to be the base's eastern wall.", delay: 2, sound: CAM_RCLICK},
+		{text: "CLAYDE: Use your weapons to bring it down.", delay: 3, sound: CAM_RCLICK},
+		{text: "CLAYDE: Then move inside and secure the area.", delay: 2, sound: CAM_RCLICK}
+	]);
 });
 
 function sendPlayerTransporter()
@@ -295,21 +328,10 @@ function sendPlayerTransporter()
 
 function enableBaseStructures()
 {
-	const structs = [
-		"A0CommandCentre", "A0PowerGenerator", "A0ResourceExtractor",
-		"A0ResearchFacility", "A0LightFactory", "A0CyborgFactory",
-	];
-
-	for (let i = 0; i < structs.length; ++i)
+	for (let i = 0; i < camBasicStructs.length; ++i)
 	{
-		enableStructure(structs[i], CAM_HUMAN_PLAYER);
+		enableStructure(camBasicStructs[i], CAM_HUMAN_PLAYER);
 	}
-}
-
-// This function is called after a video is played, a delay is required for the 'alert' sound to play properly in all cases
-function messageAlert()
-{
-	playSound("beep7.ogg"); // Play a little noise to notify the player that they have a new message
 }
 
 // Check to make sure at least 1 silo still exists.
@@ -321,6 +343,12 @@ function checkMissileSilos()
 	}
 	else
 		return true;
+}
+
+// Stop refilling the central groups once the player is detected
+function allowCentralRefilling()
+{
+	return (!playerCyanDetected && !playerYellowDetected);
 }
 
 // Allow the player to change to colors that are hard-coded to be unselectable
@@ -402,7 +430,7 @@ function eventChat(from, to, message)
 		// Make sure the scavengers aren't choosing conflicting colours with the player
 		if (colour === 7)
 		{
-			changePlayerColour(MIS_CYAN_SCAVS, 0); // Switch to green
+			changePlayerColour(MIS_CYAN_SCAVS, 12); // Switch to neon green
 		}
 		else
 		{
@@ -437,7 +465,7 @@ function eventStartLevel()
 	}
 	else
 	{
-		changePlayerColour(MIS_CYAN_SCAVS, 0); // Switch to green if player is already cyan
+		changePlayerColour(MIS_CYAN_SCAVS, 12); // Switch to neon green if player is already cyan
 	}
 
 	if (playerColour !== 8)
@@ -458,21 +486,25 @@ function eventStartLevel()
 	// Restrict the map for now.
 	setScrollLimits(0, 0, 64, 30);
 
+	// Temporary conditions...
+	camSetStandardWinLossConditions(CAM_VICTORY_SCRIPTED, "L2S", {
+		defeatOnDeath: false, // The player doesn't start with any trucks
+	});
+
 	const startpos = getObject("startPosition");
 	centreView(startpos.x, startpos.y);
 
 	enableBaseStructures(); // Allow the player to build base structures (Command Center, Factory, etc.)
-	camCompleteRequiredResearch(mis_playerRes, CAM_HUMAN_PLAYER); // Give starting tech
+	camCompleteRequiredResearch(camRec1StartResearch, CAM_HUMAN_PLAYER); // Give starting tech
 	camCompleteRequiredResearch(mis_scavRes, MIS_CYAN_SCAVS); // Give scavengers weapon upgrades
 	camCompleteRequiredResearch(mis_scavRes, MIS_YELLOW_SCAVS);
 
 	// Give player briefing.
 	camPlayVideos({video: "L1_BRIEF", type: MISS_MSG});
-	queue("messageAlert", camSecondsToMilliseconds(0.2));
 
 	// Set artifact placement
 	camSetArtifacts({
-		"yScavFactory1": { tech: "R-Wpn-MG-Damage01" }, // Hardened MG Bullets
+		// "yScavFactory1": { tech: "R-Wpn-MG-Damage01" }, // Hardened MG Bullets
 		"yScavFactory2": { tech: "R-Wpn-Rocket05-MiniPod" }, // Mini-Rocket Pod
 		"cScavFactory": { tech: "R-Vehicle-Prop-Tracks" }, // Tracked Propulsion
 		"cScavSensor": { tech: "R-Sys-Sensor-Turret01" }, // Sensor Turret
@@ -483,32 +515,32 @@ function eventStartLevel()
 		"SensorOutpost": {
 			cleanup: "cScavBase1",
 			detectMsg: "CSCAV_BASE1",
-			detectSnd: "pcv375.ogg",
-			eliminateSnd: "pcv391.ogg"
+			detectSnd: cam_sounds.baseDetection.scavengerOutpostDetected,
+			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated
 		},
 		"BridgeDefences": {
 			cleanup: "cScavBase2",
 			detectMsg: "CSCAV_BASE2",
-			detectSnd: "pcv375.ogg",
-			eliminateSnd: "pcv391.ogg"
+			detectSnd: cam_sounds.baseDetection.scavengerOutpostDetected,
+			eliminateSnd: cam_sounds.baseElimination.scavengerOutpostEradicated
 		},
 		"CyanBase": {
 			cleanup: "cScavBase3",
 			detectMsg: "CSCAV_BASE3",
-			detectSnd: "pcv374.ogg",
-			eliminateSnd: "pcv392.ogg"
+			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
+			eliminateSnd: cam_sounds.baseElimination.scavengerBaseEradicated
 		},
 		"GasStation": {
 			cleanup: "yScavBase1",
 			detectMsg: "YSCAV_BASE1",
-			detectSnd: "pcv374.ogg",
-			eliminateSnd: "pcv392.ogg"
+			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
+			eliminateSnd: cam_sounds.baseElimination.scavengerBaseEradicated
 		},
 		"YellowBase": {
 			cleanup: "yScavBase2",
 			detectMsg: "YSCAV_BASE2",
-			detectSnd: "pcv374.ogg",
-			eliminateSnd: "pcv392.ogg"
+			detectSnd: cam_sounds.baseDetection.scavengerBaseDetected,
+			eliminateSnd: cam_sounds.baseElimination.scavengerBaseEradicated
 		},
 	});
 
@@ -526,7 +558,7 @@ function eventStartLevel()
 			groupSize: 3,
 			maxSize: 3,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(16)),
-			templates: [ cTempl.trike, cTempl.bloke ]
+			templates: [ ] // Empty; we just need this factory to refill a group for now
 		},
 		// This factory only activates when the player is detected
 		"yScavFactory2": {
@@ -552,15 +584,58 @@ function eventStartLevel()
 			groupSize: 4,
 			maxSize: 4,
 			throttle: camChangeOnDiff(camSecondsToMilliseconds(20)),
-			templates: [ cTempl.bjeep, cTempl.bloke, cTempl.bloke ]
+			templates: [ ] // Empty; we just need this factory to refill a group for now
 		},
 	});
+
+	camMakeRefillableGroup(
+		undefined, {
+			templates: [
+				cTempl.trike, cTempl.bloke,
+				cTempl.bloke, cTempl.trike,
+			],
+			factories: ["yScavFactory1"],
+			callback: "allowCentralRefilling" // Stop refilling the central groups once the player is detected
+		}, CAM_ORDER_PATROL, {
+			pos: [
+				camMakePos("scavPatrol1"),
+				camMakePos("scavPatrol2"),
+			]
+	});
+
+	camMakeRefillableGroup(
+		undefined, {
+			templates: [
+				cTempl.bjeep, cTempl.bloke, cTempl.bloke,
+				cTempl.bjeep, cTempl.bloke, cTempl.bloke,
+			],
+			factories: ["cScavFactory"],
+			callback: "allowCentralRefilling"
+		}, CAM_ORDER_PATROL, {
+			pos: [
+				camMakePos("scavPatrol1"),
+				camMakePos("scavPatrol2"),
+			]
+	});
+
+	playerCyanDetected = false;
+	playerYellowDetected = false;
+	allowColourChange = true;
 
 	// Place a beacon on the NASDA base
 	hackAddMessage("NASDA_BASE", PROX_MSG, CAM_HUMAN_PLAYER);
 
-	// Set the fog to it's default colours
-	camSetFog(182, 225, 236);
+	// Set the sky to night
+	camSetSkyType(CAM_SKY_NIGHT);
+	// Darken the lighting somewhat
+	camSetSunIntensity(.4,.4,.4);
+	// Darken the fog to 1/4 default brightness
+	camSetFog(45, 56, 59);
+	// Move the sun to the east
+	camSetSunPos(-225.0, -600.0, 450.0);
+	// Make it snow constantly
+	camSetWeather(CAM_WEATHER_SNOWSTORM);
+
 
 	// All NASDA structures start out partially damaged
 	preDamageNasdaStructs();

@@ -1,0 +1,23 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "A3L6_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act3/A3L6intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L6brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "A3L6_BMSG1",
+                    "A3L6_BMSG2",
+                    "A3L6_BMSG3",
+                    "A3L6_BMSG4",
+                    "A3L6_BMSG5",
+                    "A3L6_BMSG6",
+                    "A3L6_BMSG7",
+                    "A3L6_BMSG8",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

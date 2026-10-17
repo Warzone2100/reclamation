@@ -1,0 +1,19 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "SCAV_LZBASE1": { "message": "BARBASE_MSG", "x": 3648, "y": 9152, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_LZBASE2": { "message": "BARBASE_MSG", "x": 960, "y": 8000, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_LZBASE3": { "message": "BARBASE_MSG", "x": 7488, "y": 3776, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_BASE1": { "message": "BARBASE_MSG", "x": 2368, "y": 6592, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_BASE2": { "message": "BARPOST_MSG", "x": 3520, "y": 7616, "z": 0, "audio": "pcv390.ogg", "type": 0 },
+        "SCAV_BASE3": { "message": "BARBASE_MSG", "x": 5440, "y": 6976, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "SCAV_BASE4": { "message": "BARBASE_MSG", "x": 6720, "y": 832, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CHARLIE_LZ": { "message": "RUINS_MSG", "x": 3776, "y": 9408, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "FOXTROT_LZ": { "message": "RUINS_MSG", "x": 576, "y": 8000, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "GOLF_LZ": { "message": "RUINS_MSG", "x": 7616, "y": 4160, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "POWER_ZONE": { "message": "RUINS_MSG", "x": 1216, "y": 3520, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "UPLINK_ZONE": { "message": "RUINS_MSG", "x": 2432, "y": 2816, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "VTOL_ZONE": { "message": "RUINS_MSG", "x": 1344, "y": 1216, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "RET_LZ": { "message": "LZ_MSG", "x": 7360, "y": 6720, "z": 0, "audio": "pcv448.ogg", "type": 2 }
+    }
+}

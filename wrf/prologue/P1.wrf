@@ -1,0 +1,16 @@
+/*
+ * P1.wrf
+ *
+ */
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+
+file		FLIC		"briefP1.json"
+file		PROX		"proxP1.json"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory "script/campaign"
+file JAVASCRIPT "P1.js"

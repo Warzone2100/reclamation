@@ -1,0 +1,11 @@
+/*
+ * act4change.wrf
+ *
+ * Used when transitioning to Act 4's final level
+ *
+ */
+
+
+directory	"texpages"
+file		TERTILES	"tertilesc3hw"
+

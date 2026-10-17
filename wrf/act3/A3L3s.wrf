@@ -1,0 +1,15 @@
+/*
+ * A3L3s.wrf
+ *
+ */
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+
+file		FLIC		"briefA3L3.json"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory "script/campaign"
+file JAVASCRIPT "A3L3s.js"

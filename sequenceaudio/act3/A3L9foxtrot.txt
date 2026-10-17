@@ -1,0 +1,7 @@
+-120 50		3.0		6.0		_("<FOXTROT>: Commander Bravo, this is Commander Foxtrot.")
+-120 50		6.0		11.0	_("<FOXTROT>: I come with orders from the Supreme General himself")
+-120 60		6.0		11.0	_("arranging for your detainment, effective immediately.")
+-120 50		11.0	14.0	_("<FOXTROT>: Cease all activity and surrender yourself and your forces now.")
+-120 50		15.0	17.0	_("<FOXTROT>: I repeat: We have orders for your arrest.")
+-120 50		17.0	21.0	_("<FOXTROT>: The Supreme General has authorized")
+-120 60		17.0	21.0	_("lethal force if you fail to comply, Commander Bravo.")

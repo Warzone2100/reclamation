@@ -1,0 +1,51 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L3_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L3intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L3brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L3_BMSG1",
+                    "L3_BMSG2",
+                    "L3_BMSG3",
+                    "L3_BMSG4",
+                    "L3_BMSG5",
+                    "L3_BMSG6",
+                    "L3_BMSG7",
+                    "L3_BMSG8",
+                    "L3_BMSG9",
+                    "L3_BMSG10",
+                    "L3_BMSG11",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L3_ATTACKMSG": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L3attack.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "L3_ATTMSG1",
+                    "L3_ATTMSG2",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        },
+        "L3_KILLMSG": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L3scavs.webm" },
+                { "loop": 0, "subtitles": [
+                    "INCOMTRAN",
+                    "L3_KILLMSG1",
+                    "L3_KILLMSG2",
+                    "L3_KILLMSG3",
+                    "L3_KILLMSG4",
+                    "L3_KILLMSG5",
+                    "ENDTRAN"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::general::backstory",
+	"title": "Backstory",
+	"sort": "01",
+	"applicableModes": ["campaign"],
+	"contents": [
+		"In the late 21st century, NASDA (the North American Strategic Defense Agency) developed and deployed a massive missile defense system, including a network of nuclear-equipped satellites and ground-based launch sites.",
+		"",
+		"However, during a routine maintenance check, something went terribly wrong...",
+		"",
+		"The Collapse came fast and hard. Following a technical error in the satellite defense system, nuclear warheads were ﬁred at major cites across the world.",
+		"",
+		"Minutes later, ground based sites ﬁred in response to the launch. Millions died as nuclear ﬁrestorms wiped out the world’s cities. Billions more died as plagues and epidemics swept away what remained of civilization.",
+		"",
+		"Less than a million people survived the Collapse.",
+		"",
+		"Earth broke into hundreds of small scavenger bands battling each other for the remnants of the former civilization. Only a few had the vision to attempt to rebuild a new world from the ashes."
+	]
+}

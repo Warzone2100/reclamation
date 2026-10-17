@@ -1,0 +1,6 @@
+-120 50		3.0		6.0		_("<LIEUTENANT>: Commander Bravo, the transports are here.")
+-120 50		6.0		8.0		_("<LIEUTENANT>: Load up your forces and escape!")
+-120 50		9.0		11.0	_("<DELTA>: Don't worry, Bravo.")
+-120 50		11.0	14.0	_("<DELTA>: We'll stay here and make sure all of your units make it out.")
+-120 50		14.0	16.0	_("<DELTA>: Just take the transport and go!")
+-120 50		16.0	19.0	_("<DELTA>: We'll follow you out when we get the chance.")

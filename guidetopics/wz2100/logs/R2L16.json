@@ -1,0 +1,43 @@
+{
+	"type": "wz2100.guidetopic.v1",
+	"id": "wz2100::logs::R2L16",
+	"title": "[16] Project X Research Excerpt #3",
+	"sort": "016",
+	"visual": {
+		"droidTemplate": {
+			"body": "CrawlerBody",
+	        "name": "Vile Stinger",
+	        "propulsion": "CyborgLegs",
+	        "type": "CYBORG_SUPER",
+	        "weapons": [
+	            "VileStingerTail"
+	        ]
+		}
+	},
+	"contents": [
+		"[Excerpts from notes written by NARS researchers]",
+		"",
+		"Commonly referred to as \"Vile Stingers\", these creatures bear a very similar appearance and behavior to the common Stinger creatures.",
+		"However, Vile Stingers can be distinguished by their bright red markings.",
+		"",
+		"[...]",
+		"",
+		"We now believe that the Projext X pathogen is primarily airborne.",
+		"The capsules produced in the main laboratory (and recently, deployed at the order of our Supreme General), contain a dense personalized version of the pathogen.",
+		"When the capsule (which is slightly larger than a civilian refrigerator) is deployed, it contaminates a large area with the pathogen.",
+		"",
+		"[...]",
+		"",
+		"Like all of the other unique organisms produced by the Project X program, Vile Stingers are designed to serve a specific battlefield role.",
+		"Vile Stingers seem to be designed to contaminate targets that would otherwise be protected by armored vehicles or structures.",
+		"The flechettes launched by Vile Stingers are hollowed out; their insides are filled with a mucus-like material that contains the pathogen in high concentrations.",
+		"On impact, these projectiles burst, spreading the contaminated mucus onto (and potentially into) the target.",
+		"Due to these capabilities, Vile Stingers should always be priority targets for our forces, should they be forced to engage with the Infested.",
+		"",
+		"[...]",
+		"",
+		"Cognitively, Vile Stingers appear to the most capable among any of the Project X related organisms.",
+		"Most strikingly, Vile Stingers have a rare talent; a basic sense of self-preservation.",
+		"As reported by multiple of our flamer squads, they have a tendency to flee or create distance between themselves and their attackers."
+	]
+}

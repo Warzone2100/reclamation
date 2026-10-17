@@ -1,0 +1,14 @@
+/*
+ * L7.wrf
+ *
+ */
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+file		FLIC		"briefL7.json"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory		"script/campaign"
+file			JAVASCRIPT        "L7.js"

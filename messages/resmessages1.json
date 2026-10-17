@@ -4,7 +4,9 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_weapons.ogg",
         "text": [
+            "New Weapon Turret Available",
             "Light Cannon firing 40mm rounds",
+            "Damage Type: All Rounder",
             "Effective against: Vehicles and structures",
             "Ineffective against: Bunkers and infantry",
             "Provides substantial bonus HP"
@@ -17,8 +19,10 @@
         "text": [
             "New Weapon Turret Available",
             "Medium Cannon firing 76mm rounds",
-            "Best Targets: Vehicles",
-            "Body Points: Medium"
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Provides substantial bonus HP"
         ]
     },
     "RES_CN3MK1": {
@@ -28,8 +32,10 @@
         "text": [
             "New Weapon Turret Available",
             "Heavy Cannon firing 120 mm rounds",
-            "Best Targets: Vehicles",
-            "Body Points: High"
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Provides substantial bonus HP"
         ]
     },
     "RES_CYMET1": {
@@ -39,7 +45,7 @@
         "text": [
             "Cyborg Materials Improved",
             "Layered composite alloys and energy-absorbing fibres",
-            "Increases Kinetic Armor and Hit Points",
+            "Increases Kinetic Armor and Hitpoints",
             "All Cyborgs upgraded automatically"
         ]
     },
@@ -48,7 +54,9 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
+            "New Cyborg Available",
             "Armed with Cyborg Light Cannon",
+            "Damage Type: All Rounder",
             "Effective against: Vehicles and structures",
             "Ineffective against: Bunkers and infantry",
             "Requires Cyborg factory to produce"
@@ -59,10 +67,13 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
+            "New Cyborg Available",
             "Armed with Cyborg Flamer",
+            "Damage Type: Incendiary",
             "Effective against: Infantry, vehicles and bunkers",
             "Ineffective against: Non-bunker structures",
-            "Can ignite enemy units causing damage over time",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Can ignite enemy units, causing damage over time",
             "Flames can hit multiple units",
             "Has a very short weapon range",
             "Requires Cyborg factory to produce"
@@ -86,7 +97,11 @@
         "text": [
             "New Cyborg Available",
             "Armed with Lance Anti-Tank rocket",
-            "Body Points: Medium",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Cyborgs and structures",
+            "Greater accuracy at longer ranges",
+            "Obsoletes and replaces Sarissa Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -95,10 +110,11 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_com.ogg",
         "text": [
-            "New Systems Turret Available for Design",
             "New battlefield computer system",
-            "Commander leads groups acts as factory delivery point",
-            "Body Points: High"
+            "Commander acts as rally point for factories and repair facilities",
+            "Command unit gains experience from all assigned units",
+            "Command unit shares experience bonuses with all assigned units",
+            "Provides extensive bonus HP"
         ]
     },
     "RES_C_SL1": {
@@ -120,7 +136,7 @@
             "New Defensive Structure Available",
             "Armored bunker with Machinegun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_DF_WU1": {
@@ -130,7 +146,7 @@
         "text": [
             "Defenses Improved",
             "Improved Titanium-reinforced concrete",
-            "Increases Armour and Body Points",
+            "Increases Armour and Hitpoints",
             "All defenses and walls upgraded automatically"
         ]
     },
@@ -140,7 +156,7 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored guard tower with Mini-Pod Rocket",
+            "Steel tower with Mini-Pod Rocket",
             "Automatically targets enemies within sensor range",
             "Defensive Strength: Medium"
         ]
@@ -150,10 +166,13 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_weapons.ogg",
         "text": [
+            "New Weapon Turret Available",
             "Flame-thrower firing Propylene Oxide gel",
+            "Damage Type: Incendiary",
             "Effective against: Infantry, vehicles and bunkers",
             "Ineffective against: Non-bunker structures",
-            "Can ignite enemy units causing damage over time",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Can ignite enemy units, causing damage over time",
             "Flames can hit multiple units",
             "Has a very short weapon range"
         ]
@@ -165,7 +184,7 @@
         "text": [
             "New Propulsion Available",
             "Armored Half-tracks",
-            "Somewhat resistant to anti-personel and artillery damage",
+            "Somewhat resistant to anti-personnel and artillery damage",
             "Vulnerable to anti-tank damage",
             "Provides moderate bonus HP",
             "Moderate movement speed"
@@ -187,10 +206,13 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_weapons.ogg",
         "text": [
+            "New Weapon Turret Available",
             "Twin 7.62mm machineguns",
+            "Damage Type: Anti-Personnel",
             "Effective against: Infantry and wheeled vehicles",
             "Ineffective against: Structures and tracked vehicles",
-            "Can attack aerial targets"
+            "Can attack aerial targets",
+            "Obsoletes standard Machinegun"
         ]
     },
     "RES_MORTA1": {
@@ -198,10 +220,12 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_weapons.ogg",
         "text": [
+            "New Weapon Turret Available",
             "Artillery weapon firing explosive mortar shells",
+            "Damage Type: Artillery",
             "Effective against: Infantry, wheeled vehicles and structures",
             "Ineffective against: Tracked vehicles and bunkers",
-            "Does not require line of sight to a target and can be assigned to a sensor",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
             "Greater accuracy at longer ranges",
             "Has a long weapon range",
             "Must be stationary to fire"
@@ -215,7 +239,7 @@
             "New Defensive Structure Available",
             "Armored bunker with Lancer AT rocket",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_PB_FL": {
@@ -226,7 +250,7 @@
             "New Defensive Structure Available",
             "Armored bunker with Flamer",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_PB_LC": {
@@ -237,7 +261,7 @@
             "New Defensive Structure Available",
             "Armored bunker with Light Cannon",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_POWMD1": {
@@ -259,7 +283,8 @@
             "New Base Structure Available",
             "New Repair Facility Repairs Damaged Units",
             "Use the Command Console to send units back for repair",
-            "Or select the Repair Facility as a unit's target"
+            "Or select the Repair Facility as a unit's target",
+            "Repaired units gather at the facility's rally point"
         ]
     },
     "RES_ST_CR1": {
@@ -268,7 +293,7 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Base Structure Available",
-            "Enables command turret research",
+            "Enables command turret production",
             "Directs and collates information for command turrets",
             "Controls up to ten commanders"
         ]
@@ -302,7 +327,7 @@
         "text": [
             "Production Improved",
             "Factory module enables medium and large bodies",
-            "Increases factory output",
+            "Does not increase factory production speed",
             "Use a truck to add modules to a factory"
         ]
     },
@@ -311,10 +336,20 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_struttech.ogg",
         "text": [
-            "Vehicle Production Improved",
+            "Production Improved",
             "Automated Factory Production",
             "Increases factory output",
-            "All vehicle factories upgraded automatically"
+            "All factories upgraded automatically"
+        ]
+    },
+    "RES_ALL_ST_MAT1": {
+        "id": "RES_ALL_ST_MAT1",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "Reinforced Structure Materials",
+            "Increases Armor and Hitpoints",
+            "All structures upgraded automatically"
         ]
     },
     "RES_ST_MAT1": {
@@ -322,9 +357,8 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_struttech.ogg",
         "text": [
-            "Increases Damage Resistance",
             "Reinforced Base Structure Materials",
-            "Increases Armor and Body Points",
+            "Increases Armor and Hitpoints",
             "All base structures upgraded automatically"
         ]
     },
@@ -333,10 +367,10 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_struttech.ogg",
         "text": [
-            "Repair Facility Improved",
+            "Repairing Improved",
             "New automated repair techniques",
             "Increases Repair Speed",
-            "All repair facilities upgraded automatically"
+            "All repair facilities and mobile repair units upgraded automatically"
         ]
     },
     "RES_ST_RM1": {
@@ -372,6 +406,17 @@
             "Defensive Strength: Medium"
         ]
     },
+    "RES_TOWER2": {
+        "id": "RES_TOWER2",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Steel tower with twin machinegun",
+            "Automatically targets enemies within sensor range",
+            "Defensive Strength: Medium"
+        ]
+    },
     "RES_TRACK1": {
         "id": "RES_TRACK1",
         "imdName": "MICAPSUL.pie",
@@ -379,7 +424,7 @@
         "text": [
             "New Propulsion Available",
             "Armored Tracks",
-            "Very resistant to anti-personel and artillery damage",
+            "Very resistant to anti-personnel and artillery damage",
             "Vulnerable to anti-tank damage",
             "Very slow movement speed",
             "Provides substantial bonus HP"
@@ -401,7 +446,7 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "Project Light Body",
+            "New Light Body Available",
             "Light body vulnerable to heavy weapons",
             "Good scout vehicle",
             "Low power cost and low production times"
@@ -413,8 +458,8 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "New Paradigm Light Body",
-            "Inferior armor and body points to Viper",
-            "Faster than Viper",
+            "Inferior kinetic armor and hitpoints to Viper",
+            "Lighter weight and superior thermal armor to Viper",
             "Power cost and production time similar to Viper"
         ]
     },
@@ -423,8 +468,8 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "Project Medium Body",
-            "Medium body increases armor and body points",
+            "New Medium Body Available",
+            "Medium body with increased armor and hitpoints",
             "Good medium tank and support vehicle",
             "Average power costs and production times"
         ]
@@ -435,8 +480,8 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "New Paradigm Medium body",
-            "Inferior armor and body points to Cobra",
-            "Faster than Cobra",
+            "Inferior kinetic armor and hitpoints to Cobra",
+            "Lighter weight and superior thermal armor to Cobra",
             "Power cost and production time similar to Cobra"
         ]
     },
@@ -445,10 +490,10 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_droid.ogg",
         "text": [
-            "Project Heavy Body",
-            "Heavy body increases armor and body points",
+            "New Heavy Body Available",
+            "Heavy body with increased armor and hitpoints",
             "Good main battle tank and heavy artillery platform",
-            "Very high power costs and very slow to produce"
+            "High power costs and slow to produce"
         ]
     },
     "RES_V_B12": {
@@ -457,9 +502,9 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "New Paradigm Heavy Body",
-            "Less armor and body points than Python",
-            "Faster than Python",
-            "Power cost and production time the same as Python"
+            "Inferior kinetic armor and hitpoints to Python",
+            "Lighter weight and superior thermal armor to Python",
+            "Power cost and production time similar to Python"
         ]
     },
     "RES_V_EN1": {
@@ -469,7 +514,7 @@
         "text": [
             "Vehicle Engine Upgrade",
             "Fuel Injection Engine",
-            "Improves vehicle speed",
+            "Reduces the impact of weight on vehicle speed",
             "All vehicles upgraded automatically"
         ]
     },
@@ -480,7 +525,7 @@
         "text": [
             "Vehicle Bodies Improved",
             "Layered composite alloys and energy-absorbing fibres",
-            "Increases Kinetic Armor and Hit Points",
+            "Increases Kinetic Armor and Hitpoints",
             "All vehicles upgraded automatically"
         ]
     },
@@ -491,8 +536,9 @@
         "text": [
             "New Propulsion Available",
             "Amphibious hover propulsion",
-            "Speed: Fast",
-            "Body Points: Low"
+            "Vulnerable to most types of damage",
+            "Very fast movement speed",
+            "Can traverse over water"
         ]
     },
     "RES_V_P_W1": {
@@ -503,7 +549,7 @@
             "New Propulsion Available",
             "Wheeled Propulsion",
             "Speed: Fast",
-            "Body Points: Low"
+            "Hitpoints: Low"
         ]
     },
     "RES_WT2_LC": {
@@ -514,7 +560,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Light Cannon",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_WT3_MC": {
@@ -525,7 +571,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Medium Cannon",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_WT4_HC": {
@@ -536,7 +582,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Heavy Cannon",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_W_CN_D1": {
@@ -621,7 +667,9 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
+            "New Weapon Turret Available",
             "Rapid fire light anti-vehicle rocket launcher",
+            "Damage Type: Anti-Tank",
             "Effective against: Vehicles",
             "Ineffective against: Infantry and structures",
             "Can attack aerial targets",

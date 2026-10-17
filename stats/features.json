@@ -221,6 +221,19 @@
 		"type": "GENERIC ARTEFACT",
 		"width": 1
 	},
+	"BlackBox": {
+		"armour": 5,
+		"breadth": 1,
+		"damageable": 0,
+		"hitpoints": 25,
+		"id": "BlackBox",
+		"model": "mibox.pie",
+		"name": "Black Box",
+		"startVisible": 0,
+		"tileDraw": 1,
+		"type": "OIL DRUM",
+		"width": 1
+	},
 	"Heavywepslab": {
 		"armour": 10,
 		"breadth": 2,

@@ -1,0 +1,267 @@
+{
+	"position_0": {
+		"label": "patrolPos1",
+		"pos": [6296, 2537]
+	},
+
+
+	"position_1": {
+		"label": "patrolPos2",
+		"pos": [5761, 3656]
+	},
+
+
+	"position_2": {
+		"label": "patrolPos3",
+		"pos": [4241, 4405]
+	},
+
+
+	"position_3": {
+		"label": "cScavAssembly",
+		"pos": [7874, 9870]
+	},
+
+
+	"position_4": {
+		"label": "colAssembly1",
+		"pos": [6787, 1010]
+	},
+
+
+	"position_5": {
+		"label": "colAssembly2",
+		"pos": [463, 1377]
+	},
+
+
+	"position_6": {
+		"label": "colCybAssembly",
+		"pos": [7119, 1069]
+	},
+
+
+	"position_7": {
+		"label": "hoverPatrolPos1",
+		"pos": [1754, 3126]
+	},
+
+
+	"position_8": {
+		"label": "hoverPatrolPos2",
+		"pos": [8529, 4064]
+	},
+
+
+	"position_9": {
+		"label": "hoverPatrolPos3",
+		"pos": [6695, 5783]
+	},
+
+
+	"position_10": {
+		"label": "hoverPatrolPos4",
+		"pos": [1660, 8573]
+	},
+
+
+	"position_11": {
+		"label": "hoverPatrolPos5",
+		"pos": [1502, 6675]
+	},
+
+
+	"position_12": {
+		"label": "hoverPatrolPos6",
+		"pos": [3141, 1096]
+	},
+
+
+	"position_13": {
+		"label": "vtolAttackPos",
+		"pos": [8758, 456]
+	},
+
+
+	"position_14": {
+		"label": "heliAttackPos",
+		"pos": [8897, 9395]
+	},
+
+
+	"position_15": {
+		"label": "cyborgRallyPos",
+		"pos": [7338, 9422]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [2176, 10368],
+		"pos2": [2559, 10751]
+	},
+
+
+	"area_1": {
+		"label": "compromiseZone",
+		"pos1": [1536, 9728],
+		"pos2": [3200, 11263]
+	},
+
+
+	"area_2": {
+		"label": "cScavBase",
+		"pos1": [6272, 8576],
+		"pos2": [8832, 10368]
+	},
+
+
+	"area_3": {
+		"label": "colBase1",
+		"pos1": [640, 4608],
+		"pos2": [3072, 6272]
+	},
+
+
+	"area_4": {
+		"label": "colBase2",
+		"pos1": [5504, 3456],
+		"pos2": [7680, 5120]
+	},
+
+
+	"area_5": {
+		"label": "colBase3",
+		"pos1": [3840, 384],
+		"pos2": [8704, 2176]
+	},
+
+
+	"area_6": {
+		"label": "colBase4",
+		"pos1": [384, 768],
+		"pos2": [1408, 2560]
+	},
+
+
+	"area_7": {
+		"label": "cyborgLzGroup",
+		"pos1": [1792, 9856],
+		"pos2": [2176, 10112]
+	},
+
+
+	"area_8": {
+		"label": "cyborgPatrolGroup",
+		"pos1": [3200, 4224],
+		"pos2": [3456, 4864]
+	},
+
+
+	"area_9": {
+		"label": "cScavLzGroup",
+		"pos1": [8320, 8192],
+		"pos2": [8704, 8576]
+	},
+
+
+	"area_10": {
+		"label": "hoverLzGroup",
+		"pos1": [896, 6400],
+		"pos2": [1024, 6784]
+	},
+
+
+	"area_11": {
+		"label": "checkZone3",
+		"pos1": [7680, 512],
+		"pos2": [8704, 1664]
+	},
+
+
+	"object_0": {
+		"label": "colAAEmp",
+		"id": 348,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "colCybFactory2",
+		"id": 299,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "colFactory2",
+		"id": 8,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "colBombardPit",
+		"id": 280,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "colCC",
+		"id": 309,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "colCybFactory1",
+		"id": 10,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "colFactory1",
+		"id": 14,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_7": {
+		"label": "heliTower",
+		"id": 149,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "cScavFactory",
+		"id": 72,
+		"player": 2,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "colCBTower",
+		"id": 37,
+		"player": 2,
+		"type": 1
+	},
+
+	"radius_0": {
+		"label": "vtolRemoveZone",
+		"pos": [257, 2555],
+		"radius": 256,
+		"subscriber": 2
+	}
+}

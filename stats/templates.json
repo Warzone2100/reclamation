@@ -36,8 +36,7 @@
         "propulsion": "CyborgLegs",
         "type": "CYBORG_SUPER",
         "weapons": [
-            "StingerTail",
-            "InfestedMelee"
+            "StingerTail"
         ]
     },
     "VileStinger": {
@@ -47,18 +46,27 @@
         "propulsion": "CyborgLegs",
         "type": "CYBORG_SUPER",
         "weapons": [
-            "VileStingerTail",
-            "InfestedMelee"
+            "VileStingerTail"
         ]
     },
     "BoomTick": {
-        "body": "CrawlerBody",
+        "body": "BoomTickBody",
         "id": "BoomTick",
         "name": "Boom Tick Crawler",
         "propulsion": "BoomTickLegs",
         "type": "CYBORG_SUPER",
         "weapons": [
             "BoomTickSac"
+        ]
+    },
+    "Basher": {
+        "body": "BasherBody",
+        "id": "Basher",
+        "name": "Infested Basher",
+        "propulsion": "BoomTickLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "BasherMelee"
         ]
     },
     "BaBaCivilian": {
@@ -78,6 +86,16 @@
             "BabaMG"
         ]
     },
+    "BaBaKevPeople": {
+        "body": "B1BaBaPerson01-Kev",
+        "id": "BaBaKevPeople",
+        "name": "Armored Scavenger",
+        "propulsion": "BaBaLegs",
+        "type": "PERSON",
+        "weapons": [
+            "BabaMG"
+        ]
+    },
     "ScavLance": {
         "body": "BaBaLanceBody",
         "id": "ScavLance",
@@ -88,10 +106,30 @@
             "BabaLance"
         ]
     },
+    "ScavKevLance": {
+        "body": "BaBaLanceBody-Kev",
+        "id": "ScavKevLance",
+        "name": "Armored Scavenger Lance",
+        "propulsion": "BaBaLegs",
+        "type": "PERSON",
+        "weapons": [
+            "BabaLance"
+        ]
+    },
     "InfCivilian": {
         "body": "InfestedCivilianBody",
-        "id": "BaBaPeople",
-        "name": "Scavenger",
+        "id": "InfCivilian",
+        "name": "Infested Civilian",
+        "propulsion": "BaBaLegs",
+        "type": "PERSON",
+        "weapons": [
+            "InfestedMelee"
+        ]
+    },
+    "InfCivilian2": {
+        "body": "InfestedCivilianBodyAlt",
+        "id": "InfCivilian2",
+        "name": "Infested Civilian",
         "propulsion": "BaBaLegs",
         "type": "PERSON",
         "weapons": [
@@ -100,8 +138,18 @@
     },
     "InfScav": {
         "body": "InfestedScavBody",
-        "id": "BaBaPeople",
-        "name": "Scavenger",
+        "id": "InfScav",
+        "name": "Infested Scavenger",
+        "propulsion": "BaBaLegs",
+        "type": "PERSON",
+        "weapons": [
+            "BabaMG"
+        ]
+    },
+    "InfKevScav": {
+        "body": "InfestedScavBody-Kev",
+        "id": "InfKevScav",
+        "name": "Infested Armored Scavenger",
         "propulsion": "BaBaLegs",
         "type": "PERSON",
         "weapons": [
@@ -109,9 +157,19 @@
         ]
     },
     "InfLance": {
-        "body": "BaBaLanceBody",
+        "body": "InfestedLanceBody",
         "id": "InfLance",
-        "name": "Scavenger Lance",
+        "name": "Infested Scavenger Lance",
+        "propulsion": "BaBaLegs",
+        "type": "PERSON",
+        "weapons": [
+            "BabaLance"
+        ]
+    },
+    "InfKevLance": {
+        "body": "InfestedLanceBody-Kev",
+        "id": "InfKevLance",
+        "name": "Infested Armored Scavenger Lance",
         "propulsion": "BaBaLegs",
         "type": "PERSON",
         "weapons": [
@@ -135,7 +193,7 @@
         "propulsion": "BaBaProp",
         "type": "DROID",
         "weapons": [
-            "BabaRocket"
+            "InfBabaRocket"
         ]
     },
     "InfTrike": {
@@ -165,7 +223,7 @@
         "propulsion": "BaBaProp",
         "type": "DROID",
         "weapons": [
-            "RustCannon1Mk1"
+            "InfRustCannon1Mk1"
         ]
     },
     "InfFireCan": {
@@ -175,7 +233,7 @@
         "propulsion": "BaBaProp",
         "type": "DROID",
         "weapons": [
-            "RustCannon1Mk1"
+            "InfRustCannon1Mk1"
         ]
     },
     "InfFireTruck": {
@@ -185,7 +243,7 @@
         "propulsion": "BaBaProp",
         "type": "DROID",
         "weapons": [
-            "RustFlame1Mk1"
+            "InfRustFlame1Mk1"
         ]
     },
     "BabaBusCan": {
@@ -218,6 +276,26 @@
             "RustFlame1Mk1"
         ]
     },
+    "BabaFirePod": {
+        "body": "FireBody",
+        "id": "BabaFirePod",
+        "name": "Mini-Rocket Fire Truck",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-Pod"
+        ]
+    },
+    "BabaFireSar": {
+        "body": "FireBody",
+        "id": "BabaFireSar",
+        "name": "Sarissa Fire Truck",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-LtA-TMk1"
+        ]
+    },
     "BabaJeep": {
         "body": "B2JeepBody",
         "id": "BabaJeep",
@@ -243,6 +321,26 @@
         "type": "DROID",
         "weapons": [
             "BabaRocket"
+        ]
+    },
+    "BabaGrenJeep": {
+        "body": "B2RKJeepBody",
+        "id": "BabaGrenJeep",
+        "name": "Grenade Jeep",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "BabaMiniMortar"
+        ]
+    },
+    "InfBabaGrenJeep": {
+        "body": "InfestedRKJeepBody",
+        "id": "InfBabaGrenJeep",
+        "name": "Grenade Jeep",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "InfBabaMiniMortar"
         ]
     },
     "BarbarianBuggy": {
@@ -275,6 +373,129 @@
             "BabaTrikeMG"
         ]
     },
+    "Baba-HBus-LCan": {
+        "body": "MonsterBus",
+        "id": "Baba-HBus-LCan",
+        "name": "Light Cannon Monster Bus",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "RustCannon1Mk1"
+        ]
+    },
+    "Baba-HBus-HMG": {
+        "body": "MonsterBus",
+        "id": "Baba-HBus-HMG",
+        "name": "Heavy Machinegun Monster Bus",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "RustMG3Mk1"
+        ]
+    },
+    "Baba-HBus-Sarissa": {
+        "body": "MonsterBus",
+        "id": "Baba-HBus-Sarissa",
+        "name": "Sarissa Monster Bus",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-LtA-TMk1"
+        ]
+    },
+    "Baba-HBus-MRA": {
+        "body": "MonsterBus",
+        "id": "Baba-HBus-MRA",
+        "name": "MRA Monster Bus",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-MRL"
+        ]
+    },
+    "Baba-HBus-Flamer": {
+        "body": "MonsterFireBody",
+        "id": "Baba-HBus-MRA",
+        "name": "Monster Fire Truck",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "RustFlame1Mk1"
+        ]
+    },
+    "Baba-HTruck-MRA": {
+        "body": "ScavTruckBody",
+        "id": "Baba-HTruck-MRA",
+        "name": "MRA Flatbed",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-Pod",
+            "RustRocket-MRL"
+        ]
+    },
+    "Baba-HTruck-Lancer": {
+        "body": "ScavTruckBody",
+        "id": "Baba-HTruck-Lancer",
+        "name": "Lancer Flatbed",
+        "propulsion": "BaBaProp",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-Pod",
+            "RustRocket-LtA-T"
+        ]
+    },
+    "Baba-LCan-Chopper": {
+        "body": "ScavengerChopper",
+        "id": "Baba-LCan-Chopper",
+        "name": "Cannon Chopper",
+        "propulsion": "Helicopter",
+        "type": "DROID",
+        "weapons": [
+            "RustCannon1-VTOL"
+        ]
+    },
+    "Baba-HMG-Chopper": {
+        "body": "ScavengerChopper",
+        "id": "Baba-HMG-Chopper",
+        "name": "Heavy Machinegun Chopper",
+        "propulsion": "Helicopter",
+        "type": "DROID",
+        "weapons": [
+            "RustMG3-VTOL"
+        ]
+    },
+    "Baba-Pod-HChopper": {
+        "body": "ScavengerHvyChopper",
+        "id": "Baba-Pod-HChopper",
+        "name": "Mini-Rocket Heavy Chopper",
+        "propulsion": "Helicopter",
+        "type": "DROID",
+        "weapons": [
+            "RustRocket-Pod-VTOL"
+        ]
+    },
+    "CO-M-COM-Track": {
+        "body": "Body6SUPP",
+        "brain": "CommandBrain01",
+        "id": "CO-M-COM-Track",
+        "name": "Command Turret Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID_COMMAND",
+        "weapons": [
+            "CommandTurret1"
+        ]
+    },
+    "INF-CO-M-COM-Track-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-CO-M-COM-Track-Broken",
+        "name": "Infested Derelict Command Turret Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfCommandTurret1"
+        ]
+    },
     "CO-H-COM-H": {
         "body": "Body9REC",
         "brain": "CommandBrain01",
@@ -286,6 +507,36 @@
             "CommandTurret1"
         ]
     },
+    "CO-H-HRA-H": {
+        "body": "Body9REC",
+        "id": "CO-H-HRA-H",
+        "name": "Heavy Rocket Array Tiger Hover",
+        "propulsion": "hover01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL-Hvy"
+        ]
+    },
+    "CO-H-HRA-T": {
+        "body": "Body9REC",
+        "id": "CO-H-HRA-T",
+        "name": "Heavy Rocket Array Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL-Hvy"
+        ]
+    },
+    "INF-CO-H-HRA-T-Broken": {
+        "body": "Body9RECBroken",
+        "id": "INF-CO-H-HRA-T-Broken",
+        "name": "Infested Derelict Heavy Rocket Array Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfRocket-MRL-Hvy"
+        ]
+    },
     "CO-H-Command-Track": {
         "body": "Body9REC",
         "brain": "CommandBrain01",
@@ -295,6 +546,16 @@
         "type": "DROID_COMMAND",
         "weapons": [
             "CommandTurret1"
+        ]
+    },
+    "INF-CO-H-Command-Track-Broken": {
+        "body": "Body9RECBroken",
+        "id": "INF-CO-H-Command-Track-Broken",
+        "name": "Infested Derelict Command Turret Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfCommandTurret1"
         ]
     },
     "CO-H-HPVCannon-Tracks": {
@@ -317,6 +578,16 @@
             "Howitzer105Mk1"
         ]
     },
+    "CO-H-IDF-Tracks": {
+        "body": "Body9REC",
+        "id": "CO-H-IDF-Tracks",
+        "name": "Ripple Rocket Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-IDF"
+        ]
+    },
     "CO-H-How150-Tracks": {
         "body": "Body9REC",
         "id": "CO-H-How150-Tracks",
@@ -337,6 +608,26 @@
             "Cannon375mmMk1"
         ]
     },
+    "INF-H-HvyCan-Tracks": {
+        "body": "InfBody9REC",
+        "id": "INF-H-HvyCan-Tracks",
+        "name": "Infested Heavy Cannon Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfCannon375mmMk1"
+        ]
+    },
+    "INF-H-HvyCan-Tracks-Broken": {
+        "body": "Body9RECBroken",
+        "id": "INF-H-HvyCan-Tracks-Broken",
+        "name": "Infested Derelict Heavy Cannon Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfCannon375mmMk1"
+        ]
+    },
     "CO-H-QuadBofAA-T": {
         "body": "Body6SUPP",
         "id": "CO-H-QuadBofAA-T",
@@ -347,6 +638,16 @@
             "AAGun2Mk1"
         ]
     },
+    "INF-H-QuadBofAA-T-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-H-QuadBofAA-T-Broken",
+        "name": "Infested Derelict Cyclone Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfAAGun2Mk1"
+        ]
+    },
     "CO-H-QuadRotAA-T": {
         "body": "Body9REC",
         "id": "CO-H-QuadRotAA-T",
@@ -355,6 +656,16 @@
         "type": "DROID",
         "weapons": [
             "QuadRotAAGun"
+        ]
+    },
+    "INF-CO-H-QuadRotAA-T-Broken": {
+        "body": "Body9RECBroken",
+        "id": "INF-CO-H-QuadRotAA-T-Broken",
+        "name": "Infested Derelict Whirlwind Tiger Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfQuadRotAAGun"
         ]
     },
     "CO-H-Rkt-BB-T": {
@@ -417,6 +728,56 @@
             "MG4ROTARY-VTOL"
         ]
     },
+    "CO-L-HMG-Halftrack": {
+        "body": "Body2SUP",
+        "id": "CO-L-HMG-Halftrack",
+        "name": "Heavy Machinegun Leopard Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "MG3Mk1"
+        ]
+    },
+    "CO-L-Cannon-Halftrack": {
+        "body": "Body2SUP",
+        "id": "CO-L-Cannon-Halftrack",
+        "name": "Light Cannon Leopard Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Cannon1Mk1"
+        ]
+    },
+    "CO-L-Flamer-Track": {
+        "body": "Body2SUP",
+        "id": "CO-L-Flamer-Track",
+        "name": "Flamer Leopard Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Flame1Mk1"
+        ]
+    },
+    "CO-L-MRA-Track": {
+        "body": "Body2SUP",
+        "id": "CO-L-MRA-Track",
+        "name": "Mini-Rocket Array Leopard Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL"
+        ]
+    },
+    "CO-L-Pod-Track": {
+        "body": "Body2SUP",
+        "id": "CO-L-Pod-Track",
+        "name": "Mini-Rocket Pod Leopard Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-Pod"
+        ]
+    },
     "CO-M-Bomb1-VTOL": {
         "body": "Body6SUPP",
         "id": "CO-M-Bomb1-VTOL",
@@ -445,12 +806,38 @@
         "sensor": "Sys-CBTurret01",
         "type": "DROID"
     },
+    "CO-L-Con-Halftrack": {
+        "body": "Body2SUP",
+        "construct": "Spade1Mk1",
+        "id": "CO-L-Con-Halftrack",
+        "name": "Truck Leopard Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "CONSTRUCT"
+    },
     "CO-M-Con-T": {
         "body": "Body6SUPP",
         "construct": "Spade1Mk1",
         "id": "CO-M-Con-T",
         "name": "*CO-M-Con-T*",
         "propulsion": "tracked01",
+        "type": "CONSTRUCT"
+    },
+    "INF-CO-M-Con-T-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-CO-M-Con-T-Broken",
+        "name": "Infested Derelict Transport Truck Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfestedSpade1Trans"
+        ]
+    },
+    "CO-M-Con-HT": {
+        "body": "Body6SUPP",
+        "construct": "Spade1Mk1",
+        "id": "CO-M-Con-HT",
+        "name": "Truck Panther Half-tracks",
+        "propulsion": "HalfTrack",
         "type": "CONSTRUCT"
     },
     "CO-M-HMG-T": {
@@ -471,6 +858,16 @@
         "type": "DROID",
         "weapons": [
             "Cannon4AUTOMk1"
+        ]
+    },
+    "CO-M-ACannon-Tracks": {
+        "body": "Body6SUPP",
+        "id": "CO-M-ACannon-Tracks",
+        "name": "Assault Cannon Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Cannon5VulcanMk1"
         ]
     },
     "CO-M-HVAT-Hover": {
@@ -503,6 +900,16 @@
             "Flame2"
         ]
     },
+    "INF-M-HvFlame-Track-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-M-HvFlame-Track-Broken",
+        "name": "Infested Derelict Inferno Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfFlame2"
+        ]
+    },
     "CO-M-HvMortar-T": {
         "body": "Body6SUPP",
         "id": "CO-M-HvMortar-T",
@@ -511,6 +918,36 @@
         "type": "DROID",
         "weapons": [
             "Mortar2Mk1"
+        ]
+    },
+    "CO-M-LTAT-T": {
+        "body": "Body6SUPP",
+        "id": "CO-M-LTAT-T",
+        "name": "Lancer Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-LtA-T"
+        ]
+    },
+    "INF-M-LTAT-T": {
+        "body": "InfBody6SUPP",
+        "id": "INF-M-LTAT-T",
+        "name": "Infested Lancer Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfRocket-LtA-T"
+        ]
+    },
+    "INF-M-LTAT-T-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-M-LTAT-T-Broken",
+        "name": "Infested Derelict Lancer Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfRocket-LtA-T"
         ]
     },
     "CO-M-LTAT-Hover": {
@@ -523,6 +960,26 @@
             "Rocket-LtA-T"
         ]
     },
+    "CO-M-MRA-Hover": {
+        "body": "Body6SUPP",
+        "id": "CO-M-MRA-Hover",
+        "name": "*CCO-M-MRA-Hover*",
+        "propulsion": "hover01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL"
+        ]
+    },
+    "INF-CO-M-MRA-Tracks-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-CO-M-MRA-Tracks-Broken",
+        "name": "Infested Derelict MRA Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfRocket-MRL"
+        ]
+    },
     "CO-M-MedCan-Tracks": {
         "body": "Body6SUPP",
         "id": "CO-M-MedCan-Tracks",
@@ -531,6 +988,26 @@
         "type": "DROID",
         "weapons": [
             "Cannon2A-TMk1"
+        ]
+    },
+    "INF-M-MedCan-Tracks": {
+        "body": "InfBody6SUPP",
+        "id": "INF-M-MedCan-Tracks",
+        "name": "Infested Medium Cannon Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfCannon2A-TMk1"
+        ]
+    },
+    "INF-M-MedCan-Tracks-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-M-MedCan-Tracks-Broken",
+        "name": "Infested Derelict Medium Cannon Panther Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "InfCannon2A-TMk1"
         ]
     },
     "CO-M-ROTMG-T": {
@@ -557,6 +1034,14 @@
         "body": "Body6SUPP",
         "id": "CO-M-Repair-T",
         "name": "*CO-M-Repair-T*",
+        "propulsion": "tracked01",
+        "repair": "LightRepair1",
+        "type": "DROID"
+    },
+    "CO-M-HRepair-T": {
+        "body": "Body6SUPP",
+        "id": "CO-M-HRepair-T",
+        "name": "*CO-M-HRepair-T*",
         "propulsion": "tracked01",
         "repair": "LightRepair1",
         "type": "DROID"
@@ -599,6 +1084,16 @@
         "sensor": "SensorTurret1Mk1",
         "type": "DROID"
     },
+    "INF-CO-M-Sensor-T-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-CO-M-Sensor-T-Broken",
+        "name": "Infested Derelict Sensor Panther Tracks",
+        "propulsion": "tracked01",
+        "weapons": [
+            "InfSensorTower1Mk1"
+        ],
+        "type": "DROID"
+    },
     "CO-M-VTOLCBS-T": {
         "body": "Body6SUPP",
         "id": "CO-M-VTOLCBS-T",
@@ -615,11 +1110,60 @@
         "sensor": "Sys-VstrikeTurret01",
         "type": "DROID"
     },
+    "INF-CO-M-Vstrike-T-Broken": {
+        "body": "Body6SUPPBroken",
+        "id": "INF-CO-M-Vstrike-T-Broken",
+        "name": "Infested Derelict VTOL Strike Panther Tracks",
+        "propulsion": "tracked01",
+        "weapons": [
+            "InfSys-VTOLRadarTower01"
+        ],
+        "type": "DROID"
+    },
+    "ViperStrikeHalftrack": {
+        "body": "Body1REC",
+        "id": "ViperStrikeHalftrack",
+        "name": "VTOL Strike Turret Viper Half-tracks",
+        "propulsion": "HalfTrack",
+        "sensor": "Sys-VstrikeTurret01",
+        "type": "DROID"
+    },
+    "ViperHurricaneWheel": {
+        "body": "Body1REC",
+        "id": "ViperHurricaneWheel",
+        "name": "Hurricane AA Viper Wheels",
+        "propulsion": "wheeled01",
+        "type": "DROID",
+        "weapons": [
+            "QuadMg1AAGun"
+        ]
+    },
+    "LeopardHurricaneHalftrack": {
+        "body": "Body2SUP",
+        "id": "LeopardHurricaneHalftrack",
+        "name": "Hurricane AA Leopard Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "QuadMg1AAGun"
+        ]
+    },
     "CobraComHalftrack": {
         "body": "Body5REC",
         "brain": "CommandBrain01",
         "id": "CobraComHalftrack",
         "name": "Command Turret Cobra Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID_COMMAND",
+        "weapons": [
+            "CommandTurret1"
+        ]
+    },
+    "ViperComHalftrack": {
+        "body": "Body1REC",
+        "brain": "CommandBrain01",
+        "id": "ViperComHalftrack",
+        "name": "Command Turret Viper Half-tracks",
         "propulsion": "HalfTrack",
         "type": "DROID_COMMAND",
         "weapons": [
@@ -666,6 +1210,26 @@
             "Mortar2Mk1"
         ]
     },
+    "CobraHvyMortarTrack": {
+        "body": "Body5REC",
+        "id": "CobraHvyMortarTrack",
+        "name": "Bombard Cobra Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Mortar2Mk1"
+        ]
+    },
+    "CobraMRATrack": {
+        "body": "Body5REC",
+        "id": "CobraMRATrack",
+        "name": "Mini-Rocket Array Cobra Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL"
+        ]
+    },
     "CobraLtA-Thalftrack": {
         "body": "Body5REC",
         "id": "CobraLtA-Thalftrack",
@@ -674,6 +1238,16 @@
         "type": "DROID",
         "weapons": [
             "Rocket-LtA-T"
+        ]
+    },
+    "CobraBBhalftrack": {
+        "body": "Body5REC",
+        "id": "CobraBBhalftrack",
+        "name": "Bunker Buster Cobra Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-BB"
         ]
     },
     "CobraLtCnTrks": {
@@ -706,6 +1280,16 @@
             "Cannon2A-TMk1"
         ]
     },
+    "CobraHVCTrks": {
+        "body": "Body5REC",
+        "id": "CobraHVCTrks",
+        "name": "Hyper Velocity Cannon Cobra Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Cannon4AUTOMk1"
+        ]
+    },
     "CobraMortarHalfTrack": {
         "body": "Body5REC",
         "id": "CobraMortarHalfTrack",
@@ -724,12 +1308,44 @@
         "sensor": "SensorTurret1Mk1",
         "type": "DROID"
     },
+    "PythonSensorTracks": {
+        "body": "Body11ABT",
+        "id": "PythonSensorTracks",
+        "name": "Sensor Python Tracks",
+        "propulsion": "tracked01",
+        "sensor": "SensorTurret1Mk1",
+        "type": "DROID"
+    },
     "CobraSpadeTracks": {
         "body": "Body5REC",
         "construct": "Spade1Mk1",
         "id": "CobraSpadeTracks",
-        "name": "Cobra Truck",
+        "name": "Truck Cobra Tracks",
         "propulsion": "tracked01",
+        "type": "CONSTRUCT"
+    },
+    "PythonSpadeTracks": {
+        "body": "Body11ABT",
+        "construct": "Spade1Mk1",
+        "id": "PythonSpadeTracks",
+        "name": "Truck Python Tracks",
+        "propulsion": "tracked01",
+        "type": "CONSTRUCT"
+    },
+    "PythonSpadeHalfTracks": {
+        "body": "Body11ABT",
+        "construct": "Spade1Mk1",
+        "id": "PythonSpadeHalfTracks",
+        "name": "Truck Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "CONSTRUCT"
+    },
+    "CobraSpadeHalfTracks": {
+        "body": "Body5REC",
+        "construct": "Spade1Mk1",
+        "id": "CobraSpadeHalfTracks",
+        "name": "Truck Cobra Half-tracks",
+        "propulsion": "HalfTrack",
         "type": "CONSTRUCT"
     },
     "ConstructionDroid": {
@@ -748,6 +1364,108 @@
         "name": "Truck",
         "propulsion": "wheeled01",
         "type": "CONSTRUCT"
+    },
+    "TruckViperHalf": {
+        "body": "Body1REC",
+        "construct": "Spade1Mk1",
+        "id": "TruckViperHalf",
+        "name": "Truck Viper Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "CONSTRUCT"
+    },
+    "TruckViperTrack": {
+        "body": "Body1REC",
+        "construct": "Spade1Mk1",
+        "id": "TruckViperTrack",
+        "name": "Truck Viper Tracks",
+        "propulsion": "tracked01",
+        "type": "CONSTRUCT"
+    },
+    "SensorViperTrack": {
+        "body": "Body1REC",
+        "id": "SensorViperTrack",
+        "name": "Sensor Viper Tracks",
+        "propulsion": "tracked01",
+        "sensor": "SensorTurret1Mk1",
+        "type": "DROID"
+    },
+    "SensorCobraTrack": {
+        "body": "Body5REC",
+        "id": "SensorCobraTrack",
+        "name": "Sensor Cobra Tracks",
+        "propulsion": "tracked01",
+        "sensor": "SensorTurret1Mk1",
+        "type": "DROID"
+    },
+    "MRLViperTrack": {
+        "body": "Body1REC",
+        "id": "MRLViperTrack",
+        "name": "Mini-Rocket Array Viper Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL"
+        ]
+    },
+    "MRPViperTrack": {
+        "body": "Body1REC",
+        "id": "MRPViperTrack",
+        "name": "Mini-Rocket Pod Viper Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-Pod"
+        ]
+    },
+    "MortarViperTrack": {
+        "body": "Body1REC",
+        "id": "MortarViperTrack",
+        "name": "Mortar Viper Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Mortar1Mk1"
+        ]
+    },
+    "MortarViperWheels": {
+        "body": "Body1REC",
+        "id": "MortarViperWheels",
+        "name": "Mortar Viper Wheels",
+        "propulsion": "wheeled01",
+        "type": "DROID",
+        "weapons": [
+            "Mortar1Mk1"
+        ]
+    },
+    "MRPViperVTOL": {
+        "body": "Body1REC",
+        "id": "MRPViperVTOL",
+        "name": "Mini-Rocket Pod Viper VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-VTOL-Pod"
+        ]
+    },
+    "HMGViperVTOL": {
+        "body": "Body1REC",
+        "id": "HMGViperVTOL",
+        "name": "Heavy Machinegun Viper VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "MG3-VTOL"
+        ]
+    },
+    "CannonViperVTOL": {
+        "body": "Body1REC",
+        "id": "CannonViperVTOL",
+        "name": "Cannon Viper VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Cannon1-VTOL"
+        ]
     },
     "Cyb-Atmiss-GROUND": {
         "available": true,
@@ -824,6 +1542,17 @@
             "CyborgChaingun"
         ]
     },
+    "CyborgHvyChain": {
+        "available": true,
+        "body": "CyborgLightBody",
+        "id": "CyborgHvyChain",
+        "name": "Heavy Machinegunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "CyborgHeavyChaingun"
+        ]
+    },
     "CyborgFlamer01Grd": {
         "available": true,
         "body": "CyborgLightBody",
@@ -844,6 +1573,116 @@
         "type": "CYBORG",
         "weapons": [
             "Cyb-Wpn-Grenade"
+        ]
+    },
+    "Cyb-MRL": {
+        "available": true,
+        "body": "CyborgLightBody",
+        "id": "Cyb-MRL",
+        "name": "Mini-Rocket Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "Cyb-Wpn-MRL"
+        ]
+    },
+    "Cyb-Hvy-A-T": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-A-T",
+        "name": "Super Scourge Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-A-T"
+        ]
+    },
+    "Cyb-Hvy-Acannon": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-Acannon",
+        "name": "Super Auto-Cannon Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-Acannon"
+        ]
+    },
+    "Cyb-Hvy-HPV": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-HPV",
+        "name": "Super HPC Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-HPV"
+        ]
+    },
+    "Cyb-Hvy-Mcannon": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-Mcannon",
+        "name": "Super Heavy-Gunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-Mcannon"
+        ]
+    },
+    "Cyb-Hvy-Gren": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-Gren",
+        "name": "Super Heavy Grenadier Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-Grenade"
+        ]
+    },
+    "Cyb-Hvy-HRA": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-HRA",
+        "name": "Super Heavy Rocket Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-HRA"
+        ]
+    },
+    "Cyb-Hvy-PulseLsr": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-PulseLsr",
+        "name": "Super Pulse Laser Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-PulseLsr"
+        ]
+    },
+    "Cyb-Hvy-RailGunner": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-RailGunner",
+        "name": "Super Rail-Gunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-RailGunner"
+        ]
+    },
+    "Cyb-Hvy-TK": {
+        "available": true,
+        "body": "CyborgHeavyBody",
+        "id": "Cyb-Hvy-TK",
+        "name": "Super Tank-Killer Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "Cyb-Hvywpn-TK"
         ]
     },
     "Cyb-Laser1-GROUND": {
@@ -930,6 +1769,178 @@
         "type": "CYBORG",
         "weapons": [
             "Cyb-Wpn-Thermite"
+        ]
+    },
+    "InfCyborgCannon01Grd": {
+        "available": false,
+        "body": "CyborgLightBody",
+        "id": "Cyb-Cannon-GROUND",
+        "name": "Infested Heavy Gunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgCannon"
+        ]
+    },
+    "InfCyborgChain01Ground": {
+        "available": false,
+        "body": "CyborgLightBody",
+        "id": "Cyb-Chain-GROUND",
+        "name": "Infested Machinegunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgChaingun"
+        ]
+    },
+    "InfCyborgHvyChain": {
+        "body": "CyborgLightBody",
+        "id": "InfCyborgHvyChain",
+        "name": "Infested Heavy Machinegunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgHeavyChaingun"
+        ]
+    },
+    "InfCyborgFlamer01Grd": {
+        "body": "CyborgLightBody",
+        "id": "Cyb-Flamer-GROUND",
+        "name": "Infested Flamer Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgFlamer01"
+        ]
+    },
+    "InfCyb-Gren": {
+        "body": "CyborgLightBody",
+        "id": "InfCyb-Gren",
+        "name": "Infested Grenadier Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyb-Wpn-Grenade"
+        ]
+    },
+    "InfCyb-MRL": {
+        "body": "CyborgLightBody",
+        "id": "InfCyb-MRL",
+        "name": "Infested Mini-Rocket Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyb-Wpn-MRL"
+        ]
+    },
+    "InfCyb-Hvy-Acannon": {
+        "body": "CyborgHeavyBody",
+        "id": "InfCyb-Hvy-Acannon",
+        "name": "Infested Super Auto-Cannon Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "InfCyb-Hvywpn-Acannon"
+        ]
+    },
+    "InfCyb-Hvy-HPV": {
+        "body": "CyborgHeavyBody",
+        "id": "InfCyb-Hvy-HPV",
+        "name": "Infested Super HPC Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "InfCyb-Hvywpn-HPV"
+        ]
+    },
+    "InfCyb-Hvy-Mcannon": {
+        "body": "CyborgHeavyBody",
+        "id": "InfCyb-Hvy-Mcannon",
+        "name": "Infested Super Heavy-Gunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "InfCyb-Hvywpn-Mcannon"
+        ]
+    },
+    "InfCyb-Hvy-Gren": {
+        "body": "CyborgHeavyBody",
+        "id": "InfCyb-Hvy-Gren",
+        "name": "Infested Super Heavy Grenadier Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "InfCyb-Hvywpn-Grenade"
+        ]
+    },
+    "InfCyb-Hvy-HRA": {
+        "body": "CyborgHeavyBody",
+        "id": "InfCyb-Hvy-HRA",
+        "name": "Infested Super Heavy Rocket Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "InfCyb-Hvywpn-HRA"
+        ]
+    },
+    "InfCyb-Hvy-TK": {
+        "body": "CyborgHeavyBody",
+        "id": "InfCyb-Hvy-TK",
+        "name": "Infested Super Tank-Killer Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG_SUPER",
+        "weapons": [
+            "InfCyb-Hvywpn-TK"
+        ]
+    },
+    "InfCyb-Rail1-GROUND": {
+        "body": "CyborgLightBody",
+        "id": "InfCyb-Rail1-GROUND",
+        "name": "Infested Needle Gunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyb-Wpn-Rail1"
+        ]
+    },
+    "InfCyborgRkt01Ground": {
+        "body": "CyborgLightBody",
+        "id": "Cyb-Rocket-GROUND",
+        "name": "Infested Lancer Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgRocket"
+        ]
+    },
+    "InfCyborgRkt01Mk1": {
+        "body": "CyborgLightBody",
+        "id": "Cyb-Rocket-GROUND",
+        "name": "Infested Sarissa Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgLtRocket"
+        ]
+    },
+    "InfCyb-RotMG-GROUND": {
+        "body": "CyborgLightBody",
+        "id": "InfCyb-RotMG-GROUND",
+        "name": "Infested Assault Gunner Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyborgRotMG"
+        ]
+    },
+    "InfCyb-Thermite": {
+        "body": "CyborgLightBody",
+        "id": "InfCyb-Thermite",
+        "name": "Infested Thermite Flamer Cyborg",
+        "propulsion": "CyborgLegs",
+        "type": "CYBORG",
+        "weapons": [
+            "InfCyb-Wpn-Thermite"
         ]
     },
     "NP-H-HvyCannon-Hover": {
@@ -1181,7 +2192,7 @@
         "sensor": "NavGunSensor",
         "type": "CYBORG",
         "weapons": [
-            "NX-CyborgPulseLas"
+            "NX-CyborgLas"
         ]
     },
     "NX-Cyb-Rail1-JUMP": {
@@ -1489,17 +2500,6 @@
         "propulsion": "tracked01",
         "type": "CONSTRUCT"
     },
-    "P0PythonComTracks": {
-        "body": "Body11ABT",
-        "brain": "CommandBrain01",
-        "id": "P0PythonComTracks",
-        "name": "Command Turret Python Tracks",
-        "propulsion": "HalfTrack",
-        "type": "DROID_COMMAND",
-        "weapons": [
-            "CommandTurret1"
-        ]
-    },
     "P0PythonHvyCnTrks": {
         "body": "Body11ABT",
         "id": "P0PythonHvyCnTrks",
@@ -1508,6 +2508,96 @@
         "type": "DROID",
         "weapons": [
             "Cannon375mmMk1"
+        ]
+    },
+    "P0PythonHRATrks": {
+        "body": "Body11ABT",
+        "id": "P0PythonHRATrks",
+        "name": "Heavy Rocket Array Python Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-MRL-Hvy"
+        ]
+    },
+    "P0PythonIDFTrks": {
+        "body": "Body11ABT",
+        "id": "P0PythonIDFTrks",
+        "name": "Ripple Rocket Python Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-IDF"
+        ]
+    },
+    "P0PythonHwtTrks": {
+        "body": "Body11ABT",
+        "id": "P0PythonHwtTrks",
+        "name": "Howitzer Python Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Howitzer105Mk1"
+        ]
+    },
+    "P0PythonBBHT": {
+        "body": "Body11ABT",
+        "id": "P0PythonBBHT",
+        "name": "Bunker Buster Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-BB"
+        ]
+    },
+    "P0PythonBBWhl": {
+        "body": "Body11ABT",
+        "id": "P0PythonBBWhl",
+        "name": "Bunker Buster Python Wheels",
+        "propulsion": "wheeled01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-BB"
+        ]
+    },
+    "P0PythonBBHov": {
+        "body": "Body11ABT",
+        "id": "P0PythonBBHov",
+        "name": "Bunker Buster Python Hover",
+        "propulsion": "hover01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-BB"
+        ]
+    },
+    "P0PythonInfHT": {
+        "body": "Body11ABT",
+        "id": "P0PythonInfHT",
+        "name": "Inferno Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Flame2"
+        ]
+    },
+    "P0PythonInfWhl": {
+        "body": "Body11ABT",
+        "id": "P0PythonInfWhl",
+        "name": "Inferno Python Wheels",
+        "propulsion": "wheeled01",
+        "type": "DROID",
+        "weapons": [
+            "Flame2"
+        ]
+    },
+    "P0PythonInfHov": {
+        "body": "Body11ABT",
+        "id": "P0PythonInfHov",
+        "name": "Inferno Python Hover",
+        "propulsion": "hover01",
+        "type": "DROID",
+        "weapons": [
+            "Flame2"
         ]
     },
     "P0cam3CobCONTrk": {
@@ -1528,6 +2618,16 @@
             "MG4ROTARYMk1"
         ]
     },
+    "P0PyAsltGnHT": {
+        "body": "Body11ABT",
+        "id": "P0PyAsltGnHT",
+        "name": "Assault Gun Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "MG4ROTARYMk1"
+        ]
+    },
     "P0cam3PyFlakHT": {
         "body": "Body11ABT",
         "id": "P0cam3PyFlakHT",
@@ -1536,6 +2636,26 @@
         "type": "DROID",
         "weapons": [
             "AAGun2Mk1"
+        ]
+    },
+    "P0cam3PyRotFlakT": {
+        "body": "Body11ABT",
+        "id": "P0cam3PyRotFlakT",
+        "name": "Whirlwind AA Python Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "QuadRotAAGun"
+        ]
+    },
+    "P0cam3PyRotFlakHT": {
+        "body": "Body11ABT",
+        "id": "P0cam3PyRotFlakHT",
+        "name": "Whirlwind AA Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "QuadRotAAGun"
         ]
     },
     "P0cam3PyHPVcanTrk": {
@@ -1548,6 +2668,52 @@
             "Cannon4AUTOMk1"
         ]
     },
+    "P0PyAsltCanT": {
+        "body": "Body11ABT",
+        "id": "P0PyAsltCanT",
+        "name": "Assault Cannon Python Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Cannon5VulcanMk1"
+        ]
+    },
+    "P0PyCycloneT": {
+        "body": "Body11ABT",
+        "id": "P0PyCycloneT",
+        "name": "Cyclone AA Python Tracks",
+        "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "AAGun2Mk1"
+        ]
+    },
+    "P0PyVStrikeHT": {
+        "body": "Body11ABT",
+        "id": "P0PyVStrikeHT",
+        "name": "VTOL Strike Turret Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "sensor": "Sys-VstrikeTurret01",
+        "type": "DROID"
+    },
+    "P0PyVStrikeT": {
+        "body": "Body11ABT",
+        "id": "P0PyVStrikeT",
+        "name": "VTOL Strike Turret Python Tracks",
+        "propulsion": "tracked01",
+        "sensor": "Sys-VstrikeTurret01",
+        "type": "DROID"
+    },
+    "P0PyAsltCanHT": {
+        "body": "Body11ABT",
+        "id": "P0PyAsltCanHT",
+        "name": "Assault Cannon Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Cannon5VulcanMk1"
+        ]
+    },
     "P0cam3PyHvyATTrk": {
         "body": "Body11ABT",
         "id": "P0cam3PyHvyATTrk",
@@ -1556,6 +2722,122 @@
         "type": "DROID",
         "weapons": [
             "Rocket-HvyA-T"
+        ]
+    },
+    "P0PyHvyATHT": {
+        "body": "Body11ABT",
+        "id": "P0PyHvyATHT",
+        "name": "Tank Killer Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-HvyA-T"
+        ]
+    },
+    "P0PyHvyATWh": {
+        "body": "Body11ABT",
+        "id": "P0PyHvyATWh",
+        "name": "Tank Killer Python Wheels",
+        "propulsion": "wheeled01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-HvyA-T"
+        ]
+    },
+    "P0PyHvyATHov": {
+        "body": "Body11ABT",
+        "id": "P0PyHvyATHov",
+        "name": "Tank Killer Python Hover",
+        "propulsion": "hover01",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-HvyA-T"
+        ]
+    },
+    "PythonHvyRepairHalftrack": {
+        "body": "Body11ABT",
+        "id": "PythonHvyRepairHalftrack",
+        "name": "Repair Turret Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "repair": "LightRepair1",
+        "type": "DROID"
+    },
+    "PythonHvyRepairTrack": {
+        "body": "Body11ABT",
+        "id": "PythonHvyRepairTrack",
+        "name": "Repair Turret Python Tracks",
+        "propulsion": "tracked01",
+        "repair": "LightRepair1",
+        "type": "DROID"
+    },
+    "P0-M-PBomb-V": {
+        "body": "Body5REC",
+        "id": "P0-M-PBomb-V",
+        "name": "Phosphor Bomb Bay Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Bomb3-VTOL-LtINC"
+        ]
+    },
+    "P0-M-TBomb-V": {
+        "body": "Body5REC",
+        "id": "P0-M-TBomb-V",
+        "name": "Thermite Bomb Bay Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Bomb4-VTOL-HvyINC"
+        ]
+    },
+    "P0-M-HBomb-V": {
+        "body": "Body5REC",
+        "id": "P0-M-HBomb-V",
+        "name": "HEAP Bomb Bay Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Bomb2-VTOL-HvHE"
+        ]
+    },
+    "P0-M-HvAT-V": {
+        "body": "Body5REC",
+        "id": "P0-M-HvAT-V",
+        "name": "Tank Killer Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Rocket-VTOL-HvyA-T"
+        ]
+    },
+    "P0-M-AGun-V": {
+        "body": "Body5REC",
+        "id": "P0-M-AGun-V",
+        "name": "Assault Gun Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "MG4ROTARY-VTOL"
+        ]
+    },
+    "P0-M-ACan-V": {
+        "body": "Body5REC",
+        "id": "P0-M-ACan-V",
+        "name": "Assault Cannon Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Cannon5Vulcan-VTOL"
+        ]
+    },
+    "P0-M-HVC-V": {
+        "body": "Body5REC",
+        "id": "P0-M-HVC-V",
+        "name": "Hyper Velocity Cannon Cobra VTOL",
+        "propulsion": "V-Tol",
+        "type": "DROID",
+        "weapons": [
+            "Cannon4AUTO-VTOL"
         ]
     },
     "P6-L-Bomb1-V": {
@@ -1599,11 +2881,54 @@
             "CommandTurret1"
         ]
     },
+    "PythonComHalfTracks": {
+        "body": "Body11ABT",
+        "brain": "CommandBrain01",
+        "id": "PythonComHalfTracks",
+        "name": "Command Turret Python Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID_COMMAND",
+        "weapons": [
+            "CommandTurret1"
+        ]
+    },
+    "PythonComWheels": {
+        "body": "Body11ABT",
+        "brain": "CommandBrain01",
+        "id": "PythonComWheels",
+        "name": "Command Turret Python Wheels",
+        "propulsion": "wheeled01",
+        "type": "DROID_COMMAND",
+        "weapons": [
+            "CommandTurret1"
+        ]
+    },
+    "PythonComHover": {
+        "body": "Body11ABT",
+        "brain": "CommandBrain01",
+        "id": "PythonComHover",
+        "name": "Command Turret Python Hover",
+        "propulsion": "hover01",
+        "type": "DROID_COMMAND",
+        "weapons": [
+            "CommandTurret1"
+        ]
+    },
     "PythonHvyCnTrks": {
         "body": "Body11ABT",
         "id": "PythonHvyCnTrks",
         "name": "Heavy Cannon Python Tracks",
         "propulsion": "tracked01",
+        "type": "DROID",
+        "weapons": [
+            "Cannon375mmMk1"
+        ]
+    },
+    "PythonHvyCnHov": {
+        "body": "Body11ABT",
+        "id": "PythonHvyCnHov",
+        "name": "Heavy Cannon Python Hover",
+        "propulsion": "hover01",
         "type": "DROID",
         "weapons": [
             "Cannon375mmMk1"
@@ -1719,6 +3044,16 @@
             "Cannon1Mk1"
         ]
     },
+    "ViperLtCannonHalfTracks": {
+        "body": "Body1REC",
+        "id": "ViperLtCannonHalfTracks",
+        "name": "Light Cannon Viper Half-tracks",
+        "propulsion": "HalfTrack",
+        "type": "DROID",
+        "weapons": [
+            "Cannon1Mk1"
+        ]
+    },
     "ViperLtCannonWheels": {
         "body": "Body1REC",
         "id": "ViperLtCannonWheels",
@@ -1805,6 +3140,14 @@
         "id": "ViperRepairHalftrack",
         "name": "Repair Turret Viper Half-tracks",
         "propulsion": "HalfTrack",
+        "repair": "LightRepair1",
+        "type": "DROID"
+    },
+    "ViperRepairTracks": {
+        "body": "Body1REC",
+        "id": "ViperRepairTracks",
+        "name": "Repair Turret Viper Tracks",
+        "propulsion": "tracked01",
         "repair": "LightRepair1",
         "type": "DROID"
     },

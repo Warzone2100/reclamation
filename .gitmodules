@@ -1,0 +1,4 @@
+[submodule "sequences"]
+	path = sequences
+	url = https://github.com/Warzone2100/reclamation-sequences.git
+	shallow = true

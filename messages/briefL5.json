@@ -1,0 +1,30 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "L5_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act0/L5intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "act0/L5brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "L5_BMSG1",
+                    "L5_BMSG2",
+                    "L5_BMSG3",
+                    "L5_BMSG4",
+                    "L5_BMSG5",
+                    "L5_BMSG6",
+                    "L5_BMSG7",
+                    "L5_BMSG8",
+                    "L5_BMSG9",
+                    "L5_BMSG10",
+                    "L5_BMSG11",
+                    "L5_BMSG12",
+                    "L5_BMSG13",
+                    "L5_BMSG14",
+                    "L5_BMSG15",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

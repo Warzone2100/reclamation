@@ -1,0 +1,16 @@
+/*
+ * A2L6.wrf
+ *
+ */
+
+/* Directory for Proximity messages and mission briefs */
+directory	"messages"
+
+file		FLIC		"briefA2L6.json"
+file		PROX		"proxA2L6.json"
+
+directory "script"
+file JAVASCRIPT "rules.js"
+
+directory "script/campaign"
+file JAVASCRIPT "A2L6.js"

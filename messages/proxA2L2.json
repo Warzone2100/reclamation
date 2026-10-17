@@ -1,0 +1,13 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "CSCAV_BASE1": { "message": "BARBASE_MSG", "x": 6976, "y": 1088, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE2": { "message": "BARBASE_MSG", "x": 1216, "y": 6976, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE3": { "message": "BARBASE_MSG", "x": 7360, "y": 5824, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE4": { "message": "BARBASE_MSG", "x": 7488, "y": 8256, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "COL_BASE1": { "message": "COLBASE_MSG", "x": 960, "y": 11072, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE2": { "message": "COLBASE_MSG", "x": 4928, "y": 11456, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_LZ": { "message": "COLLZ_MSG", "x": 1472, "y": 10048, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "DELTA_LZ": { "message": "RUINS_MSG", "x": 1216, "y": 4800, "z": 0, "audio": "pcv448.ogg", "type": 2 }
+    }
+}

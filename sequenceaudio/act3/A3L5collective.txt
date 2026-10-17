@@ -1,0 +1,4 @@
+-120 50		3.0		7.0		_("<CLAYDE>: Commander Bravo, we've detected a Collective LZ")
+-120 60		3.0		7.0		_("near the research facility.")
+-120 50		7.0		10.0	_("<CLAYDE>: They must be here for the research facility as well.")
+-120 50		10.0	13.0	_("<CLAYDE>: Whatever happens, do NOT allow them to escape with any artifacts!")

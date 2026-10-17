@@ -1,0 +1,791 @@
+{
+	"position_0": {
+		"label": "golfVtolAssembly1",
+		"pos": [9109, 20614]
+	},
+
+
+	"position_1": {
+		"label": "golfVtolAssembly2",
+		"pos": [8432, 20614]
+	},
+
+
+	"position_2": {
+		"label": "golfVtolAssembly3",
+		"pos": [7787, 20618]
+	},
+
+
+	"position_3": {
+		"label": "hoverPatrolPos1",
+		"pos": [15993, 7587]
+	},
+
+
+	"position_4": {
+		"label": "hoverPatrolPos2",
+		"pos": [12949, 6677]
+	},
+
+
+	"position_5": {
+		"label": "hoverPatrolPos3",
+		"pos": [15693, 5120]
+	},
+
+
+	"position_6": {
+		"label": "hoverPatrolPos4",
+		"pos": [13202, 10426]
+	},
+
+
+	"position_7": {
+		"label": "hoverFallbackPos",
+		"pos": [19618, 7782]
+	},
+
+
+	"position_8": {
+		"label": "golfPatrolPos1",
+		"pos": [20246, 20689]
+	},
+
+
+	"position_9": {
+		"label": "golfPatrolPos2",
+		"pos": [17487, 20163]
+	},
+
+
+	"position_10": {
+		"label": "golfPatrolPos3",
+		"pos": [14815, 19706]
+	},
+
+
+	"position_11": {
+		"label": "foxtrotPatrolPos1",
+		"pos": [14065, 4955]
+	},
+
+
+	"position_12": {
+		"label": "foxtrotPatrolPos2",
+		"pos": [16648, 5678]
+	},
+
+
+	"position_13": {
+		"label": "foxtrotPatrolPos3",
+		"pos": [19263, 4179]
+	},
+
+
+	"position_14": {
+		"label": "foxtrotPatrolPos4",
+		"pos": [17509, 2309]
+	},
+
+
+	"position_15": {
+		"label": "hoverPatrolPos5",
+		"pos": [10320, 5604]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [8576, 8320],
+		"pos2": [8960, 8704]
+	},
+
+
+	"area_1": {
+		"label": "infEntry1",
+		"pos1": [512, 128],
+		"pos2": [1024, 384]
+	},
+
+
+	"area_2": {
+		"label": "infEntry2",
+		"pos1": [3072, 128],
+		"pos2": [3584, 384]
+	},
+
+
+	"area_3": {
+		"label": "infEntry3",
+		"pos1": [4992, 128],
+		"pos2": [5632, 384]
+	},
+
+
+	"area_4": {
+		"label": "infEntry4",
+		"pos1": [7680, 128],
+		"pos2": [8320, 384]
+	},
+
+
+	"area_5": {
+		"label": "infEntry5",
+		"pos1": [10752, 128],
+		"pos2": [11904, 384]
+	},
+
+
+	"area_6": {
+		"label": "infEntry6",
+		"pos1": [128, 12544],
+		"pos2": [384, 13056]
+	},
+
+
+	"area_7": {
+		"label": "infEntry7",
+		"pos1": [128, 9088],
+		"pos2": [384, 9856]
+	},
+
+
+	"area_8": {
+		"label": "infEntry8",
+		"pos1": [128, 10880],
+		"pos2": [384, 11520]
+	},
+
+
+	"area_9": {
+		"label": "infEntry9",
+		"pos1": [128, 15488],
+		"pos2": [384, 16256]
+	},
+
+
+	"area_10": {
+		"label": "infEntry10",
+		"pos1": [128, 19072],
+		"pos2": [384, 19840]
+	},
+
+
+	"area_11": {
+		"label": "infEntry11",
+		"pos1": [640, 21120],
+		"pos2": [1152, 21376]
+	},
+
+
+	"area_12": {
+		"label": "infEntry12",
+		"pos1": [1664, 21120],
+		"pos2": [2176, 21376]
+	},
+
+
+	"area_13": {
+		"label": "infEntry13",
+		"pos1": [3584, 21120],
+		"pos2": [4224, 21376]
+	},
+
+
+	"area_14": {
+		"label": "infEntry14",
+		"pos1": [22144, 13696],
+		"pos2": [22400, 14464]
+	},
+
+
+	"area_15": {
+		"label": "infEntry15",
+		"pos1": [22144, 11904],
+		"pos2": [22400, 12672]
+	},
+
+
+	"area_16": {
+		"label": "infBase1",
+		"pos1": [384, 15232],
+		"pos2": [2944, 17664]
+	},
+
+
+	"area_17": {
+		"label": "infBase2",
+		"pos1": [384, 18560],
+		"pos2": [1408, 19328]
+	},
+
+
+	"area_18": {
+		"label": "infBase3",
+		"pos1": [384, 19840],
+		"pos2": [1408, 21120]
+	},
+
+
+	"area_19": {
+		"label": "infBase4",
+		"pos1": [1536, 19968],
+		"pos2": [2816, 21120]
+	},
+
+
+	"area_20": {
+		"label": "infBase5",
+		"pos1": [15360, 13952],
+		"pos2": [16896, 15488]
+	},
+
+
+	"area_21": {
+		"label": "infBase6",
+		"pos1": [20992, 13184],
+		"pos2": [22144, 14976]
+	},
+
+
+	"area_22": {
+		"label": "infBase7",
+		"pos1": [20992, 12416],
+		"pos2": [22016, 13056]
+	},
+
+
+	"area_23": {
+		"label": "golfBase1",
+		"pos1": [16128, 16128],
+		"pos2": [21504, 21120]
+	},
+
+
+	"area_24": {
+		"label": "golfBase2",
+		"pos1": [14208, 18816],
+		"pos2": [16128, 21120]
+	},
+
+
+	"area_25": {
+		"label": "golfBase3",
+		"pos1": [3840, 16640],
+		"pos2": [11776, 21120]
+	},
+
+
+	"area_26": {
+		"label": "golfBase4",
+		"pos1": [10752, 13824],
+		"pos2": [13440, 15616]
+	},
+
+
+	"area_27": {
+		"label": "foxtrotBase1",
+		"pos1": [17280, 3712],
+		"pos2": [22144, 10112]
+	},
+
+
+	"area_28": {
+		"label": "foxtrotBase2",
+		"pos1": [18176, 384],
+		"pos2": [22144, 3456]
+	},
+
+
+	"area_29": {
+		"label": "foxtrotBase3",
+		"pos1": [14848, 2944],
+		"pos2": [16256, 4736]
+	},
+
+
+	"area_30": {
+		"label": "foxtrotBase4",
+		"pos1": [12160, 384],
+		"pos2": [13056, 1536]
+	},
+
+
+	"area_31": {
+		"label": "foxtrotBase5",
+		"pos1": [11264, 2176],
+		"pos2": [12544, 3456]
+	},
+
+
+	"area_32": {
+		"label": "foxtrotBase6",
+		"pos1": [9344, 3584],
+		"pos2": [10752, 5120]
+	},
+
+
+	"area_33": {
+		"label": "foxtrotBase7",
+		"pos1": [12032, 7296],
+		"pos2": [13056, 8576]
+	},
+
+
+	"area_34": {
+		"label": "foxtrotCommandGroup",
+		"pos1": [16256, 1920],
+		"pos2": [16768, 2560]
+	},
+
+
+	"area_35": {
+		"label": "foxtrotSupportGroup1",
+		"pos1": [16896, 1792],
+		"pos2": [17664, 2176]
+	},
+
+
+	"area_36": {
+		"label": "foxtrotSupportGroup2",
+		"pos1": [16896, 2560],
+		"pos2": [17664, 2944]
+	},
+
+
+	"area_37": {
+		"label": "foxtrotHoverGroup",
+		"pos1": [16384, 6912],
+		"pos2": [16896, 7424]
+	},
+
+
+	"area_38": {
+		"label": "golfAttackGroup",
+		"pos1": [5376, 16256],
+		"pos2": [6016, 16640]
+	},
+
+
+	"area_39": {
+		"label": "golfSensorGroup",
+		"pos1": [9728, 16640],
+		"pos2": [10112, 17024]
+	},
+
+
+	"area_40": {
+		"label": "golfCBGroup1",
+		"pos1": [8320, 18304],
+		"pos2": [8576, 18560]
+	},
+
+
+	"area_41": {
+		"label": "golfCBGroup2",
+		"pos1": [18944, 17664],
+		"pos2": [19200, 17920]
+	},
+
+
+	"area_42": {
+		"label": "golfVtolTowerGroup1",
+		"pos1": [6912, 18688],
+		"pos2": [7168, 18944]
+	},
+
+
+	"area_43": {
+		"label": "golfVtolTowerGroup2",
+		"pos1": [7296, 18688],
+		"pos2": [7552, 18944]
+	},
+
+
+	"area_44": {
+		"label": "golfVtolCBGroup1",
+		"pos1": [7680, 18688],
+		"pos2": [7936, 18944]
+	},
+
+
+	"area_45": {
+		"label": "golfVtolCBGroup2",
+		"pos1": [8064, 18688],
+		"pos2": [8320, 18944]
+	},
+
+
+	"area_46": {
+		"label": "golfVtolAttackGroup",
+		"pos1": [7680, 19072],
+		"pos2": [8192, 19328]
+	},
+
+
+	"area_47": {
+		"label": "golfVtolStrikeGroup",
+		"pos1": [8448, 18944],
+		"pos2": [8832, 19328]
+	},
+
+
+	"area_48": {
+		"label": "golfDefenseGroup",
+		"pos1": [19072, 20480],
+		"pos2": [19584, 20736]
+	},
+
+
+	"object_0": {
+		"label": "golfVtolFactory1",
+		"id": 4,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_1": {
+		"label": "foxtrotCybFactory2",
+		"id": 14,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_2": {
+		"label": "infCybFactory2",
+		"id": 46,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_3": {
+		"label": "infFactory1",
+		"id": 60,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_4": {
+		"label": "infFactory4",
+		"id": 61,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_5": {
+		"label": "golfFactory2",
+		"id": 108,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_6": {
+		"label": "golfSensor",
+		"id": 159,
+		"player": 6,
+		"type": 0
+	},
+
+
+	"object_7": {
+		"label": "golfVtolCBTower2",
+		"id": 170,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_8": {
+		"label": "golfVtolCBTower1",
+		"id": 191,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_9": {
+		"label": "golfCBTower2",
+		"id": 192,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_10": {
+		"label": "golfVtolFactory3",
+		"id": 215,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_11": {
+		"label": "foxtrotTruck2",
+		"id": 219,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_12": {
+		"label": "foxtrotTruck1",
+		"id": 310,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_13": {
+		"label": "foxtrotFactory4",
+		"id": 311,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_14": {
+		"label": "golfResearch1",
+		"id": 323,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_15": {
+		"label": "golfVtolFactory2",
+		"id": 343,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_16": {
+		"label": "golfPower",
+		"id": 389,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_17": {
+		"label": "infHvyFactory",
+		"id": 452,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_18": {
+		"label": "golfResearch2",
+		"id": 261,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_19": {
+		"label": "infCybFactory1",
+		"id": 477,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_20": {
+		"label": "golfVtolTower1",
+		"id": 503,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_21": {
+		"label": "golfFactory1",
+		"id": 513,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_22": {
+		"label": "golfVtolTower2",
+		"id": 515,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_23": {
+		"label": "golfTruck4",
+		"id": 525,
+		"player": 6,
+		"type": 0
+	},
+
+
+	"object_24": {
+		"label": "infFactory2",
+		"id": 581,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_25": {
+		"label": "infFactory3",
+		"id": 638,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_26": {
+		"label": "foxtrotResearch1",
+		"id": 28,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_27": {
+		"label": "foxtrotResearch2",
+		"id": 909,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_28": {
+		"label": "foxtrotCybFactory3",
+		"id": 708,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_29": {
+		"label": "foxtrotCybFactory4",
+		"id": 711,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_30": {
+		"label": "foxtrotFactory3",
+		"id": 713,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_31": {
+		"label": "golfTruck5",
+		"id": 970,
+		"player": 6,
+		"type": 0
+	},
+
+
+	"object_32": {
+		"label": "foxtrotCommander",
+		"id": 963,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_33": {
+		"label": "foxtrotTruck3",
+		"id": 961,
+		"player": 5,
+		"type": 0
+	},
+
+
+	"object_34": {
+		"label": "golfTruck3",
+		"id": 971,
+		"player": 6,
+		"type": 0
+	},
+
+
+	"object_35": {
+		"label": "foxtrotFactory1",
+		"id": 916,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_36": {
+		"label": "golfTruck1",
+		"id": 966,
+		"player": 6,
+		"type": 0
+	},
+
+
+	"object_37": {
+		"label": "golfCBTower1",
+		"id": 965,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"object_38": {
+		"label": "foxtrotFactory2",
+		"id": 735,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_39": {
+		"label": "foxtrotCybFactory1",
+		"id": 927,
+		"player": 5,
+		"type": 1
+	},
+
+
+	"object_40": {
+		"label": "infFactory5",
+		"id": 851,
+		"player": 4,
+		"type": 1
+	},
+
+
+	"object_41": {
+		"label": "golfTruck2",
+		"id": 968,
+		"player": 6,
+		"type": 0
+	},
+
+
+	"object_42": {
+		"label": "golfFactory3",
+		"id": 905,
+		"player": 6,
+		"type": 1
+	},
+
+
+	"radius_0": {
+		"label": "heliRemoveZone",
+		"pos": [6525, 277],
+		"subscriber": 4,
+		"radius": 255
+	}
+}

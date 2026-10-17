@@ -1,0 +1,460 @@
+{
+	"position_0": {
+		"label": "hoverPatrolPos1",
+		"pos": [5633, 13648]
+	},
+
+
+	"position_1": {
+		"label": "hoverPatrolPos2",
+		"pos": [3679, 12341]
+	},
+
+
+	"position_2": {
+		"label": "hoverPatrolPos3",
+		"pos": [6003, 8771]
+	},
+
+
+	"position_3": {
+		"label": "hoverPatrolPos4",
+		"pos": [11158, 9736]
+	},
+
+
+	"position_4": {
+		"label": "hoverPatrolPos5",
+		"pos": [17212, 12149]
+	},
+
+
+	"position_5": {
+		"label": "hoverPatrolPos6",
+		"pos": [21521, 12158]
+	},
+
+
+	"position_6": {
+		"label": "hoverPatrolPos7",
+		"pos": [14616, 4315]
+	},
+
+
+	"position_7": {
+		"label": "hoverPatrolPos8",
+		"pos": [23113, 4189]
+	},
+
+
+	"position_8": {
+		"label": "patrolPos1",
+		"pos": [8744, 8345]
+	},
+
+
+	"position_9": {
+		"label": "patrolPos2",
+		"pos": [8707, 5470]
+	},
+
+
+	"position_10": {
+		"label": "patrolPos3",
+		"pos": [11387, 5816]
+	},
+
+
+	"position_11": {
+		"label": "patrolPos4",
+		"pos": [3451, 7994]
+	},
+
+
+	"position_12": {
+		"label": "patrolPos5",
+		"pos": [2794, 5247]
+	},
+
+
+	"position_13": {
+		"label": "patrolPos6",
+		"pos": [618, 5250]
+	},
+
+
+	"position_14": {
+		"label": "patrolPos7",
+		"pos": [1354, 11712]
+	},
+
+
+	"position_15": {
+		"label": "patrolPos8",
+		"pos": [2499, 14669]
+	},
+
+
+	"position_16": {
+		"label": "patrolPos9",
+		"pos": [5817, 14651]
+	},
+
+
+	"position_17": {
+		"label": "transportEntryPos",
+		"pos": [11885, 433]
+	},
+
+
+	"position_18": {
+		"label": "patrolPos10",
+		"pos": [12860, 14400]
+	},
+
+
+	"position_19": {
+		"label": "patrolPos11",
+		"pos": [17192, 13953]
+	},
+
+
+	"position_20": {
+		"label": "patrolPos12",
+		"pos": [21826, 14438]
+	},
+
+
+	"position_21": {
+		"label": "focusPos1",
+		"pos": [6310, 2324]
+	},
+
+
+	"position_22": {
+		"label": "focusPos2",
+		"pos": [11812, 2553]
+	},
+
+
+	"position_23": {
+		"label": "focusPos3",
+		"pos": [18961, 2656]
+	},
+
+
+	"position_24": {
+		"label": "vtolAttackPos1",
+		"pos": [370, 957]
+	},
+
+
+	"position_25": {
+		"label": "vtolAttackPos2",
+		"pos": [186, 6677]
+	},
+
+
+	"position_26": {
+		"label": "vtolAttackPos3",
+		"pos": [187, 13375]
+	},
+
+
+	"position_27": {
+		"label": "vtolAttackPos4",
+		"pos": [5409, 17259]
+	},
+
+
+	"position_28": {
+		"label": "foxtrotFallbackPos",
+		"pos": [1271, 936]
+	},
+
+
+	"position_29": {
+		"label": "transportEntryPosFoxtrot",
+		"pos": [9214, 310]
+	},
+
+
+	"position_30": {
+		"label": "transportEntryPosGolf",
+		"pos": [10088, 17223]
+	},
+
+
+	"area_0": {
+		"label": "landingZone",
+		"pos1": [24576, 9216],
+		"pos2": [24960, 9600]
+	},
+
+
+	"area_1": {
+		"label": "infEntry1",
+		"pos1": [13568, 128],
+		"pos2": [14336, 384]
+	},
+
+
+	"area_2": {
+		"label": "infEntry2",
+		"pos1": [16384, 128],
+		"pos2": [17152, 384]
+	},
+
+
+	"area_3": {
+		"label": "infEntry3",
+		"pos1": [25216, 2688],
+		"pos2": [25472, 3328]
+	},
+
+
+	"area_4": {
+		"label": "infEntry4",
+		"pos1": [25088, 12032],
+		"pos2": [25344, 12928]
+	},
+
+
+	"area_5": {
+		"label": "infEntry5",
+		"pos1": [25216, 14976],
+		"pos2": [25472, 15616]
+	},
+
+
+	"area_6": {
+		"label": "infEntry6",
+		"pos1": [20096, 17024],
+		"pos2": [20608, 17280]
+	},
+
+
+	"area_7": {
+		"label": "infEntry7",
+		"pos1": [17152, 17024],
+		"pos2": [17664, 17280]
+	},
+
+
+	"area_8": {
+		"label": "infEntry8",
+		"pos1": [13824, 17024],
+		"pos2": [14976, 17280]
+	},
+
+
+	"area_9": {
+		"label": "infEntry9",
+		"pos1": [10624, 17024],
+		"pos2": [11264, 17280]
+	},
+
+
+	"area_10": {
+		"label": "infEntry10",
+		"pos1": [7936, 17024],
+		"pos2": [9216, 17280]
+	},
+
+
+	"area_11": {
+		"label": "infEntry11",
+		"pos1": [3456, 17024],
+		"pos2": [4096, 17280]
+	},
+
+
+	"area_12": {
+		"label": "infEntry12",
+		"pos1": [128, 16384],
+		"pos2": [384, 17152]
+	},
+
+
+	"area_13": {
+		"label": "infEntry13",
+		"pos1": [128, 14080],
+		"pos2": [384, 14848]
+	},
+
+
+	"area_14": {
+		"label": "infEntry14",
+		"pos1": [128, 8064],
+		"pos2": [384, 8576]
+	},
+
+
+	"area_15": {
+		"label": "infEntry15",
+		"pos1": [128, 2304],
+		"pos2": [384, 3072]
+	},
+
+
+	"area_16": {
+		"label": "infEntry16",
+		"pos1": [1408, 128],
+		"pos2": [2048, 384]
+	},
+
+
+	"area_17": {
+		"label": "infEntry17",
+		"pos1": [4864, 128],
+		"pos2": [5632, 384]
+	},
+
+
+	"area_18": {
+		"label": "infEntry18",
+		"pos1": [6912, 128],
+		"pos2": [7424, 384]
+	},
+
+
+	"area_19": {
+		"label": "teamEntry1",
+		"pos1": [25216, 768],
+		"pos2": [25472, 1536]
+	},
+
+
+	"area_20": {
+		"label": "teamEntry2",
+		"pos1": [25216, 4864],
+		"pos2": [25472, 5632]
+	},
+
+
+	"area_21": {
+		"label": "teamEntry4",
+		"pos1": [21376, 17024],
+		"pos2": [22144, 17280]
+	},
+
+
+	"area_22": {
+		"label": "teamEntry5",
+		"pos1": [18560, 17024],
+		"pos2": [19328, 17280]
+	},
+
+
+	"area_23": {
+		"label": "teamEntry6",
+		"pos1": [16000, 17024],
+		"pos2": [16640, 17280]
+	},
+
+
+	"area_24": {
+		"label": "teamEntry7",
+		"pos1": [12288, 17024],
+		"pos2": [12928, 17280]
+	},
+
+
+	"area_25": {
+		"label": "teamEntry8",
+		"pos1": [2176, 17024],
+		"pos2": [2816, 17280]
+	},
+
+
+	"area_26": {
+		"label": "teamEntry9",
+		"pos1": [128, 9984],
+		"pos2": [384, 10752]
+	},
+
+
+	"area_27": {
+		"label": "teamEntry10",
+		"pos1": [128, 4864],
+		"pos2": [384, 5632]
+	},
+
+
+	"area_28": {
+		"label": "teamEntry12",
+		"pos1": [2944, 128],
+		"pos2": [3712, 384]
+	},
+
+
+	"area_29": {
+		"label": "teamEntry13",
+		"pos1": [10496, 128],
+		"pos2": [11136, 384]
+	},
+
+
+	"area_30": {
+		"label": "teamEntry3",
+		"pos1": [25216, 16384],
+		"pos2": [25472, 17024]
+	},
+
+
+	"area_31": {
+		"label": "landingZoneGolf",
+		"pos1": [1152, 15616],
+		"pos2": [1536, 16000]
+	},
+
+
+	"area_32": {
+		"label": "landingZoneFoxtrot",
+		"pos1": [2688, 1152],
+		"pos2": [3072, 1536]
+	},
+
+
+	"area_33": {
+		"label": "foxtrotLzStructs",
+		"pos1": [2176, 1024],
+		"pos2": [3456, 1920]
+	},
+
+
+	"area_34": {
+		"label": "foxtrotDefenses",
+		"pos1": [384, 384],
+		"pos2": [8576, 3584]
+	},
+
+
+	"area_35": {
+		"label": "golfLzStructs",
+		"pos1": [1024, 15232],
+		"pos2": [1920, 16128]
+	},
+
+
+	"area_36": {
+		"label": "golfDefenses",
+		"pos1": [512, 9600],
+		"pos2": [7680, 17024]
+	},
+
+
+	"area_37": {
+		"label": "teamEntry11",
+		"pos1": [128, 256],
+		"pos2": [384, 896]
+	},
+
+
+	"radius_0": {
+		"label": "vtolRemoveZone",
+		"pos": [9080, 265],
+		"subscriber": 6,
+		"radius": 256
+	}
+}

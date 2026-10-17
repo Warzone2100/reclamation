@@ -1,0 +1,17 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "CSCAV_BASE_LZ": { "message": "BARBASE_MSG", "x": 2624, "y": 6208, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "CSCAV_BASE": { "message": "BARBASE_MSG", "x": 9408, "y": 4544, "z": 0, "audio": "pcv389.ogg", "type": 0 },
+        "COL_BASE1": { "message": "COLBASE_MSG", "x": 4032, "y": 3264, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE2": { "message": "COLBASE_MSG", "x": 5952, "y": 5568, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE3": { "message": "COLBASE_MSG", "x": 9536, "y": 1600, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE4": { "message": "COLBASE_MSG", "x": 9024, "y": 6208, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE5": { "message": "COLBASE_MSG", "x": 13888, "y": 5696, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE6": { "message": "COLBASE_MSG", "x": 15552, "y": 1728, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "COL_BASE7": { "message": "COLBASE_MSG", "x": 18496, "y": 3520, "z": 0, "audio": "pcv393.ogg", "type": 0 },
+        "CLEAR_LZ": { "message": "RUINS_MSG", "x": 2368, "y": 6336, "z": 0, "audio": "pcv448.ogg", "type": 0 },
+        "PRISON_SITE": { "message": "RUINS_MSG", "x": 18624, "y": 4224, "z": 0, "audio": "pcv448.ogg", "type": 2 },
+        "RET_LZ": { "message": "LZ_MSG", "x": 704, "y": 6464, "z": 0, "audio": "pcv448.ogg", "type": 2 }
+    }
+}

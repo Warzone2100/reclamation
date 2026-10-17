@@ -1,0 +1,29 @@
+{
+    "type": "wz2100.briefs.v1",
+    "briefs": {
+        "P1_BRIEF": {
+            "sequences": [
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "prologue/P1intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "prologue/P1brief.webm" },
+                { "loop": 0, "subtitles": [
+                    "MISBRI",
+                    "P1_BMSG1",
+                    "P1_BMSG2",
+                    "P1_BMSG3",
+                    "P1_BMSG4",
+                    "P1_BMSG5",
+                    "P1_BMSG6",
+                    "P1_BMSG7",
+                    "P1_BMSG8",
+                    "P1_BMSG9",
+                    "P1_BMSG10",
+                    "P1_BMSG11",
+                    "P1_BMSG12",
+                    "P1_BMSG13",
+                    "P1_BMSG14",
+                    "ENDBRI"
+                ], "video": "dummy.webm" }
+            ]
+        }
+    }
+}

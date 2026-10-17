@@ -6,7 +6,7 @@
         "text": [
             "New Jump Cyborg Available",
             "Armed with Scourge anti-tank missile",
-            "Body Points: Medium",
+            "Hitpoints: Medium",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -17,7 +17,7 @@
         "text": [
             "New Jump Cyborg Available",
             "Armed with Flashlight Laser",
-            "Body Points: Medium",
+            "Hitpoints: Medium",
             "Requires cyborg factory to produce"
         ]
     },
@@ -28,7 +28,7 @@
         "text": [
             "New Jump Cyborg Available",
             "Armed with Cyborg assault gun",
-            "Body Points: Medium",
+            "Hitpoints: Medium",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -39,7 +39,7 @@
         "text": [
             "New Jump Cyborg Available",
             "Armed with Lancer anti-tank missile",
-            "Body Points: Medium",
+            "Hitpoints: Medium",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -50,7 +50,7 @@
         "text": [
             "New Jump Cyborg Available",
             "Armed with Needle Gun",
-            "Body Points: Medium",
+            "Hitpoints: Medium",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -61,7 +61,7 @@
         "text": [
             "Cyborg Materials Improved",
             "Laminated alloys bonded with energy-deflecting optic bundles",
-            "Increases Kinetic Armor and Body Points",
+            "Increases Kinetic Armor and Hitpoints",
             "All Cyborgs upgraded automatically"
         ]
     },
@@ -72,7 +72,7 @@
         "text": [
             "Cyborg Materials Improved",
             "Superdense composite alloys and energy-absorbing fibres",
-            "Increases Kinetic Armor and Body Points",
+            "Increases Kinetic Armor and Hitpoints",
             "All Cyborgs upgraded automatically"
         ]
     },
@@ -82,8 +82,12 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "New Cyborg Available",
-            "Armed with Scourge anti-tank missile",
-            "Body Points: Medium",
+            "Armed with Cyborg Scourge Missile Launcher",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Cyborgs and structures",
+            "Greater accuracy at longer ranges",
+            "Obsoletes and replaces Lancer Cyborg",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -93,8 +97,13 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "New Cyborg Available",
-            "Armed with flashlight laser",
-            "Body Points: Medium",
+            "Armed with Cyborg Flashlight laser",
+            "Damage Type: Anti-Personnel",
+            "Effective against: Infantry and Hover vehicles",
+            "Ineffective against: Structures and Tracked vehicles",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Accuracy is unaffected by range",
+            "Can attack aerial targets",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -105,7 +114,7 @@
         "text": [
             "New Cyborg Available",
             "Armed with Revenger Surface-to-Air missile",
-            "Body Points: Medium",
+            "Hitpoints: Medium",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -115,8 +124,11 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "New Cyborg Available",
-            "Armed with Needle Gun",
-            "Body Points: Medium",
+            "Armed with Cyborg Needle Gun",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Darts can hit multiple units",
             "Requires Cyborg factory to produce"
         ]
     },
@@ -149,7 +161,7 @@
         "text": [
             "Cyborg Propulsion Improved",
             "New armored construction",
-            "Increases Body Points",
+            "Increases Hitpoints",
             "All Cyborgs upgraded automatically"
         ]
     },
@@ -160,7 +172,7 @@
         "text": [
             "Defenses Improved",
             "Bonded metallic laminates formed into walls and defenses",
-            "Increases Armor and Body Points",
+            "Increases Armor and Hitpoints",
             "All defenses and walls upgraded automatically"
         ]
     },
@@ -171,7 +183,7 @@
         "text": [
             "Defenses Improved",
             "High tensile concrete-plastic composite",
-            "Increases Armor and Body Points",
+            "Increases Armor and Hitpoints",
             "All defenses and walls upgraded automatically"
         ]
     },
@@ -183,7 +195,7 @@
             "New Defensive Structure Available",
             "Armored guard tower with Scourge Missile",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_EMP_HvAM": {
@@ -214,9 +226,9 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored strongpoint with Flashlight laser",
+            "Armored bunker with Flashlight laser",
             "Automatically targets enemies in range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_PulseLas": {
@@ -238,7 +250,18 @@
             "New Defensive Structure Available",
             "Armored guard tower with Needle Gun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: Medium"
+            "Defensive Strength: Hard"
+        ]
+    },
+    "RES_EMP_Rail1": {
+        "id": "RES_EMP_Rail1",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New Defensive Structure Available",
+            "Armored bunker with Needle Gun",
+            "Automatically targets enemies in range",
+            "Defensive Strength: Bunker"
         ]
     },
     "RES_EMP_Rail2": {
@@ -247,7 +270,7 @@
         "sequenceName": "res_struttech.ogg",
         "text": [
             "New Defensive Structure Available",
-            "Armored Medium with Rail Gun",
+            "Armored strongpoint with Rail Gun",
             "Automatically targets enemies in range",
             "Defensive Strength: Medium"
         ]
@@ -303,7 +326,7 @@
         "text": [
             "Vehicle Propulsion Improved",
             "New armored construction",
-            "Increases Body Points",
+            "Increases Hitpoints",
             "All half-tracks upgraded automatically"
         ]
     },
@@ -358,7 +381,7 @@
         "text": [
             "Increases Damage Resistance",
             "High Density Base Structure Materials",
-            "Increases Armor and Body Points",
+            "Increases Armor and Hitpoints",
             "All base structures upgraded automatically"
         ]
     },
@@ -369,7 +392,7 @@
         "text": [
             "Increases Damage Resistance",
             "Advanced Base Structure Materials",
-            "Increases Armor and Body Points",
+            "Increases Armor and Hitpoints",
             "All base structures upgraded automatically"
         ]
     },
@@ -378,10 +401,10 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_struttech.ogg",
         "text": [
-            "Repair Facility Improved",
-            "Advanced repair techniques",
+            "Repairing Improved",
+            "Advanced repair technology",
             "Increases Repair Speed",
-            "All repair facilities upgraded automatically"
+            "All repair facilities and mobile repair units upgraded automatically"
         ]
     },
     "RES_ST_RU7": {
@@ -411,8 +434,17 @@
         "imdName": "MICAPSUL.pie",
         "sequenceName": "res_struttech.ogg",
         "text": [
-            "VTOL Rearming Times Reduced",
-            "Robotic VTOL Rearming",
+            "New robotic rearm and repair systems",
+            "Reduces rearming time",
+            "All rearming pads upgraded automatically"
+        ]
+    },
+    "RES_ST_VPU7": {
+        "id": "RES_ST_VPU7",
+        "imdName": "MICAPSUL.pie",
+        "sequenceName": "res_struttech.ogg",
+        "text": [
+            "New advanced rearm and repair systems",
             "Reduces rearming time",
             "All rearming pads upgraded automatically"
         ]
@@ -534,7 +566,7 @@
         "text": [
             "Vehicle Propulsion Improved",
             "New armored construction",
-            "Increases Body Points",
+            "Increases Hitpoints",
             "All tracks upgraded automatically"
         ]
     },
@@ -555,7 +587,7 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "NEXUS Light Body",
-            "Superior armor and body points to Viper",
+            "Superior armor and hitpoints to Viper",
             "Faster than Viper",
             "Expensive to produce"
         ]
@@ -566,7 +598,7 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "NEXUS Medium Body",
-            "Superior armor and body points to Cobra",
+            "Superior armor and hitpoints to Cobra",
             "Faster than Cobra",
             "Expensive and slow to produce"
         ]
@@ -577,7 +609,7 @@
         "sequenceName": "res_droid.ogg",
         "text": [
             "NEXUS Heavy Body",
-            "More armor and body points than Python",
+            "More armor and hitpoints than Python",
             "Faster than Python",
             "Very expensive to produce"
         ]
@@ -611,7 +643,7 @@
         "text": [
             "Vehicle Bodies Improved",
             "Laminated alloys bonded with energy-deflecting optic bundles",
-            "Increases kinetic armor and body points",
+            "Increases kinetic armor and hitpoints",
             "All vehicles upgraded automatically"
         ]
     },
@@ -622,7 +654,7 @@
         "text": [
             "Vehicle Bodies Improved",
             "Superdense composite alloys and energy-absorbing fibres",
-            "Increases kinetic armor and body points",
+            "Increases kinetic armor and hitpoints",
             "All vehicles upgraded automatically"
         ]
     },
@@ -633,7 +665,7 @@
         "text": [
             "Vehicle Propulsion Improved",
             "New armored construction",
-            "Increases Body Points",
+            "Increases Hitpoints",
             "All hovers upgraded automatically"
         ]
     },
@@ -644,7 +676,7 @@
         "text": [
             "Vehicle Propulsion Improved",
             "New power efficient propulsion",
-            "Body Points and Speed Increased",
+            "Hitpoints and Speed Increased",
             "All VTOLs upgraded automatically"
         ]
     },
@@ -655,7 +687,7 @@
         "text": [
             "Vehicle Propulsion Improved",
             "New power efficient propulsion",
-            "Body Points and Speed Increased",
+            "Hitpoints and Speed Increased",
             "All VTOLs upgraded automatically"
         ]
     },
@@ -666,7 +698,7 @@
         "text": [
             "Vehicle Propulsion Improved",
             "New armored construction",
-            "Increases Body Points",
+            "Increases Hitpoints",
             "All wheels upgraded automatically"
         ]
     },
@@ -678,7 +710,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Flashlight laser",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_WT15_RL2": {
@@ -689,7 +721,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Rail Gun",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_WT15_RL3": {
@@ -700,7 +732,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Gauss Cannon",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_WT9_ATM": {
@@ -711,7 +743,7 @@
             "New Defensive Structure Available",
             "Armored hardpoint with Scourge AT Missile",
             "Automatically targets enemies within sensor range",
-            "Defensive Strength: High"
+            "Defensive Strength: Hard"
         ]
     },
     "RES_W_AAAC3": {
@@ -720,7 +752,7 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "AA Upgrade",
-            "Computer plots and guides shell to target's position",
+            "Self-guided rocket powered shells",
             "Increases AA accuracy",
             "All AA weapons upgraded automatically"
         ]
@@ -752,10 +784,12 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Missile Turret Available",
-            "Anti-tank missile",
-            "Best Targets: Vehicles",
-            "Body Points: Very Low"
+            "New Weapon Turret Available",
+            "Sophisticated missile launcher firing anti-tank missiles",
+            "Damage Type: Anti-Tank",
+            "Effective against: Vehicles",
+            "Ineffective against: Infantry and structures",
+            "Greater accuracy at longer ranges"
         ]
     },
     "RES_W_ASM_BB": {
@@ -763,10 +797,14 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Missile Turret Available",
-            "Bunker buster missile",
-            "Best Targets: Bunkers and hardpoints",
-            "Body Points: Very Low"
+            "New Weapon Turret Available",
+            "Short-ranged artillery firing guided anti-material missiles",
+            "Damage Type: Anti-Structure",
+            "Effective against: Structures",
+            "Ineffective against: Infantry and vehicles",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Bunker Buster"
         ]
     },
     "RES_W_BAC3": {
@@ -787,8 +825,14 @@
         "text": [
             "New Bomb Bay Available",
             "Drops high intensity thermite bombs",
-            "Best Targets: Bunkers and hardpoints",
-            "Body Points: Low"
+            "Damage Type: Incendiary",
+            "Effective against: Infantry, vehicles and bunkers",
+            "Ineffective against: Non-bunker structures",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Can ignite enemy units and structures, causing damage over time",
+            "Provides substantial bonus HP",
+            "Can only be equipped onto VTOLs",
+            "Obsoletes Phosphor Bomb Bay"
         ]
     },
     "RES_W_CN_D7": {
@@ -851,10 +895,14 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Laser Weapon Available",
+            "New Weapon Turret Available",
             "Generates and concentrates bursts of laser energy",
-            "Best Targets: Cyborgs",
-            "Body Points: Medium"
+            "Damage Type: Anti-Personnel",
+            "Effective against: Infantry and Hover vehicles",
+            "Ineffective against: Structures and Tracked vehicles",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Accuracy is unaffected by range",
+            "Can attack aerial targets"
         ]
     },
     "RES_W_LAS2": {
@@ -862,10 +910,15 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Laser Weapon Available",
-            "Fires pulses of laser light",
-            "Best Targets: Cyborgs",
-            "Body Points: Medium"
+            "New Weapon Turret Available",
+            "Generates and concentrates pulses of laser energy",
+            "Damage Type: Anti-Personnel",
+            "Effective against: Cyborgs and Hover vehicles",
+            "Ineffective against: Structures and Tracked vehicles",
+            "Thermal weapon; Damage bypasses kinetic armor of target",
+            "Accuracy is unaffected by range",
+            "Can attack aerial targets",
+            "Obsoletes Flashlight"
         ]
     },
     "RES_W_MG_D10": {
@@ -928,10 +981,18 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Artillery Missile Turret Available",
-            "High explosive heavy artillery missile",
-            "Best Targets: Base structures and cyborgs",
-            "Body Points: Very Low"
+            "New Weapon Turret Available",
+            "Missile artillery weapon firing salvos of guided high-explosive missiles",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, Hover vehicles and structures",
+            "Ineffective against: Tracked vehicles and bunkers",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Has a very long delay between bursts",
+            "Greater accuracy at longer ranges",
+            "Extremely long weapon range",
+            "Must be stationary to fire",
+            "Unable to fire at enemies that are within close proximity",
+            "Obsoletes Ripple Rockets"
         ]
     },
     "RES_W_MS_HvSAM1": {
@@ -940,9 +1001,9 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "New SAM Turret Available",
-            "Heavy surface-to-air missile",
-            "Best Targets: Aerial targets only",
-            "Body Points: Very Low"
+            "Quad launcher firing guided surface-to-air missiles",
+            "Aerial targets only",
+            "Obsoletes Avenger SAM"
         ]
     },
     "RES_W_MS_LtSAM1": {
@@ -951,9 +1012,8 @@
         "sequenceName": "res_weapons.ogg",
         "text": [
             "New SAM Turret Available",
-            "Surface-to-air missile",
-            "Best Targets: Aerial targets only",
-            "Body Points: Very Low"
+            "Dual launcher firing guided surface-to-air missiles",
+            "Aerial targets only"
         ]
     },
     "RES_W_MS_MART": {
@@ -961,10 +1021,14 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Artillery Missile Turret Available",
-            "High explosive artillery missile",
-            "Best Targets: Base structures and cyborgs",
-            "Body Points: Very Low"
+            "New Weapon Turret Available",
+            "Short-ranged artillery firing salvos of guided high-explosive missiles",
+            "Damage Type: Artillery",
+            "Effective against: Infantry, Hover vehicles and structures",
+            "Ineffective against: Tracked vehicles and bunkers",
+            "Indirect weapon; does not require line of sight to a target and can be assigned to a sensor",
+            "Greater accuracy at longer ranges",
+            "Obsoletes Heavy Rocket Array"
         ]
     },
     "RES_W_MS_ROF1": {
@@ -1005,10 +1069,13 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Rail Gun Available",
-            "Rapid fire rail gun firing needle darts",
-            "Best Targets: Vehicles",
-            "Body Points: Medium"
+            "New Weapon Turret Available",
+            "Rail gun accelerating needle darts at extreme velocities",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Provides substantial bonus HP",
+            "Darts can hit multiple units"
         ]
     },
     "RES_W_RAIL2": {
@@ -1016,10 +1083,14 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Rail Gun Available",
-            "Rail gun firing armor-piercing darts",
-            "Best Targets: Vehicles",
-            "Body Points: Medium"
+            "New Weapon Turret Available",
+            "Rail gun accelerating armor-piercing darts at extreme velocities",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Provides substantial bonus HP",
+            "Darts can hit multiple units",
+            "Obsoletes Needle Gun"
         ]
     },
     "RES_W_RAIL3": {
@@ -1027,10 +1098,13 @@
         "imdName": "MICAPSUL.PIE",
         "sequenceName": "res_weapons.ogg",
         "text": [
-            "New Rail Gun Available",
-            "Heavy rail gun firing large kinetic energy darts",
-            "Best Targets: Vehicles",
-            "Body Points: High"
+            "Heavy rail gun accelerating large kinetic energy darts at extreme velocities",
+            "Damage Type: All Rounder",
+            "Effective against: Vehicles and structures",
+            "Ineffective against: Bunkers and cyborgs",
+            "Provides substantial bonus HP",
+            "Darts can hit multiple units",
+            "Obsoletes Rail Gun"
         ]
     },
     "RES_W_RAIL_AC1": {

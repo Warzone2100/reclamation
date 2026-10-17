@@ -7,83 +7,328 @@
 /******************************************************/
 /*     reclamation campaign dataset and levels        */
 
-campaign	CAM_2
-data		"wrf/vidmem2.wrf"
-data		"wrf/basic.wrf"
-data		"wrf/cam2.wrf"
-data		"wrf/audio.wrf"
-data		"wrf/stats.wrf"
-data		"wrf/camres.wrf"
-
-campaign	CAM_3
+campaign	REC_1
 data		"wrf/vidmem3.wrf"
 data		"wrf/basic.wrf"
-data		"wrf/cam3.wrf"
+data		"wrf/rec.wrf"
 data		"wrf/audio.wrf"
 data		"wrf/stats.wrf"
 data		"wrf/camres.wrf"
 
 camstart	L1
-dataset		CAM_3
-game		"wrf/cam3/L1.gam"
-data		"wrf/cam3/L1.wrf"
-
-camchange	L1
-dataset		CAM_2
-data		"wrf/cam3/cam3change.wrf"
-game		"wrf/cam3/L1.gam"
-data		"wrf/cam3/L1.wrf"
+dataset		REC_1
+game		"wrf/act0/L1.gam"
+data		"wrf/act0/L1.wrf"
 
 between		L2S
-dataset		CAM_3
-data		"wrf/cam3/L2s.wrf"
+dataset		REC_1
+data		"wrf/act0/L2s.wrf"
 
 miss_keep	L2
-dataset		CAM_3
-game		"wrf/cam3/L2.gam"
-data		"wrf/cam3/L2.wrf"
+dataset		REC_1
+game		"wrf/act0/L2.gam"
+data		"wrf/act0/L2.wrf"
 
 expand		L3
-dataset		CAM_3
-game		"wrf/cam3/L3.gam"
-data		"wrf/cam3/L3.wrf"
+dataset		REC_1
+game		"wrf/act0/L3.gam"
+data		"wrf/act0/L3.wrf"
 
 between		L4S
-dataset		CAM_3
-data		"wrf/cam3/L4s.wrf"
+dataset		REC_1
+data		"wrf/act0/L4s.wrf"
 
 miss_keep	L4
-dataset		CAM_3
-game		"wrf/cam3/L4.gam"
-data		"wrf/cam3/L4.wrf"
+dataset		REC_1
+game		"wrf/act0/L4.gam"
+data		"wrf/act0/L4.wrf"
 
 between		L5S
-dataset		CAM_3
-data		"wrf/cam3/L5s.wrf"
+dataset		REC_1
+data		"wrf/act0/L5s.wrf"
 
 miss_keep	L5
-dataset		CAM_3
-game		"wrf/cam3/L5.gam"
-data		"wrf/cam3/L5.wrf"
+dataset		REC_1
+game		"wrf/act0/L5.gam"
+data		"wrf/act0/L5.wrf"
 
 between		L6S
-dataset		CAM_3
-data		"wrf/cam3/L6s.wrf"
+dataset		REC_1
+data		"wrf/act0/L6s.wrf"
 
 miss_keep	L6
-dataset		CAM_3
-game		"wrf/cam3/L6.gam"
-data		"wrf/cam3/L6.wrf"
+dataset		REC_1
+game		"wrf/act0/L6.gam"
+data		"wrf/act0/L6.wrf"
 
 expand		L7
-dataset		CAM_3
-game		"wrf/cam3/L7.gam"
-data		"wrf/cam3/L7.wrf"
+dataset		REC_1
+game		"wrf/act0/L7.gam"
+data		"wrf/act0/L7.wrf"
 
-/* end of campaign */
+/* end of reclamation 1 campaign */
 
-miss_keep	CAM_3_4
-dataset		CAM_3
-game		"wrf/cam3/cam3-4.gam"
-data		"wrf/cam3/sub3-4.wrf"
+/* prologue */
 
+campaign	PROLOGUE
+data		"wrf/vidmem3.wrf"
+data		"wrf/basic.wrf"
+data		"wrf/rec.wrf"
+data		"wrf/audio.wrf"
+data		"wrf/stats.wrf"
+data		"wrf/camres2.wrf"
+
+camstart	P0
+dataset		PROLOGUE
+game		"wrf/prologue/P0.gam"
+data		"wrf/prologue/P0.wrf"
+
+miss_keep_limbo	P1
+dataset		PROLOGUE
+game		"wrf/prologue/P1.gam"
+data		"wrf/prologue/P1.wrf"
+
+expand_limbo	P2
+dataset		PROLOGUE
+game		"wrf/prologue/P2.gam"
+data		"wrf/prologue/P2.wrf"
+
+/* act 1 */
+
+campaign	REC_2
+data		"wrf/vidmem2.wrf"
+data		"wrf/basic.wrf"
+data		"wrf/rec.wrf"
+data		"wrf/audio.wrf"
+data		"wrf/stats.wrf"
+data		"wrf/camres2.wrf"
+
+camstart	A1L1
+dataset		REC_2
+game		"wrf/act1/A1L1.gam"
+data		"wrf/act1/A1L1.wrf"
+
+camchange	A1L1
+dataset		PROLOGUE
+data		"wrf/rec2change.wrf"
+game		"wrf/act1/A1L1.gam"
+data		"wrf/act1/A1L1.wrf"
+
+between		A1L2S
+dataset		REC_2
+data		"wrf/act1/A1L2s.wrf"
+
+miss_keep	A1L2
+dataset		REC_2
+game		"wrf/act1/A1L2.gam"
+data		"wrf/act1/A1L2.wrf"
+
+expand		A1L3
+dataset		REC_2
+game		"wrf/act1/A1L3.gam"
+data		"wrf/act1/A1L3.wrf"
+
+between		A1L4S
+dataset		REC_2
+data		"wrf/act1/A1L4s.wrf"
+
+miss_keep	A1L4
+dataset		REC_2
+game		"wrf/act1/A1L4.gam"
+data		"wrf/act1/A1L4.wrf"
+
+between		A1L5S
+dataset		REC_2
+data		"wrf/act1/A1L5s.wrf"
+
+miss_keep	A1L5
+dataset		REC_2
+game		"wrf/act1/A1L5.gam"
+data		"wrf/act1/A1L5.wrf"
+
+expand		A1L6
+dataset		REC_2
+game		"wrf/act1/A1L6.gam"
+data		"wrf/act1/A1L6.wrf"
+
+/* act 2 */
+
+camstart	A2L1
+dataset		REC_2
+game		"wrf/act2/A2L1.gam"
+data		"wrf/act2/A2L1.wrf"
+
+camchange	A2L1
+dataset		REC_2
+data		"wrf/rec2change.wrf"
+game		"wrf/act2/A2L1.gam"
+data		"wrf/act2/A2L1.wrf"
+
+between		A2L2S
+dataset		REC_2
+data		"wrf/act2/A2L2s.wrf"
+
+miss_keep	A2L2
+dataset		REC_2
+game		"wrf/act2/A2L2.gam"
+data		"wrf/act2/A2L2.wrf"
+
+expand		A2L3
+dataset		REC_2
+game		"wrf/act2/A2L3.gam"
+data		"wrf/act2/A2L3.wrf"
+
+between		A2L4S
+dataset		REC_2
+data		"wrf/act2/A2L4s.wrf"
+
+miss_keep	A2L4
+dataset		REC_2
+game		"wrf/act2/A2L4.gam"
+data		"wrf/act2/A2L4.wrf"
+
+expand		A2L5
+dataset		REC_2
+game		"wrf/act2/A2L5.gam"
+data		"wrf/act2/A2L5.wrf"
+
+between		A2L6S
+dataset		REC_2
+data		"wrf/act2/A2L6s.wrf"
+
+miss_keep	A2L6
+dataset		REC_2
+game		"wrf/act2/A2L6.gam"
+data		"wrf/act2/A2L6.wrf"
+
+expand		A2L7
+dataset		REC_2
+game		"wrf/act2/A2L7.gam"
+data		"wrf/act2/A2L7.wrf"
+
+/* act 3 */
+
+camstart	A3L1
+dataset		REC_2
+game		"wrf/act3/A3L1.gam"
+data		"wrf/act3/A3L1.wrf"
+
+camchange	A3L1
+dataset		REC_2
+data		"wrf/rec2change.wrf"
+game		"wrf/act3/A3L1.gam"
+data		"wrf/act3/A3L1.wrf"
+
+expand		A3L2
+dataset		REC_2
+game		"wrf/act3/A3L2.gam"
+data		"wrf/act3/A3L2.wrf"
+
+between		A3L3S
+dataset		REC_2
+data		"wrf/act3/A3L3s.wrf"
+
+miss_keep	A3L3
+dataset		REC_2
+game		"wrf/act3/A3L3.gam"
+data		"wrf/act3/A3L3.wrf"
+
+expand		A3L4
+dataset		REC_2
+game		"wrf/act3/A3L4.gam"
+data		"wrf/act3/A3L4.wrf"
+
+between		A3L5S
+dataset		REC_2
+data		"wrf/act3/A3L5s.wrf"
+
+miss_keep	A3L5
+dataset		REC_2
+game		"wrf/act3/A3L5.gam"
+data		"wrf/act3/A3L5.wrf"
+
+expand		A3L6
+dataset		REC_2
+game		"wrf/act3/A3L6.gam"
+data		"wrf/act3/A3L6.wrf"
+
+between		A3L7S
+dataset		REC_2
+data		"wrf/act3/A3L7s.wrf"
+
+miss_keep	A3L7
+dataset		REC_2
+game		"wrf/act3/A3L7.gam"
+data		"wrf/act3/A3L7.wrf"
+
+expand		A3L8
+dataset		REC_2
+game		"wrf/act3/A3L8.gam"
+data		"wrf/act3/A3L8.wrf"
+
+expand		A3L9
+dataset		REC_2
+game		"wrf/act3/A3L9.gam"
+data		"wrf/act3/A3L9.wrf"
+
+/* act 4 */
+
+camstart	A4L1
+dataset		REC_2
+game		"wrf/act4/A4L1.gam"
+data		"wrf/act4/A4L1.wrf"
+
+camchange	A4L1
+dataset		REC_2
+data		"wrf/rec2change.wrf"
+game		"wrf/act4/A4L1.gam"
+data		"wrf/act4/A4L1.wrf"
+
+between		A4L2S
+dataset		REC_2
+data		"wrf/act4/A4L2s.wrf"
+
+miss_keep	A4L2
+dataset		REC_2
+game		"wrf/act4/A4L2.gam"
+data		"wrf/act4/A4L2.wrf"
+
+expand		A4L3
+dataset		REC_2
+game		"wrf/act4/A4L3.gam"
+data		"wrf/act4/A4L3.wrf"
+
+between		A4L4S
+dataset		REC_2
+data		"wrf/act4/A4L4s.wrf"
+
+miss_keep	A4L4
+dataset		REC_2
+game		"wrf/act4/A4L4.gam"
+data		"wrf/act4/A4L4.wrf"
+
+expand		A4L5
+dataset		REC_2
+game		"wrf/act4/A4L5.gam"
+data		"wrf/act4/A4L5.wrf"
+
+/* switch back to the mountain tileset for A4L6 */
+
+campaign	EXODUS
+data		"wrf/vidmem3.wrf"
+data		"wrf/basic.wrf"
+data		"wrf/rec.wrf"
+data		"wrf/audio.wrf"
+data		"wrf/stats.wrf"
+data		"wrf/camres2.wrf"
+
+camstart	A4L6
+dataset		EXODUS
+game		"wrf/act4/A4L6.gam"
+data		"wrf/act4/A4L6.wrf"
+
+camchange	A4L6
+dataset		REC_2
+data		"wrf/act4change.wrf"
+game		"wrf/act4/A4L6.gam"
+data		"wrf/act4/A4L6.wrf"

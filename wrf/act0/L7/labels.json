@@ -1,0 +1,114 @@
+{
+	"position_0": {
+		"label": "startPosition",
+		"pos": [4032, 2624]
+	},
+
+
+	"position_1": {
+		"label": "southCityEntrance",
+		"pos": [3136, 16064]
+	},
+
+
+	"position_2": {
+		"label": "southWestCityEntrance",
+		"pos": [320, 14400]
+	},
+
+
+	"position_3": {
+		"label": "southEastMountainEntrance",
+		"pos": [7872, 14784]
+	},
+
+
+	"position_4": {
+		"label": "westMarshEntrance",
+		"pos": [320, 11584]
+	},
+
+
+	"position_5": {
+		"label": "eastIndustryEntrance",
+		"pos": [7872, 10688]
+	},
+
+
+	"position_6": {
+		"label": "eastRoadEntrance",
+		"pos": [7872, 4480]
+	},
+
+
+	"position_7": {
+		"label": "westRoadEntrance",
+		"pos": [320, 4480]
+	},
+
+
+	"position_8": {
+		"label": "northMountainEntrance",
+		"pos": [6848, 320]
+	},
+
+
+	"position_9": {
+		"label": "transporterEntry",
+		"pos": [7488, 704]
+	},
+
+
+	"position_10": {
+		"label": "transporterExit",
+		"pos": [7488, 3520]
+	},
+
+
+	"position_11": {
+		"label": "heliSpawn1",
+		"pos": [7616, 15936]
+	},
+
+
+	"position_12": {
+		"label": "heliSpawn2",
+		"pos": [320, 15936]
+	},
+
+
+	"area_0": {
+		"label": "LZ",
+		"pos1": [3840, 2432],
+		"pos2": [4224, 2816]
+	},
+
+
+	"area_1": {
+		"label": "evacZone",
+		"pos1": [3456, 2176],
+		"pos2": [4608, 3456]
+	},
+
+
+	"area_2": {
+		"label": "southZone",
+		"pos1": [0, 8576],
+		"pos2": [8191, 16383]
+	},
+
+
+	"area_3": {
+		"label": "southExclusionZone",
+		"pos1": [5248, 8576],
+		"pos2": [8191, 11648]
+	},
+
+
+	 "radius_0": {
+		"label": "heliRemoveZone",
+		"subscriber": 4,
+		"pos": [7040, 16107],
+		"radius": 250
+	}
+}

@@ -1,0 +1,7 @@
+{
+    "type": "wz2100.proxmsgs.v1",
+    "msgs": {
+        "FOXTROT_LZBASE": { "message": "FOXTROTLZ_MSG", "x": 2880, "y": 1344, "z": 0, "audio": "pcv396.ogg", "type": 0 },
+        "GOLF_LZBASE": { "message": "GOLFLZ_MSG", "x": 1344, "y": 15808, "z": 0, "audio": "pcv396.ogg", "type": 0 }
+    }
+}

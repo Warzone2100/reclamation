@@ -3,8 +3,6 @@
 // * Enable unit design and minimap only when an HQ exists
 receiveAllEvents(true); //Needed to allow enemy research to apply to them
 
-include("script/weather.js");
-
 var mainReticule = false;
 var lastHitTime = 0;
 const CREATE_LIKE_EVENT = 0;
@@ -243,7 +241,8 @@ function setupGame()
 	else if (tilesetType === "URBAN")
 	{
 		setCampaignNumber(2);
-		replaceTexture("page-7-barbarians-arizona.png", "page-7-barbarians-urban.png");
+		// replaceTexture("page-7-barbarians-arizona.png", "page-7-barbarians-urban.png");
+		replaceTexture("page-7-barbarians-arizona.png", "page-7-barbarians-kevlar.png");
 		replaceTexture("page-8-player-buildings-bases.png", "page-8-player-buildings-bases-urban.png");
 		replaceTexture("page-9-player-buildings-bases.png", "page-9-player-buildings-bases-urban.png");
 	}
@@ -268,7 +267,7 @@ function setupGame()
 	showInterface(); // init buttons. This MUST come before setting the reticule button data
 	setMainReticule();
 	mainReticule = true;
-	queue("resetPower", 1000);
+	// queue("resetPower", 1000);
 }
 
 function eventGameLoaded()
@@ -280,86 +279,6 @@ function eventGameInit()
 {
 	setupGame();
 	setTimer("autoSave", 10*60*1000);
-}
-
-function setLimits()
-{
-	setDroidLimit(selectedPlayer, 101, DROID_ANY); //note: the transporter is a unit you own
-	setDroidLimit(selectedPlayer, 10, DROID_COMMAND);
-	setDroidLimit(selectedPlayer, 15, DROID_CONSTRUCT);
-
-	for (let i = 0; i < maxPlayers; ++i)
-	{
-		setStructureLimits("A0PowerGenerator", 5, i);
-		setStructureLimits("A0ResourceExtractor", 200, i);
-		setStructureLimits("A0ResearchFacility", 5, i);
-		setStructureLimits("A0LightFactory", 5, i);
-		setStructureLimits("A0CyborgFactory", 5, i);
-		setStructureLimits("A0VTolFactory1", 5, i);
-		//non human players get five of these
-		setStructureLimits("A0CommandCentre", i === selectedPlayer ? 1 : 5, i);
-		setStructureLimits("A0ComDroidControl", i === selectedPlayer ? 1 : 5, i);
-		setStructureLimits("A0CommandCentreNP", 5, i);
-		setStructureLimits("A0CommandCentreCO", 5, i);
-		setStructureLimits("A0CommandCentreNE", 5, i);
-	}
-}
-
-function resetPower()
-{
-	let powerLimit = 999999;
-	let powerProductionRate = 100;
-
-	// set income modifier/power storage for player 0 (human)
-	if (difficulty <= EASY)
-	{
-		powerProductionRate = 115;
-	}
-	else if (difficulty === HARD)
-	{
-		powerProductionRate = 85;
-		powerLimit = 20000; //base value for Alpha
-
-		if (tilesetType === "URBAN")
-		{
-			powerLimit += 5000;
-		}
-		else if (tilesetType === "ROCKIES")
-		{
-			powerLimit += 10000;
-		}
-	}
-	else if (difficulty === INSANE)
-	{
-		powerProductionRate = 70;
-		powerLimit = 12000; //base value for Alpha
-
-		if (tilesetType === "URBAN")
-		{
-			powerLimit += 2000;
-		}
-		else if (tilesetType === "ROCKIES")
-		{
-			powerLimit += 4000;
-		}
-	}
-
-	setPowerModifier(powerProductionRate);
-	setPowerStorageMaximum(powerLimit);
-	if (playerPower(selectedPlayer) >= powerLimit)
-	{
-		setPower(powerLimit - 1, selectedPlayer);
-	}
-}
-
-function eventStartLevel()
-{
-	setLimits();
-	if (tilesetType === "URBAN" || tilesetType === "ROCKIES")
-	{
-		weatherCycle();
-		setTimer("weatherCycle", 45000);
-	}
 }
 
 function eventDroidBuilt(droid, structure)

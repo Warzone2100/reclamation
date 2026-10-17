@@ -1,0 +1,6 @@
+-120 50		3.0		6.0		_("<DELTA>: Lieutenant, I'm picking up an unidentified transport.")
+-120 50		6.0		10.0	_("<DELTA>: It's not ours... but it doesn't")
+-120 60		6.0		10.0	_("look like one of the Collective's either.")
+-120 50		10.0	12.0	_("<DELTA>: And... it's headed INTO the city.")
+-120 50		13.0	15.0	_("<CHARLIE>: What?")
+-120 50		15.0	18.0	_("<CHARLIE>: Who would be crazy enough to go in there now?")
