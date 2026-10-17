@@ -1,0 +1,55 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 0.0,
+   "end": 2.0,
+   "area": "header",
+   "textId": "A4L1_BMSG18",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 2.0,
+   "end": 5.0,
+   "area": "header",
+   "textId": "A4L1_BMSG19",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 5.0,
+   "end": 7.0,
+   "area": "header",
+   "textId": "A4L1_BMSG20",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 8.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A4L1_BMSG21",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 11.0,
+   "end": 15.0,
+   "area": "header",
+   "textId": "A4L1_BMSG22",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 15.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "A4L1_BMSG23",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 19.0,
+   "end": 24.0,
+   "area": "header",
+   "textId": "A4L1_BMSG24",
+   "speaker": "LIEUTENANT"
+  }
+ ]
+}

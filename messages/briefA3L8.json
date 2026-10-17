@@ -3,7 +3,7 @@
     "briefs": {
         "A3L8_BRIEF": {
             "sequences": [
-                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act3/A3L8intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act3/A3L8intro.json" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L8brief1.webm" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act3/A3L8brief2.webm" },
                 { "loop": 0, "subtitles": [

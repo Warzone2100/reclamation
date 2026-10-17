@@ -1,0 +1,18 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 0.5,
+   "end": 5.0,
+   "area": "titleMission",
+   "text": "MISSION 4"
+  },
+  {
+   "start": 2.5,
+   "end": 5.0,
+   "area": "titleName",
+   "text": "BREACH"
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 3.0,
+   "end": 7.0,
+   "area": "header",
+   "textId": "A3L5_COLMSG1"
+  },
+  {
+   "start": 7.0,
+   "end": 10.0,
+   "area": "header",
+   "textId": "A3L5_COLMSG2",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 10.0,
+   "end": 13.0,
+   "area": "header",
+   "textId": "A3L5_COLMSG3",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

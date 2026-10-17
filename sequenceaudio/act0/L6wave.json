@@ -1,0 +1,26 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 4.0,
+   "end": 8.0,
+   "area": "header",
+   "textId": "L6_WAVEMSG1"
+  },
+  {
+   "start": 8.0,
+   "end": 12.0,
+   "area": "header",
+   "textId": "L6_WAVEMSG2",
+   "speaker": "ASSOCIATE"
+  },
+  {
+   "start": 12.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "L6_WAVEMSG3",
+   "speaker": "ASSOCIATE"
+  }
+ ]
+}

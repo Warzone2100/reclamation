@@ -1,0 +1,147 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 7.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A3L8_BSMG1"
+  },
+  {
+   "start": 11.0,
+   "end": 13.0,
+   "area": "header",
+   "textId": "A3L8_BSMG2",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 14.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "A3L8_BSMG3"
+  },
+  {
+   "start": 16.0,
+   "end": 21.0,
+   "area": "header",
+   "textId": "A3L8_BSMG4",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 21.0,
+   "end": 26.0,
+   "area": "header",
+   "textId": "A3L8_BSMG5",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 26.0,
+   "end": 30.0,
+   "area": "header",
+   "textId": "A3L8_BSMG6",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 30.0,
+   "end": 35.0,
+   "area": "header",
+   "textId": "A3L8_BSMG7",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 35.0,
+   "end": 37.0,
+   "area": "header",
+   "textId": "A3L8_BSMG8",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 37.0,
+   "end": 40.0,
+   "area": "header",
+   "textId": "A3L8_BSMG9",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 41.0,
+   "end": 45.0,
+   "area": "header",
+   "textId": "A3L8_BSMG10"
+  },
+  {
+   "start": 45.0,
+   "end": 49.0,
+   "area": "header",
+   "textId": "A3L8_BSMG11",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 49.0,
+   "end": 51.0,
+   "area": "header",
+   "textId": "A3L8_BSMG12",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 52.0,
+   "end": 54.0,
+   "area": "header",
+   "textId": "A3L8_BSMG13"
+  },
+  {
+   "start": 54.0,
+   "end": 56.0,
+   "area": "header",
+   "textId": "A3L8_BSMG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 57.0,
+   "end": 59.0,
+   "area": "header",
+   "textId": "A3L8_BSMG15"
+  },
+  {
+   "start": 60.0,
+   "end": 63.0,
+   "area": "header",
+   "textId": "A3L8_BSMG16"
+  },
+  {
+   "start": 63.0,
+   "end": 68.0,
+   "area": "header",
+   "textId": "A3L8_BSMG17",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 68.0,
+   "end": 71.0,
+   "area": "header",
+   "textId": "A3L8_BSMG18",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 71.0,
+   "end": 74.0,
+   "area": "header",
+   "textId": "A3L8_BSMG19",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 74.0,
+   "end": 77.0,
+   "area": "header",
+   "textId": "A3L8_BSMG20",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 77.0,
+   "end": 79.0,
+   "area": "header",
+   "textId": "A3L8_BSMG21",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

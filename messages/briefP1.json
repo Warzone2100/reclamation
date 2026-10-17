@@ -3,7 +3,7 @@
     "briefs": {
         "P1_BRIEF": {
             "sequences": [
-                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "prologue/P1intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "prologue/P1intro.json" },
                 { "loop": 0, "subtitles": "BLANK", "video": "prologue/P1brief.webm" },
                 { "loop": 0, "subtitles": [
                     "MISBRI",

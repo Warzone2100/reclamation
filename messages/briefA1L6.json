@@ -3,7 +3,7 @@
     "briefs": {
         "A1L6_BRIEF": {
             "sequences": [
-                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act1/A1L6intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act1/A1L6intro.json" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act1/A1L6brief1.webm" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act1/A1L6brief2.webm" },
                 { "loop": 0, "subtitles": [

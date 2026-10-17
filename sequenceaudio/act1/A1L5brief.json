@@ -1,0 +1,124 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 8.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A1L5_BMSG1"
+  },
+  {
+   "start": 11.0,
+   "end": 13.0,
+   "area": "header",
+   "textId": "A1L5_BMSG2",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 14.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "A1L5_BMSG3",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 16.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "A1L5_BMSG4",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 19.0,
+   "end": 22.0,
+   "area": "header",
+   "textId": "A1L5_BMSG5",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 22.0,
+   "end": 26.0,
+   "area": "header",
+   "textId": "A1L5_BMSG6",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 26.0,
+   "end": 30.0,
+   "area": "header",
+   "textId": "A1L5_BMSG7",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 30.0,
+   "end": 34.0,
+   "area": "header",
+   "textId": "A1L5_BMSG8",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 34.0,
+   "end": 36.0,
+   "area": "header",
+   "textId": "A1L5_BMSG9",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 37.0,
+   "end": 40.0,
+   "area": "header",
+   "textId": "A1L5_BMSG10",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 40.0,
+   "end": 43.0,
+   "area": "header",
+   "textId": "A1L5_BMSG11",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 44.0,
+   "end": 46.0,
+   "area": "header",
+   "textId": "A1L5_BMSG12",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 46.0,
+   "end": 50.0,
+   "area": "header",
+   "textId": "A1L5_BMSG13",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 50.0,
+   "end": 53.0,
+   "area": "header",
+   "textId": "A1L5_BMSG14",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 53.0,
+   "end": 57.0,
+   "area": "header",
+   "textId": "A1L5_BMSG15",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 58.0,
+   "end": 60.0,
+   "area": "header",
+   "textId": "A1L5_BMSG16",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 60.0,
+   "end": 63.0,
+   "area": "header",
+   "textId": "A1L5_BMSG17",
+   "speaker": "LIEUTENANT"
+  }
+ ]
+}

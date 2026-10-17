@@ -1,0 +1,113 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 4.0,
+   "end": 7.0,
+   "area": "header",
+   "textId": "P2_CIVMSG1"
+  },
+  {
+   "start": 10.0,
+   "end": 13.0,
+   "area": "header",
+   "textId": "P2_CIVMSG2"
+  },
+  {
+   "start": 13.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "P2_CIVMSG3",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 16.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "P2_CIVMSG4",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 19.0,
+   "end": 22.0,
+   "area": "header",
+   "textId": "P2_CIVMSG5",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 23.0,
+   "end": 25.0,
+   "area": "header",
+   "textId": "P2_CIVMSG6"
+  },
+  {
+   "start": 25.0,
+   "end": 28.0,
+   "area": "header",
+   "textId": "P2_CIVMSG7",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 29.0,
+   "end": 32.0,
+   "area": "header",
+   "textId": "P2_CIVMSG8"
+  },
+  {
+   "start": 32.0,
+   "end": 35.0,
+   "area": "header",
+   "textId": "P2_CIVMSG9",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 35.0,
+   "end": 38.0,
+   "area": "header",
+   "textId": "P2_CIVMSG10",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 38.0,
+   "end": 41.0,
+   "area": "header",
+   "textId": "P2_CIVMSG11",
+   "speaker": "CHARLIE"
+  },
+  {
+   "start": 42.0,
+   "end": 45.0,
+   "area": "header",
+   "textId": "P2_CIVMSG12"
+  },
+  {
+   "start": 45.0,
+   "end": 48.0,
+   "area": "header",
+   "textId": "P2_CIVMSG13",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 48.0,
+   "end": 51.0,
+   "area": "header",
+   "textId": "P2_CIVMSG14",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 51.0,
+   "end": 54.0,
+   "area": "header",
+   "textId": "P2_CIVMSG15",
+   "speaker": "CLAYDE"
+  },
+  {
+   "start": 54.0,
+   "end": 58.0,
+   "area": "header",
+   "textId": "P2_CIVMSG16",
+   "speaker": "CLAYDE"
+  }
+ ]
+}

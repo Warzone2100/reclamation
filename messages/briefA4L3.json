@@ -3,7 +3,7 @@
     "briefs": {
         "A4L3_BRIEF": {
             "sequences": [
-                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L3intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L3intro.json" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L3brief.webm" },
                 { "loop": 0, "subtitles": [
                     "MISBRI",

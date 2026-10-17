@@ -3,7 +3,7 @@
     "briefs": {
         "A4L2_BRIEF": {
             "sequences": [
-                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L2intro.txt" },
+                { "loop": 0, "subtitles": "BLANK", "video": "intro.webm", "textFile": "act4/A4L2intro.json" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L2brief1.webm" },
                 { "loop": 0, "subtitles": "BLANK", "video": "act4/A4L2brief2.webm" },
                 { "loop": 0, "subtitles": [

@@ -1,0 +1,46 @@
+{
+ "type": "wz2100.subtitles.v1",
+ "areasFile": "reclamation_areas.json",
+ "lines": [
+  {
+   "start": 3.0,
+   "end": 6.0,
+   "area": "header",
+   "textId": "A4L5_EVACMSG1"
+  },
+  {
+   "start": 6.0,
+   "end": 8.0,
+   "area": "header",
+   "textId": "A4L5_EVACMSG2",
+   "speaker": "LIEUTENANT"
+  },
+  {
+   "start": 9.0,
+   "end": 11.0,
+   "area": "header",
+   "textId": "A4L5_EVACMSG3"
+  },
+  {
+   "start": 11.0,
+   "end": 14.0,
+   "area": "header",
+   "textId": "A4L5_EVACMSG4",
+   "speaker": "DELTA"
+  },
+  {
+   "start": 14.0,
+   "end": 16.0,
+   "area": "header",
+   "textId": "A4L5_EVACMSG5",
+   "speaker": "DELTA"
+  },
+  {
+   "start": 16.0,
+   "end": 19.0,
+   "area": "header",
+   "textId": "A4L5_EVACMSG6",
+   "speaker": "DELTA"
+  }
+ ]
+}

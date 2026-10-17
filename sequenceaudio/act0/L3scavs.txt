@@ -1,7 +1,0 @@
--120 50		3.0		7.0		_("<CLAYDE>: Helicopters? Perhaps these scavengers are more resourceful")
--120 60		3.0		7.0		_("than I gave them credit for...")
--120 50		7.0		10.0	_("<CLAYDE>: But we've come too far to be outplayed now...")
--120 50		10.0	14.0	_("<CLAYDE>: Commander, I'm overriding your previous objective;")
--120 60		10.0	14.0	_("that research facility can wait.")
--120 50		14.0	17.0	_("<CLAYDE>: Make your way south, and eradicate the scavenger bases there.")
--120 50		17.0	20.0	_("<CLAYDE>: Neutralize anything that stands in your way.")
